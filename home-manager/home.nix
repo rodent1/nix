@@ -21,6 +21,7 @@
 
     # VSCode
     inputs.vscode-server.nixosModules.default
+    inputs.nix-ld-vscode.nixosModules.default
   ];
 
   nixpkgs = {
