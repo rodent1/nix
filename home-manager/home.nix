@@ -18,10 +18,6 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-
-    # VSCode
-    inputs.vscode-server.nixosModules.default
-    inputs.nix-ld-vscode.nixosModules.default
   ];
 
   nixpkgs = {
@@ -64,8 +60,6 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
-  programs.nix-ld.enable = true;
-  services.vscode-server.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
