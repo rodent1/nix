@@ -49,7 +49,7 @@
 
   # TODO: Set your username
   home = {
-    username = "your-username";
+    username = "stianrs";
     homeDirectory = "/home/your-username";
   };
 
