@@ -65,7 +65,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./hosts/laptop/configuration.nix
+          ./hosts/laptop
         ];
       };
 
@@ -73,7 +73,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./hosts/gamer
+          ./hosts/gamer/configuration.nix
         ];
       };
     };
