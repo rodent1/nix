@@ -23,6 +23,9 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
+    # Import home-manager's NixOS module
+    inputs.home-manager.nixosModules.home-manager
+
     # Import WSL's NixOS module
     inputs.nixos-wsl.nixosModules.wsl
   ];
@@ -94,6 +97,13 @@
     };
   };
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      stianrs = import ../home-manager/home.nix;
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
