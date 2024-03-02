@@ -84,6 +84,11 @@
     defaultUser = "stianrs";
     startMenuLaunchers = true;
     wslConf.automount.root = "/mnt";
+    extraBin = with pkgs; [
+      { src = "${coreutils}/bin/uname"; }
+      { src = "${coreutils}/bin/dirname"; }
+      { src = "${coreutils}/bin/readlink"; }
+    ];
   };
 
   networking.hostName = "laptop";
