@@ -23,13 +23,7 @@
     extraGroups = ["wheel"];
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      # Import your home-manager configuration
-      stianrs = import ../../home-manager/home.nix;
-    };
-  };
+  home-manager.users.stianrs = import ../../home-manager/home.nix;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
