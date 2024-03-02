@@ -37,6 +37,9 @@
     self,
     nixpkgs,
     home-manager,
+    nixos-wsl,
+    nix-ld-vscode,
+    vscode-server,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -6,7 +6,6 @@
   lib,
   config,
   pkgs,
-  nix-ld-vscode,
   ...
 }: {
   # You can import other home-manager modules here
@@ -22,7 +21,7 @@
 
     # VSCode
     inputs.vscode-server.nixosModules.default
-    nix-ld-vscode.nixosModules.default
+    inputs.nix-ld-vscode.nixosModules.default
   ];
 
   nixpkgs = {
