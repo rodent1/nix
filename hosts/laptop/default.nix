@@ -9,6 +9,7 @@
     ../common/optional/fish.nix
     ../common/optional/vscode-server.nix
     ../common/optional/wsl.nix
+    ./configuration.nix
   ];
 
   networking.hostName = "laptop";
@@ -20,6 +21,14 @@
     shell = pkgs.fish;
     isNormalUser = true;
     extraGroups = ["wheel"];
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      stianrs = import ../../home-manager/home.nix;
+    };
   };
 
   # Used for backwards compatibility, please read the changelog before changing.

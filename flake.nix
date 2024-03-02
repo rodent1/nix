@@ -73,7 +73,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./hosts/gamer/configuration.nix
+          ./hosts/gamer/
         ];
       };
     };
