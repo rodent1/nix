@@ -85,8 +85,6 @@
 
   networking.hostName = "laptop";
 
-  boot.loader.systemd-boot.enable = true;
-
   # TODO: Move to dedicated user settings
 
   users.users = {
