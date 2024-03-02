@@ -11,8 +11,6 @@
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    inputs.nixos-wsl.nixosModules.wsl
-    inputs.vscode-server.nixosModules.default
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -101,11 +99,8 @@
   environment.systemPackages = with pkgs; [
     gnused
     gnugrep
-    coreutils
   ];
 
-  programs.nix-ld.enable = true;
-  services.vscode-server.enable = true;
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }
