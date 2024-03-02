@@ -86,7 +86,7 @@
     wslConf.automount.root = "/mnt";
   };
 
-  networking.hostName = "gamer";
+  networking.hostName = "laptop";
 
   # TODO: Move to dedicated user settings
 
