@@ -25,9 +25,6 @@
 
     # Import home-manager's NixOS module
     inputs.home-manager.nixosModules.home-manager
-
-    # Import WSL's NixOS module
-    inputs.nixos-wsl.nixosModules.wsl
   ];
 
   nixpkgs = {
@@ -70,32 +67,6 @@
     })
     config.nix.registry;
 
-  nix.settings = {
-    # Enable flakes and new 'nix' command
-    experimental-features = "nix-command flakes";
-    # Deduplicate and optimize nix store
-    auto-optimise-store = true;
-  };
-
-  # TODO: Move to dedicated WSL settings
-
-  wsl = {
-    enable = true;
-    defaultUser = "stianrs";
-    startMenuLaunchers = true;
-    wslConf.automount.root = "/mnt";
-  };
-
-  networking.hostName = "gamer";
-
-  # TODO: Move to dedicated user settings
-
-  users.users = {
-    stianrs = {
-      isNormalUser = true;
-      extraGroups = ["wheel"];
-    };
-  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
