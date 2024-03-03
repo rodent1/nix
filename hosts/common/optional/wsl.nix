@@ -17,4 +17,8 @@
     enable = true;
     nodejsPackage = pkgs.nodejs_20;
   };
+
+  environment.systemPackages = with pkgs; [
+    wslu
+  ];
 }
