@@ -3,7 +3,6 @@
   imports = [
     inputs.nixos-wsl.nixosModules.default
     inputs.vscode-server.nixosModules.default
-    inputs.nix-ld-vscode.nixosModules.default
   ];
 
   wsl = {
