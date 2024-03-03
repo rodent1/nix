@@ -21,6 +21,8 @@
       # other
       df = "df -h";
       du = "du -h";
+      ssh = "ssh.exe";
+      ssh-add = "ssh-add.exe";
     };
 
     functions = {
