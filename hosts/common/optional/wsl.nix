@@ -24,6 +24,7 @@
       pkgs.stdenv.cc.cc
     ];
 
-  # Use `nix-ld-rs` instead of `nix-ld`, because VS Code's Remote WSL extension launches a non-login non-interactive shell, which is not supported by `nix-ld`, while `nix-ld-rs` works in non-login non-interactive shells.
-  package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
+    # Use `nix-ld-rs` instead of `nix-ld`, because VS Code's Remote WSL extension launches a non-login non-interactive shell, which is not supported by `nix-ld`, while `nix-ld-rs` works in non-login non-interactive shells.
+    package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
+  };
 }
