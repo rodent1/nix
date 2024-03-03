@@ -27,6 +27,7 @@
   outputs = {
     self,
     nixpkgs,
+    nix-ld-rs,
     ...
   } @ inputs: let
     inherit (self) outputs;
