@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./nixos/locale.nix
+    ./nixos/nix.nix
     ./optional/fish.nix
     ./users/stianrs
   ];
