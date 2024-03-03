@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs ... }:
+{ inputs, config, lib, pkgs, ... }:
 {
   imports = [
     # Import WSL's NixOS module
