@@ -10,7 +10,7 @@
 in {
 
   users.mutableUsers = false;
-  users.users.stian = {
+  users.users.stianrs = {
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups =
