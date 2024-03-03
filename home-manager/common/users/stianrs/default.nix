@@ -19,6 +19,9 @@
     ./../../shell/fish
     ./../../shell/git
     ./../../shell/starship
+    ./../../kubernetes/krew
+    ./../../kubernetes/kubecm
+    ./../../kubernetes/stern
 
   ];
 
