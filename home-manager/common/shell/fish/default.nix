@@ -28,6 +28,10 @@
         description = "Set the fish greeting";
         body = builtins.readFile ./functions/fish_greeting.fish;
       };
+      k = {
+        description = "kubectl shorthand";
+        body = builtins.readFile ./functions/k.fish;
+      };
     };
   };
 }
