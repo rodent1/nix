@@ -34,15 +34,7 @@
   home = {
     username = "stianrs";
     homeDirectory = "/home/stianrs";
-
-    packages = with pkgs; [
-      pkgs.git-filter-repo
-      pkgs.pinentry
-      pkgs.tig
-    ];
   };
-
-  programs.gpg.enable = true;
 
   # Enable home-manager
   programs.home-manager.enable = true;
