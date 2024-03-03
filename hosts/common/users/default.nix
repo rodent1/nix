@@ -21,8 +21,4 @@
       stianrs = import ../../../home-manager/home.nix;
     };
   };
-
-  users.users.stianrs = {
-    shell = pkgs.fish;
-  };
 }
