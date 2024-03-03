@@ -15,6 +15,12 @@
     defaultUser = "stianrs";
     startMenuLaunchers = true;
     wslConf.automount.root = "/mnt";
+    # workaround for vscode remoting
+    extraBin = with pkgs; [
+      {src = "${coreutils}/bin/uname";}
+      {src = "${coreutils}/bin/dirname";}
+      {src = "${coreutils}/bin/readlink";}
+    ];
   };
 
   programs.nix-ld = {
