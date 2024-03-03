@@ -6,12 +6,15 @@
   lib,
   config,
   pkgs,
+  nixoswsl,
+  vscode-server,
   ...
 }: {
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.nixos-wsl.nixosModules.wsl
+    inputs.vscode-server.nixosModules.default
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -97,9 +100,12 @@
     };
   };
 
+  programs.nix-ld.enable = true;
+  services.vscode-server.enable = true;
   environment.systemPackages = with pkgs; [
     gnused
     gnugrep
+    wget
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
