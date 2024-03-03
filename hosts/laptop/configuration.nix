@@ -14,6 +14,8 @@
     ./hardware-configuration.nix
     ./../common/default.nix
     ./../common/optional/wsl.nix
+    ./../common/users
+    ./../common/users/stianrs
     # User config
     ./../../home-manager/home.nix
   ];

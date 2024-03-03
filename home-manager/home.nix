@@ -12,7 +12,7 @@
     ./common/users
     ./common/users/stianrs
     # VSCode Fix
-    ./common/editors/vscode-server
+    ./common/editor/vscode-server
     # Shell
     ./common/shell/atuin/default.nix
     ./common/shell/bat/default.nix
