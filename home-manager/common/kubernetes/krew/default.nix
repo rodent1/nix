@@ -1,12 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+with lib;
 {
   home.packages = with pkgs; [
     pkgs.kubecm
   ];
 
-  programs = {
-    fish.interactiveShellInit = ''
-      ${getExe pkgs.kubecm} completion fish | source
+  programs.fish = {
+    interactiveShellInit = ''
+      kubebcm completion fish | source
     '';
     shellAliases = { kc = "kubecm"; };
   };
