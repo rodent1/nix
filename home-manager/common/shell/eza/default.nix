@@ -4,7 +4,6 @@
   programs.eza = {
     enable = true;
     icons = true;
-    enableAliases = true;
   };
 
   programs.fish.shellAliases = {

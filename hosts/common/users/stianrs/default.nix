@@ -18,7 +18,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      stianrs = import ../../../home-manager/home.nix;
+      stianrs = import ../../../../home-manager/home.nix;
     };
   };
 }
