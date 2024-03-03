@@ -1,10 +1,9 @@
-{ config, pkgs, ... }:
-
+{pkgs, lib, config, ... }:
 {
   programs = {
     bat = {
       enable = true;
-      config = import  ./defaultConfig.nix;
+      config = import ./defaultConfig.nix {};
       themes = {
         catppuccin-macchiato = {
           src = pkgs.fetchFromGitHub {

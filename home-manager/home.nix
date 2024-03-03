@@ -9,6 +9,7 @@
 
   imports = [
     ./common/vscode-fix/default.nix
+    ./common/shell/atuin/default.nix
     ./common/shell/bat/default.nix
     ./common/shell/eza/default.nix
     ./common/shell/fish/default.nix
