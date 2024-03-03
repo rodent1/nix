@@ -37,4 +37,10 @@
     # Deduplicate and optimize nix store
     auto-optimise-store = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    gnused
+    gnugrep
+    wget
+  ];
 }
