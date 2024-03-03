@@ -29,5 +29,6 @@
   #   package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
   # };
 
+  programs.nix-ld.enable = true;
   services.vscode-server.enable = true;
 }
