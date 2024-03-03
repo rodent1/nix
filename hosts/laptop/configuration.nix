@@ -19,7 +19,7 @@
     # ./users.nix
 
     inputs.home-manager.nixosModules.home-manager
-    ../../common/default.nix
+    ./../common/default.nix
     ./../common/optional/wsl.nix
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
