@@ -1,4 +1,4 @@
-{ username }:  {
+{
   inputs,
   outputs,
   lib,
@@ -9,7 +9,7 @@
 
   imports = [
     # Import user
-    ./users/${username}
+    ./common/users/stianrs
   ];
 
   nixpkgs = {
