@@ -6,6 +6,9 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./users/stianrs
+  ];
   nixpkgs = {
     # You can add overlays here
     overlays = [

@@ -12,10 +12,8 @@
     inputs.home-manager.nixosModules.home-manager
     # Machine config
     ./hardware-configuration.nix
-    ./../common/default.nix
+    ./../common
     ./../common/optional/wsl.nix
-    ./../common/users
-    ./../common/users/stianrs
   ];
 
 
