@@ -13,7 +13,6 @@
     ./../../shell/atuin
     ./../../shell/bat
     ./../../shell/direnv
-    ./../../shell/doggo
     ./../../shell/eza
     ./../../shell/fish
     ./../../shell/git
@@ -28,12 +27,13 @@
   };
 
   home.packages = with pkgs; [
+    doggo # dig replacement
     fluxcd # flux CLI
     go-task # task runner
     k9s # kubernetes viewer tool
     ktop # kubernetes top
-    kubectl # kubernetes CLI
     kubecolor # colorize kubectl output
+    kubectl # kubernetes CLI
     kubernetes-helm # helm CLI
     kustomize # kustomize CLI for sadists
     talosctl # talos CLI
