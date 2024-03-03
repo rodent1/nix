@@ -12,9 +12,8 @@
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
-
+    ./../common/optional/wsl.nix
     # Import your generated (nixos-generate-config) hardware configuration
-    ./common/optional/wsl.nix
     ./hardware-configuration.nix
   ];
 
