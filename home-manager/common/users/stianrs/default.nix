@@ -16,6 +16,7 @@
     ./../../kubernetes/kubecm
     ./../../kubernetes/stern
     # Shell
+    ./../../shell/1password
     ./../../shell/atuin
     ./../../shell/bat
     ./../../shell/btop

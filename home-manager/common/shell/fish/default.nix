@@ -34,6 +34,12 @@
         wraps = "kubectl";
         body = builtins.readFile ./functions/k.fish;
       };
+
+      op = {
+        description = "op.exe shorthand";
+        wraps = "op";
+        body = builtins.readFile ./functions/op.fish;
+      };
     };
   };
 }
