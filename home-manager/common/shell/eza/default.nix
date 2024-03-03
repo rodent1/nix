@@ -5,5 +5,5 @@
     enable = true;
     icons = true;
     enableAliases = true;
-  }
+  };
 }
