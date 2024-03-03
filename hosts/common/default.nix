@@ -44,5 +44,6 @@
     wget
     eza
     fish
+    starship
   ];
 }

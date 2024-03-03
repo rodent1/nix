@@ -9,9 +9,10 @@
 
   imports = [
     ./common/vscode-fix/default.nix
+    ./common/shell/eza/default.nix
     ./common/shell/fish/default.nix
     ./common/shell/git/default.nix
-    ./common/shell/eza/default.nix
+    ./common/shell/starship/default.nix
   ];
 
   nixpkgs = {
