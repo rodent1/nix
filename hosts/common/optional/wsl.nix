@@ -20,6 +20,8 @@
       {src = "${coreutils}/bin/uname";}
       {src = "${coreutils}/bin/dirname";}
       {src = "${coreutils}/bin/readlink";}
+      {src = "${coreutils}/bin/sed";}
+      {src = "${coreutils}/bin/cat";}
     ];
   };
 
@@ -27,5 +29,8 @@
     enable = true;
     package = pkgs.nix-ld-rs;
   };
-  services.vscode-server.enable = true;
+  services.vscode-server = {
+    enable = true;
+    nodejsPackage = pkgs.nodejs_18;
+  }
 }
