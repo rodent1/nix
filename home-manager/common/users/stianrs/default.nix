@@ -12,6 +12,8 @@
     # Shell
     ./../../shell/atuin
     ./../../shell/bat
+    ./../../shell/btop
+    ./../../shell/doggo
     ./../../shell/direnv
     ./../../shell/eza
     ./../../shell/fish
@@ -27,7 +29,6 @@
   };
 
   home.packages = with pkgs; [
-    doggo # dig replacement
     fluxcd # flux CLI
     go-task # task runner
     k9s # kubernetes viewer tool

@@ -34,12 +34,6 @@
         wraps = "kubectl";
         body = builtins.readFile ./functions/k.fish;
       };
-
-      dig = {
-        description = "doggo shorthand";
-        wraps = "doggo";
-        body = builtins.readFile ./functions/dig.fish;
-      };
     };
   };
 }
