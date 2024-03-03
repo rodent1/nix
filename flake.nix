@@ -17,9 +17,6 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
-    vscode-server.inputs.nixpkgs.follows = "nixpkgs";
-
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
@@ -30,7 +27,6 @@
     nixpkgs,
     home-manager,
     nixos-wsl,
-    vscode-server,
     ...
   } @ inputs: let
     inherit (self) outputs;

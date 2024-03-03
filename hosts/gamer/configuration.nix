@@ -7,16 +7,14 @@
   config,
   pkgs,
   nixoswsl,
-  vscode-server,
   ...
 }: {
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    inputs.nixos-wsl.nixosModules.wsl
-    inputs.vscode-server.nixosModules.default
 
     # Import your generated (nixos-generate-config) hardware configuration
+    ./common/optional/wsl.nix
     ./hardware-configuration.nix
   ];
 
@@ -67,20 +65,6 @@
     auto-optimise-store = true;
   };
 
-  # TODO: Move to dedicated WSL settings
-
-  wsl = {
-    enable = true;
-    defaultUser = "stianrs";
-    startMenuLaunchers = true;
-    wslConf.automount.root = "/mnt";
-    extraBin = with pkgs; [
-      { src = "${coreutils}/bin/uname"; }
-      { src = "${coreutils}/bin/dirname"; }
-      { src = "${coreutils}/bin/readlink"; }
-    ];
-  };
-
   networking.hostName = "gamer";
 
   # TODO: Move to dedicated user settings
@@ -100,8 +84,6 @@
     };
   };
 
-  programs.nix-ld.enable = true;
-  services.vscode-server.enable = true;
   environment.systemPackages = with pkgs; [
     gnused
     gnugrep
