@@ -7,6 +7,7 @@
       text = ''
         # Make sure that basic commands are available
         PATH=$PATH:/run/current-system/sw/bin/
+      '';
     };
   };
 }
