@@ -13,6 +13,7 @@
     ./../../shell/atuin
     ./../../shell/bat
     ./../../shell/direnv
+    ./../../shell/doggo
     ./../../shell/eza
     ./../../shell/fish
     ./../../shell/git
