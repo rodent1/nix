@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.eza = {
@@ -7,7 +7,7 @@
     enableAliases = true;
   };
 
-  home-manager.users.stianrs.programs.fish.shellAliases = {
+  programs.fish.shellAliases = {
     ld = "eza -lD";
     lf = "eza -lF --color=always | grep -v /";
     lh = "eza -dl .* --group-directories-first";

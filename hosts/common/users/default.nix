@@ -1,24 +1,17 @@
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
-  users.users = {
-    stianrs = {
-      isNormalUser = true;
-      extraGroups = ["wheel"];
-      packages = [ pkgs.home-manager ];
+{ lib, config, ... }:
+with lib;
+
+let
+  cfg = config.modules.users;
+in {
+  options.modules.users = {
+    groups = mkOption {
+      type = types.attrs;
+      default = {};
     };
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      # Import your home-manager configuration
-      stianrs = import ../../../home-manager/home.nix;
-    };
+  config = {
+    users.groups = cfg.groups;
   };
 }

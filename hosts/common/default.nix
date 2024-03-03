@@ -42,8 +42,5 @@
     gnused
     gnugrep
     wget
-    eza
-    fish
-    starship
   ];
 }
