@@ -8,12 +8,14 @@
 }: {
   imports = [
     # VSCode Fix
-    ./../../editor/vscode-server
-    # Shell
-    ./../../fonts/monaspace
+    ./../../editors/vscode-server
+    # Editors
+    ./../../editors/nvim
+    # Kubernetes
     ./../../kubernetes/krew
     ./../../kubernetes/kubecm
     ./../../kubernetes/stern
+    # Shell
     ./../../shell/atuin
     ./../../shell/bat
     ./../../shell/btop
@@ -23,6 +25,8 @@
     ./../../shell/fish
     ./../../shell/git
     ./../../shell/starship
+    # Misc
+    ./../../fonts/monaspace
 
   ];
 
