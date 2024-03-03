@@ -10,12 +10,13 @@
     # VSCode Fix
     ./../../editor/vscode-server
     # Shell
-    ./../../shell/atuin/default.nix
-    ./../../shell/bat/default.nix
-    ./../../shell/eza/default.nix
-    ./../../shell/fish/default.nix
-    ./../../shell/git/default.nix
-    ./../../shell/starship/default.nix
+    ./../../shell/atuin
+    ./../../shell/bat
+    ./../../shell/direnv
+    ./../../shell/eza
+    ./../../shell/fish
+    ./../../shell/git
+    ./../../shell/starship
 
   ];
 
