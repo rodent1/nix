@@ -17,8 +17,11 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-ld-rs.url = "github:nix-community/nix-ld-rs";
-    nix-ld-rs.inputs.nixpkgs.follows = "nixpkgs";
+    # for VSCode remote-ssh
+    nix-ld-vscode = {
+      url = "github:scottstephens/nix-ld-vscode/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";

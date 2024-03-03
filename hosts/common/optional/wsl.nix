@@ -1,13 +1,9 @@
 { inputs, pkgs, ... }:
 {
-
-  nixpkgs.overlays = [
-    inputs.nix-ld-rs.overlays.default
-  ];
-
   imports = [
     inputs.nixos-wsl.nixosModules.default
     inputs.vscode-server.nixosModules.default
+    inputs.nix-ld-vscode.nixosModules.default
   ];
 
   wsl = {
@@ -22,9 +18,6 @@
     ];
   };
 
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs;
-  };
+  programs.nix-ld.enable = true;
   services.vscode-server.enable = true;
 }
