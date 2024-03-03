@@ -1,4 +1,4 @@
-{ username }: {lib, pkgs, config, ... }:
+{lib, pkgs, config, ... }:
 with lib;
 {
 
@@ -123,4 +123,4 @@ with lib;
       },
     }
   '';
-};
+}
