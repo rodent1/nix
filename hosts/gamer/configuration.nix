@@ -81,7 +81,7 @@
     ];
   };
 
-  networking.hostName = "laptop";
+  networking.hostName = "gamer";
 
   # TODO: Move to dedicated user settings
 
