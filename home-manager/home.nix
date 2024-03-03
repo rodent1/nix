@@ -8,9 +8,6 @@
 }: {
 
   imports = [
-    # User config
-    ./common/users
-    ./common/users/stianrs
     # VSCode Fix
     ./common/editor/vscode-server
     # Shell
