@@ -44,13 +44,13 @@
       ssh = {
         description = "ssh.exe shorthand";
         wraps = "ssh";
-        body = "ssh.exe $argv";
+        body = builtins.readFile ./functions/ssh.fish;
       };
 
       ssh-add = {
         description = "ssh-add.exe shorthand";
         wraps = "ssh-add";
-        body = "ssh-add.exe $argv";
+        body = builtins.readFile ./functions/ssh-add.fish;
       };
     };
   };
