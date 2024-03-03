@@ -21,8 +21,6 @@
       # other
       df = "df -h";
       du = "du -h";
-      ssh = "ssh.exe";
-      ssh-add = "ssh-add.exe";
     };
 
     functions = {
@@ -41,6 +39,18 @@
         description = "op.exe shorthand";
         wraps = "op";
         body = builtins.readFile ./functions/op.fish;
+      };
+
+      ssh = {
+        description = "ssh.exe shorthand";
+        wraps = "ssh";
+        body = "ssh.exe $argv";
+      };
+
+      ssh-add = {
+        description = "ssh-add.exe shorthand";
+        wraps = "ssh-add";
+        body = "ssh-add.exe $argv";
       };
     };
   };
