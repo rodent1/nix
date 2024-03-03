@@ -1,7 +1,13 @@
-{pkgs, lib, config, ... }:
 {
-
-  environment.systemPackages = [
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
+  home.packages = with pkgs; [
     pkgs.btop
   ];
 

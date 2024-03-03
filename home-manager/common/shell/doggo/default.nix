@@ -1,7 +1,14 @@
-{pkgs, lib, config, ... }:
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
 
-  environment.systemPackages = [
+  home.packages = with pkgs; [
     pkgs.doggo
   ];
 
