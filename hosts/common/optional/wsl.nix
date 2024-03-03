@@ -20,8 +20,6 @@
       {src = "${coreutils}/bin/uname";}
       {src = "${coreutils}/bin/dirname";}
       {src = "${coreutils}/bin/readlink";}
-      {src = "${coreutils}/bin/sed";}
-      {src = "${coreutils}/bin/cat";}
     ];
   };
 
