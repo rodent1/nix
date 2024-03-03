@@ -10,18 +10,19 @@
     # VSCode Fix
     ./../../editor/vscode-server
     # Shell
+    ./../../fonts/monaspace
+    ./../../kubernetes/krew
+    ./../../kubernetes/kubecm
+    ./../../kubernetes/stern
     ./../../shell/atuin
     ./../../shell/bat
     ./../../shell/btop
-    ./../../shell/doggo
     ./../../shell/direnv
+    ./../../shell/doggo
     ./../../shell/eza
     ./../../shell/fish
     ./../../shell/git
     ./../../shell/starship
-    ./../../kubernetes/krew
-    ./../../kubernetes/kubecm
-    ./../../kubernetes/stern
 
   ];
 

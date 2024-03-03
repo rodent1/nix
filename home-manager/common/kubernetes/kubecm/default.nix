@@ -1,10 +1,12 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    pkgs.krew
+    pkgs.kubecm
   ];
 
   programs.fish.interactiveShellInit = ''
-      fish_add_path $HOME/.krew/bin
+      kubecm completion fish | source
     '';
+
+  programs.fish.shellAliases = { kc = "kubecm"; };
 }
