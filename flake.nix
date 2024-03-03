@@ -30,8 +30,6 @@
   outputs = {
     self,
     nixpkgs,
-    home-manager,
-    nixos-wsl,
     ...
   } @ inputs: let
     inherit (self) outputs;

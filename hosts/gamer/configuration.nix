@@ -6,7 +6,6 @@
   lib,
   config,
   pkgs,
-  nixoswsl,
   ...
 }: {
   # You can import other NixOS modules here
