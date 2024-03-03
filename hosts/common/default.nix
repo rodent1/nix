@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./nixos/locale.nix
+    ./optional/fish.nix
     ./users/stianrs
   ];
   nixpkgs = {
