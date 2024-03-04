@@ -25,6 +25,7 @@
     ./../../shell/eza
     ./../../shell/fish
     ./../../shell/git
+    ./../../shell/minio-client
     ./../../shell/starship
     # Misc
     ./../../fonts/monaspace
