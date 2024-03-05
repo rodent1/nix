@@ -55,11 +55,23 @@ in {
         };
       };
 
+      modules.users.stianrs.shell._1password = {
+        enable = true;
+        enableFishIntegration = true;
+      };
       modules.users.stianrs.shell.bat = {
         enable = true;
         enableFishIntegration = true;
       };
       modules.users.stianrs.shell.btop = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+      modules.users.stianrs.shell.doggo = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+      modules.users.stianrs.shell.eza = {
         enable = true;
         enableFishIntegration = true;
       };
@@ -114,6 +126,9 @@ in {
       modules.users.stianrs.fonts.monaspace.enable = true;
 
       modules.users.stianrs.editor.nvim.enable = true;
+
+      modules.users.stianrs.shell.direnv.enable = true;
+      modules.users.stianrs.shell.minio-client.enable = true;
       modules.users.stianrs.shell.starship.enable = true;
       modules.users.stianrs.shell.tmux.enable = true;
     }

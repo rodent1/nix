@@ -25,5 +25,4 @@ compatHostDrvs
 }) // {
   inherit (nix-fast-build.packages.${hostPlatform}) nix-fast-build;
   inherit (self.pkgs.${hostPlatform}) cachix nix-eval-jobs;
-  harlequin = callPackage ./harlequin/default.nix {};
 }

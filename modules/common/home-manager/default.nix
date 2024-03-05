@@ -6,7 +6,6 @@ in
 {
   imports = [
     ( import ../editor/nvim {username=username;} )
-    ( import ../editor/vscode {username=username;} )
     ( import ../editor/vscode-server-fix {username=username;} )
     # Kubernetes
     ( import ../kubernetes/k9s {username=username;} )

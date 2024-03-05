@@ -4,6 +4,7 @@
   nix-darwin,
   nixpkgs,
   sops-nix,
+  vscode-server,
   ...
 }:
 let
@@ -35,7 +36,8 @@ let
         hostName = hostname;
         inherit
           home-manager
-          sops-nix;
+          sops-nix
+          vscode-server;
       };
     };
 in

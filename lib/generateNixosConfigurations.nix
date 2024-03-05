@@ -4,6 +4,7 @@
   nixpkgs,
   sops-nix,
   nixos-wsl,
+  vscode-server,
   ...
 }:
 let
@@ -39,7 +40,8 @@ let
         inherit
           home-manager
           nixos-wsl
-          sops-nix;
+          sops-nix
+          vscode-server;
       };
     };
 in
