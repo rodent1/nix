@@ -72,7 +72,7 @@ in {
         username = "Stian R. Sporaland";
         email = "mail@stianrs.dev";
         signing = {
-          signByDefault = true;
+          signByDefault = false;
           key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEWyQ5lrpe2f0pOXdtWch1BDNbkccWVC6bUwr0htQPq0";
         };
         aliases = {
