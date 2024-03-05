@@ -12,7 +12,9 @@
 
   programs.nix-ld = {
     enable = true;
+    package = inputs.nix-ld-rs.packages.${pkgs.hostPlatform.system}.nix-ld-rs;
   };
+
   services.vscode-server = {
     enable = true;
     nodejsPackage = pkgs.nodejs_20;
