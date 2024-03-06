@@ -1,5 +1,7 @@
 # nix-config
 
+![nixos neofetch](https://i.imgur.com/LITNqce.png)
+
 ## References
 
 - [Misterio77/nix-starter-config](https://github.com/Misterio77/nix-starter-configs)
