@@ -26,6 +26,7 @@
     config.programs.fish = {
       interactiveShellInit = ''
         flux completion fish | source
+        stern --completion fish | source
       '';
     };
   };
