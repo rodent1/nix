@@ -32,4 +32,13 @@
       '';
     };
   };
+
+  home-manager.users.stianrs.home.packages = with pkgs; [
+    fluxcd # flux CLI
+    kubecolor # colorize kubectl output
+    kubectl # kubernetes CLI
+    kubernetes-helm # helm CLI
+    kustomize # kustomize CLI for sadists
+    talosctl # talos CLI
+  ];
 }
