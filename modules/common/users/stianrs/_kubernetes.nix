@@ -24,9 +24,6 @@
 
   modules.users.stianrs.shell.fish = {
     config.programs.fish = {
-      shellAliases = {
-        k = "kubectl";
-      };
       interactiveShellInit = ''
         flux completion fish | source
       '';
