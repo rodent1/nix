@@ -31,7 +31,7 @@
     };
   };
 
-  home-manager.users.stianrs.home.packages = with pkgs; [
+  home-manager.users.stianrs.home.packages = with pkgs-unstable; [
     fluxcd # flux CLI
     kubecolor # colorize kubectl output
     kubectl # kubernetes CLI
@@ -39,4 +39,5 @@
     kustomize # kustomize CLI for sadists
     talosctl # talos CLI
   ];
+
 }
