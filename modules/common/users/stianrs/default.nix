@@ -123,6 +123,8 @@ in {
         ];
       };
 
+      modules.users.stianrs.shell.gh. enable = true;
+
       modules.users.stianrs.fonts.monaspace.enable = true;
 
       modules.users.stianrs.editor.nvim.enable = true;

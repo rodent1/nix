@@ -21,6 +21,7 @@ in
     ( import ../shell/doggo {username=username;} )
     ( import ../shell/eza {username=username;} )
     ( import ../shell/fish {username=username;} )
+    ( import ../shell/gh {username=username;} )
     ( import ../shell/git{username=username;} )
     ( import ../shell/minio-client {username=username;} )
     ( import ../shell/starship {username=username;} )

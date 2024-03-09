@@ -30,6 +30,5 @@
   environment.systemPackages = with pkgs; [
     gnused
     gnugrep
-    wget
   ];
 }

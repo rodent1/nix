@@ -37,7 +37,6 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      programs.gh.enable = true;
       programs.git = {
         enable = true;
         userName = cfg.username;
