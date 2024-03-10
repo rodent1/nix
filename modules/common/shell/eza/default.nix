@@ -22,14 +22,14 @@ in {
       };
 
       fish = mkIf (cfg.enableFishIntegration) ({
-        shellAliases = lib.mkDefault ({
+        shellAliases = {
           ls = "eza";
           ll = "eza -al --group-directories-first";
           la = "eza -la";
           ld = "eza -lD";
           lh = "eza -dl .* --group-directories-first";
           lt = "eza -al --sort=modified";
-        });
+        };
       });
     });
   };
