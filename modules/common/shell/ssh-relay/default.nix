@@ -11,6 +11,7 @@ in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       systemd.user.services.ssh-relay = {
+        # TODO: This doesn't really work yet, I have to bootstrap agent.sock by running the generated script manually
         Unit = {
           Description = "1password SSH Relay";
         };
