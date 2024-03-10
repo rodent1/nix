@@ -25,6 +25,7 @@ in
     ( import ../shell/git{username=username;} )
     ( import ../shell/minio-client {username=username;} )
     ( import ../shell/ssh {username=username;} )
+    ( import ../shell/ssh-relay {username=username;} )
     ( import ../shell/starship {username=username;} )
     ( import ../shell/tmux {username=username;} )
     # Sops

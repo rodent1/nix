@@ -84,8 +84,8 @@ in {
         username = "Stian R. Sporaland";
         email = "mail@stianrs.dev";
         signing = {
-          signByDefault = false;
-          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEWyQ5lrpe2f0pOXdtWch1BDNbkccWVC6bUwr0htQPq0";
+          signByDefault = true;
+          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWtc1Kd6hl5ErQk89gs7VP3NvT6kZ8M1u4pckcxTLqd";
         };
         aliases = {
           co = "checkout";
@@ -93,6 +93,9 @@ in {
           l = "log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ (%cn)\" --decorate";
         };
         config = {
+          gpg = {
+            format = "ssh";
+          };
           core = {
             autocrlf = "input";
           };
@@ -132,6 +135,7 @@ in {
       modules.users.stianrs.shell.direnv.enable = true;
       modules.users.stianrs.shell.minio-client.enable = true;
       modules.users.stianrs.shell.ssh.enable = true;
+      modules.users.stianrs.shell.ssh-relay.enable = true;
       modules.users.stianrs.shell.starship.enable = true;
       modules.users.stianrs.shell.tmux.enable = true;
     }

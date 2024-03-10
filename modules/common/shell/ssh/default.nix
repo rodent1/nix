@@ -2,7 +2,7 @@
 with lib;
 let
   cfg = config.modules.users.${username}.shell.ssh;
-  onePassPath = "~/.1password/agent.sock";
+  socket = "~/.ssh/agent.sock";
 in {
   options.modules.users.${username}.shell.ssh = {
     enable = mkEnableOption "${username} ssh";
@@ -13,16 +13,18 @@ in {
     };
   };
 
-  config = {
-    home-manager.users.${username}.programs = mkIf (cfg.enable) ({
+  config = mkIf (cfg.enable) ({
+    home-manager.users.${username}.programs = {
       ssh = {
         enable = true;
-        extraConfig = ''
-          Host *
-              IdentitiesOnly=yes
-              IdentityAgent ${onePassPath}
-        '';
+        matchBlocks = {
+          "*" = {
+            extraOptions = {
+              IdentityAgent = "${socket}";
+            };
+          };
+        };
       };
-    });
-  };
+    };
+  });
 }
