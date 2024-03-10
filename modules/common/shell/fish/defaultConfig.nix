@@ -1,10 +1,5 @@
 { pkgs, ... }:
 {
-  programs.eza = {
-    enable = true;
-    icons = true;
-    enableAliases = true;
-  };
   programs.zoxide.enable = true;
   programs.fish = {
     enable = true;

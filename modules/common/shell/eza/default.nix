@@ -18,15 +18,16 @@ in {
     home-manager.users.${username}.programs = mkIf (cfg.enable) ({
       eza = {
         enable = true;
+        icons = true;
       };
 
       fish = mkIf (cfg.enableFishIntegration) ({
         shellAliases = lib.mkDefault ({
-          ld = "eza -lD";
-          lf = "eza -lF --color=always | grep -v /";
-          lh = "eza -dl .* --group-directories-first";
+          ls = "eza";
           ll = "eza -al --group-directories-first";
-          ls = "eza -alF --color=always --sort=size | grep -v /";
+          la = "eza -la";
+          ld = "eza -lD";
+          lh = "eza -dl .* --group-directories-first";
           lt = "eza -al --sort=modified";
         });
       });
