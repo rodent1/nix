@@ -33,7 +33,7 @@
 
   home-manager.users.stianrs.home.packages = with pkgs-unstable; [
     fluxcd # flux CLI
-    kubecolor # colorize kubectl output
+    kubecolor # colorize kubectl output TODO: replace with https://github.com/hidetatz/kubecolor
     kubectl # kubernetes CLI
     kubernetes-helm # helm CLI
     kustomize # kustomize CLI for sadists
