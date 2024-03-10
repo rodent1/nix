@@ -28,6 +28,13 @@
         flux completion fish | source
         stern --completion fish | source
       '';
+      functions = {
+        k = {
+          description = "kubectl shorthand";
+          wraps = "kubectl";
+          body = builtins.readFile ./functions/k.fish;
+        };
+      };
     };
   };
 
@@ -39,5 +46,4 @@
     kustomize # kustomize CLI for sadists
     talosctl # talos CLI
   ];
-
 }

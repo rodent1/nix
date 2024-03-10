@@ -2,6 +2,7 @@
 with lib;
 let
   cfg = config.modules.users.${username}.shell._1password;
+  device = config.hardware.device;
 in {
    options.modules.users.${username}.shell._1password = {
     enable = mkEnableOption "${username} _1password";
@@ -15,8 +16,12 @@ in {
     ];
 
     home-manager.users.${username}.programs.fish = mkIf (cfg.enableFishIntegration) ({
-      shellAliases = {
-        op = "op.exe";
+      functions = {
+        op = {
+          description = "op.exe shorthand";
+          wraps = "op";
+          body = builtins.readFile ./functions/op.fish;
+        };
       };
     });
   });

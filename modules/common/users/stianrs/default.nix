@@ -131,6 +131,7 @@ in {
 
       modules.users.stianrs.shell.direnv.enable = true;
       modules.users.stianrs.shell.minio-client.enable = true;
+      modules.users.stianrs.shell.ssh.enable = true;
       modules.users.stianrs.shell.starship.enable = true;
       modules.users.stianrs.shell.tmux.enable = true;
     }
