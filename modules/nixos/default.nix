@@ -1,4 +1,4 @@
-{ config, lib, vscode-server, ... }:
+{ config, lib, ... }:
 with lib;
 
 let
@@ -7,8 +7,12 @@ in
 {
   imports = [
     ./users
-    vscode-server.nixosModules.default
+
+    ./system/vscode-server
+    ./system/wsl
   ];
+
+
 
   boot.initrd.systemd.enable = true;
 
@@ -37,9 +41,6 @@ in
       value = "1048576";
     }
   ];
-
-  programs.nix-ld.enable = true;
-  services.vscode-server.enable = true;
 
   system.stateVersion = "23.11";
 }
