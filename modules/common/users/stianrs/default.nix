@@ -85,7 +85,7 @@ in {
         email = "mail@stianrs.dev";
         signing = {
           signByDefault = true;
-          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWtc1Kd6hl5ErQk89gs7VP3NvT6kZ8M1u4pckcxTLqd";
+          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
         };
         aliases = {
           co = "checkout";

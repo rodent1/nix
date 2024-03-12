@@ -23,6 +23,18 @@ in {
               IdentityAgent = "${socket}";
             };
           };
+          "udm" = {
+            extraOptions = {
+              User = "root";
+              Hostname = "10.1.1.1";
+            };
+          };
+
+          "tank" = {
+            extraOptions = {
+              Hostname = "10.1.1.15";
+            };
+          };
         };
       };
     };
