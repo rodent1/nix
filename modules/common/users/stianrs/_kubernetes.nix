@@ -45,5 +45,6 @@
     kubernetes-helm # helm CLI
     kustomize # kustomize CLI for sadists
     talosctl # talos CLI
+    restic # restic CLI
   ];
 }
