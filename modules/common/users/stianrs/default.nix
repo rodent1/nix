@@ -143,7 +143,7 @@ in {
       modules.users.stianrs.shell.tmux.enable = true;
     }
 
-    (mkIf (cfg.enableKubernetesTools) (import ./_kubernetes.nix {inherit pkgs; inherit pkgs-unstable;}))
+    (mkIf (cfg.enableKubernetesTools) (import ./_kubernetes.nix {inherit pkgs; inherit pkgs-unstable; inherit myPackages;}))
     (mkIf (cfg.enableDevTools) (import ./_devtools.nix {inherit pkgs; inherit pkgs-unstable; inherit lib; inherit myPackages;}))
   ]);
 }
