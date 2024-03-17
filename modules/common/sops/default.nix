@@ -30,13 +30,11 @@ in {
 
       sops = {
         defaultSopsFile = cfg.defaultSopsFile;
-        age.sshKeyPaths = [
-          cfg.ageKeyFile
-        ];
+        age.keyFile = cfg.ageKeyFile;
         secrets = cfg.secrets;
       };
 
-      home.sessionVariables = optionalAttrs (pkgs.stdenvNoCC.isDarwin) {
+      home.sessionVariables = {
         SOPS_AGE_KEY_FILE = cfg.ageKeyFile;
       };
     };

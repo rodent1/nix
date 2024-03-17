@@ -43,6 +43,9 @@ in {
           atuin_key = {
             path = "${config.home-manager.users.stianrs.xdg.configHome}/atuin/key";
           };
+          mc_config = {
+            path = "${config.home-manager.users.stianrs.home.homeDirectory}/.mc/config.json";
+          };
         };
       };
 
