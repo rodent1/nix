@@ -24,6 +24,7 @@ in {
       plugins = with pkgs;
       [
         {
+          # TODO: This part doesn't work for some reason.
           plugin = tmuxPlugins.catppuccin;
           extraConfig = ''
             set -g @catppuccin_flavour 'macchiato' # or frappe, latte, mocha
