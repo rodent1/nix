@@ -25,4 +25,5 @@ compatHostDrvs
 }) // {
   inherit (nix-fast-build.packages.${hostPlatform}) nix-fast-build;
   inherit (self.pkgs.${hostPlatform}) cachix nix-eval-jobs;
+  kubecolor = callPackage ./kubecolor/default.nix {};
 }
