@@ -13,6 +13,7 @@
     ./kubeconform
     ./kubectl
     ./stern
+    ./talosctl
   ];
 
   options.modules.kubernetes = {
