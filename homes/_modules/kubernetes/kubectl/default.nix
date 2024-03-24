@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -9,9 +10,15 @@ in
 {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      programs.fish = {
-        shellAliases = {
-          k = "kubectl";
+      home.packages = [
+        pkgs.unstable.kubectl
+      ];
+
+      programs.fish.functions = {
+        k = {
+          description = "kubectl shorthand";
+          wraps = "kubectl";
+          body = builtins.readFile ./functions/k.fish;
         };
       };
     })

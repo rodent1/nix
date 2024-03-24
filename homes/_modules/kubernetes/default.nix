@@ -9,6 +9,7 @@
     ./k9s
     ./krew
     ./kubecm
+    ./kubecolor
     ./kubeconform
     ./kubectl
     ./stern

@@ -7,6 +7,7 @@
     ./bat
     ./bash
     ./btop
+    ./direnv
     ./eza
     ./fish
     ./git

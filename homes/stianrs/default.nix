@@ -18,7 +18,7 @@
     editor = {
       nvim = {
         enable = true;
-        package = flake-packages.${pkgs.system}.nvim;
+        # package = flake-packages.${pkgs.system}.nvim;
         makeDefaultEditor = true;
       };
     };
@@ -58,12 +58,13 @@
         signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
       };
 
+      direnv.enable = true;
       go-task.enable = true;
 
-      mise = {
-        enable = true;
-        package = pkgs.unstable.mise;
-      };
+      # mise = {
+      #   enable = true;
+      #   package = pkgs.unstable.mise;
+      # };
     };
   };
 }

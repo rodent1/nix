@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  flake-packages,
   ...
 }:
 let
@@ -11,13 +12,9 @@ in
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       home.packages = [
-        pkgs.unstable.fluxcd
+        # flake-packages.kubecolor
+        pkgs.unstable.kubecolor
       ];
-      programs.fish = {
-        interactiveShellInit = ''
-          flux completion fish | source
-        '';
-      };
     })
   ];
 }
