@@ -50,14 +50,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    nix-darwin,
-    nixvim,
-    sops-nix,
-    rust-overlay,
-    nixos-wsl,
-    vscode-server,
     ...
   } @inputs:
   let
