@@ -35,8 +35,9 @@ jobs:
           git-committer-name: 'ro-bott[bot]'
           git-committer-email: '151924872+ro-bott[bot]@users.noreply.github.com'
           token: ${{ steps.app-token.outputs.token }}
-
-      - run: |
+      - name: Merge PR
+        if: steps.update-flake-lock.outputs.pull-request-number
+        run: |
           git config --global user.name 'ro-bott[bot]'
           git config --global user.email '151924872+ro-bott[bot]@users.noreply.github.com'
           gh pr merge --auto --merge ${{ steps.update-flake-lock.outputs.pull-request-number }}
