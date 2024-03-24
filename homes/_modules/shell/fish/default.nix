@@ -50,7 +50,6 @@ in {
           update_path ${homeDirectory}/.cargo/bin
           update_path ${homeDirectory}/.local/bin
         '';
-
         functions = {
           fish_greeting = {
             description = "Set the fish greeting";
@@ -60,6 +59,17 @@ in {
       };
 
       programs.nix-index.enable = true;
+    })
+
+    (lib.mkIf (cfg.enable && isDarwin) {
+      programs.fish = {
+        functions = {
+          flushdns = {
+            description = "Flush DNS cache";
+            body = builtins.readFile ./functions/flushdns.fish;
+          };
+        };
+      };
     })
   ];
 }
