@@ -13,7 +13,7 @@ in {
   config = mkIf cfg.enable {
     programs.nix-ld = {
       enable = true;
-      package = nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
+      # package = nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
     };
 
     services.vscode-server.enable = true;

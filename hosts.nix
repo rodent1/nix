@@ -24,12 +24,6 @@ let
       {
         inherit type hostPlatform address pubkey remoteBuild large;
       }
-    else if type == "darwin" then
-      assert pubkey != null;
-      assert (hasSuffix "darwin" hostPlatform);
-      {
-        inherit type hostPlatform pubkey large;
-      }
     else if type == "home-manager" then
       assert homeDirectory != null;
       {

@@ -28,7 +28,6 @@ in {
 
   config = mkIf (cfg.enable) (mkMerge [
     (mkIf (pkgs.stdenv.isLinux) (import ./nixos.nix {inherit config;}))
-    (mkIf (pkgs.stdenv.isDarwin) (import ./darwin.nix))
 
     {
       users.users.stianrs = {

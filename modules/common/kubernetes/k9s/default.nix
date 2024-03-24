@@ -37,19 +37,6 @@ in {
       };
     }
 
-    (mkIf (pkgs.stdenv.isDarwin) (
-      {
-        home-manager.users.${username} = {
-          home.file."Library/Application Support/k9s/config.yaml" = {
-            source = mergedConfig;
-          };
-          home.file."Library/Application Support/k9s/aliases.yaml" = {
-            source = mergedAliases;
-          };
-        };
-      }
-    ))
-
     (mkIf (pkgs.stdenv.isLinux) (
       {
         home-manager.users.${username} = {

@@ -9,8 +9,7 @@ let
   inherit (self.pkgs.${hostPlatform}) callPackage lib linkFarm;
 
   nixosDrvs = lib.mapAttrs (_: nixos: nixos.config.system.build.toplevel) self.nixosConfigurations;
-  darwinDrvs = lib.mapAttrs (_: darwin: darwin.system) self.darwinConfigurations;
-  hostDrvs = nixosDrvs // darwinDrvs;
+  hostDrvs = nixosDrvs;
 
   compatHosts = lib.filterAttrs (_: host: host.hostPlatform == hostPlatform) self.hosts;
   compatHostDrvs = lib.mapAttrs

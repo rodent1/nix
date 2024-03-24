@@ -12,23 +12,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-darwin
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # nix-fast-build
     nix-fast-build = {
       url = "github:Mic92/nix-fast-build";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    # deploy-rs
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
@@ -60,9 +46,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs:
   let
     forAllSystems = nixpkgs.lib.genAttrs [
-      "aarch64-darwin"
       "aarch64-linux"
-      "x86_64-darwin"
       "x86_64-linux"
     ];
   in
@@ -91,8 +75,6 @@
     overlays = import ./lib/generateOverlays.nix inputs;
     packages = forAllSystems (import ./packages inputs);
 
-    deploy = import ./deploy.nix inputs;
     nixosConfigurations = import ./lib/generateNixosConfigurations.nix inputs;
-    darwinConfigurations = import ./lib/generateDarwinConfigurations.nix inputs;
   };
 }
