@@ -45,6 +45,9 @@ in {
           rebase = {
             autoStash = true;
           };
+          gpg = {
+            format = "ssh";
+          };
         };
         aliases = {
           co = "checkout";
