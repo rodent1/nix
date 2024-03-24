@@ -20,7 +20,8 @@
     ];
     programs.nix-ld = {
       enable = true;
-      # package = nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
+      # nix-ld-rs seems to be broken in a recent update. wont build
+      # package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
     };
     services.vscode-server.enable = true;
   };
