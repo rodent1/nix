@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "Rodent NixOS configuration";
 
   inputs = {
     # Nixpkgs and unstable
@@ -12,12 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-fast-build
-    nix-fast-build = {
-      url = "github:Mic92/nix-fast-build";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+    # nix-darwin
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # sops-nix
@@ -26,14 +24,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # WSL
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL/main";
+    # NixVim
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-ld-rs = {
-      url = "github:nix-community/nix-ld-rs";
+    # Rust toolchain overlay
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+    };
+
+    # WSL
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -43,38 +47,51 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs:
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    nix-darwin,
+    nixvim,
+    sops-nix,
+    rust-overlay,
+    nixos-wsl,
+    vscode-server,
+    ...
+  } @inputs:
   let
-    forAllSystems = nixpkgs.lib.genAttrs [
-      "aarch64-linux"
-      "x86_64-linux"
-    ];
+    supportedSystems = ["x86_64-linux" "aarch64-darwin"];
+    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    overlays = import ./overlays {inherit inputs;};
+    mkSystemLib = import ./lib/mkSystem.nix {inherit inputs;};
+    flake-packages = self.packages;
+
+    legacyPackages = forAllSystems (
+      system:
+        import nixpkgs {
+          inherit system;
+          overlays = builtins.attrValues overlays;
+          config.allowUnfree = true;
+        }
+    );
   in
   {
-    hosts = import ./hosts.nix;
-    lib = import ./lib inputs;
+    inherit overlays;
 
-    pkgs = forAllSystems (localSystem: import nixpkgs {
-      inherit localSystem;
-      overlays = [ self.overlays.default ];
-      config = {
-        allowUnfree = true;
-        allowAliases = true;
-      };
-    });
+    packages = forAllSystems (
+      system: let
+        pkgs = legacyPackages.${system};
+      in
+        import ./pkgs {
+          inherit pkgs;
+          inherit inputs;
+        }
+    );
 
-    pkgs-unstable = forAllSystems (localSystem: import nixpkgs-unstable {
-      inherit localSystem;
-      overlays = [ self.overlays.default ];
-      config = {
-        allowUnfree = true;
-        allowAliases = true;
-      };
-    });
-
-    overlays = import ./lib/generateOverlays.nix inputs;
-    packages = forAllSystems (import ./packages inputs);
-
-    nixosConfigurations = import ./lib/generateNixosConfigurations.nix inputs;
+    nixosConfigurations = {
+      laptop = mkSystemLib.mkNixosSystem "x86_64-linux" "laptop" overlays flake-packages;
+      gamer = mkSystemLib.mkNixosSystem "x86_64-linux" "gamer" overlays flake-packages;
+    };
   };
 }
