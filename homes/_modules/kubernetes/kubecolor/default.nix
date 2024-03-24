@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   flake-packages,
@@ -12,8 +11,7 @@ in
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       home.packages = [
-        # flake-packages.kubecolor
-        pkgs.unstable.kubecolor
+        flake-packages.kubecolor
       ];
     })
   ];

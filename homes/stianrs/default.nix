@@ -1,7 +1,5 @@
 {
   pkgs,
-  lib,
-  inputs,
   hostname,
   flake-packages,
   ...
@@ -18,7 +16,7 @@
     editor = {
       nvim = {
         enable = true;
-        # package = flake-packages.${pkgs.system}.nvim;
+        package = flake-packages.${pkgs.system}.nvim;
         makeDefaultEditor = true;
       };
     };
@@ -61,10 +59,10 @@
       direnv.enable = true;
       go-task.enable = true;
 
-      # mise = {
-      #   enable = true;
-      #   package = pkgs.unstable.mise;
-      # };
+      mise = {
+        enable = true;
+        package = pkgs.unstable.mise;
+      };
     };
   };
 }
