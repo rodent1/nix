@@ -19,6 +19,7 @@
         package = flake-packages.${pkgs.system}.nvim;
         makeDefaultEditor = true;
       };
+      vscode-server-fix.enable = true;
     };
 
     security = {
