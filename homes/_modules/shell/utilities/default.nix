@@ -19,6 +19,7 @@
       vim
       wget
       yq-go
+      minio-client
     ];
   };
 }

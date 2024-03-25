@@ -4,6 +4,7 @@
   ...
 }: let
   ageKeyFile = "${config.xdg.configHome}/age/keys.txt";
+  inherit (config.home) homeDirectory;
 in {
   config = {
     home.packages = [
@@ -17,6 +18,9 @@ in {
       secrets = {
         atuin_key = {
           path = "${config.xdg.configHome}/atuin/key";
+        };
+        mc_config = {
+          path = "${homeDirectory}/.mc/config.json";
         };
       };
     };
