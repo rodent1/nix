@@ -1,19 +1,9 @@
-{
-  pkgs,
-  lib,
-  config,
-  flake-packages,
-  ...
-}:
-let
-  cfg = config.modules.kubernetes;
-in
-{
+{ pkgs, lib, config, flake-packages, ... }:
+let cfg = config.modules.kubernetes;
+in {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      home.packages = [
-        flake-packages.${pkgs.system}.kubecolor
-      ];
+      home.packages = [ flake-packages.${pkgs.system}.kubecolor ];
     })
   ];
 }

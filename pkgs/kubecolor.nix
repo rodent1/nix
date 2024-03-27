@@ -18,7 +18,8 @@ buildGoModule rec {
   meta = with lib; {
     description = "Colorizes kubectl output";
     homepage = "https://github.com/hidetatz/kubecolor";
-    changelog = "https://github.com/hidetatz/kubecolor/releases/tag/v${version}";
+    changelog =
+      "https://github.com/hidetatz/kubecolor/releases/tag/v${version}";
     license = licenses.mit;
     maintainers = with maintainers; [ ivankovnatsky SuperSandro2000 ];
   };

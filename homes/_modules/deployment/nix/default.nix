@@ -1,21 +1,10 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
-let
-  cfg = config.modules.deployment.nix;
-in
-{
+{ pkgs, lib, config, ... }:
+let cfg = config.modules.deployment.nix;
+in {
   options.modules.deployment.nix = {
     enable = lib.mkEnableOption "nix-deployment";
   };
 
-  config = lib.mkIf cfg.enable {
-    home.packages = [
-      pkgs.nixos-rebuild
-      pkgs.nvd
-    ];
-  };
+  config =
+    lib.mkIf cfg.enable { home.packages = [ pkgs.nixos-rebuild pkgs.nvd ]; };
 }

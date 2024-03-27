@@ -1,17 +1,10 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
+{ pkgs, lib, config, ... }:
 let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
   inherit (config.home) username homeDirectory;
   cfg = config.modules.shell.fish;
 in {
-  options.modules.shell.fish = {
-    enable = lib.mkEnableOption "fish";
-  };
+  options.modules.shell.fish = { enable = lib.mkEnableOption "fish"; };
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
@@ -19,8 +12,14 @@ in {
         enable = true;
 
         plugins = [
-          { name = "done"; src = pkgs.fishPlugins.done.src; }
-          { name = "puffer"; src = pkgs.fishPlugins.puffer.src; }
+          {
+            name = "done";
+            src = pkgs.fishPlugins.done.src;
+          }
+          {
+            name = "puffer";
+            src = pkgs.fishPlugins.puffer.src;
+          }
         ];
 
         interactiveShellInit = ''

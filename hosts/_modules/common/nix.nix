@@ -1,14 +1,7 @@
-{
-  inputs,
-  lib,
-  ...
-}:
-{
+{ inputs, lib, ... }: {
   nix = {
     settings = {
-      trusted-substituters = [
-        "https://nix-community.cachix.org"
-      ];
+      trusted-substituters = [ "https://nix-community.cachix.org" ];
 
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -18,10 +11,7 @@
       connect-timeout = 5;
 
       # Enable flakes
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      experimental-features = [ "nix-command" "flakes" ];
 
       warn-dirty = false;
 
@@ -37,7 +27,7 @@
     };
 
     # Add nixpkgs input to NIX_PATH
-    nixPath = ["nixpkgs=${inputs.nixpkgs.outPath}"];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
 
     # garbage collection
     gc = {

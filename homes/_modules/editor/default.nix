@@ -1,9 +1,1 @@
-{
-  ...
-}:
-{
-  imports = [
-    ./nvim
-    ./vscode-server-fix
-  ];
-}
+{ ... }: { imports = [ ./nvim ./vscode-server-fix ]; }

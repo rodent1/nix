@@ -1,7 +1,1 @@
-{
-  ...
-}: {
-  nix.gc = {
-    dates = "weekly";
-  };
-}
+{ ... }: { nix.gc = { dates = "weekly"; }; }

@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  fetchFromGitHub,
-  ...
-}:
+{ pkgs, lib, fetchFromGitHub, ... }:
 let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
   inherit (pkgs.darwin.apple_sdk.frameworks) Security SystemConfiguration;
@@ -11,8 +6,7 @@ let
     cargo = pkgs.rust-bin.stable.latest.minimal;
     rustc = pkgs.rust-bin.stable.latest.minimal;
   };
-in
-rustPlatform.buildRustPackage rec {
+in rustPlatform.buildRustPackage rec {
   pname = "usage-cli";
   version = "0.1.17";
 

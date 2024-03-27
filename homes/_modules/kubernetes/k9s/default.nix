@@ -1,14 +1,6 @@
-
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
-let
-  cfg = config.modules.kubernetes;
-in
-{
+{ pkgs, lib, config, ... }:
+let cfg = config.modules.kubernetes;
+in {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       programs.k9s = {
@@ -55,8 +47,8 @@ in
             imageScans = {
               enable = false;
               exclusions = {
-                namespaces = [];
-                labels = {};
+                namespaces = [ ];
+                labels = { };
               };
             };
             logger = {

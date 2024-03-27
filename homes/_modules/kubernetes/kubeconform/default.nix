@@ -1,18 +1,7 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
-let
-  cfg = config.modules.kubernetes;
-in
-{
+{ pkgs, lib, config, ... }:
+let cfg = config.modules.kubernetes;
+in {
   config = lib.mkMerge [
-    (lib.mkIf cfg.enable {
-      home.packages = [
-        pkgs.unstable.kubeconform
-      ];
-    })
+    (lib.mkIf cfg.enable { home.packages = [ pkgs.unstable.kubeconform ]; })
   ];
 }

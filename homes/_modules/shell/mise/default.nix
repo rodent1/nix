@@ -1,15 +1,8 @@
-{
-  pkgs,
-  lib,
-  config,
-  flake-packages,
-  ...
-}:
+{ pkgs, lib, config, flake-packages, ... }:
 let
   cfg = config.modules.shell.mise;
   tomlFormat = pkgs.formats.toml { };
-in
-{
+in {
   # TODO: Replace with official home manager module once available
   options.modules.shell.mise = {
     enable = lib.mkEnableOption "mise";
@@ -21,20 +14,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [
-      cfg.package
-      flake-packages.${pkgs.system}.usage
-    ];
+    home.packages = [ cfg.package flake-packages.${pkgs.system}.usage ];
 
     xdg.configFile = {
       "mise/settings.toml" = {
-        source = tomlFormat.generate "mise-settings" (
-          {
-            experimental = true;
-            python_venv_auto_create = true;
-          } //
-          cfg.settings
-        );
+        source = tomlFormat.generate "mise-settings" ({
+          experimental = true;
+          python_venv_auto_create = true;
+        } // cfg.settings);
       };
     };
 

@@ -1,8 +1,4 @@
-{
-  inputs,
-  ...
-}:
-{
+{ inputs, ... }: {
   mkNixosSystem = system: hostname: overlays: flake-packages:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
@@ -17,9 +13,7 @@
       modules = [
         {
           nixpkgs.hostPlatform = system;
-          _module.args = {
-            inherit inputs flake-packages;
-          };
+          _module.args = { inherit inputs flake-packages; };
         }
         inputs.home-manager.nixosModules.home-manager
         inputs.sops-nix.nixosModules.sops
@@ -27,12 +21,8 @@
           home-manager = {
             useUserPackages = true;
             useGlobalPkgs = true;
-            sharedModules = [
-              inputs.sops-nix.homeManagerModules.sops
-            ];
-            extraSpecialArgs = {
-              inherit inputs hostname flake-packages;
-            };
+            sharedModules = [ inputs.sops-nix.homeManagerModules.sops ];
+            extraSpecialArgs = { inherit inputs hostname flake-packages; };
             users.stianrs = ../. + "/homes/stianrs";
           };
         }
@@ -40,9 +30,7 @@
         ../hosts/_modules/nixos
         ../hosts/${hostname}
       ];
-      specialArgs = {
-        inherit inputs hostname;
-      };
+      specialArgs = { inherit inputs hostname; };
     };
 
   mkDarwinSystem = system: hostname: overlays: flake-packages:
@@ -59,9 +47,7 @@
       modules = [
         {
           nixpkgs.hostPlatform = system;
-          _module.args = {
-            inherit inputs flake-packages;
-          };
+          _module.args = { inherit inputs flake-packages; };
         }
         inputs.home-manager.darwinModules.home-manager
         {
@@ -72,9 +58,7 @@
               inputs.sops-nix.homeManagerModules.sops
               inputs.nixvim.homeManagerModules.nixvim
             ];
-            extraSpecialArgs = {
-              inherit inputs hostname flake-packages;
-            };
+            extraSpecialArgs = { inherit inputs hostname flake-packages; };
             users.stianrs = ../. + "/homes/stianrs";
           };
         }
@@ -82,8 +66,6 @@
         ../hosts/_modules/darwin
         ../hosts/${hostname}
       ];
-      specialArgs = {
-        inherit inputs hostname;
-      };
+      specialArgs = { inherit inputs hostname; };
     };
 }

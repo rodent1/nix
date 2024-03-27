@@ -1,9 +1,1 @@
-
-{
-  ...
-}:
-{
-  imports = [
-    ./podman
-  ];
-}
+{ ... }: { imports = [ ./podman ]; }

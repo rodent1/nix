@@ -1,12 +1,6 @@
-{
-  lib,
-  config,
-  ...
-}:
-let
-  cfg = config.modules.editor.vscode-server-fix;
-in
-{
+{ lib, config, ... }:
+let cfg = config.modules.editor.vscode-server-fix;
+in {
   options.modules.editor.vscode-server-fix = {
     enable = lib.mkEnableOption "vscode-server-fix";
   };

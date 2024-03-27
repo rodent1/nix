@@ -1,9 +1,5 @@
 # This module extends home.file, xdg.configFile and xdg.dataFile with the `mutable` option.
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
   fileOptionAttrPaths =
     [ [ "home" "file" ] [ "xdg" "configFile" ] [ "xdg" "dataFile" ] ];
