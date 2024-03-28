@@ -15,25 +15,69 @@ in {
       programs.tmux = {
         enable = true;
 
-        sensibleOnTop = false;
-        baseIndex = 1;
         clock24 = true;
-        mouse = true;
+        baseIndex = 1;
 
         extraConfig = ''
           set-option -g status-position top
-          set -g mouse-select-pane on
 
-          unbind r
+          # remap prefix from 'C-b' to 'C-a'
+          unbind C-b
+          set-option -g prefix C-a
+          bind-key C-a send-prefix
+
+          # reload config file
           bind r source-file  ~/.config/tmux/tmux.conf \; display-message "Reloaded!"
+
+          # split panes using | and -
+          bind | split-window -h
+          bind - split-window -v
+          unbind '"'
+          unbind %
+
+          # switch panes using Alt-arrow without prefix
+          bind -n M-Left select-pane -L
+          bind -n M-Right select-pane -R
+          bind -n M-Up select-pane -U
+          bind -n M-Down select-pane -D
         '';
 
         plugins = with pkgs; [
-          tmuxPlugins.catppuccin
-          tmuxPlugins.better-mouse-mode
-          tmuxPlugins.vim-tmux-navigator
-          tmuxPlugins.yank
-          tmuxPlugins.sensible
+          {
+            plugin = tmuxPlugins.catppuccin.overrideAttrs (_: {
+              version = "unstable-2023-11-01";
+              src = pkgs.fetchFromGitHub {
+                owner = "catppuccin";
+                repo = "tmux";
+                rev = "47e33044b4b47b1c1faca1e42508fc92be12131a";
+                hash = "sha256-kn3kf7eiiwXj57tgA7fs5N2+B2r441OtBlM8IBBLl4I=";
+              };
+            });
+
+            extraConfig = ''
+              set -g @catppuccin_flavour 'macchiato'       # frappe, latte, macchiato, mocha
+
+              set -g @catppuccin_window_left_separator ""
+              set -g @catppuccin_window_right_separator " "
+              set -g @catppuccin_window_middle_separator " █"
+              set -g @catppuccin_window_number_position "right"
+
+              set -g @catppuccin_window_default_fill "number"
+              set -g @catppuccin_window_default_text "#W"
+
+              set -g @catppuccin_window_current_fill "number"
+              set -g @catppuccin_window_current_text "#W"
+
+              set -g @catppuccin_status_modules_right "directory user session date_time"
+              set -g @catppuccin_status_left_separator  " "
+              set -g @catppuccin_status_right_separator ""
+              set -g @catppuccin_status_right_separator_inverse "no"
+              set -g @catppuccin_status_fill "icon"
+              set -g @catppuccin_status_connect_separator "no"
+
+              set -g @catppuccin_directory_text "#{pane_current_path}"
+            '';
+          }
         ];
       };
     })
