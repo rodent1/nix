@@ -28,7 +28,19 @@ in {
           rebase = { autoStash = true; };
           gpg = { format = "ssh"; };
         };
-        aliases = { co = "checkout"; };
+        aliases = {
+          a = "add";
+          c = "commit";
+          ca = "commit --amend";
+          cm = "commit --message";
+          co = "checkout";
+          d = "diff";
+          l =
+            "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+          pl = "pull --rebase --autostash";
+          rpo = "remote prune origin";
+          s = "status -sb";
+        };
         ignores = [
           # Mac OS X hidden files
           ".DS_Store"
