@@ -17,6 +17,7 @@ in {
 
         clock24 = true;
         baseIndex = 1;
+        mouse = true;
 
         extraConfig = ''
           set-option -g status-position top
@@ -76,6 +77,12 @@ in {
               set -g @catppuccin_status_connect_separator "no"
 
               set -g @catppuccin_directory_text "#{pane_current_path}"
+            '';
+          }
+          {
+            plugin = tmuxPlugins.better-mouse-mode;
+            extraConfig = ''
+              set -g @emulate-scroll-for-no-mouse-alternate-buffer "on"
             '';
           }
         ];
