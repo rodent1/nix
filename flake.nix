@@ -69,14 +69,15 @@
     in {
       inherit overlays;
 
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-
       packages = forAllSystems (system:
         let pkgs = legacyPackages.${system};
         in import ./pkgs {
           inherit pkgs;
           inherit inputs;
         });
+
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
       nixosConfigurations = {
         laptop = mkSystemLib.mkNixosSystem "x86_64-linux" "laptop" overlays
