@@ -24,6 +24,10 @@ in {
             name = "puffer";
             src = pkgs.fishPlugins.puffer.src;
           }
+          {
+            name = "autopair";
+            src = pkgs.fishPlugins.autopair.src;
+          }
         ];
 
         interactiveShellInit = ''

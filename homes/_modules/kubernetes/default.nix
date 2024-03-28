@@ -9,6 +9,7 @@
     ./kubeconform
     ./kubectl
     ./stern
+    ./talhelper
     ./talosctl
   ];
 

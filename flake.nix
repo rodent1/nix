@@ -18,20 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # sops-nix
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # NixVim
     nixvim = {
       url = "github:nix-community/nixvim/nixos-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Rust toolchain overlay
-    rust-overlay = {url = "github:oxalica/rust-overlay";};
 
     # Nix-ld replacement
     nix-ld-rs = {
@@ -42,6 +33,15 @@
     # WSL
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Rust toolchain overlay
+    rust-overlay = {url = "github:oxalica/rust-overlay";};
+
+    # sops-nix
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
