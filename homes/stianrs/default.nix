@@ -54,6 +54,8 @@
         enable = true;
         package = pkgs.unstable.mise;
       };
+
+      tmux.enable = true;
     };
   };
 }

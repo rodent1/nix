@@ -15,7 +15,6 @@
       jq
       minio-client
       unstable.terraform
-      tmux
       vim
       wget
       yq-go

@@ -10,6 +10,7 @@
     ./go-task
     ./mise
     ./starship
+    ./tmux
     ./utilities
     ./zoxide
   ];
