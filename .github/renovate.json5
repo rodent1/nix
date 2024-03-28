@@ -1,0 +1,6 @@
+{
+  extends: [
+    "github>rodent1/renovate-config",
+    "github>rodent1/renovate-config:automerge-github-actions",
+  ],
+}
