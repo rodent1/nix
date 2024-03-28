@@ -1,7 +1,7 @@
-{ ... }: {
+{...}: {
   config = {
-    programs.btop = { enable = true; };
+    programs.btop = {enable = true;};
 
-    programs.fish = { shellAliases = { top = "btop"; }; };
+    programs.fish = {shellAliases = {top = "btop";};};
   };
 }

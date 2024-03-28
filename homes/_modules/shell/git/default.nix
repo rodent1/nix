@@ -1,13 +1,17 @@
-{ pkgs, config, lib, ... }:
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   cfg = config.modules.shell.git;
   inherit (pkgs.stdenv) isDarwin;
 in {
   options.modules.shell.git = {
     enable = lib.mkEnableOption "git";
-    username = lib.mkOption { type = lib.types.str; };
-    email = lib.mkOption { type = lib.types.str; };
-    signingKey = lib.mkOption { type = lib.types.str; };
+    username = lib.mkOption {type = lib.types.str;};
+    email = lib.mkOption {type = lib.types.str;};
+    signingKey = lib.mkOption {type = lib.types.str;};
   };
 
   config = lib.mkMerge [
@@ -22,11 +26,11 @@ in {
         userEmail = cfg.email;
 
         extraConfig = {
-          core = { autocrlf = "input"; };
-          init = { defaultBranch = "main"; };
-          pull = { rebase = true; };
-          rebase = { autoStash = true; };
-          gpg = { format = "ssh"; };
+          core = {autocrlf = "input";};
+          init = {defaultBranch = "main";};
+          pull = {rebase = true;};
+          rebase = {autoStash = true;};
+          gpg = {format = "ssh";};
         };
         aliases = {
           a = "add";
@@ -35,8 +39,7 @@ in {
           cm = "commit --message";
           co = "checkout";
           d = "diff";
-          l =
-            "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+          l = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
           pl = "pull --rebase --autostash";
           rpo = "remote prune origin";
           s = "status -sb";
@@ -62,11 +65,11 @@ in {
         };
       };
 
-      home.packages = [ pkgs.git-filter-repo pkgs.tig ];
+      home.packages = [pkgs.git-filter-repo pkgs.tig];
     })
     (lib.mkIf (cfg.enable && isDarwin) {
       programs.git = {
-        extraConfig = { credential = { helper = "osxkeychain"; }; };
+        extraConfig = {credential = {helper = "osxkeychain";};};
       };
     })
   ];

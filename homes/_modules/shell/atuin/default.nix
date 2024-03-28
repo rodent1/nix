@@ -1,10 +1,10 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
     programs.atuin = {
       enable = true;
       package = pkgs.unstable.atuin;
 
-      flags = [ "--disable-up-arrow" ];
+      flags = ["--disable-up-arrow"];
 
       settings = {
         sync_address = "https://sh.rodent.cc";

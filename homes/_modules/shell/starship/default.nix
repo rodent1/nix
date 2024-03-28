@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
     programs.starship = {
       enable = true;
@@ -43,37 +43,32 @@
           ssh_only = true;
           ssh_symbol = "🌐";
           style = "bg:maroon fg:background bold";
-          format =
-            "[ $ssh_symbol $hostname [](fg:maroon bg:background)]($style)";
+          format = "[ $ssh_symbol $hostname [](fg:maroon bg:background)]($style)";
         };
 
         git_branch = {
           symbol = "  ";
           style = " bg:yellow fg:background";
-          format =
-            "[ $symbol$branch(:$remote_branch) [](fg:yellow bg:background)]($style)";
+          format = "[ $symbol$branch(:$remote_branch) [](fg:yellow bg:background)]($style)";
         };
 
         kubernetes = {
           disabled = false;
           symbol = "󱃾 ";
           style = "bg:green fg:background";
-          format =
-            "[ $symbol$context \\($namespace\\) [](fg:green bg:background)]($style)";
+          format = "[ $symbol$context \\($namespace\\) [](fg:green bg:background)]($style)";
         };
 
         python = {
           symbol = " ";
           style = "bg:flamingo fg:background";
-          format =
-            "[ $symbol$pyenv_prefix($version )(\\($virtualenv\\)) [](fg:flamingo bg:background)]($style)";
+          format = "[ $symbol$pyenv_prefix($version )(\\($virtualenv\\)) [](fg:flamingo bg:background)]($style)";
         };
 
         golang = {
           symbol = " ";
           style = "bg:flamingo fg:background";
-          format =
-            "[ $symbol($version) [](fg:flamingo bg:background)]($style)";
+          format = "[ $symbol($version) [](fg:flamingo bg:background)]($style)";
         };
 
         terraform = {

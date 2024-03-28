@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   config = {
     options = {
       updatetime = 100; # Faster completion

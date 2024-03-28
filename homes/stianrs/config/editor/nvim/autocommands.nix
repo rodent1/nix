@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   config = {
     autoCmd = [
       # Remove trailing whitespace on save

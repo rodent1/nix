@@ -1,9 +1,13 @@
-{ pkgs, config, lib, ... }:
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
   cfg = config.modules.security.gnugpg;
 in {
-  options.modules.security.gnugpg = { enable = lib.mkEnableOption "gnugpg"; };
+  options.modules.security.gnugpg = {enable = lib.mkEnableOption "gnugpg";};
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
@@ -18,10 +22,10 @@ in {
       };
     })
     (lib.mkIf (cfg.enable && isDarwin) {
-      home.packages = [ pkgs.pinentry_mac ];
+      home.packages = [pkgs.pinentry_mac];
     })
     (lib.mkIf (cfg.enable && isLinux) {
-      home.packages = [ pkgs.pinentry-curses ];
+      home.packages = [pkgs.pinentry-curses];
 
       services.gpg-agent = {
         enable = true;

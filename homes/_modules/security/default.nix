@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./gnugpg ./ssh ]; }
+{...}: {imports = [./gnugpg ./ssh];}

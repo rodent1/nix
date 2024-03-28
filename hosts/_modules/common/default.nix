@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./locale.nix ./nix.nix ./shells.nix ]; }
+{...}: {imports = [./locale.nix ./nix.nix ./shells.nix];}

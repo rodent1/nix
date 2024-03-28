@@ -1,9 +1,14 @@
-{ pkgs, lib, config, ... }:
-let cfg = config.modules.editor.nvim;
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.modules.editor.nvim;
 in {
   options.modules.editor.nvim = {
     enable = lib.mkEnableOption "nvim";
-    package = lib.mkPackageOption pkgs "neovim" { };
+    package = lib.mkPackageOption pkgs "neovim" {};
     makeDefaultEditor = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -11,7 +16,7 @@ in {
   };
 
   config = lib.mkMerge [
-    (lib.mkIf cfg.enable { home.packages = [ cfg.package ]; })
+    (lib.mkIf cfg.enable {home.packages = [cfg.package];})
 
     (lib.mkIf (cfg.enable && cfg.makeDefaultEditor) {
       # Use Neovim as the editor for git commit messages

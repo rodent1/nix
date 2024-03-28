@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   imports = [
     ./flux
     ./helmfile
@@ -12,5 +12,5 @@
     ./talosctl
   ];
 
-  options.modules.kubernetes = { enable = lib.mkEnableOption "kubernetes"; };
+  options.modules.kubernetes = {enable = lib.mkEnableOption "kubernetes";};
 }

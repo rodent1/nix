@@ -1,11 +1,15 @@
-{ lib, config, ... }:
-let cfg = config.modules.editor.vscode-server-fix;
+{
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.modules.editor.vscode-server-fix;
 in {
   options.modules.editor.vscode-server-fix = {
     enable = lib.mkEnableOption "vscode-server-fix";
   };
 
-  config = lib.mkIf (cfg.enable) ({
+  config = lib.mkIf (cfg.enable) {
     home.file = {
       vscode-server-fix = {
         target = ".vscode-server/server-env-setup";
@@ -15,5 +19,5 @@ in {
         '';
       };
     };
-  });
+  };
 }

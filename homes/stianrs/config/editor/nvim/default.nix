@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./colorschemes/catppuccin-macchiato.nix
 

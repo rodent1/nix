@@ -1,12 +1,11 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   socket = "~/.ssh/agent.sock";
   inherit (pkgs) util-linux socat ps;
   grep = pkgs.gnugrep;
 in {
   systemd.user.services.ssh-relay = {
     # TODO: This doesn't really work yet, I have to bootstrap agent.sock by running the generated script manually
-    Unit = { Description = "1password SSH Relay"; };
+    Unit = {Description = "1password SSH Relay";};
 
     Service = {
       Type = "oneshot";
@@ -35,7 +34,7 @@ in {
       ''}";
     };
 
-    Install = { WantedBy = [ "default.target" ]; };
+    Install = {WantedBy = ["default.target"];};
   };
   programs.fish.shellInit = ''
     set -gx SSH_AUTH_SOCK ${socket}

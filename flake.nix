@@ -31,7 +31,7 @@
     };
 
     # Rust toolchain overlay
-    rust-overlay = { url = "github:oxalica/rust-overlay"; };
+    rust-overlay = {url = "github:oxalica/rust-overlay";};
 
     # Nix-ld replacement
     nix-ld-rs = {
@@ -52,38 +52,44 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-    let
-      supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-      overlays = import ./overlays { inherit inputs; };
-      mkSystemLib = import ./lib/mkSystem.nix { inherit inputs; };
-      flake-packages = self.packages;
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    supportedSystems = ["x86_64-linux" "aarch64-darwin"];
+    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    overlays = import ./overlays {inherit inputs;};
+    mkSystemLib = import ./lib/mkSystem.nix {inherit inputs;};
+    flake-packages = self.packages;
 
-      legacyPackages = forAllSystems (system:
-        import nixpkgs {
-          inherit system;
-          overlays = builtins.attrValues overlays;
-          config.allowUnfree = true;
-        });
-    in {
-      inherit overlays;
+    legacyPackages = forAllSystems (system:
+      import nixpkgs {
+        inherit system;
+        overlays = builtins.attrValues overlays;
+        config.allowUnfree = true;
+      });
+  in {
+    inherit overlays;
 
-      packages = forAllSystems (system:
-        let pkgs = legacyPackages.${system};
-        in import ./pkgs {
-          inherit pkgs;
-          inherit inputs;
-        });
+    packages = forAllSystems (system: let
+      pkgs = legacyPackages.${system};
+    in
+      import ./pkgs {
+        inherit pkgs;
+        inherit inputs;
+      });
 
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    formatter =
+      forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-      nixosConfigurations = {
-        laptop = mkSystemLib.mkNixosSystem "x86_64-linux" "laptop" overlays
-          flake-packages;
-        gamer = mkSystemLib.mkNixosSystem "x86_64-linux" "gamer" overlays
-          flake-packages;
-      };
+    nixosConfigurations = {
+      laptop =
+        mkSystemLib.mkNixosSystem "x86_64-linux" "laptop" overlays
+        flake-packages;
+      gamer =
+        mkSystemLib.mkNixosSystem "x86_64-linux" "gamer" overlays
+        flake-packages;
     };
+  };
 }
