@@ -5,6 +5,6 @@
     ./autocommands.nix
     ./options.nix
 
-    ./utils/todo-comments.nix
+    ./plugins/lazy.nix
   ];
 }
