@@ -4,6 +4,7 @@
     ./bat
     ./bash
     ./btop
+    ./direnv
     ./doggo
     ./eza
     ./fish
