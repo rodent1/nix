@@ -14,7 +14,7 @@
       enable = true;
       defaultUser = "stianrs";
     };
-    environment.systemPackages = with pkgs; [wslu];
+    environment.systemPackages = with pkgs; [wslu socat procps util-linux];
     programs.nix-ld = {
       enable = true;
       # nix-ld-rs seems to be broken in a recent update. wont build
