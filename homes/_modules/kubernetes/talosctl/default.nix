@@ -2,11 +2,12 @@
   pkgs,
   lib,
   config,
+  flake-packages,
   ...
 }: let
   cfg = config.modules.kubernetes;
 in {
   config =
     lib.mkMerge
-    [(lib.mkIf cfg.enable {home.packages = [pkgs.unstable.talosctl];})];
+    [(lib.mkIf cfg.enable {home.packages = [flake-packages.${pkgs.system}.talosctl];})];
 }

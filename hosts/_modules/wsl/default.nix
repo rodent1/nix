@@ -17,8 +17,7 @@
     environment.systemPackages = with pkgs; [wslu socat procps util-linux];
     programs.nix-ld = {
       enable = true;
-      # nix-ld-rs seems to be broken in a recent update. wont build
-      # package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
+      package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
     };
     services.vscode-server.enable = true;
   };

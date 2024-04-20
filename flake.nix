@@ -27,7 +27,7 @@
     # Nix-ld replacement
     nix-ld-rs = {
       url = "github:nix-community/nix-ld-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # WSL

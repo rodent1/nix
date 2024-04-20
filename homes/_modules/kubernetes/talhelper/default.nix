@@ -9,7 +9,7 @@
 in {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      home.packages = [inputs.talhelper.packages.x86_64-linux.default];
+      home.packages = [inputs.talhelper.packages.${pkgs.system}.default];
     })
   ];
 }
