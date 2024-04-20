@@ -45,6 +45,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Talhelper
+    talhelper = {
+      url = "github:budimanjojo/talhelper";
+    };
+
     # VSCode server
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
