@@ -10,10 +10,6 @@ in {
     enable = lib.mkEnableOption "nix-deployment";
   };
 
-  config = lib.mkIf cfg.enable {
-    home.packages = [
-      pkgs.nixos-rebuild
-      pkgs.nvd
-    ];
-  };
+  config =
+    lib.mkIf cfg.enable {home.packages = [pkgs.nixos-rebuild pkgs.nvd];};
 }

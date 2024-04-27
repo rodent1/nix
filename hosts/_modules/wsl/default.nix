@@ -13,16 +13,12 @@
     wsl = {
       enable = true;
       defaultUser = "stianrs";
-      docker-desktop.enable = true;
     };
-
-    environment.systemPackages = with pkgs; [wslu];
+    environment.systemPackages = with pkgs; [wslu socat procps util-linux];
     programs.nix-ld = {
       enable = true;
       package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
     };
-
     services.vscode-server.enable = true;
-    services.vscode-server.extraRuntimeDependencies = [pkgs.coreutils];
   };
 }
