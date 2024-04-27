@@ -13,6 +13,7 @@
     wsl = {
       enable = true;
       defaultUser = "stianrs";
+      nativeSystemd = false;
     };
     environment.systemPackages = with pkgs; [wslu socat procps util-linux];
     programs.nix-ld = {

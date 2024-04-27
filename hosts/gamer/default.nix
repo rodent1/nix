@@ -8,7 +8,10 @@
   ifGroupsExist = groups:
     builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
-  imports = [./hardware-configuration.nix ../_modules/wsl];
+  imports = [
+    ./hardware-configuration.nix
+    ../_modules/wsl
+  ];
 
   config = {
     networking = {hostName = hostname;};
@@ -27,6 +30,13 @@ in {
         ["wheel" "users"]
         ++ ifGroupsExist ["network" "samba-users"];
     };
+
+    modules = {
+      services = {
+        podman.enable = true;
+      };
+    };
+
     users.groups.stianrs = {gid = 1000;};
   };
 
