@@ -25,9 +25,11 @@ in {
       isNormalUser = true;
       extraGroups =
         ["wheel" "users"]
-        ++ ifGroupsExist ["network" "samba-users"];
+        ++ ifGroupsExist ["network" "samba-users" "docker"];
     };
     users.groups.stianrs = {gid = 1000;};
+
+    virtualisation.docker.enable = true;
   };
 
   # # Use the systemd-boot EFI boot loader.

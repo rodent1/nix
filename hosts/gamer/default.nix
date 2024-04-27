@@ -25,8 +25,11 @@ in {
       isNormalUser = true;
       extraGroups =
         ["wheel" "users"]
-        ++ ifGroupsExist ["network" "samba-users"];
+        ++ ifGroupsExist ["network" "samba-users" "docker"];
     };
+
+    virtualisation.docker.enable = true;
+
     users.groups.stianrs = {gid = 1000;};
   };
 
