@@ -31,12 +31,6 @@ in {
         ++ ifGroupsExist ["network" "samba-users"];
     };
 
-    modules = {
-      services = {
-        podman.enable = true;
-      };
-    };
-
     users.groups.stianrs = {gid = 1000;};
   };
 

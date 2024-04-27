@@ -10,11 +10,13 @@ in {
     home.packages = with pkgs; [
       alejandra
       cue
+      devbox
       nixd
       nodePackages.prettier
       pre-commit
       shellcheck
       shfmt
+      terraform
       yamllint
     ];
   };

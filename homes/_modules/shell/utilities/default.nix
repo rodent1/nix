@@ -14,7 +14,6 @@
       jo
       jq
       minio-client
-      unstable.terraform
       vim
       wget
       yq-go
