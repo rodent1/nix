@@ -12,8 +12,8 @@
     ./go-task
     ./mise
     ./starship
-    ./tmux
     ./utilities
+    ./zellij
     ./zoxide
   ];
 }

@@ -55,7 +55,7 @@
         package = pkgs.unstable.mise;
       };
 
-      tmux.enable = true;
+      zellij.enable = true;
     };
   };
 }
