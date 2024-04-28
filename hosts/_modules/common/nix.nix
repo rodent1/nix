@@ -40,11 +40,5 @@
 
     # Add nixpkgs input to NIX_PATH
     nixPath = ["nixpkgs=${inputs.nixpkgs.outPath}"];
-
-    # garbage collection
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 2d";
-    };
   };
 }

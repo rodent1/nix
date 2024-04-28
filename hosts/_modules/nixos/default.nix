@@ -1,9 +1,14 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }: {
-  imports = [./nix.nix ./users.nix];
+  imports = [
+    ./nix.nix
+    ./users.nix
+    "${inputs.nixpkgs-unstable}/nixos/modules/programs/nh.nix"
+  ];
 
   documentation.nixos.enable = false;
 
@@ -23,13 +28,19 @@
     }
   ];
 
-  system = {
-    # Enable printing changes on nix build etc with nvd
-    activationScripts.report-changes = ''
-      PATH=$PATH:${lib.makeBinPath [pkgs.nvd pkgs.nix]}
-      nvd diff $(ls -dv /nix/var/nix/profiles/system-*-link | tail -2)
-    '';
+  programs.nh = {
+    enable = true;
+    package = pkgs.unstable.nh;
+    # TODO: Make this dynamic
+    flake = "/home/stianrs/nix";
+    clean = {
+      enable = true;
+      dates = "weekly";
+      extraArgs = "--keep 4 --keep-since 7d";
+    };
+  };
 
+  system = {
     # Do not change unless you know what you are doing
     stateVersion = "23.11";
   };
