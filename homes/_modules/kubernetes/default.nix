@@ -2,6 +2,7 @@
   imports = [
     ./flux
     ./helmfile
+    ./helm
     ./k9s
     ./krew
     ./kubecm
