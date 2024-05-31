@@ -8,12 +8,9 @@
 in {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      home.packages = [pkgs.unstable.stern];
-      programs.fish = {
-        interactiveShellInit = ''
-          ${pkgs.unstable.stern}/bin/stern --completion fish | source
-        '';
-      };
+      home.packages = [
+        pkgs.unstable.stern
+      ];
     })
   ];
 }
