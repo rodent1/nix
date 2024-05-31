@@ -26,6 +26,10 @@ in {
           eval (${zellijCmd} setup --generate-auto-start fish | string collect)
         end
       '';
+
+      home.sessionVariables = {
+        ZELLIJ_AUTO_ATTACH = "true";
+      };
     })
   ];
 }
