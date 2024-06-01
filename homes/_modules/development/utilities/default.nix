@@ -9,9 +9,8 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       alejandra
-      cue
-      devbox
       nixd
+      nix-init
       nodePackages.prettier
       pre-commit
       shellcheck

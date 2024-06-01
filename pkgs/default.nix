@@ -5,5 +5,4 @@
 in {
   kubecolor = callPackage ./kubecolor.nix {};
   nvim = callPackage ./nvim.nix inputs;
-  usage = callPackage ./usage.nix inputs;
 }
