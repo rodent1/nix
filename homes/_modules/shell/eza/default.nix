@@ -3,7 +3,7 @@
     programs.eza = {
       enable = true;
       icons = true;
-      enableAliases = false;
+      enableFishIntegration = false;
     };
 
     programs.fish = {
