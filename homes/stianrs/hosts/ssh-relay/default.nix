@@ -4,7 +4,6 @@
   ...
 }: let
   socket = "${config.home.homeDirectory}/.ssh/agent.sock";
-  inherit (pkgs) socat util-linux procps gnused;
   npiperelay = pkgs.stdenvNoCC.mkDerivation {
     name = "npiperelay";
     src = pkgs.fetchzip {
