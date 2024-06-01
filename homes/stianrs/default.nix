@@ -1,9 +1,4 @@
-{
-  pkgs,
-  hostname,
-  flake-packages,
-  ...
-}: {
+{hostname, ...}: {
   imports = [
     ../_modules
 
@@ -13,11 +8,7 @@
 
   modules = {
     editor = {
-      nvim = {
-        enable = true;
-        package = flake-packages.${pkgs.system}.nvim;
-        makeDefaultEditor = true;
-      };
+      neovim.enable = true;
       vscode-server-fix.enable = true;
     };
 

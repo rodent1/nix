@@ -29,6 +29,7 @@ in {
     };
 
     virtualisation.docker.enable = true;
+    services.vscode-server.enable = true;
 
     users.groups.stianrs = {gid = 1000;};
   };

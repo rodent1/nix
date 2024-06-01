@@ -66,7 +66,6 @@ in {
       WantedBy = ["default.target"];
     };
   };
-
   home.sessionVariables.SSH_AUTH_SOCK = socket;
   systemd.user.sessionVariables.SSH_AUTH_SOCK = socket;
 }

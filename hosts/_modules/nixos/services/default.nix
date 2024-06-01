@@ -1,5 +1,6 @@
 {...}: {
   imports = [
     ./docker
+    ./vscode-server
   ];
 }

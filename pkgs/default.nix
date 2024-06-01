@@ -4,5 +4,4 @@
   inherit (pkgs) callPackage;
 in {
   kubecolor = callPackage ./kubecolor.nix {};
-  nvim = callPackage ./nvim.nix inputs;
 }

@@ -1,6 +1,6 @@
-{...}: {
+{
   config = {
-    options = {
+    opts = {
       updatetime = 100; # Faster completion
       swapfile = false; # Disable the swap file
 
