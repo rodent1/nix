@@ -14,6 +14,7 @@
       jo
       jq
       minio-client
+      tlrc
       vim
       wget
       yq-go
