@@ -1,21 +1,81 @@
 {
-  pkgs,
-  lib,
   config,
+  lib,
   inputs,
   ...
 }: let
-  cfg = config.modules.editor.neovim;
+  cfg = config.modules.editor.nixvim;
 in {
-  options.modules.editor.neovim = {enable = lib.mkEnableOption "neovim";};
+  options.modules.editor.nixvim = {
+    enable = lib.mkEnableOption "nixvim program";
+  };
+
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./conform.nix
+    ./copilot.nix
+    ./dashboard.nix
+    ./harpoon.nix
+    ./keymaps.nix
+    ./lazy.nix
+    ./lsp.nix
+    ./lualine.nix
+    ./telescope.nix
+    ./treesitter.nix
+    ./trouble.nix
+    ./which-key.nix
+  ];
 
   config = lib.mkIf cfg.enable {
-    home.packages = [
-      (inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
-        module = {
-          imports = [./config/default.nix];
+    programs.nixvim = {
+      enable = true;
+
+      defaultEditor = true;
+      luaLoader.enable = true;
+
+      viAlias = true;
+      vimAlias = true;
+      globals.mapleader = " ";
+
+      opts = {
+        timeoutlen = 500;
+        number = true;
+        relativenumber = true;
+        signcolumn = "yes";
+        ignorecase = true;
+        smartcase = true;
+        undofile = true;
+        undodir.__raw = "vim.fn.expand(\"~/.config/nvim/undodir\")";
+
+        # Tab defaults (might get overwritten by an LSP server)
+        tabstop = 2;
+        shiftwidth = 2;
+        softtabstop = 2;
+        expandtab = true;
+        smarttab = true;
+
+        ruler = true;
+        scrolloff = 5;
+      };
+
+      colorschemes.catppuccin = {
+        enable = true;
+        settings.flavour = "macchiato";
+        settings.integrations.treesitter = true;
+      };
+
+      # LSP servers are configured at nix build time, contrary to using mason
+      plugins.lsp = {
+        enable = true;
+        servers = {
+          nixd.enable = true;
+          lua-ls.enable = true;
         };
-      })
-    ];
+      };
+    };
+    # Set Neovim as the default app for man pages
+    home.sessionVariables = {
+      MANPAGER = "nvim +Man!";
+    };
   };
 }

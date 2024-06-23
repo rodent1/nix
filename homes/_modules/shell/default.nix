@@ -2,7 +2,6 @@
   imports = [
     ./atuin
     ./bat
-    ./bash
     ./btop
     ./direnv
     ./doggo

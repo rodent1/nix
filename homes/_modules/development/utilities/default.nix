@@ -9,7 +9,7 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       alejandra
-      nixd
+      unstable.nixd
       nix-init
       nodePackages.prettier
       pre-commit
