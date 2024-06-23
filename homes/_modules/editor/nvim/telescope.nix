@@ -1,44 +1,28 @@
 {pkgs, ...}: {
   programs.nixvim = {
-    plugins.lazy.enable = true;
     extraPackages = with pkgs; [
-      fd
       ripgrep
+      fd
     ];
-    plugins.lazy.plugins = with pkgs.vimPlugins; [
-      {
-        pkg = telescope-nvim;
-        dependencies = [
-          plenary-nvim
-        ];
-      }
-    ];
-    keymaps = [
-      {
-        key = "<leader>ff";
-        action = "<cmd>lua require('telescope.builtin').find_files()<CR>";
-      }
-      {
-        key = "<leader><leader>";
-        action = "<cmd>lua require('telescope.builtin').git_files()<CR>";
-      }
-      {
-        key = "<leader>/";
-        action = "<cmd>lua require('telescope.builtin').grep_string()<CR>";
-      }
-      {
-        key = "<leader>fr";
-        action = "<cmd>lua require('telescope.builtin').oldfiles()<CR>";
-      }
-      {
-        key = "<leader>:";
-        action = "<cmd>lua require('telescope.builtin').command_history()<CR>";
-      }
-      {
-        key = "<leader>\"";
-        action = "<cmd>lua require('telescope.builtin').registers()<CR>";
-      }
-      # TODO: add workspace search
-    ];
+    plugins.telescope = {
+      enable = true;
+      extensions = {
+        fzf-native.enable = true;
+        undo.enable = true;
+      };
+      settings = {
+        pickers = {
+          colorscheme.enable_preview = true;
+        };
+      };
+      keymaps = {
+        "<leader>ff" = "find_files";
+        "<leader><leader>" = "git_files";
+        "<leader>fg" = "grep_string";
+        "<leader>fr" = "oldfiles";
+        "<leader>:" = "command_history";
+        "<leader>\\" = "registers";
+      };
+    };
   };
 }

@@ -12,12 +12,13 @@ in {
 
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./conform.nix
-    ./copilot.nix
+    ./bufferline.nix
+    ./catppuccin.nix
+    # ./conform.nix
+    # ./copilot.nix
     ./dashboard.nix
-    ./harpoon.nix
+    # ./harpoon.nix
     ./keymaps.nix
-    ./lazy.nix
     ./lsp.nix
     ./lualine.nix
     ./telescope.nix
@@ -38,7 +39,7 @@ in {
       globals.mapleader = " ";
 
       opts = {
-        timeoutlen = 500;
+        timeoutlen = lib.mkDefault 500;
         number = true;
         relativenumber = true;
         signcolumn = "yes";
@@ -56,12 +57,6 @@ in {
 
         ruler = true;
         scrolloff = 5;
-      };
-
-      colorschemes.catppuccin = {
-        enable = true;
-        settings.flavour = "macchiato";
-        settings.integrations.treesitter = true;
       };
 
       # LSP servers are configured at nix build time, contrary to using mason

@@ -1,8 +1,16 @@
-{pkgs, ...}: {
+{...}: {
   programs.nixvim = {
-    plugins.lazy.enable = true;
-    plugins.lazy.plugins = with pkgs.vimPlugins; [
-      nvim-treesitter.withAllGrammars
-    ];
+    plugins = {
+      treesitter = {
+        enable = true;
+        nixGrammars = true;
+        indent = true;
+      };
+      treesitter-context = {
+        enable = true;
+        settings = {max_lines = 2;};
+      };
+      rainbow-delimiters.enable = true;
+    };
   };
 }
