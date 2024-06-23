@@ -14,13 +14,14 @@ in {
     inputs.nixvim.homeManagerModules.nixvim
     ./bufferline.nix
     ./catppuccin.nix
-    # ./conform.nix
+    ./conform.nix
     # ./copilot.nix
     ./dashboard.nix
-    # ./harpoon.nix
+    ./harpoon.nix
     ./keymaps.nix
     ./lsp.nix
     ./lualine.nix
+    ./notify.nix
     ./telescope.nix
     ./treesitter.nix
     ./trouble.nix
@@ -37,6 +38,8 @@ in {
       viAlias = true;
       vimAlias = true;
       globals.mapleader = " ";
+
+      clipboard.providers.wl-copy.enable = true;
 
       opts = {
         timeoutlen = lib.mkDefault 500;
@@ -58,16 +61,8 @@ in {
         ruler = true;
         scrolloff = 5;
       };
-
-      # LSP servers are configured at nix build time, contrary to using mason
-      plugins.lsp = {
-        enable = true;
-        servers = {
-          nixd.enable = true;
-          lua-ls.enable = true;
-        };
-      };
     };
+
     # Set Neovim as the default app for man pages
     home.sessionVariables = {
       MANPAGER = "nvim +Man!";
