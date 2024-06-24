@@ -3,6 +3,9 @@
     extraPackages = with pkgs; [
       alejandra
       black
+      gofumpt
+      golines
+      gotools
       google-java-format
       nodePackages.prettier
       prettierd
@@ -14,18 +17,19 @@
       enable = true;
       notifyOnError = true;
       formattersByFt = {
-        html = [["prettierd" "prettier"]];
         css = [["prettierd" "prettier"]];
+        go = ["goimports" "gofumpt" "golines"];
+        html = [["prettierd" "prettier"]];
+        java = ["google-java-format"];
         javascript = [["prettierd" "prettier"]];
         javascriptreact = [["prettierd" "prettier"]];
+        lua = ["stylua"];
+        markdown = [["prettierd" "prettier"]];
+        nix = ["alejandra"];
+        python = ["black"];
+        rust = ["rustfmt"];
         typescript = [["prettierd" "prettier"]];
         typescriptreact = [["prettierd" "prettier"]];
-        java = ["google-java-format"];
-        python = ["black"];
-        lua = ["stylua"];
-        nix = ["alejandra"];
-        markdown = [["prettierd" "prettier"]];
-        rust = ["rustfmt"];
       };
     };
 
