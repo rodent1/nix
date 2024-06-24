@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   pkgs,
   ...
 }: let
@@ -12,7 +11,6 @@ in {
   };
 
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
     ./bufferline.nix
     ./catppuccin.nix
     ./conform.nix
