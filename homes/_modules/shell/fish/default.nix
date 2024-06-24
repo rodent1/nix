@@ -70,6 +70,14 @@ in {
             description = "Run the 1password CLI tool";
             body = builtins.readFile ./functions/op.fish;
           };
+          ghce = {
+            description = "gh copilot explain";
+            body = builtins.readFile ./functions/ghce.fish;
+          };
+          ghcs = {
+            description = "gh copilot suggest";
+            body = builtins.readFile ./functions/ghcs.fish;
+          };
         };
       };
 
