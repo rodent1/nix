@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  nix-index-database,
+  pkgs,
+  ...
+}: {
   imports = [
     ./mutability.nix
 
@@ -8,12 +12,20 @@
     ./security
     ./shell
     ./virtualisation
+
+    nix-index-database.hmModules.nix-index
   ];
 
   config = {
     home.stateVersion = "23.11";
 
-    programs = {home-manager.enable = true;};
+    programs = {
+      home-manager.enable = true;
+
+      nix-index.enable = true;
+      nix-index.enableFishIntegration = true;
+      nix-index-database.comma.enable = true;
+    };
 
     xdg.enable = true;
 
