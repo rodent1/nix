@@ -16,12 +16,15 @@
           _module.args = {inherit inputs flake-packages;};
         }
         inputs.home-manager.nixosModules.home-manager
-        inputs.sops-nix.nixosModules.sops
         {
           home-manager = {
             useUserPackages = true;
             useGlobalPkgs = true;
-            sharedModules = [inputs.sops-nix.homeManagerModules.sops];
+            sharedModules = [
+              inputs.sops-nix.homeManagerModules.sops
+              inputs.nix-index-database.hmModules.nix-index
+              inputs.nixvim.homeManagerModules.nixvim
+            ];
             extraSpecialArgs = {inherit inputs hostname flake-packages;};
             users.stianrs = ../. + "/homes/stianrs";
           };
@@ -56,6 +59,7 @@
             useGlobalPkgs = true;
             sharedModules = [
               inputs.sops-nix.homeManagerModules.sops
+              inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
             ];
             extraSpecialArgs = {inherit inputs hostname flake-packages;};

@@ -1,8 +1,4 @@
-{
-  nix-index-database,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./mutability.nix
 
@@ -12,8 +8,6 @@
     ./security
     ./shell
     ./virtualisation
-
-    nix-index-database.hmModules.nix-index
   ];
 
   config = {
