@@ -60,7 +60,10 @@ in {
           update_path ${homeDirectory}/go/bin
           update_path ${homeDirectory}/.cargo/bin
           update_path ${homeDirectory}/.local/bin
+
+          ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
         '';
+
         functions = {
           fish_greeting = {
             description = "Set the fish greeting";

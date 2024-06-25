@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   config = {
     home.packages = with pkgs; [
+      any-nix-shell
       binutils
       coreutils
       curl
@@ -14,8 +15,8 @@
       jo
       jq
       minio-client
+      openssl
       tlrc
-      vim
       wget
       yq-go
     ];
