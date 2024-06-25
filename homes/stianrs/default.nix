@@ -8,7 +8,7 @@
 
   modules = {
     editor = {
-      neovim.enable = true;
+      nixvim.enable = true;
       vscode-server-fix.enable = true;
     };
 

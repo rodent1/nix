@@ -27,13 +27,12 @@
     # NixVim
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nix-ld replacement
     nix-ld-rs = {
       url = "github:nix-community/nix-ld-rs";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # WSL
