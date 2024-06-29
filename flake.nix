@@ -18,21 +18,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-darwin
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # # nix-darwin
+    # nix-darwin = {
+    #   url = "github:LnL7/nix-darwin";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # NixVim
     nixvim = {
       url = "github:nix-community/nixvim";
-    };
-
-    # Nix-ld replacement
-    nix-ld-rs = {
-      url = "github:nix-community/nix-ld-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # WSL
@@ -40,9 +34,6 @@
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Rust toolchain overlay
-    rust-overlay = {url = "github:oxalica/rust-overlay";};
 
     # sops-nix
     sops-nix = {
@@ -67,7 +58,7 @@
     nixpkgs,
     ...
   } @ inputs: let
-    supportedSystems = ["x86_64-linux" "aarch64-darwin"];
+    supportedSystems = ["x86_64-linux"];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     overlays = import ./overlays {inherit inputs;};
     mkSystemLib = import ./lib/mkSystem.nix {inherit inputs;};
