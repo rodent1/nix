@@ -27,11 +27,9 @@ in {
         ["wheel" "users"]
         ++ ifGroupsExist ["network" "samba-users" "docker"];
     };
-
-    virtualisation.docker.enable = true;
-    services.vscode-server.enable = true;
-
     users.groups.stianrs = {gid = 1000;};
+
+    virtualisation.podman.enable = true;
   };
 
   # # Use the systemd-boot EFI boot loader.

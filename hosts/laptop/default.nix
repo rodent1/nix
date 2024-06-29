@@ -29,8 +29,7 @@ in {
     };
     users.groups.stianrs = {gid = 1000;};
 
-    virtualisation.docker.enable = true;
-    services.vscode-server.enable = true;
+    virtualisation.podman.enable = true;
   };
 
   # # Use the systemd-boot EFI boot loader.

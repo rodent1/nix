@@ -9,7 +9,6 @@
   modules = {
     editor = {
       nixvim.enable = true;
-      vscode-server-fix.enable = true;
     };
 
     security = {
