@@ -30,7 +30,8 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
-      podman-tui # status of containers in the terminal
+      podman-tui
+      podman-compose
     ];
   };
 }
