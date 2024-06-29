@@ -58,7 +58,7 @@
     nixpkgs,
     ...
   } @ inputs: let
-    supportedSystems = ["x86_64-linux"];
+    supportedSystems = ["x86_64-linux" "x86_64-darwin"];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     overlays = import ./overlays {inherit inputs;};
     mkSystemLib = import ./lib/mkSystem.nix {inherit inputs;};

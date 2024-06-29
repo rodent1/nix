@@ -6,6 +6,7 @@
     ./editor
     ./kubernetes
     ./security
+    ./services
     ./shell
     ./virtualisation
   ];

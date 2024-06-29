@@ -38,5 +38,11 @@
       go-task.enable = true;
       zellij.enable = true;
     };
+
+    services = {
+      ssh-relay = {
+        enable = true;
+      };
+    };
   };
 }
