@@ -1,5 +1,6 @@
 {...}: {
   imports = [
     ./podman
+    ./tailscale
   ];
 }

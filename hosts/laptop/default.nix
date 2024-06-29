@@ -30,6 +30,7 @@ in {
     users.groups.stianrs = {gid = 1000;};
 
     modules.services.podman.enable = true;
+    modules.services.tailscale.enable = true;
   };
 
   # # Use the systemd-boot EFI boot loader.
