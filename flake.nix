@@ -86,10 +86,10 @@
 
     nixosConfigurations = {
       laptop =
-        mkSystemLib.mkNixosSystem "x86_64-linux" "laptop" overlays
+        mkSystemLib.mkWslSystem "x86_64-linux" "laptop" overlays
         flake-packages;
       gamer =
-        mkSystemLib.mkNixosSystem "x86_64-linux" "gamer" overlays
+        mkSystemLib.mkWslSystem "x86_64-linux" "gamer" overlays
         flake-packages;
     };
   };

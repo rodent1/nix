@@ -1,5 +1,7 @@
 {...}: {
   imports = [
+    ./1password-cli
+    ./any-nix-shell
     ./atuin
     ./bat
     ./btop

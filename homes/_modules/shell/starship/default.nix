@@ -8,7 +8,7 @@
         palette = "catppuccin_macchiato";
 
         format = ''
-          $os$time$username($hostname)($kubernetes)($git_branch)($python)($terraform)($golang)
+          $os$time$username($hostname)($kubernetes)($git_branch)($python)($terraform)($golang)($nix_shell)
           $directory$character
         '';
 
@@ -69,6 +69,12 @@
           symbol = " ";
           style = "bg:flamingo fg:background";
           format = "[ $symbol($version) [](fg:flamingo bg:background)]($style)";
+        };
+
+        nix_shell = {
+          symbol = "❄ ";
+          style = "bg:sapphire fg:background";
+          format = "[ $symbol$state( \($name\)) [](fg:sapphire bg:background)]($style)";
         };
 
         terraform = {

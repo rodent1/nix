@@ -45,10 +45,6 @@ in {
             end
           end
 
-          if type -q op.exe
-             op.exe completion fish | source
-          end
-
           # Paths are in reverse priority order
           update_path /opt/homebrew/bin
           update_path ${homeDirectory}/.krew/bin
@@ -60,18 +56,12 @@ in {
           update_path ${homeDirectory}/go/bin
           update_path ${homeDirectory}/.cargo/bin
           update_path ${homeDirectory}/.local/bin
-
-          ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
         '';
 
         functions = {
           fish_greeting = {
             description = "Set the fish greeting";
             body = builtins.readFile ./functions/fish_greeting.fish;
-          };
-          op = {
-            description = "Run the 1password CLI tool";
-            body = builtins.readFile ./functions/op.fish;
           };
           ghce = {
             description = "gh copilot explain";

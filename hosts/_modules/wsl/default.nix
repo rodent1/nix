@@ -1,10 +1,6 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    inputs.nixos-wsl.nixosModules.default
+    ./services
   ];
 
   config = {
@@ -13,6 +9,7 @@
       defaultUser = "stianrs";
     };
     environment.systemPackages = with pkgs; [wslu];
+
     programs.nix-ld = {
       enable = true;
       package = pkgs.nix-ld-rs;

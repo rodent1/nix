@@ -21,15 +21,40 @@ in {
       };
 
       programs.fish.interactiveShellInit = ''
-        # do not run if inside VSCode terminal
         if not set -q TERM_PROGRAM; or not string match -q "vscode" $TERM_PROGRAM
-          eval (${zellijCmd} setup --generate-auto-start fish | string collect)
+          if not set -q ZELLIJ
+              if test "$ZELLIJ_AUTO_ATTACH" = "true"
+                  if not set -q ZELLIJ_AUTO_ATTACH_SESSION_NAME
+                      zellij attach -c
+                  else
+                      zellij attach -c $ZELLIJ_AUTO_ATTACH_SESSION_NAME
+                  end
+              else
+                  zellij
+              end
+
+              if test "$ZELLIJ_AUTO_EXIT" = "true"
+                  kill $fish_pid
+              end
+          end
         end
       '';
 
       home.sessionVariables = {
         ZELLIJ_AUTO_ATTACH = "true";
+        ZELLIJ_AUTO_ATTACH_SESSION_NAME = "main";
       };
+
+      # programs.fish.interactiveShellInit = ''
+      #   # do not run if inside VSCode terminal
+      #   if not set -q TERM_PROGRAM; or not string match -q "vscode" $TERM_PROGRAM
+      #     eval (${zellijCmd} setup --generate-auto-start fish | string collect)
+      #   end
+      # '';
+
+      # home.sessionVariables = {
+      #   ZELLIJ_AUTO_ATTACH = "true";
+      # };
     })
   ];
 }

@@ -8,7 +8,7 @@
   ifGroupsExist = groups:
     builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
-  imports = [./hardware-configuration.nix ../_modules/wsl];
+  imports = [./hardware-configuration.nix];
 
   config = {
     networking = {hostName = hostname;};
@@ -29,7 +29,7 @@ in {
     };
     users.groups.stianrs = {gid = 1000;};
 
-    virtualisation.podman.enable = true;
+    modules.services.podman.enable = true;
   };
 
   # # Use the systemd-boot EFI boot loader.

@@ -6,10 +6,6 @@
 }: let
   cfg = config.modules.services.vscode-server;
 in {
-  imports = [
-    inputs.vscode-server.nixosModules.default
-  ];
-
   options.modules.services.vscode-server = {
     enable = lib.mkEnableOption "vscode-server";
   };
