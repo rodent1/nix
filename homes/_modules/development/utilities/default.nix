@@ -11,6 +11,7 @@ in {
       alejandra
       unstable.nixd
       nix-init
+      nix-inspect
       nodePackages.prettier
       pre-commit
       shellcheck

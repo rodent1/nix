@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./services
-  ];
-
   config = {
     wsl = {
       enable = true;

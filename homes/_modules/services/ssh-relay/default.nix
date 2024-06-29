@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  nixosConfig,
   ...
 }: let
   cfg = config.modules.services.ssh-relay;
@@ -25,7 +26,7 @@ in {
     enable = lib.mkEnableOption "ssh-relay";
   };
 
-  config = lib.mkIf (cfg.enable && true) {
+  config = lib.mkIf (cfg.enable && nixosConfig.wsl.enable) {
     systemd.user.services.ssh-relay = {
       Unit = {
         Description = "1password SSH Relay";
