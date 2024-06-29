@@ -1,6 +1,6 @@
 # Custom packages, that can be defined similarly to ones from nixpkgs
 # You can build them using 'nix build .#example' or (legacy) 'nix-build -A example'
-{pkgs ? (import <nixpkgs>) {}, ...} @ inputs: let
+{pkgs ? (import <nixpkgs>) {}, ...}: let
   inherit (pkgs) callPackage;
 in {
   kubecolor = callPackage ./kubecolor.nix {};
