@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.modules.services.tailscale;
@@ -12,10 +13,7 @@ in {
   config = lib.mkIf (cfg.enable) {
     services.tailscale = {
       enable = true;
+      package = pkgs.unstable.tailscale;
     };
-
-    programs.fish.interactiveShellInit = ''
-      tailscale completion fish | source
-    '';
   };
 }
