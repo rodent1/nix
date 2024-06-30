@@ -1,18 +1,16 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config, lib, ... }:
+let
   cfg = config.modules.users;
-in {
+in
+{
   options.modules.users = {
     groups = lib.mkOption {
       type = lib.types.attrs;
-      default = {};
+      default = { };
     };
     additionalUsers = lib.mkOption {
       type = lib.types.attrs;
-      default = {};
+      default = { };
     };
   };
 

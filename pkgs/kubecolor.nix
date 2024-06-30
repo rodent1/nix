@@ -26,7 +26,7 @@ buildGoModule rec {
     description = "Colorizes kubectl output";
     homepage = "https://github.com/hidetatz/kubecolor";
     license = licenses.mit;
-    maintainers = with maintainers; [];
+    maintainers = with maintainers; [ rodent1 ];
     mainProgram = "kubecolor";
   };
 }

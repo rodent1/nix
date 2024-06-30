@@ -4,7 +4,8 @@
   lib,
   nixosConfig,
   ...
-}: let
+}:
+let
   cfg = config.modules.services.ssh-relay;
 
   socket = "${config.home.homeDirectory}/.ssh/agent.sock";
@@ -21,7 +22,8 @@
       mv npiperelay.exe $out/bin
     '';
   };
-in {
+in
+{
   options.modules.services.ssh-relay = {
     enable = lib.mkEnableOption "ssh-relay";
   };
@@ -71,7 +73,7 @@ in {
       };
 
       Install = {
-        WantedBy = ["default.target"];
+        WantedBy = [ "default.target" ];
       };
     };
 

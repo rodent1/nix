@@ -1,16 +1,27 @@
-{...}: {
+{ ... }:
+{
   programs.nixvim = {
     plugins.dashboard = {
       enable = true;
       settings = {
-        hide = {tabline = false;};
+        hide = {
+          tabline = false;
+        };
         disable_move = true;
         theme = "hyper";
         config = {
-          packages = {enable = false;};
+          packages = {
+            enable = false;
+          };
           week_header.enable = true;
-          footer = [" " " " "Don't Stop Until You are Proud..."];
-          project = {enable = false;};
+          footer = [
+            " "
+            " "
+            "Don't Stop Until You are Proud..."
+          ];
+          project = {
+            enable = false;
+          };
           header = [
             "███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗"
             "████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║"

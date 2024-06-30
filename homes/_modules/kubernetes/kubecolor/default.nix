@@ -4,12 +4,12 @@
   config,
   flake-packages,
   ...
-}: let
+}:
+let
   cfg = config.modules.kubernetes;
-in {
+in
+{
   config = lib.mkMerge [
-    (lib.mkIf cfg.enable {
-      home.packages = [flake-packages.${pkgs.system}.kubecolor];
-    })
+    (lib.mkIf cfg.enable { home.packages = [ flake-packages.${pkgs.system}.kubecolor ]; })
   ];
 }

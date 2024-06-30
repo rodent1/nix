@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.modules.editor.nixvim;
-in {
+in
+{
   options.modules.editor.nixvim = {
     enable = lib.mkEnableOption "nixvim program";
   };

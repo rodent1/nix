@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation {
   };
   dontConfigure = true;
   dontBuild = true;
-  buildInputs = [pkgs.git];
+  buildInputs = [ pkgs.git ];
 
   installPhase = ''
     mkdir -p $out/bin
@@ -26,5 +26,7 @@ stdenvNoCC.mkDerivation {
     homepage = "https://github.com/HaywardMorihara/gh-tidy";
     license = licenses.publicDomain;
     platforms = platforms.unix;
+    maintainers = with maintainers; [ rodent1 ];
+    mainProgram = "gh-tidy";
   };
 }

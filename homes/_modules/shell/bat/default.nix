@@ -1,9 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
     programs.bat = {
       enable = true;
 
-      config = {theme = "catppuccin-macchiato";};
+      config = {
+        theme = "catppuccin-macchiato";
+      };
 
       themes = {
         catppuccin-macchiato = {
@@ -18,6 +21,10 @@
       };
     };
 
-    programs.fish = {shellAliases = {cat = "bat";};};
+    programs.fish = {
+      shellAliases = {
+        cat = "bat";
+      };
+    };
   };
 }

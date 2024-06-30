@@ -3,9 +3,11 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.editors.nixvim.lazyPlugins.copilot;
-in {
+in
+{
   options.editors.nixvim.lazyPlugins.copilot = {
     enable = lib.mkEnableOption "copilot";
   };
@@ -15,9 +17,7 @@ in {
       plugins.lazy.plugins = [
         {
           pkg = pkgs.vimPlugins.copilot-lua;
-          dependencies = [
-            pkgs.vimPlugins.copilot-cmp
-          ];
+          dependencies = [ pkgs.vimPlugins.copilot-cmp ];
           cmd = "Copilot";
           event = "InsertEnter";
           config = ''

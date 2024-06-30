@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   imports = [
     ./kubecm
     ./kubecolor
@@ -7,5 +8,7 @@
     ./utilities
   ];
 
-  options.modules.kubernetes = {enable = lib.mkEnableOption "kubernetes";};
+  options.modules.kubernetes = {
+    enable = lib.mkEnableOption "kubernetes";
+  };
 }

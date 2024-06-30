@@ -1,21 +1,16 @@
+{ inputs, lib, ... }:
 {
-  inputs,
-  lib,
-  ...
-}: {
   nix = {
     settings = {
       trusted-substituters = [
         "https://nix-community.cachix.org"
         "https://cache.garnix.io"
-        "https://numtide.cachix.org"
         "https://rodent1.cachix.org"
       ];
 
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-        "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
         "rodent1.cachix.org-1:iM76vQ3wmww8gwBdPIoHIoFIem83qv6v0gxytvHA3lk="
       ];
 
@@ -23,7 +18,10 @@
       connect-timeout = 5;
 
       # Enable flakes
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
       warn-dirty = false;
 
@@ -39,6 +37,6 @@
     };
 
     # Add nixpkgs input to NIX_PATH
-    nixPath = ["nixpkgs=${inputs.nixpkgs.outPath}"];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
   };
 }

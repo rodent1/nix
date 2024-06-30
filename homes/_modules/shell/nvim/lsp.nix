@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs.nixvim = {
     plugins = {
       lsp = {
@@ -24,7 +25,9 @@
           virtualText = false;
         };
         outline.keys.jump = "<cr>";
-        hover = {openCmd = "!firefox";};
+        hover = {
+          openCmd = "!firefox";
+        };
         ui.border = "rounded";
         scrollPreview = {
           scrollDown = "<c-d>";

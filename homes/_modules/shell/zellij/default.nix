@@ -1,10 +1,8 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config, lib, ... }:
+let
   cfg = config.modules.shell.zellij;
-in {
+in
+{
   options.modules.shell.zellij = {
     enable = lib.mkEnableOption "zellij";
   };

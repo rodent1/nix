@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.modules.services.podman;
-in {
+in
+{
   options.modules.services.podman = {
     enable = lib.mkEnableOption "podman";
   };

@@ -1,5 +1,7 @@
-{inputs, ...}: {
-  mkNixosSystem = system: hostname: overlays: flake-packages:
+{ inputs, ... }:
+{
+  mkNixosSystem =
+    system: hostname: overlays: flake-packages:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       pkgs = import inputs.nixpkgs {
@@ -13,7 +15,9 @@
       modules = [
         {
           nixpkgs.hostPlatform = system;
-          _module.args = {inherit inputs flake-packages;};
+          _module.args = {
+            inherit inputs flake-packages;
+          };
         }
         inputs.home-manager.nixosModules.home-manager
         {
@@ -25,7 +29,9 @@
               inputs.nixvim.homeManagerModules.nixvim
               inputs.sops-nix.homeManagerModules.sops
             ];
-            extraSpecialArgs = {inherit inputs hostname flake-packages;};
+            extraSpecialArgs = {
+              inherit inputs hostname flake-packages;
+            };
             users.stianrs = ../. + "/homes/stianrs";
           };
         }
@@ -33,10 +39,13 @@
         ../hosts/_modules/nixos
         ../hosts/${hostname}
       ];
-      specialArgs = {inherit inputs hostname;};
+      specialArgs = {
+        inherit inputs hostname;
+      };
     };
 
-  mkWslSystem = system: hostname: overlays: flake-packages:
+  mkWslSystem =
+    system: hostname: overlays: flake-packages:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       pkgs = import inputs.nixpkgs {
@@ -50,7 +59,9 @@
       modules = [
         {
           nixpkgs.hostPlatform = system;
-          _module.args = {inherit inputs flake-packages;};
+          _module.args = {
+            inherit inputs flake-packages;
+          };
         }
         inputs.home-manager.nixosModules.home-manager
         inputs.nixos-wsl.nixosModules.default
@@ -63,7 +74,9 @@
               inputs.nixvim.homeManagerModules.nixvim
               inputs.sops-nix.homeManagerModules.sops
             ];
-            extraSpecialArgs = {inherit inputs hostname flake-packages;};
+            extraSpecialArgs = {
+              inherit inputs hostname flake-packages;
+            };
             users.stianrs = ../. + "/homes/stianrs";
           };
         }
@@ -72,10 +85,13 @@
         ../hosts/_modules/wsl
         ../hosts/${hostname}
       ];
-      specialArgs = {inherit inputs hostname;};
+      specialArgs = {
+        inherit inputs hostname;
+      };
     };
 
-  mkDarwinSystem = system: hostname: overlays: flake-packages:
+  mkDarwinSystem =
+    system: hostname: overlays: flake-packages:
     inputs.nix-darwin.lib.darwinSystem {
       inherit system;
       pkgs = import inputs.nixpkgs {
@@ -89,7 +105,9 @@
       modules = [
         {
           nixpkgs.hostPlatform = system;
-          _module.args = {inherit inputs flake-packages;};
+          _module.args = {
+            inherit inputs flake-packages;
+          };
         }
         inputs.home-manager.darwinModules.home-manager
         {
@@ -101,7 +119,9 @@
               inputs.nixvim.homeManagerModules.nixvim
               inputs.sops-nix.homeManagerModules.sops
             ];
-            extraSpecialArgs = {inherit inputs hostname flake-packages;};
+            extraSpecialArgs = {
+              inherit inputs hostname flake-packages;
+            };
             users.stianrs = ../. + "/homes/stianrs";
           };
         }
@@ -109,6 +129,8 @@
         ../hosts/_modules/darwin
         ../hosts/${hostname}
       ];
-      specialArgs = {inherit inputs hostname;};
+      specialArgs = {
+        inherit inputs hostname;
+      };
     };
 }

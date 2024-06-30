@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   additions = final: prev: {
     # flake = import ../pkgs {
     #   pkgs = prev;

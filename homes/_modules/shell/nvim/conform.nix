@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     extraPackages = with pkgs; [
       alejandra
@@ -17,19 +18,58 @@
       enable = true;
       notifyOnError = true;
       formattersByFt = {
-        css = [["prettierd" "prettier"]];
-        go = ["goimports" "gofumpt" "golines"];
-        html = [["prettierd" "prettier"]];
-        java = ["google-java-format"];
-        javascript = [["prettierd" "prettier"]];
-        javascriptreact = [["prettierd" "prettier"]];
-        lua = ["stylua"];
-        markdown = [["prettierd" "prettier"]];
-        nix = ["alejandra"];
-        python = ["black"];
-        rust = ["rustfmt"];
-        typescript = [["prettierd" "prettier"]];
-        typescriptreact = [["prettierd" "prettier"]];
+        css = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        go = [
+          "goimports"
+          "gofumpt"
+          "golines"
+        ];
+        html = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        java = [ "google-java-format" ];
+        javascript = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        javascriptreact = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        lua = [ "stylua" ];
+        markdown = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        nix = [ "alejandra" ];
+        python = [ "black" ];
+        rust = [ "rustfmt" ];
+        typescript = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        typescriptreact = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
       };
     };
 

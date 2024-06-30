@@ -1,4 +1,5 @@
-{hostname, ...}: {
+{ hostname, ... }:
+{
   imports = [
     ../_modules
 
@@ -15,14 +16,22 @@
       ssh = {
         enable = true;
         matchBlocks = {
-          "*" = {extraOptions = {IdentityAgent = "~/.ssh/agent.sock";};};
+          "*" = {
+            extraOptions = {
+              IdentityAgent = "~/.ssh/agent.sock";
+            };
+          };
           "udm" = {
             extraOptions = {
               User = "root";
               Hostname = "10.1.1.1";
             };
           };
-          "tank" = {extraOptions = {Hostname = "10.1.1.15";};};
+          "tank" = {
+            extraOptions = {
+              Hostname = "10.1.1.15";
+            };
+          };
         };
       };
     };

@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs.nixvim = {
     keymaps = [
       # General maps
@@ -21,7 +22,10 @@
       }
 
       {
-        mode = ["n" "v"];
+        mode = [
+          "n"
+          "v"
+        ];
         key = "<leader>g";
         action = "+git";
       }
@@ -45,19 +49,28 @@
       }
 
       {
-        mode = ["n" "v"];
+        mode = [
+          "n"
+          "v"
+        ];
         key = "<leader>d";
         action = "+debug";
       }
 
       {
-        mode = ["n" "v"];
+        mode = [
+          "n"
+          "v"
+        ];
         key = "<leader>c";
         action = "+code";
       }
 
       {
-        mode = ["n" "v"];
+        mode = [
+          "n"
+          "v"
+        ];
         key = "<leader>t";
         action = "+test";
       }

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./mutability.nix
 
@@ -22,6 +23,6 @@
 
     xdg.enable = true;
 
-    home.packages = [pkgs.home-manager];
+    home.packages = [ pkgs.home-manager ];
   };
 }

@@ -47,44 +47,46 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    supportedSystems = ["x86_64-linux" "x86_64-darwin"];
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    overlays = import ./overlays {inherit inputs;};
-    mkSystemLib = import ./lib/mkSystem.nix {inherit inputs;};
-    flake-packages = self.packages;
+  outputs =
+    { self, nixpkgs, ... }@inputs:
+    let
+      supportedSystems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      overlays = import ./overlays { inherit inputs; };
+      mkSystemLib = import ./lib/mkSystem.nix { inherit inputs; };
+      flake-packages = self.packages;
 
-    legacyPackages = forAllSystems (system:
-      import nixpkgs {
-        inherit system;
-        overlays = builtins.attrValues overlays;
-        config.allowUnfree = true;
-      });
-  in {
-    inherit overlays;
-
-    packages = forAllSystems (system: let
-      pkgs = legacyPackages.${system};
+      legacyPackages = forAllSystems (
+        system:
+        import nixpkgs {
+          inherit system;
+          overlays = builtins.attrValues overlays;
+          config.allowUnfree = true;
+        }
+      );
     in
-      import ./pkgs {
-        inherit pkgs;
-        inherit inputs;
-      });
+    {
+      inherit overlays;
 
-    formatter =
-      forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = legacyPackages.${system};
+        in
+        import ./pkgs {
+          inherit pkgs;
+          inherit inputs;
+        }
+      );
 
-    nixosConfigurations = {
-      laptop =
-        mkSystemLib.mkWslSystem "x86_64-linux" "laptop" overlays
-        flake-packages;
-      gamer =
-        mkSystemLib.mkWslSystem "x86_64-linux" "gamer" overlays
-        flake-packages;
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+      nixosConfigurations = {
+        laptop = mkSystemLib.mkWslSystem "x86_64-linux" "laptop" overlays flake-packages;
+        gamer = mkSystemLib.mkWslSystem "x86_64-linux" "gamer" overlays flake-packages;
+      };
     };
-  };
 }

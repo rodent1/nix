@@ -1,15 +1,13 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config, lib, ... }:
+let
   cfg = config.modules.security.ssh;
-in {
+in
+{
   options.modules.security.ssh = {
     enable = lib.mkEnableOption "ssh";
     matchBlocks = lib.mkOption {
       type = lib.types.attrs;
-      default = {};
+      default = { };
     };
   };
 
@@ -21,7 +19,7 @@ in {
       controlMaster = "auto";
       controlPath = "~/.ssh/control/%C";
 
-      includes = ["config.d/*"];
+      includes = [ "config.d/*" ];
     };
   };
 }

@@ -1,7 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
-    home.packages = [pkgs.doggo];
+    home.packages = [ pkgs.doggo ];
 
-    programs.fish = {shellAliases = {dig = "doggo";};};
+    programs.fish = {
+      shellAliases = {
+        dig = "doggo";
+      };
+    };
   };
 }

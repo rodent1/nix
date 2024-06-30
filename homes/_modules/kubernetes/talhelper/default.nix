@@ -4,12 +4,12 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.modules.kubernetes;
-in {
+in
+{
   config = lib.mkMerge [
-    (lib.mkIf cfg.enable {
-      home.packages = [inputs.talhelper.packages.${pkgs.system}.default];
-    })
+    (lib.mkIf cfg.enable { home.packages = [ inputs.talhelper.packages.${pkgs.system}.default ]; })
   ];
 }

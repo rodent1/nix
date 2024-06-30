@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./any-nix-shell
     ./atuin

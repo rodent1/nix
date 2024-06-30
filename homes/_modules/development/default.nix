@@ -1,5 +1,8 @@
-{lib, ...}: {
-  imports = [./utilities];
+{ lib, ... }:
+{
+  imports = [ ./utilities ];
 
-  options.modules.development = {enable = lib.mkEnableOption "development";};
+  options.modules.development = {
+    enable = lib.mkEnableOption "development";
+  };
 }

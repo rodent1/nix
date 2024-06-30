@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  environment.shells = with pkgs; [fish];
+{ pkgs, ... }:
+{
+  environment.shells = with pkgs; [ fish ];
 
   programs = {
     fish = {

@@ -3,12 +3,14 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.modules.kubernetes;
-in {
+in
+{
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      home.packages = [pkgs.unstable.kubectl];
+      home.packages = [ pkgs.unstable.kubectl ];
 
       programs.fish.functions = {
         k = {

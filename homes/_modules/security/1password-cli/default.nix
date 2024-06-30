@@ -1,8 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
-    home.packages = with pkgs; [
-      _1password
-    ];
+    home.packages = with pkgs; [ _1password ];
 
     # TODO: Make this a WSL only thing
     programs.fish = {

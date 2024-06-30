@@ -4,22 +4,27 @@
   lib,
   flake-packages,
   ...
-}: let
+}:
+let
   cfg = config.modules.shell.git;
   inherit (pkgs.stdenv) isDarwin;
-in {
+in
+{
   options.modules.shell.git = {
     enable = lib.mkEnableOption "git";
-    username = lib.mkOption {type = lib.types.str;};
-    email = lib.mkOption {type = lib.types.str;};
-    signingKey = lib.mkOption {type = lib.types.str;};
+    username = lib.mkOption { type = lib.types.str; };
+    email = lib.mkOption { type = lib.types.str; };
+    signingKey = lib.mkOption { type = lib.types.str; };
   };
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       programs.gh = {
         enable = true;
-        extensions = [pkgs.gh-copilot flake-packages.${pkgs.system}.gh-tidy];
+        extensions = [
+          pkgs.gh-copilot
+          flake-packages.${pkgs.system}.gh-tidy
+        ];
       };
       programs.gpg.enable = true;
 
@@ -30,11 +35,21 @@ in {
         userEmail = cfg.email;
 
         extraConfig = {
-          core = {autocrlf = "input";};
-          init = {defaultBranch = "main";};
-          pull = {rebase = true;};
-          rebase = {autoStash = true;};
-          gpg = {format = "ssh";};
+          core = {
+            autocrlf = "input";
+          };
+          init = {
+            defaultBranch = "main";
+          };
+          pull = {
+            rebase = true;
+          };
+          rebase = {
+            autoStash = true;
+          };
+          gpg = {
+            format = "ssh";
+          };
         };
         aliases = {
           a = "add";
@@ -69,11 +84,18 @@ in {
         };
       };
 
-      home.packages = [pkgs.git-filter-repo pkgs.tig];
+      home.packages = [
+        pkgs.git-filter-repo
+        pkgs.tig
+      ];
     })
     (lib.mkIf (cfg.enable && isDarwin) {
       programs.git = {
-        extraConfig = {credential = {helper = "osxkeychain";};};
+        extraConfig = {
+          credential = {
+            helper = "osxkeychain";
+          };
+        };
       };
     })
   ];
