@@ -5,4 +5,5 @@
 in {
   kubecolor = callPackage ./kubecolor.nix {};
   gh-tidy = callPackage ./gh-tidy.nix {};
+  shcopy = callPackage ./shcopy.nix {};
 }

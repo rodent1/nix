@@ -1,1 +1,7 @@
-{...}: {imports = [./gnugpg ./ssh];}
+{...}: {
+  imports = [
+    ./1password-cli
+    ./gnugpg
+    ./ssh
+  ];
+}
