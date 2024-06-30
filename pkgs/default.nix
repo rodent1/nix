@@ -9,6 +9,7 @@ let
 in
 {
   kubecolor = callPackage ./kubecolor.nix { };
+  gh-copilot = callPackage ./gh-copilot.nix { };
   gh-tidy = callPackage ./gh-tidy.nix { };
   shcopy = callPackage ./shcopy.nix { };
 }

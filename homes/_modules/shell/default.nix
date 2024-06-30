@@ -8,6 +8,7 @@
     ./doggo
     ./eza
     ./fish
+    ./gh
     ./git
     ./go-task
     ./nvim

@@ -2,7 +2,6 @@
   pkgs,
   config,
   lib,
-  flake-packages,
   ...
 }:
 let
@@ -19,13 +18,6 @@ in
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      programs.gh = {
-        enable = true;
-        extensions = [
-          pkgs.gh-copilot
-          flake-packages.${pkgs.system}.gh-tidy
-        ];
-      };
       programs.gpg.enable = true;
 
       programs.git = {
