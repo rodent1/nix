@@ -490,11 +490,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1719558434,
-        "narHash": "sha256-DvfMTuDnreO8kK0ZX+g2rPxL0yaXJmFAdDCY5hjq/hg=",
+        "lastModified": 1719796280,
+        "narHash": "sha256-aswKDRMtFV0Yu2pdjRVNaFDojg6VU3bOkHOolV947A8=",
         "owner": "budimanjojo",
         "repo": "talhelper",
-        "rev": "f8c3bd058c9d7e7277aaa1026857a61a81b867e3",
+        "rev": "0934e452b9c4eb08c7bfcdcfa112a6d67e5cb088",
         "type": "github"
       },
       "original": {
