@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.modules.editor.nixvim;
 in
@@ -32,7 +27,6 @@ in
   config = lib.mkIf cfg.enable {
     programs.nixvim = {
       enable = true;
-      package = pkgs.unstable.neovim-unwrapped;
 
       defaultEditor = true;
       luaLoader.enable = true;
