@@ -10,7 +10,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      nixd
+      unstable.nixd
       nixfmt-rfc-style
       nix-init
       nix-inspect
