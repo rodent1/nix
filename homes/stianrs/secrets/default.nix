@@ -6,7 +6,7 @@ in
 {
   config = {
     home.packages = [
-      pkgs.sops
+      pkgs.unstable.sops
       pkgs.age
     ];
 
