@@ -4,6 +4,7 @@
     ./kubecm
     ./kubecolor
     ./kubectl
+    ./stern
     ./talhelper
     ./utilities
   ];

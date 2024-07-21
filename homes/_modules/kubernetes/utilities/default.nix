@@ -8,7 +8,6 @@
       kubeconform
       kubernetes-helm
       minio-client
-      stern
       unstable.talosctl
     ];
   };
