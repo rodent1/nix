@@ -13,7 +13,6 @@ in
       enable = true;
       settings = {
         theme = "catppuccin-macchiato";
-        copy_command = "shcopy";
       };
     };
 
