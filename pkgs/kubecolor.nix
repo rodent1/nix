@@ -1,18 +1,14 @@
 {
-  lib,
   buildGoModule,
-  fetchFromGitHub,
+  callPackage,
+  lib,
 }:
+let
+  sourceData = callPackage _sources/generated.nix { };
+in
 buildGoModule rec {
-  pname = "kubecolor";
-  version = "0.0.25";
-
-  src = fetchFromGitHub {
-    owner = "hidetatz";
-    repo = "kubecolor";
-    rev = "v${version}";
-    hash = "sha256-FyKTI7Br9BjSpmf9ch2E4EZAWM7/jowZfRrCn4GTcps=";
-  };
+  inherit (sourceData.kubecolor) pname src;
+  version = lib.strings.removePrefix "v" sourceData.kubecolor.version;
 
   vendorHash = "sha256-DLj7ztOFNmDru1sO+ezecQeRbIbOq49M4EcJuWLNstI=";
 

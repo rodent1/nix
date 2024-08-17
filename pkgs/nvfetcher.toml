@@ -1,0 +1,25 @@
+[kubecolor]
+src.github_tag = "hidetatz/kubecolor"
+fetch.github = "hidetatz/kubecolor"
+[gh-copilot-linux-amd64]
+src.github_tag = "github/gh-copilot"
+src.prefix = "v"
+fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/linux-amd64"
+[gh-copilot-linux-arm64]
+src.github_tag = "github/gh-copilot"
+src.prefix = "v"
+fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/linux-arm64"
+[gh-copilot-darwin-amd64]
+src.github_tag = "github/gh-copilot"
+src.prefix = "v"
+fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/darwin-amd64"
+[gh-copilot-darwin-arm64]
+src.github_tag = "github/gh-copilot"
+src.prefix = "v"
+fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/darwin-arm64"
+[gh-tidy]
+src.git = "https://github.com/HaywardMorihara/gh-tidy"
+fetch.github = "HaywardMorihara/gh-tidy"
+[shcopy]
+src.github_tag = "aymanbagabas/shcopy"
+fetch.github = "aymanbagabas/shcopy"

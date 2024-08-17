@@ -1,18 +1,14 @@
 {
-  lib,
   buildGoModule,
-  fetchFromGitHub,
+  callPackage,
+  lib,
 }:
+let
+  sourceData = callPackage _sources/generated.nix { };
+in
 buildGoModule rec {
-  pname = "shcopy";
-  version = "0.1.3";
-
-  src = fetchFromGitHub {
-    owner = "aymanbagabas";
-    repo = "shcopy";
-    rev = "v${version}";
-    hash = "sha256-lEYMBBtBGAJjU0F1HgvuH0inW6S5E9DyKxwQ6A9tdM4=";
-  };
+  inherit (sourceData.shcopy) pname src;
+  version = lib.strings.removePrefix "v" sourceData.shcopy.version;
 
   vendorHash = "sha256-kD73EozkeUd23pwuy71bcNmth2lEKom0CUPDUNPNB1Q=";
 

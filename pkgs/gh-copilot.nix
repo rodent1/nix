@@ -1,41 +1,33 @@
 {
   stdenv,
   lib,
-  fetchurl,
+  callPackage,
 }:
 let
   inherit (stdenv.hostPlatform) system;
+  sourceData = callPackage _sources/generated.nix { };
   throwSystem = throw "Unsupported system: ${system}";
 
   systemToPlatform = {
     "x86_64-linux" = {
-      name = "linux-amd64";
-      hash = "sha256-n290Rld+opMXAQpBbT/DZ0Y8I2i0lkiH6nBspwThSok=";
+      platformName = "gh-copilot-linux-amd64";
     };
     "aarch64-linux" = {
-      name = "linux-arm64";
-      hash = "sha256-AHLOgfVNVYbSesYP34kSZ9mktESyppFr83THhdzBCos=";
+      platformName = "gh-copilot-linux-arm64";
     };
     "x86_64-darwin" = {
-      name = "darwin-amd64";
-      hash = "sha256-o6wb6UmGzPbvzXJ+N43NFboJBYt3cOXtcSBEFOSoXfI=";
+      platformName = "gh-copilot-darwin-amd64";
     };
     "aarch64-darwin" = {
-      name = "darwin-arm64";
-      hash = "sha256-kuJTKST7PFQ+QmldKOmfy1awFj6dQH9zlKvpob8FdfQ=";
+      platformName = "gh-copilot-darwin-arm64";
     };
   };
   platform = systemToPlatform.${system} or throwSystem;
 in
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
+  inherit (sourceData.${platform.platformName}) src;
+  version = lib.strings.removePrefix "v" sourceData.${platform.platformName}.version;
   pname = "gh-copilot";
-  version = "1.0.3";
-
-  src = fetchurl {
-    name = "gh-copilot";
-    url = "https://github.com/github/gh-copilot/releases/download/v${version}/${platform.name}";
-    hash = "${platform.hash}";
-  };
 
   dontUnpack = true;
 

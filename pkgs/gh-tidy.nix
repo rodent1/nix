@@ -1,17 +1,15 @@
 {
+  callPackage,
+  lib,
   pkgs,
   stdenvNoCC,
-  lib,
-  fetchgit,
 }:
+let
+  sourceData = callPackage _sources/generated.nix { };
+in
 stdenvNoCC.mkDerivation {
-  name = "gh-tidy";
-  pname = "gh-tidy";
-  src = fetchgit {
-    url = "https://github.com/HaywardMorihara/gh-tidy.git";
-    rev = "e43a55839ae62cec2715769b7b72b40b5d869119";
-    hash = "sha256-BJtZZjs3xBjt6LC8VZSdVCmU1mcOnlDlMEW6Ck58S30=";
-  };
+  inherit (sourceData.gh-tidy) version pname src;
+
   dontConfigure = true;
   dontBuild = true;
   buildInputs = [ pkgs.git ];
