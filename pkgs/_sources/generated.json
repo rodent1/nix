@@ -118,5 +118,25 @@
             "type": "github"
         },
         "version": "v0.1.3"
+    },
+    "tmux-fish": {
+        "cargoLocks": null,
+        "date": "2024-04-19",
+        "extract": null,
+        "name": "tmux-fish",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "budimanjojo",
+            "repo": "tmux.fish",
+            "rev": "e95dbc11fa57d738cd837cb659d50b73ec0a8d90",
+            "sha256": "sha256-tNq/F9NQZZ1pd0ZWPzQVwuHABCVECmXRN12ovGSUUFU=",
+            "type": "github"
+        },
+        "version": "e95dbc11fa57d738cd837cb659d50b73ec0a8d90"
     }
 }

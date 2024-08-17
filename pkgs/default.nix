@@ -12,4 +12,5 @@ in
   gh-copilot = callPackage ./gh-copilot.nix { };
   gh-tidy = callPackage ./gh-tidy.nix { };
   shcopy = callPackage ./shcopy.nix { };
+  tmux-fish = callPackage ./tmux-fish.nix { };
 }

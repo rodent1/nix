@@ -8,7 +8,8 @@ let
   sourceData = callPackage _sources/generated.nix { };
 in
 stdenvNoCC.mkDerivation {
-  inherit (sourceData.gh-tidy) version pname src;
+  inherit (sourceData.gh-tidy) pname src;
+  version = sourceData.gh-tidy.date;
 
   dontConfigure = true;
   dontBuild = true;
