@@ -24,7 +24,7 @@ jobs:
         with:
           packages: nvfetcher
           script: |
-            cd packages
+            cd pkgs
             echo "OUTPUT<<EOF" >> $GITHUB_OUTPUT
             echo "$(nvfetcher | sed -n '/Changes/,/$!d/p')" >> $GITHUB_OUTPUT
             echo "EOF" >> $GITHUB_OUTPUT
