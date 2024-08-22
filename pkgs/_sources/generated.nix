@@ -67,16 +67,4 @@
       sha256 = "sha256-2eOzrtWTPLoTR0Bz518SNPKxasRs9QPDP1LAo/kGnMA=";
     };
   };
-  tmux-fish = {
-    pname = "tmux-fish";
-    version = "e95dbc11fa57d738cd837cb659d50b73ec0a8d90";
-    src = fetchFromGitHub {
-      owner = "budimanjojo";
-      repo = "tmux.fish";
-      rev = "e95dbc11fa57d738cd837cb659d50b73ec0a8d90";
-      fetchSubmodules = false;
-      sha256 = "sha256-tNq/F9NQZZ1pd0ZWPzQVwuHABCVECmXRN12ovGSUUFU=";
-    };
-    date = "2024-04-19";
-  };
 }
