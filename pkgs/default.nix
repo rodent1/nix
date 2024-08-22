@@ -12,5 +12,4 @@ in
   gh-copilot = callPackage ./gh-copilot.nix { };
   gh-tidy = callPackage ./gh-tidy.nix { };
   shcopy = callPackage ./shcopy.nix { };
-  fish-plugins = callPackage ./fish-plugins/default.nix { };
 }

@@ -23,6 +23,3 @@ fetch.github = "HaywardMorihara/gh-tidy"
 [shcopy]
 src.github_tag = "aymanbagabas/shcopy"
 fetch.github = "aymanbagabas/shcopy"
-[tmux-fish]
-src.git = "https://github.com/budimanjojo/tmux.fish"
-fetch.github = "budimanjojo/tmux.fish"
