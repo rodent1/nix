@@ -1,17 +1,16 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
     "github>rodent1/renovate-config",
-    "github>rodent1/renovate-config:automerge-github-actions"
+    "github>rodent1/renovate-config:automerge-github-actions",
   ],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "extends": ["schedule:weekly"],
-    "automerge": true,
-    "automergeType": "branch",
-    "ignoreTests": true
+  lockFileMaintenance: {
+    enabled: true,
+    automerge: true,
+    automergeType: "branch",
+    ignoreTests: true,
   },
-  "nix": {
-    "enabled": true
-  }
+  nix: {
+    enabled: true,
+  },
 }
