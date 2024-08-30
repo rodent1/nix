@@ -13,6 +13,7 @@
     #     mainProgram = "kubecm";
     #   };
     # });
+    kubectl = inputs.krew2nix.outputs.packages.${prev.system}.kubectl;
   };
 
   # The unstable nixpkgs set (declared in the flake inputs) will

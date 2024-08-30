@@ -12,6 +12,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Krew2nix
+    krew2nix = {
+      url = "github:eigengrau/krew2nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # Nix-index database
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
