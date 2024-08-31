@@ -63,6 +63,10 @@ in
         '';
 
         functions = {
+          envsource = {
+            description = "Source a file with environment variables";
+            body = builtins.readFile ./functions/envsource.fish;
+          };
           fish_greeting = {
             description = "Set the fish greeting";
             body = builtins.readFile ./functions/fish_greeting.fish;

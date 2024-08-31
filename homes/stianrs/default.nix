@@ -7,6 +7,8 @@
     ./hosts/${hostname}.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   modules = {
     editor = {
       nixvim.enable = true;

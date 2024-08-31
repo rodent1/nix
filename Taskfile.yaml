@@ -1,0 +1,14 @@
+---
+# go-task runner file - rest of config in .taskfiles/**.*.yaml
+version: "3"
+
+includes:
+  sop:
+    taskfile: ".taskfiles/sops"
+    dir: .taskfiles/sops
+
+tasks:
+  default:
+    silent: true
+    cmds:
+      - task -l

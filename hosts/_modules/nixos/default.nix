@@ -3,6 +3,7 @@
   imports = [
     ./users.nix
 
+    ./security
     ./services
     ./system
   ];

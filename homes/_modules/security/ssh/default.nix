@@ -15,11 +15,6 @@ in
     programs.ssh = {
       enable = true;
       inherit (cfg) matchBlocks;
-
-      controlMaster = "auto";
-      controlPath = "~/.ssh/control/%C";
-
-      includes = [ "config.d/*" ];
     };
   };
 }
