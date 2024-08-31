@@ -41,6 +41,7 @@ in
       gid = 1000;
     };
 
+    modules.security._1password.enable = true;
     modules.services.podman.enable = true;
     modules.services.tailscale.enable = true;
     modules.system.openssh.enable = true;
