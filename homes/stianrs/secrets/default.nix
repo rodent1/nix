@@ -1,18 +1,15 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 let
   ageKeyFile = "${config.xdg.configHome}/age/keys.txt";
   inherit (config.home) homeDirectory;
 in
 {
   config = {
-    home.packages = [
-      pkgs.unstable.sops
-      pkgs.age
-    ];
-
     sops = {
       defaultSopsFile = ./secrets.sops.yaml;
       age.keyFile = ageKeyFile;
+      age.generateKey = true;
+
       secrets = {
         atuin_key = {
           path = "${config.xdg.configHome}/atuin/key";
