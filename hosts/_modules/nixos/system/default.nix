@@ -3,5 +3,6 @@
   imports = [
     ./direnv
     ./nh
+    ./openssh
   ];
 }
