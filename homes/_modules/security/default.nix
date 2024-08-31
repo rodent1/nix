@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./1password-cli
+    ./_1password
     ./gnugpg
     ./ssh
   ];
