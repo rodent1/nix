@@ -4,6 +4,7 @@ keys:
   - &user_stianrs age1rhtsfe9lw4k5ccfzp354f3q0747un9a070swltl6997s8s0yvu0qes0v5w
   - &host_gamer age1ft9eyy3awfyk5qw9q9gra0ucmp5fpd5uyz9espaxn9e9xnkgh44qezytj8
   - &host_laptop age16h52efplmph26cxvucmawlqly8gzwu5c4z2xs2ukv7a9e5zem3qs6hapjc
+  - &host_work age16kf2zdzya78gl0qlv6uavnpt798wucuvuye0r697lhp4asalz9usrllnke
 
 creation_rules:
   - path_regex: .*\.sops\.ya?ml$
@@ -13,3 +14,4 @@ creation_rules:
           - *user_stianrs
           - *host_gamer
           - *host_laptop
+          - *host_work
