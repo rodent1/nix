@@ -6,7 +6,7 @@
   ],
   lockFileMaintenance: {
     enabled: true,
-    extends: ["schedule:daily"],
+    schedule: ["before 4am"],
     automerge: true,
     automergeType: "branch",
     ignoreTests: true,
