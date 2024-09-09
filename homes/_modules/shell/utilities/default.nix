@@ -1,27 +1,25 @@
 { pkgs, flake-packages, ... }:
 {
   config = {
-    home.packages =
-      with pkgs;
-      with flake-packages.${pkgs.system};
-      [
-        binutils
-        coreutils
-        curl
-        du-dust
-        envsubst
-        findutils
-        fish
-        gawk
-        gnused
-        gum
-        jo
-        jq
-        openssl
-        shcopy
-        tlrc
-        wget
-        yq-go
-      ];
+    home.packages = with pkgs; [
+      binutils
+      coreutils
+      curl
+      du-dust
+      envsubst
+      findutils
+      fish
+      gawk
+      gnused
+      gum
+      httpie
+      jo
+      jq
+      openssl
+      flake-packages.${pkgs.system}.shcopy
+      tlrc
+      wget
+      yq-go
+    ];
   };
 }
