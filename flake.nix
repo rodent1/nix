@@ -12,23 +12,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Krewfile
-    krewfile = {
-      url = "github:brumhard/krewfile";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Nix-index database
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # # nix-darwin
-    # nix-darwin = {
-    #   url = "github:LnL7/nix-darwin";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    # nix-darwin
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # NixVim
     nixvim = {
