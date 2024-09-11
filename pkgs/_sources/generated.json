@@ -99,6 +99,26 @@
         },
         "version": "v0.0.25"
     },
+    "kubectl-rook-ceph": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "kubectl-rook-ceph",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "rook",
+            "repo": "kubectl-rook-ceph",
+            "rev": "v0.9.1",
+            "sha256": "sha256-glPcrjtMsf96hnvtXKawzlQjsPnEmdYXrYcRzviHcgg=",
+            "type": "github"
+        },
+        "version": "v0.9.1"
+    },
     "shcopy": {
         "cargoLocks": null,
         "date": null,

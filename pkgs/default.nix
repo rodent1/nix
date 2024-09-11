@@ -1,6 +1,7 @@
 # Custom packages, that can be defined similarly to ones from nixpkgs
 # You can build them using 'nix build .#example' or (legacy) 'nix-build -A example'
 {
+  inputs,
   pkgs ? (import <nixpkgs>) { },
   ...
 }:
@@ -9,7 +10,8 @@ let
 in
 {
   kubecolor = callPackage ./kubecolor.nix { };
+  kubectl-rook-ceph = callPackage ./kubectl-rook-ceph.nix { };
   gh-copilot = callPackage ./gh-copilot.nix { };
   gh-tidy = callPackage ./gh-tidy.nix { };
-  shcopy = callPackage ./shcopy.nix { };
+  talhelper = inputs.talhelper.packages.${pkgs.system}.default;
 }

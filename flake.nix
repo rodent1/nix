@@ -42,6 +42,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Rust toolchain overlay
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+    };
+
     # sops-nix
     sops-nix = {
       url = "github:Mic92/sops-nix";

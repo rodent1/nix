@@ -1,12 +1,12 @@
-{ pkgs, flake-packages, ... }:
+{ pkgs, ... }:
 {
 
   config = {
     programs.gh = {
       enable = true;
-      extensions = [
-        flake-packages.${pkgs.system}.gh-copilot
-        flake-packages.${pkgs.system}.gh-tidy
+      extensions = with pkgs; [
+        gh-copilot
+        gh-tidy
       ];
     };
   };

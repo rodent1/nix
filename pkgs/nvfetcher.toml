@@ -1,6 +1,9 @@
 [kubecolor]
 src.github_tag = "hidetatz/kubecolor"
 fetch.github = "hidetatz/kubecolor"
+[kubectl-rook-ceph]
+src.github_tag = "rook/kubectl-rook-ceph"
+fetch.github = "rook/kubectl-rook-ceph"
 [gh-copilot-linux-amd64]
 src.github_tag = "github/gh-copilot"
 src.prefix = "v"

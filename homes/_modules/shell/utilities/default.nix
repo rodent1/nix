@@ -1,4 +1,4 @@
-{ pkgs, flake-packages, ... }:
+{ pkgs, ... }:
 {
   config = {
     home.packages = with pkgs; [
@@ -16,7 +16,6 @@
       jo
       jq
       openssl
-      flake-packages.${pkgs.system}.shcopy
       tlrc
       wget
       yq-go

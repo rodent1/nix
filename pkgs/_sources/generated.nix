@@ -56,6 +56,17 @@
       sha256 = "sha256-FyKTI7Br9BjSpmf9ch2E4EZAWM7/jowZfRrCn4GTcps=";
     };
   };
+  kubectl-rook-ceph = {
+    pname = "kubectl-rook-ceph";
+    version = "v0.9.1";
+    src = fetchFromGitHub {
+      owner = "rook";
+      repo = "kubectl-rook-ceph";
+      rev = "v0.9.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-glPcrjtMsf96hnvtXKawzlQjsPnEmdYXrYcRzviHcgg=";
+    };
+  };
   shcopy = {
     pname = "shcopy";
     version = "v0.1.4";
