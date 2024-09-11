@@ -28,6 +28,7 @@
               inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
               inputs.sops-nix.homeManagerModules.sops
+              inputs.krewfile.homeManagerModules.krewfile
             ];
             extraSpecialArgs = {
               inherit inputs hostname flake-packages;
@@ -73,6 +74,7 @@
               inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
               inputs.sops-nix.homeManagerModules.sops
+              inputs.krewfile.homeManagerModules.krewfile
             ];
             extraSpecialArgs = {
               inherit inputs hostname flake-packages;
@@ -118,6 +120,7 @@
               inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
               inputs.sops-nix.homeManagerModules.sops
+              inputs.krewfile.homeManagerModules.krewfile
             ];
             extraSpecialArgs = {
               inherit inputs hostname flake-packages;

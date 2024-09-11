@@ -12,10 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Krew2nix
-    krew2nix = {
-      url = "github:eigengrau/krew2nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # Krewfile
+    krewfile = {
+      url = "github:brumhard/krewfile";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nix-index database

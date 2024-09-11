@@ -10,15 +10,7 @@ in
 {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      home.packages = [
-        (pkgs.kubectl.withKrewPlugins (
-          plugins: with plugins; [
-            node-shell
-            cnpg
-            rook-ceph
-          ]
-        ))
-      ];
+      home.packages = [ pkgs.unstable.kubectl ];
 
       programs.fish.functions = {
         k = {

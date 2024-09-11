@@ -107,12 +107,15 @@
       }
     },
     "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
       "locked": {
-        "lastModified": 1659877975,
-        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -123,7 +126,7 @@
     },
     "flake-utils_2": {
       "inputs": {
-        "systems": "systems"
+        "systems": "systems_2"
       },
       "locked": {
         "lastModified": 1710146030,
@@ -231,24 +234,24 @@
         "type": "github"
       }
     },
-    "krew2nix": {
+    "krewfile": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1716272275,
-        "narHash": "sha256-JWDyPhAJp263EVVsGrKwrJU+xdDReHsDmSe7A190/Cg=",
-        "owner": "eigengrau",
-        "repo": "krew2nix",
-        "rev": "0c1fecaab044dba1249c5d09366891ec467b4ad2",
+        "lastModified": 1725897020,
+        "narHash": "sha256-0mJ37QZpUz44d0uolv9XQKDHwxUwqslz5ZSgwbdxmlo=",
+        "owner": "brumhard",
+        "repo": "krewfile",
+        "rev": "e7773854b19a4288df5502946ccec79c4af57adf",
         "type": "github"
       },
       "original": {
-        "owner": "eigengrau",
-        "repo": "krew2nix",
+        "owner": "brumhard",
+        "repo": "krewfile",
         "type": "github"
       }
     },
@@ -423,7 +426,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "krew2nix": "krew2nix",
+        "krewfile": "krewfile",
         "nix-index-database": "nix-index-database",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
@@ -455,6 +458,21 @@
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
