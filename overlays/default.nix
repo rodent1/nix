@@ -17,18 +17,6 @@
       config.allowUnfree = true;
       overlays = [
         # overlays of unstable packages are declared here
-        (final: prev: {
-          kubectl-node-shell = prev.kubectl-node-shell.overrideAttrs (
-            _: prev: { meta = builtins.removeAttrs prev.meta [ "platforms" ]; }
-          );
-          kubectl-view-secret = prev.kubectl-view-secret.overrideAttrs (
-            _: prev: {
-              postInstall = ''
-                mv $out/bin/cmd $out/bin/kubectl-view_secret
-              '';
-            }
-          );
-        })
       ];
     };
   };
