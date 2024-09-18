@@ -98,45 +98,5 @@
             "type": "github"
         },
         "version": "v0.0.25"
-    },
-    "kubectl-rook-ceph": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "kubectl-rook-ceph",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "rook",
-            "repo": "kubectl-rook-ceph",
-            "rev": "v0.9.2",
-            "sha256": "sha256-uXHf1TYC0+nwMj4/E/nG1RRlWikA4KptSDi/PoBaSt8=",
-            "type": "github"
-        },
-        "version": "v0.9.2"
-    },
-    "shcopy": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "shcopy",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "aymanbagabas",
-            "repo": "shcopy",
-            "rev": "v0.1.4",
-            "sha256": "sha256-2eOzrtWTPLoTR0Bz518SNPKxasRs9QPDP1LAo/kGnMA=",
-            "type": "github"
-        },
-        "version": "v0.1.4"
     }
 }
