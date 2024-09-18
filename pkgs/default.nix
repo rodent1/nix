@@ -10,7 +10,6 @@ let
 in
 {
   kubecolor = callPackage ./kubecolor.nix { };
-  kubectl-rook-ceph = callPackage ./kubectl-rook-ceph.nix { };
   gh-copilot = callPackage ./gh-copilot.nix { };
   gh-tidy = callPackage ./gh-tidy.nix { };
   talhelper = inputs.talhelper.packages.${pkgs.system}.default;

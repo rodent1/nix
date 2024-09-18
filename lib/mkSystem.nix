@@ -25,6 +25,7 @@
             useUserPackages = true;
             useGlobalPkgs = true;
             sharedModules = [
+              inputs.krewfile.homeManagerModules.krewfile
               inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
               inputs.sops-nix.homeManagerModules.sops
@@ -70,6 +71,7 @@
             useUserPackages = true;
             useGlobalPkgs = true;
             sharedModules = [
+              inputs.krewfile.homeManagerModules.krewfile
               inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
               inputs.sops-nix.homeManagerModules.sops
@@ -115,6 +117,7 @@
             useUserPackages = true;
             useGlobalPkgs = true;
             sharedModules = [
+              inputs.krewfile.homeManagerModules.krewfile
               inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
               inputs.sops-nix.homeManagerModules.sops

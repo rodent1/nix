@@ -12,6 +12,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Krewfile
+    krewfile = {
+      url = "github:brumhard/krewfile";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Nix-index database
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -87,8 +93,6 @@
           inherit inputs;
         }
       );
-
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
       nixosConfigurations = {
         laptop = mkSystemLib.mkWslSystem "x86_64-linux" "laptop" overlays flake-packages;

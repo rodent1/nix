@@ -17,40 +17,42 @@ in
       (with pkgs; [
         fluxcd
         helmfile
-        krew
-        kubecm
         kubeconform
         kubernetes-helm
         kubecolor
-        kubectl-rook-ceph
         minio-client
         talhelper
       ])
       ++ (with pkgs.unstable; [
         kubectl
-        kubectl-cnpg
-        kubectl-node-shell
-        kubectl-view-secret
         stern
         talosctl
       ]);
 
-    programs.fish = {
-      interactiveShellInit = ''
-        fish_add_path $HOME/.krew/bin
-        ${lib.getExe pkgs.unstable.kubecm} completion fish | source
-      '';
-
-      functions = {
-        k = {
-          description = "kubectl shorthand";
-          wraps = "kubectl";
-          body = builtins.readFile ./functions/k.fish;
-        };
+    programs = {
+      krewfile = {
+        enable = true;
+        krewPackage = pkgs.krew;
+        plugins = [
+          "browse-pvc"
+          "cnpg"
+          "node-shell"
+          "rook-ceph"
+        ];
       };
 
-      shellAliases = {
-        kc = "kubecm";
+      fish = {
+        functions = {
+          k = {
+            description = "kubectl shorthand";
+            wraps = "kubectl";
+            body = builtins.readFile ./functions/k.fish;
+          };
+        };
+
+        shellAliases = {
+          kc = "kubecm";
+        };
       };
     };
   };

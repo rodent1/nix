@@ -1,9 +1,6 @@
 [kubecolor]
 src.github_tag = "hidetatz/kubecolor"
 fetch.github = "hidetatz/kubecolor"
-[kubectl-rook-ceph]
-src.github_tag = "rook/kubectl-rook-ceph"
-fetch.github = "rook/kubectl-rook-ceph"
 [gh-copilot-linux-amd64]
 src.github_tag = "github/gh-copilot"
 src.prefix = "v"
@@ -23,6 +20,3 @@ fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/darwin
 [gh-tidy]
 src.git = "https://github.com/HaywardMorihara/gh-tidy"
 fetch.github = "HaywardMorihara/gh-tidy"
-[shcopy]
-src.github_tag = "aymanbagabas/shcopy"
-fetch.github = "aymanbagabas/shcopy"
