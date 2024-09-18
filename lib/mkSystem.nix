@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ inputs, overlays, ... }:
 {
   mkNixosSystem =
-    system: hostname: overlays: flake-packages:
+    system: hostname:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       pkgs = import inputs.nixpkgs {
@@ -16,9 +16,10 @@
         {
           nixpkgs.hostPlatform = system;
           _module.args = {
-            inherit inputs flake-packages;
+            inherit inputs system;
           };
         }
+        inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -31,7 +32,7 @@
               inputs.sops-nix.homeManagerModules.sops
             ];
             extraSpecialArgs = {
-              inherit inputs hostname flake-packages;
+              inherit inputs hostname system;
             };
             users.stianrs = ../. + "/homes/stianrs";
           };
@@ -46,7 +47,7 @@
     };
 
   mkWslSystem =
-    system: hostname: overlays: flake-packages:
+    system: hostname:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       pkgs = import inputs.nixpkgs {
@@ -61,7 +62,7 @@
         {
           nixpkgs.hostPlatform = system;
           _module.args = {
-            inherit inputs flake-packages;
+            inherit inputs system;
           };
         }
         inputs.home-manager.nixosModules.home-manager
@@ -77,7 +78,7 @@
               inputs.sops-nix.homeManagerModules.sops
             ];
             extraSpecialArgs = {
-              inherit inputs hostname flake-packages;
+              inherit inputs hostname system;
             };
             users.stianrs = ../. + "/homes/stianrs";
           };
@@ -93,7 +94,7 @@
     };
 
   mkDarwinSystem =
-    system: hostname: overlays: flake-packages:
+    system: hostname:
     inputs.nix-darwin.lib.darwinSystem {
       inherit system;
       pkgs = import inputs.nixpkgs {
@@ -108,7 +109,7 @@
         {
           nixpkgs.hostPlatform = system;
           _module.args = {
-            inherit inputs flake-packages;
+            inherit inputs system;
           };
         }
         inputs.home-manager.darwinModules.home-manager
@@ -123,7 +124,7 @@
               inputs.sops-nix.homeManagerModules.sops
             ];
             extraSpecialArgs = {
-              inherit inputs hostname flake-packages;
+              inherit inputs hostname system;
             };
             users.stianrs = ../. + "/homes/stianrs";
           };

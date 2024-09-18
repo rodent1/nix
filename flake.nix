@@ -60,44 +60,25 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { flake-parts, ... }@inputs:
     let
-      supportedSystems = [
-        "x86_64-linux"
-        "x86_64-darwin"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       overlays = import ./overlays { inherit inputs; };
-      mkSystemLib = import ./lib/mkSystem.nix { inherit inputs; };
-      flake-packages = self.packages;
-
-      legacyPackages = forAllSystems (
-        system:
-        import nixpkgs {
-          inherit system;
-          overlays = builtins.attrValues overlays;
-          config.allowUnfree = true;
-        }
-      );
+      mkSystemLib = import ./lib/mkSystem.nix { inherit inputs overlays; };
     in
-    {
-      inherit overlays;
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "aarch64-darwin"
+        "x86_64-linux"
+      ];
 
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = legacyPackages.${system};
-        in
-        import ./pkgs {
-          inherit pkgs;
-          inherit inputs;
-        }
-      );
+      imports = [ ];
 
-      nixosConfigurations = {
-        laptop = mkSystemLib.mkWslSystem "x86_64-linux" "laptop" overlays flake-packages;
-        gamer = mkSystemLib.mkWslSystem "x86_64-linux" "gamer" overlays flake-packages;
-        work = mkSystemLib.mkWslSystem "x86_64-linux" "work" overlays flake-packages;
+      flake = {
+        nixosConfigurations = {
+          laptop = mkSystemLib.mkWslSystem "x86_64-linux" "laptop";
+          gamer = mkSystemLib.mkWslSystem "x86_64-linux" "gamer";
+          work = mkSystemLib.mkWslSystem "x86_64-linux" "work";
+        };
       };
     };
 }

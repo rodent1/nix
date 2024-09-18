@@ -21,12 +21,7 @@
     };
   };
 
-  # Your own overlays for stable nixpkgs should be declared here
   nixpkgs-overlays = final: prev: {
-    # kubectl-view-secret = prev.kubectl-view-secret.overrideAttrs (_: prev: {
-    #   postInstall = ''
-    #     mv $out/bin/cmd $out/bin/kubectl-view_secret
-    #   '';
-    # });
+    # Your own overlays for stable nixpkgs should be declared here
   };
 }
