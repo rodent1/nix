@@ -58,13 +58,13 @@
   };
   kubectl-rook-ceph = {
     pname = "kubectl-rook-ceph";
-    version = "v0.9.1";
+    version = "v0.9.2";
     src = fetchFromGitHub {
       owner = "rook";
       repo = "kubectl-rook-ceph";
-      rev = "v0.9.1";
+      rev = "v0.9.2";
       fetchSubmodules = false;
-      sha256 = "sha256-glPcrjtMsf96hnvtXKawzlQjsPnEmdYXrYcRzviHcgg=";
+      sha256 = "sha256-uXHf1TYC0+nwMj4/E/nG1RRlWikA4KptSDi/PoBaSt8=";
     };
   };
   shcopy = {
