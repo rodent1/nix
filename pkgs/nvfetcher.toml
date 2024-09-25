@@ -1,6 +1,7 @@
-[kubecolor]
-src.github_tag = "hidetatz/kubecolor"
-fetch.github = "hidetatz/kubecolor"
+[kubecolor-catppuccin]
+src.git = "https://github.com/vkhitrin/kubecolor-catppuccin.git"
+src.branch = "main"
+fetch.github = "vkhitrin/kubecolor-catppuccin"
 [gh-copilot-linux-amd64]
 src.github_tag = "github/gh-copilot"
 src.prefix = "v"

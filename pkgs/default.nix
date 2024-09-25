@@ -9,7 +9,7 @@ let
   inherit (pkgs) callPackage;
 in
 {
-  #  kubecolor = callPackage ./kubecolor.nix { };
+  kubecolor-catppuccin = callPackage ./kubecolor-catppuccin.nix { };
   gh-copilot = callPackage ./gh-copilot.nix { };
   gh-tidy = callPackage ./gh-tidy.nix { };
   talhelper = inputs.talhelper.packages.${pkgs.system}.default;

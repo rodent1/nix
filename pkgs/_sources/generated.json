@@ -79,11 +79,11 @@
         },
         "version": "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da"
     },
-    "kubecolor": {
+    "kubecolor-catppuccin": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-05-24",
         "extract": null,
-        "name": "kubecolor",
+        "name": "kubecolor-catppuccin",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -91,12 +91,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "hidetatz",
-            "repo": "kubecolor",
-            "rev": "v0.0.25",
-            "sha256": "sha256-FyKTI7Br9BjSpmf9ch2E4EZAWM7/jowZfRrCn4GTcps=",
+            "owner": "vkhitrin",
+            "repo": "kubecolor-catppuccin",
+            "rev": "1d4c2888f7de077e1a837a914a1824873d16762d",
+            "sha256": "sha256-gTneUh6yMcH6dVKrH00G61a+apasu9tiMyYjvNdOiOw=",
             "type": "github"
         },
-        "version": "v0.0.25"
+        "version": "1d4c2888f7de077e1a837a914a1824873d16762d"
     }
 }

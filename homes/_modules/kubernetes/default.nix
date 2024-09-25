@@ -19,11 +19,11 @@ in
         helmfile
         kubeconform
         kubernetes-helm
-        kubecolor
         minio-client
         talhelper
       ])
       ++ (with pkgs.unstable; [
+        kubecolor
         kubectl
         stern
         talosctl
