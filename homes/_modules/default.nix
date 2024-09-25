@@ -8,6 +8,7 @@
     ./security
     ./services
     ./shell
+    ./themes
   ];
 
   config = {

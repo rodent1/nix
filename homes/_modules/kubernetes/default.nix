@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.modules.kubernetes;
-  catppuccinFlavour = "macchiato";
+  catppuccinCfg = config.modules.themes.catppuccin;
 in
 {
   options.modules.kubernetes = {
@@ -30,6 +30,10 @@ in
         stern
         talosctl
       ]);
+
+    home.sessionVariables = {
+      KUBECOLOR_CONFIG = "${pkgs.kubecolor-catppuccin}/catppuccin-${catppuccinCfg.flavor}.yaml";
+    };
 
     programs = {
       krewfile = {
@@ -57,10 +61,6 @@ in
           kc = "kubecm";
         };
       };
-    };
-
-    home.sessionVariables = {
-      KUBECOLOR_CONFIG = "${pkgs.kubecolor-catppuccin}/catppuccin-${catppuccinFlavour}.yaml";
     };
   };
 }

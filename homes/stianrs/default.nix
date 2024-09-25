@@ -55,5 +55,12 @@
         enable = true;
       };
     };
+
+    themes = {
+      catppuccin = {
+        enable = true;
+        flavor = "macchiato";
+      };
+    };
   };
 }

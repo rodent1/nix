@@ -29,6 +29,7 @@
               inputs.krewfile.homeManagerModules.krewfile
               inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
+              inputs.catppuccin.homeManagerModules.catppuccin
               inputs.sops-nix.homeManagerModules.sops
             ];
             extraSpecialArgs = {
@@ -75,6 +76,7 @@
               inputs.krewfile.homeManagerModules.krewfile
               inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
+              inputs.catppuccin.homeManagerModules.catppuccin
               inputs.sops-nix.homeManagerModules.sops
             ];
             extraSpecialArgs = {
@@ -121,6 +123,7 @@
               inputs.krewfile.homeManagerModules.krewfile
               inputs.nix-index-database.hmModules.nix-index
               inputs.nixvim.homeManagerModules.nixvim
+              inputs.catppuccin.homeManagerModules.catppuccin
               inputs.sops-nix.homeManagerModules.sops
             ];
             extraSpecialArgs = {
