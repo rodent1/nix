@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.modules.kubernetes;
+  catppuccinFlavour = "macchiato";
 in
 {
   options.modules.kubernetes = {
@@ -18,6 +19,7 @@ in
         fluxcd
         helmfile
         kubeconform
+        kubecolor-catppuccin
         kubernetes-helm
         minio-client
         talhelper
@@ -54,6 +56,10 @@ in
           kc = "kubecm";
         };
       };
+    };
+
+    home.sessionVariables = {
+      KUBECOLOR_CONFIG = "${pkgs.kubecolor-catppuccin}/catppuccin-${catppuccinFlavour}.yaml";
     };
   };
 }
