@@ -38,6 +38,7 @@ in
         plugins = [
           "browse-pvc"
           "cnpg"
+          "klock"
           "node-shell"
           "rook-ceph"
         ];
