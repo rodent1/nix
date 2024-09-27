@@ -1,7 +1,3 @@
-[kubecolor-catppuccin]
-src.git = "https://github.com/vkhitrin/kubecolor-catppuccin.git"
-src.branch = "main"
-fetch.github = "vkhitrin/kubecolor-catppuccin"
 [gh-copilot-linux-amd64]
 src.github_tag = "github/gh-copilot"
 src.prefix = "v"
@@ -21,3 +17,10 @@ fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/darwin
 [gh-tidy]
 src.git = "https://github.com/HaywardMorihara/gh-tidy"
 fetch.github = "HaywardMorihara/gh-tidy"
+[kubecolor-catppuccin]
+src.git = "https://github.com/vkhitrin/kubecolor-catppuccin.git"
+src.branch = "main"
+fetch.github = "vkhitrin/kubecolor-catppuccin"
+[talosctl]
+src.github = "siderolabs/talos"
+fetch.github = "siderolabs/talos"

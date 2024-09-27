@@ -23,12 +23,12 @@ in
         kubernetes-helm
         minio-client
         talhelper
+        talosctl
       ])
       ++ (with pkgs.unstable; [
         kubecolor
         kubectl
         stern
-        talosctl
       ]);
 
     home.sessionVariables = {

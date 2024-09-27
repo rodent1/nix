@@ -57,4 +57,15 @@
     };
     date = "2024-05-24";
   };
+  talosctl = {
+    pname = "talosctl";
+    version = "v1.8.0";
+    src = fetchFromGitHub {
+      owner = "siderolabs";
+      repo = "talos";
+      rev = "v1.8.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-Ezie6RQsigmJgdvnSVk6awuUu2kODSio9DNg4bow76M=";
+    };
+  };
 }

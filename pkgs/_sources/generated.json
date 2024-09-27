@@ -98,5 +98,25 @@
             "type": "github"
         },
         "version": "1d4c2888f7de077e1a837a914a1824873d16762d"
+    },
+    "talosctl": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "talosctl",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "siderolabs",
+            "repo": "talos",
+            "rev": "v1.8.0",
+            "sha256": "sha256-Ezie6RQsigmJgdvnSVk6awuUu2kODSio9DNg4bow76M=",
+            "type": "github"
+        },
+        "version": "v1.8.0"
     }
 }
