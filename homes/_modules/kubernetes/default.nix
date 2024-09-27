@@ -49,16 +49,9 @@ in
       };
 
       fish = {
-        functions = {
-          k = {
-            description = "kubectl shorthand";
-            wraps = "kubectl";
-            body = builtins.readFile ./functions/k.fish;
-          };
-        };
-
         shellAliases = {
-          kc = "kubecm";
+          kubectl = "kubecolor";
+          k = "kubectl";
         };
       };
     };
