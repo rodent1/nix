@@ -13,6 +13,7 @@
     ./go-task
     ./nvim
     ./starship
+    ./tmux
     ./utilities
     ./zellij
     ./zoxide
