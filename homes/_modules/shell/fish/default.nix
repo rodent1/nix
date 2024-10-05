@@ -20,27 +20,20 @@ in
         enable = true;
         catppuccin.enable = true;
 
-        plugins =
-          [
-            {
-              name = "done";
-              src = pkgs.fishPlugins.done.src;
-            }
-            {
-              name = "puffer";
-              src = pkgs.fishPlugins.puffer.src;
-            }
-            {
-              name = "autopair";
-              src = pkgs.fishPlugins.autopair.src;
-            }
-          ]
-          ++ [
-            (lib.mkIf (config.programs.tmux.enable && !config.programs.zellij.enable) {
-              name = "tmux-fish";
-              src = pkgs.fish-plugins.tmux-fish.src;
-            })
-          ];
+        plugins = [
+          {
+            name = "done";
+            src = pkgs.fishPlugins.done.src;
+          }
+          {
+            name = "puffer";
+            src = pkgs.fishPlugins.puffer.src;
+          }
+          {
+            name = "autopair";
+            src = pkgs.fishPlugins.autopair.src;
+          }
+        ];
 
         interactiveShellInit = ''
           function remove_path
