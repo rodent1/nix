@@ -15,6 +15,7 @@ in
       nixfmt-rfc-style
       nix-init
       nix-inspect
+      nvfetcher
       nodePackages.prettier
       pre-commit
       shellcheck
