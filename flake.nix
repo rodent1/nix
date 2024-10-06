@@ -8,7 +8,7 @@
 
     # Catppuccin
     catppuccin = {
-      url = "github:catppuccin/nix/v1.0.2";
+      url = "github:catppuccin/nix";
     };
 
     # Home manager

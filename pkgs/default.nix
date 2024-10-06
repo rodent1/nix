@@ -14,6 +14,4 @@ in
   gh-tidy = callPackage ./gh-tidy.nix { };
   talhelper = inputs.talhelper.packages.${pkgs.system}.default;
   talosctl = pkgs.callPackage ./talosctl.nix { };
-  fish-plugins = pkgs.fishPlugins.callPackage ./fish-plugins.nix { };
-  tmux-plugins = callPackage ./tmux-plugins.nix { };
 }
