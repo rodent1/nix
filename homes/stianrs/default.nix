@@ -10,10 +10,6 @@
   nixpkgs.config.allowUnfree = true;
 
   modules = {
-    editor = {
-      nixvim.enable = true;
-    };
-
     security = {
       ssh = {
         enable = true;
@@ -46,9 +42,8 @@
         email = "mail@stianrs.dev";
         signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
       };
-      go-task.enable = true;
+      nvim.enable = true;
       tmux.enable = true;
-      zellij.enable = false;
     };
 
     services = {

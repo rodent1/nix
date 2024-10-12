@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.modules.editor.nixvim;
+  cfg = config.modules.shell.nvim;
   catppuccinCfg = config.modules.themes.catppuccin;
 in
 {
-  options.modules.editor.nixvim = {
+  options.modules.shell.nvim = {
     enable = lib.mkEnableOption "nixvim + jeezyvim";
   };
 
