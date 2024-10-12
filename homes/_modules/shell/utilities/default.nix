@@ -3,12 +3,13 @@
   config = {
     home.packages = with pkgs; [
       binutils
+      broot
       coreutils
       curl
       du-dust
       envsubst
+      fd
       findutils
-      fish
       gawk
       gnused
       gum

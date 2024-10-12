@@ -14,11 +14,13 @@
 
         os = {
           disabled = false;
-          symbols.Ubuntu = "";
-          symbols.Windows = "";
-          symbols.Macos = "";
-          symbols.Debian = "\uf306";
-          symbols.NixOS = "";
+          symbols = {
+            Ubuntu = "";
+            Windows = "";
+            Macos = "";
+            Debian = "\uf306";
+            NixOS = "";
+          };
           style = "bg:blue fg:base";
           format = "[ $symbol ]($style)";
         };

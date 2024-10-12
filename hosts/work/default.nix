@@ -41,8 +41,12 @@ in
       gid = 1000;
     };
 
-    modules.services.podman.enable = true;
-    modules.services.tailscale.enable = false;
+    modules = {
+      security._1password.enable = false;
+      services.podman.enable = true;
+      services.tailscale.enable = false;
+      system.openssh.enable = true;
+    };
   };
 
   # # Use the systemd-boot EFI boot loader.
