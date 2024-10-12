@@ -10,7 +10,6 @@
     ./fish
     ./gh
     ./git
-    ./go-task
     ./nvim
     ./starship
     ./tmux

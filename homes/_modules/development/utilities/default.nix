@@ -14,6 +14,7 @@ in
         # Development tools
         act
         deadnix
+        go-task
         nix-init
         nix-inspect
         nvfetcher
