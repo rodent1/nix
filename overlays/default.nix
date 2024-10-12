@@ -11,7 +11,7 @@
 
   # The unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through `pkgs.unstable`
-  unstable-packages = final: prev: {
+  unstable-packages = final: _prev: {
     unstable = import inputs.nixpkgs-unstable {
       inherit (final) system;
       config.allowUnfree = true;
@@ -21,7 +21,7 @@
     };
   };
 
-  nixpkgs-overlays = final: prev: {
+  nixpkgs-overlays = _final: _prev: {
     # Your own overlays for stable nixpkgs should be declared here
   };
 }
