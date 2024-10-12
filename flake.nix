@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # JeezyVim
+    jeezyvim = {
+      url = "github:LGUG2Z/JeezyVim";
+    };
+
     # Krewfile
     krewfile = {
       url = "github:brumhard/krewfile";
@@ -32,12 +37,6 @@
     # nix-darwin
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # NixVim
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

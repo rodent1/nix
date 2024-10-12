@@ -1,0 +1,1 @@
+error: collision between `/nix/store/sd9vjcz5x3z9kbia7kfs9cx1s11qslbg-nixvim-print-init/bin/nixvim-print-init' and `/nix/store/aphja7ji88wizvpq4x343milkayaalwf-nixvim/bin/nixvim-print-init'

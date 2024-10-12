@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   rust-overlay = inputs.rust-overlay.overlays.default;
+  jeezyvim = inputs.jeezyvim.overlays.default;
 
   additions =
     final: _prev:
