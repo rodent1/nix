@@ -7,7 +7,7 @@ in
     enable = lib.mkEnableOption "_1password";
   };
 
-  config = lib.mkIf (cfg.enable) {
+  config = lib.mkIf cfg.enable {
     programs._1password = {
       enable = true;
     };

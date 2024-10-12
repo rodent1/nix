@@ -23,15 +23,15 @@ in
         plugins = [
           {
             name = "done";
-            src = pkgs.fishPlugins.done.src;
+            inherit (pkgs.fishPlugins.done) src;
           }
           {
             name = "puffer";
-            src = pkgs.fishPlugins.puffer.src;
+            inherit (pkgs.fishPlugins.puffer) src;
           }
           {
             name = "autopair";
-            src = pkgs.fishPlugins.autopair.src;
+            inherit (pkgs.fishPlugins.autopair) src;
           }
         ];
 

@@ -19,11 +19,11 @@ in
 {
   options =
     let
-      mergeAttrsList = builtins.foldl' (lib.mergeAttrs) { };
+      mergeAttrsList = builtins.foldl' lib.mergeAttrs { };
 
       fileAttrsType = lib.types.attrsOf (
         lib.types.submodule (
-          { ... }:
+          _:
           {
             options.mutable = lib.mkOption {
               type = lib.types.bool;
@@ -79,6 +79,6 @@ in
           ''
           + lib.concatLines (map toCommand mutableFiles);
       in
-      (lib.hm.dag.entryAfter [ "linkGeneration" ] command);
+      lib.hm.dag.entryAfter [ "linkGeneration" ] command;
   };
 }

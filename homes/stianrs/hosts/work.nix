@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   modules = {
     development.enable = true;

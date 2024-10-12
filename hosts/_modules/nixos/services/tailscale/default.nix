@@ -12,7 +12,7 @@ in
     enable = lib.mkEnableOption "tailscale";
   };
 
-  config = lib.mkIf (cfg.enable) {
+  config = lib.mkIf cfg.enable {
     services.tailscale = {
       enable = true;
       package = pkgs.unstable.tailscale;

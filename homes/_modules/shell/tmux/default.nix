@@ -12,7 +12,7 @@ in
     enable = lib.mkEnableOption "tmux";
   };
 
-  config = lib.mkIf (cfg.enable) {
+  config = lib.mkIf cfg.enable {
     programs.tmux = {
       enable = true;
       catppuccin.enable = true;
