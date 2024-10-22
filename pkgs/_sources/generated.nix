@@ -3,13 +3,13 @@
 {
   catppuccin = {
     pname = "catppuccin";
-    version = "v1.0.3";
+    version = "v2.0.0";
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "tmux";
-      rev = "v1.0.3";
+      rev = "v2.0.0";
       fetchSubmodules = false;
-      sha256 = "sha256-p0xrk4WXNoVJfekA/L3cxIVrLqjFbBe2S/rc/6JXz6M=";
+      sha256 = "sha256-4SDbUYTgurXnW7YTzPDqe13scDF3Y+N8Trd3zGeWFwA=";
     };
   };
   gh-copilot-darwin-amd64 = {
@@ -81,14 +81,14 @@
   };
   tmux-fish = {
     pname = "tmux-fish";
-    version = "7e820cb45c6784df71cbaf6dca0d17e39a9d59d4";
+    version = "0e0fc8052c7523a96d3c12313a51ba9921c59406";
     src = fetchFromGitHub {
       owner = "budimanjojo";
       repo = "tmux.fish";
-      rev = "7e820cb45c6784df71cbaf6dca0d17e39a9d59d4";
+      rev = "0e0fc8052c7523a96d3c12313a51ba9921c59406";
       fetchSubmodules = false;
-      sha256 = "sha256-ynhEhrdXQfE1dcYsSk2M2BFScNXWPh3aws0U7eDFtv4=";
+      sha256 = "sha256-HBu0SSFejZRSMIAK+5J8Ao8EPj4hpkIuWkI3gSJCn5c=";
     };
-    date = "2024-10-14";
+    date = "2024-10-21";
   };
 }
