@@ -13,11 +13,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "tmux",
-            "rev": "v2.0.0",
-            "sha256": "sha256-4SDbUYTgurXnW7YTzPDqe13scDF3Y+N8Trd3zGeWFwA=",
+            "rev": "v2.1.0",
+            "sha256": "sha256-kWixGC3CJiFj+YXqHRMbeShC/Tl+1phhupYAIo9bivE=",
             "type": "github"
         },
-        "version": "v2.0.0"
+        "version": "v2.1.0"
     },
     "gh-copilot-darwin-amd64": {
         "cargoLocks": null,
