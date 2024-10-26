@@ -3,13 +3,13 @@
 {
   catppuccin = {
     pname = "catppuccin";
-    version = "v2.0.0";
+    version = "v2.1.0";
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "tmux";
-      rev = "v2.0.0";
+      rev = "v2.1.0";
       fetchSubmodules = false;
-      sha256 = "sha256-4SDbUYTgurXnW7YTzPDqe13scDF3Y+N8Trd3zGeWFwA=";
+      sha256 = "sha256-kWixGC3CJiFj+YXqHRMbeShC/Tl+1phhupYAIo9bivE=";
     };
   };
   gh-copilot-darwin-amd64 = {
