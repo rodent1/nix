@@ -12,6 +12,7 @@ in
   kubecolor-catppuccin = callPackage ./kubecolor-catppuccin.nix { };
   gh-copilot = callPackage ./gh-copilot.nix { };
   gh-tidy = callPackage ./gh-tidy.nix { };
+  minijinja = callPackage ./minijinja.nix { };
   talhelper = inputs.talhelper.packages.${pkgs.system}.default;
   talosctl = pkgs.callPackage ./talosctl.nix { };
 }

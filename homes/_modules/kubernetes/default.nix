@@ -21,6 +21,7 @@ in
         kubeconform
         kubecolor-catppuccin
         kubernetes-helm
+        minijinja
         minio-client
         talhelper
         talosctl

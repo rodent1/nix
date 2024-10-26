@@ -119,6 +119,26 @@
         },
         "version": "1d4c2888f7de077e1a837a914a1824873d16762d"
     },
+    "minijinja": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "minijinja",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mitsuhiko",
+            "repo": "minijinja",
+            "rev": "2.4.0",
+            "sha256": "sha256-8ZAc5ALhpPyFCCsC0f22fSZKRmevFLLFFC0drUuXxg4=",
+            "type": "github"
+        },
+        "version": "2.4.0"
+    },
     "talosctl": {
         "cargoLocks": null,
         "date": null,

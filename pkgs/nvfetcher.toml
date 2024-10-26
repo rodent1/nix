@@ -30,3 +30,6 @@ fetch.github = "budimanjojo/tmux.fish"
 [catppuccin]
 src.github = "catppuccin/tmux"
 fetch.github = "catppuccin/tmux"
+[minijinja]
+src.github = "mitsuhiko/minijinja"
+fetch.github = "mitsuhiko/minijinja"

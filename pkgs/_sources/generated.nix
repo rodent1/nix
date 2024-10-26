@@ -68,6 +68,17 @@
     };
     date = "2024-05-24";
   };
+  minijinja = {
+    pname = "minijinja";
+    version = "2.4.0";
+    src = fetchFromGitHub {
+      owner = "mitsuhiko";
+      repo = "minijinja";
+      rev = "2.4.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-8ZAc5ALhpPyFCCsC0f22fSZKRmevFLLFFC0drUuXxg4=";
+    };
+  };
   talosctl = {
     pname = "talosctl";
     version = "v1.8.1";
