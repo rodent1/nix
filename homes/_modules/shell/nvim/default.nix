@@ -24,12 +24,16 @@ in
 
         viAlias = true;
         vimAlias = true;
+        extraConfigLuaPost = lib.mkForce ''
+          vim.g.clipboard = "";
+        '';
       })
     ];
 
     # Set Neovim as the default app for man pages
     home.sessionVariables = {
       MANPAGER = "nvim +Man!";
+      KUBEEDITOR = "nvim";
     };
   };
 }
