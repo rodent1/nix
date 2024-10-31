@@ -14,7 +14,6 @@ in
         # Development tools
         act
         deadnix
-        go-task
         nix-init
         nix-inspect
         nvfetcher
@@ -28,6 +27,9 @@ in
         statix
         yamllint
       ])
-      ++ (with pkgs.unstable; [ nixd ]);
+      ++ (with pkgs.unstable; [
+        go-task
+        nixd
+      ]);
   };
 }
