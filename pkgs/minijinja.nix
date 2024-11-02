@@ -1,7 +1,6 @@
 {
   lib,
   rustPlatform,
-  fetchFromGitHub,
   pkgs,
 }:
 let
