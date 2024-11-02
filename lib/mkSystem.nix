@@ -27,7 +27,6 @@
             useGlobalPkgs = true;
             sharedModules = [
               inputs.krewfile.homeManagerModules.krewfile
-              inputs.nix-index-database.hmModules.nix-index
               inputs.catppuccin.homeManagerModules.catppuccin
               inputs.sops-nix.homeManagerModules.sops
             ];
@@ -73,7 +72,6 @@
             useGlobalPkgs = true;
             sharedModules = [
               inputs.krewfile.homeManagerModules.krewfile
-              inputs.nix-index-database.hmModules.nix-index
               inputs.catppuccin.homeManagerModules.catppuccin
               inputs.sops-nix.homeManagerModules.sops
             ];
@@ -119,7 +117,6 @@
             useGlobalPkgs = true;
             sharedModules = [
               inputs.krewfile.homeManagerModules.krewfile
-              inputs.nix-index-database.hmModules.nix-index
               inputs.catppuccin.homeManagerModules.catppuccin
               inputs.sops-nix.homeManagerModules.sops
             ];

@@ -16,10 +16,6 @@
 
     programs = {
       home-manager.enable = true;
-
-      nix-index.enable = true;
-      nix-index.enableFishIntegration = true;
-      nix-index-database.comma.enable = true;
     };
 
     xdg.enable = true;

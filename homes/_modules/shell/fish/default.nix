@@ -82,6 +82,8 @@ in
           };
         };
       };
+
+      programs.nix-index.enable = true;
     })
 
     (lib.mkIf (cfg.enable && isDarwin) {
