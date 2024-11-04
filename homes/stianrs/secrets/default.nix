@@ -17,6 +17,9 @@ in
         mc_config = {
           path = "${homeDirectory}/.mc/config.json";
         };
+        op_service_account_token = {
+          path = "${config.xdg.configHome}/op/token";
+        };
       };
     };
 

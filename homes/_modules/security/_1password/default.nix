@@ -13,12 +13,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.fish = {
-      functions.op = {
-        description = "1password cli";
-        body = builtins.readFile ./op.fish;
-      };
-    };
+    programs.fish.shellInit = ''
+      set -gx OP_SERVICE_ACCOUNT_TOKEN (cat ${config.sops.secrets.op_service_account_token.path})
+    '';
+
     home.packages = with pkgs.unstable; [ _1password-cli ];
   };
 }
