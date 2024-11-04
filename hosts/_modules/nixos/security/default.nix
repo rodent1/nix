@@ -1,4 +1,0 @@
-{ ... }:
-{
-  imports = [ ./_1password ];
-}

@@ -1,4 +1,3 @@
-{ ... }:
 {
   imports = [
     ./any-nix-shell

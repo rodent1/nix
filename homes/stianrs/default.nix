@@ -32,6 +32,10 @@
           };
         };
       };
+
+      _1password-cli = {
+        enable = true;
+      };
     };
 
     shell = {

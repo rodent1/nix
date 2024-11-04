@@ -1,4 +1,3 @@
-{ ... }:
 {
   imports = [
     ./locale.nix

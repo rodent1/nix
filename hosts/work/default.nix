@@ -42,7 +42,6 @@ in
     };
 
     modules = {
-      security._1password.enable = false;
       services.podman.enable = true;
       services.tailscale.enable = false;
       system.openssh.enable = true;

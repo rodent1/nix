@@ -17,10 +17,6 @@ in
         mc_config = {
           path = "${homeDirectory}/.mc/config.json";
         };
-
-        op_connect = {
-          sopsFile = ./secrets.sops.yaml;
-        };
       };
     };
 

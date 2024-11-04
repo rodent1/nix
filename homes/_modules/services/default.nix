@@ -1,4 +1,1 @@
-{ ... }:
-{
-  imports = [ ./ssh-relay ];
-}
+{ imports = [ ./ssh-relay ]; }
