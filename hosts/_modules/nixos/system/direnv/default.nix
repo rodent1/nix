@@ -1,13 +1,12 @@
-_:
-{
+_: {
   programs.direnv = {
     enable = true;
     silent = true;
     nix-direnv.enable = true;
-    direnvrcExtra = ''
+    # direnvrcExtra = ''
 
-      echo "✨ direnv loaded!"
+    #   echo "✨ direnv loaded!"
 
-    '';
+    # '';
   };
 }
