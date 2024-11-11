@@ -133,11 +133,11 @@
             "name": null,
             "owner": "mitsuhiko",
             "repo": "minijinja",
-            "rev": "2.4.0",
-            "sha256": "sha256-8ZAc5ALhpPyFCCsC0f22fSZKRmevFLLFFC0drUuXxg4=",
+            "rev": "2.5.0",
+            "sha256": "sha256-rRNikxSgr3isXkp/2oqPQ3JkugxuLgYlcT5c+4yIYBc=",
             "type": "github"
         },
-        "version": "2.4.0"
+        "version": "2.5.0"
     },
     "talosctl": {
         "cargoLocks": null,

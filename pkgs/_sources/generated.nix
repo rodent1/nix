@@ -70,13 +70,13 @@
   };
   minijinja = {
     pname = "minijinja";
-    version = "2.4.0";
+    version = "2.5.0";
     src = fetchFromGitHub {
       owner = "mitsuhiko";
       repo = "minijinja";
-      rev = "2.4.0";
+      rev = "2.5.0";
       fetchSubmodules = false;
-      sha256 = "sha256-8ZAc5ALhpPyFCCsC0f22fSZKRmevFLLFFC0drUuXxg4=";
+      sha256 = "sha256-rRNikxSgr3isXkp/2oqPQ3JkugxuLgYlcT5c+4yIYBc=";
     };
   };
   talosctl = {
