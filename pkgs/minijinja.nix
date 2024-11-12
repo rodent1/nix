@@ -10,7 +10,7 @@ in
 rustPlatform.buildRustPackage {
   inherit (packageData) pname src version;
 
-  cargoSha256 = "sha256-2aeRb5jNZbpzAgpne494BMr7rkDqZUJEpITtHbdmhxY=";
+  cargoSha256 = "sha256-ksdCvl8x6KfqNRnTeIKkL6nnr4d53wMv7pr2rupVkTI=";
 
   # https://github.com/mitsuhiko/minijinja/issues/402
   doCheck = false;
