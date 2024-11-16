@@ -57,6 +57,7 @@ in
       '';
     };
 
+    # Add TMUX autostart that works in WSL2
     programs.fish.shellInitLast = ''
       if status is-interactive
           # Skip tmux for VS Code and Vim terminal
