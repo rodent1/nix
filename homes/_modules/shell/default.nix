@@ -7,6 +7,7 @@
     ./doggo
     ./eza
     ./fish
+    ./fzf
     ./gh
     ./git
     ./nvim

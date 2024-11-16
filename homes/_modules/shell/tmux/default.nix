@@ -50,6 +50,7 @@ in
         # Make the status line pretty and add some modules
         set -g status-right-length 100
         set -g status-left-length 100
+        set -g status-left ""
         set -g status-right "#{E:@catppuccin_status_application}"
         set -ag status-right "#{E:@catppuccin_status_session}"
         set -ag status-right "#{E:@catppuccin_status_uptime}"
@@ -67,7 +68,7 @@ in
 
               # Start tmux if not already in a session
               if not set -q TMUX
-                  tmux new-session -A -s main
+                  tmux new-session -A -s Main
               end
           end
       end

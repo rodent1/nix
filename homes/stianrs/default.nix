@@ -39,13 +39,20 @@
     };
 
     shell = {
-      fish.enable = true;
+      fish = {
+        enable = true;
+        enableGreeting = true;
+        enableGhFunctions = true;
+      };
+
       git = {
         enable = true;
         username = "Stian R. Sporaland";
         email = "mail@stianrs.dev";
         signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
       };
+
+      fzf.enable = true;
       nvim.enable = true;
       tmux.enable = true;
     };

@@ -12,6 +12,10 @@ in
 {
   options.modules.shell.fish = {
     enable = lib.mkEnableOption "fish";
+    enableGreeting = lib.mkEnableOption "fish greeting" // {
+      default = true;
+    };
+    enableGhFunctions = lib.mkEnableOption "GitHub CLI helper functions";
   };
 
   config = lib.mkMerge [
@@ -63,24 +67,24 @@ in
           update_path ${homeDirectory}/.local/bin
         '';
 
-        functions = {
-          envsource = {
-            description = "Source a file with environment variables";
-            body = builtins.readFile ./functions/envsource.fish;
-          };
-          fish_greeting = {
-            description = "Set the fish greeting";
-            body = builtins.readFile ./functions/fish_greeting.fish;
-          };
-          ghce = {
-            description = "gh copilot explain";
-            body = builtins.readFile ./functions/ghce.fish;
-          };
-          ghcs = {
-            description = "gh copilot suggest";
-            body = builtins.readFile ./functions/ghcs.fish;
-          };
-        };
+        functions = lib.mkMerge [
+          (lib.mkIf cfg.enableGreeting {
+            fish_greeting = {
+              description = "Set the fish greeting";
+              body = builtins.readFile ./functions/fish_greeting.fish;
+            };
+          })
+          (lib.mkIf cfg.enableGhFunctions {
+            ghce = {
+              description = "gh copilot explain";
+              body = builtins.readFile ./functions/ghce.fish;
+            };
+            ghcs = {
+              description = "gh copilot suggest";
+              body = builtins.readFile ./functions/ghcs.fish;
+            };
+          })
+        ];
       };
 
       programs.nix-index.enable = true;
