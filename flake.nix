@@ -16,7 +16,7 @@
     # Home manager
     # https://github.com/nix-community/home-manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -30,6 +30,7 @@
     # https://github.com/LGUG2Z/JeezyVim
     jeezyvim = {
       url = "github:LGUG2Z/JeezyVim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Krewfile

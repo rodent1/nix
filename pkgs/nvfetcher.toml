@@ -24,9 +24,3 @@ fetch.github = "vkhitrin/kubecolor-catppuccin"
 [talosctl]
 src.github = "siderolabs/talos"
 fetch.github = "siderolabs/talos"
-[catppuccin]
-src.github = "catppuccin/tmux"
-fetch.github = "catppuccin/tmux"
-[minijinja]
-src.github = "mitsuhiko/minijinja"
-fetch.github = "mitsuhiko/minijinja"

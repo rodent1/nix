@@ -1,24 +1,4 @@
 {
-    "catppuccin": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "catppuccin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "catppuccin",
-            "repo": "tmux",
-            "rev": "v2.1.1",
-            "sha256": "sha256-9+SpgO2Co38I0XnEbRd7TSYamWZNjcVPw6RWJIHM+4c=",
-            "type": "github"
-        },
-        "version": "v2.1.1"
-    },
     "gh-copilot-darwin-amd64": {
         "cargoLocks": null,
         "date": null,
@@ -118,26 +98,6 @@
             "type": "github"
         },
         "version": "1d4c2888f7de077e1a837a914a1824873d16762d"
-    },
-    "minijinja": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "minijinja",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "mitsuhiko",
-            "repo": "minijinja",
-            "rev": "2.5.0",
-            "sha256": "sha256-rRNikxSgr3isXkp/2oqPQ3JkugxuLgYlcT5c+4yIYBc=",
-            "type": "github"
-        },
-        "version": "2.5.0"
     },
     "talosctl": {
         "cargoLocks": null,

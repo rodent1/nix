@@ -1,9 +1,8 @@
-_:
-{
+_: {
   config = {
     programs.eza = {
       enable = true;
-      icons = true;
+      icons = "auto";
       enableFishIntegration = false;
     };
 

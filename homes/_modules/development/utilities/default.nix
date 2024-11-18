@@ -9,13 +9,16 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages =
-      (with pkgs; [
+    home.packages = (
+      with pkgs;
+      [
         # Development tools
         act
         deadnix
+        go-task
         nix-init
         nix-inspect
+        nixd
         nvfetcher
         pre-commit
 
@@ -26,10 +29,7 @@ in
         shfmt
         statix
         yamllint
-      ])
-      ++ (with pkgs.unstable; [
-        go-task
-        nixd
-      ]);
+      ]
+    );
   };
 }

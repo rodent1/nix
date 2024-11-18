@@ -19,18 +19,16 @@ in
         fluxcd
         helmfile
         kubeconform
+        kubecolor
         kubecolor-catppuccin
         kubernetes-helm
         minijinja
         minio-client
+        stern
         talhelper
         talosctl
       ])
-      ++ (with pkgs.unstable; [
-        kubecolor
-        kubectl
-        stern
-      ]);
+      ++ (with pkgs.unstable; [ kubectl ]);
 
     home.sessionVariables = {
       KUBECOLOR_CONFIG = "${pkgs.kubecolor-catppuccin}/catppuccin-${catppuccinCfg.flavor}.yaml";
@@ -44,6 +42,7 @@ in
           "browse-pvc"
           "cnpg"
           "klock"
+          "resource-capacity"
           "node-shell"
           "rook-ceph"
         ];
