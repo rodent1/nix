@@ -14,13 +14,18 @@ in
       [
         # Development tools
         act
+        bun
         deadnix
-        go-task
+        go
+        go-tools
         nix-init
         nix-inspect
         nixd
+        nodejs
         nvfetcher
         pre-commit
+        python3
+        rust-bin.stable.latest.default # Rust-overlay stable
 
         # Formatting and linting
         nixfmt-rfc-style

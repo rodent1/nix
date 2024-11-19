@@ -12,6 +12,7 @@
       findutils
       gawk
       gnused
+      go-task
       gum
       httpie
       jo
