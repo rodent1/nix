@@ -57,6 +57,7 @@
     # https://github.com/oxalica/rust-overlay
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # sops-nix
@@ -70,6 +71,7 @@
     # https://github.com/budimanjojo/talhelper
     talhelper = {
       url = "github:budimanjojo/talhelper";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
