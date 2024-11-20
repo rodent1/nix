@@ -37,6 +37,7 @@ in
       systemFunction = inputs.nix-darwin.lib.darwinSystem;
       modules = [
         inputs.home-manager.darwinModules.home-manager
+        inputs.nixvim.nixDarwinModules.nixvim
         ../hosts/_modules/darwin
         ../hosts/${hostname}
       ];

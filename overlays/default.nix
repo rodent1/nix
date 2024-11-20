@@ -2,13 +2,18 @@
 let
   overlays = system: [
     inputs.rust-overlay.overlays.default
-    inputs.jeezyvim.overlays.default
+
     (final: prev: {
       unstable = import inputs.nixpkgs-unstable {
         inherit (final) system;
         config.allowUnfree = true;
       };
     })
+
+    (final: prev: {
+      # Packages from inputs
+    })
+
     (
       final: prev:
       import ../pkgs {

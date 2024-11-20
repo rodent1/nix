@@ -26,13 +26,6 @@
       url = "github:catppuccin/nix";
     };
 
-    # JeezyVim
-    # https://github.com/LGUG2Z/JeezyVim
-    jeezyvim = {
-      url = "github:LGUG2Z/JeezyVim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Krewfile
     # https://github.com/brumhard/krewfile
     krewfile = {
@@ -50,6 +43,13 @@
     # WSL
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # NixVim
+    # https://github.com/azuwis/lazyvim-nixvim
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

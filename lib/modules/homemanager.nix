@@ -21,6 +21,7 @@
         inputs.krewfile.homeManagerModules.krewfile
         inputs.catppuccin.homeManagerModules.catppuccin
         inputs.sops-nix.homeManagerModules.sops
+        inputs.nixvim.homeManagerModules.nixvim
       ];
       extraSpecialArgs = {
         inherit inputs hostname system;
