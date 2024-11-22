@@ -1,11 +1,12 @@
----
 name: Update nvfetcher
 
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "0 2 * * *" # Every night at 0200
+    - cron: 0 2 * * *
   push:
+    branches:
+      - main
     paths:
       - pkgs/nvfetcher.toml
 
@@ -13,44 +14,69 @@ jobs:
   update-nvfetcher:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - uses: cachix/install-nix-action@08dcb3a5e62fa31e2da3d490afc4176ef55ecd72 # v30
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-      - uses: workflow/nix-shell-action@v3.4.0
-        id: update_nvfetcher
-        with:
-          packages: nvfetcher
-          script: |
-            cd pkgs
-            echo "OUTPUT<<EOF" >> $GITHUB_OUTPUT
-            echo "$(nvfetcher | sed -n '/Changes/,/$!d/p')" >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
-      - name: Generate token
-        uses: tibdex/github-app-token@v2
-        id: generate-token
+          fetch-depth: 0
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v16
+      - name: Set up Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@v8
+
+      - name: Run nvfetcher
+        id: run-nvfetcher
+        run: |
+          cd pkgs
+          nix-shell -p nvfetcher --command 'nvfetcher -l /tmp/nvfetcher-changes'
+          {
+            echo 'changes<<EOF'
+            cat /tmp/nvfetcher-changes
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Update vendor hashes
+        id: update-vendorhash
+        run: |
+          setHash () {
+            jq --arg app "${1}" --arg hash "${2}" '.[$app] = $hash' pkgs/_sources/vendorhash.json > tmp.json
+            mv tmp.json pkgs/_sources/vendorhash.json
+          }
+
+          declare -a APP_NAMES
+          while read line; do
+            APP_NAMES+=("${line%:*}")
+          done < /tmp/nvfetcher-changes
+
+          for APP_NAME in "${APP_NAMES[@]}"; do
+            echo "Updating vendor hash for ${APP_NAME}..."
+            setHash "${APP_NAME}" ""
+            vendorHash=$(nix build --no-link .#${APP_NAME} 2>&1 >/dev/null | grep "got:" | cut -d':' -f2 | sed 's| ||g')
+
+            if [[ -n "${vendorHash}" ]]; then
+              setHash "${APP_NAME}" "${vendorHash}"
+              echo "Updated ${APP_NAME} with vendorHash: ${vendorHash}"
+            fi
+          done
+
+      - name: Generate Token
+        uses: actions/create-github-app-token@v1
+        id: app-token
         with:
           app_id: ${{ secrets.BOT_APP_ID }}
           private_key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+
       - name: Create Pull Request
-        id: cpr
+        id: create-pull-request
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ steps.generate-token.outputs.token }}
-          title: "chore(deps): update packages managed by nvfetcher"
-          commit-message: "chore(deps): update packages managed by nvfetcher"
-          delete-branch: true
-          labels: nvfetcher
-          committer: ro-bott <151924872+ro-bott[bot]@users.noreply.github.com>
-          author: ro-bott <151924872+ro-bott[bot]@users.noreply.github.com>
+          token: ${{ steps.app-token.outputs.token }}
+          branch: nvfetcher/deps
+          title: "chore(deps): Update packages managed by nvfetcher"
+          commit-message: "chore(deps): Update packages managed by nvfetcher"
           body: |
-            ${{ steps.update_nvfetcher.outputs.OUTPUT }}
-      - name: Automerge
-        if: steps.cpr.outputs.pull-request-operation == 'created'
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          token: ${{ steps.generate-token.outputs.token }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: squash
+            ## Changes:
+            ${{ steps.run-nvfetcher.outputs.changes }}
+          add-paths: |
+            pkgs/**
+          delete-branch: true
