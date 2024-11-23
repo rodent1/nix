@@ -18,6 +18,7 @@
       jo
       jq
       openssl
+      rustic
       tlrc
       wget
       yq-go

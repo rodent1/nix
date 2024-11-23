@@ -20,6 +20,9 @@ in
         op_service_account_token = {
           path = "${config.xdg.configHome}/op/token";
         };
+        rustic_config = {
+          path = "${homeDirectory}/.config/rustic/rustic.toml";
+        };
       };
     };
 
