@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  hostname,
+  lib,
+  ...
+}:
 let
   ageKeyFile = "${config.xdg.configHome}/age/keys.txt";
   inherit (config.home) homeDirectory;
@@ -20,7 +25,7 @@ in
         op_service_account_token = {
           path = "${config.xdg.configHome}/op/token";
         };
-        rustic_config = {
+        rustic_config = lib.mkIf (hostname == "gamer") {
           path = "${homeDirectory}/.config/rustic/rustic.toml";
         };
       };
