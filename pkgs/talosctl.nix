@@ -6,12 +6,13 @@
 }:
 let
   sourceData = pkgs.callPackage ./_sources/generated.nix { };
+  hashData = lib.importJSON ./_sources/vendorhash.json;
   packageData = sourceData.talosctl;
 in
 pkgs.unstable.buildGo123Module {
   inherit (packageData) pname src;
   version = lib.strings.removePrefix "v" packageData.version;
-  vendorHash = "sha256-/Xt/WZ+5ptxsiUkm6mplilB9gqv3mz+j7tyNikzJtkA=";
+  vendorHash = hashData.talosctl;
 
   ldflags = [
     "-s"
