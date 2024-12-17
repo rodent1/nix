@@ -47,10 +47,10 @@
     };
 
     # NixVim
-    # https://github.com/azuwis/lazyvim-nixvim
+    # https://github.com/nix-community/nixvim
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     };
 
     # Rust toolchain overlay

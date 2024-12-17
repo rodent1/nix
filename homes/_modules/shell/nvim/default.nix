@@ -27,6 +27,10 @@ in
         catppuccin.settings.flavour = catppuccinCfg.flavor;
       };
 
+      enableMan = false;
+      withPython3 = false;
+      withRuby = false;
+
       extraPackages = with pkgs; [
         # LazyVim
         lua-language-server
@@ -63,7 +67,6 @@ in
             nvim-cmp
             nvim-lint
             nvim-lspconfig
-            nvim-notify
             nvim-snippets
             nvim-treesitter
             nvim-treesitter-textobjects
@@ -109,7 +112,7 @@ in
             dev = {
               -- reuse files from pkgs.vimPlugins.*
               path = "${lazyPath}",
-              patterns = { "." },
+              patterns = { "" },
               -- fallback to download
               fallback = true,
             },
