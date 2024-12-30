@@ -1,10 +1,10 @@
-_:
-{
+_: {
   config = {
     programs.bat = {
       enable = true;
-      catppuccin.enable = true;
     };
+
+    catppuccin.bat.enable = true;
 
     programs.fish = {
       shellAliases = {

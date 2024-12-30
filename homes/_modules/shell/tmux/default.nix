@@ -15,7 +15,6 @@ in
   config = lib.mkIf cfg.enable {
     programs.tmux = {
       enable = true;
-      catppuccin.enable = true;
 
       prefix = "C-s";
       aggressiveResize = true;
@@ -36,10 +35,6 @@ in
           '';
         }
       ];
-
-      catppuccin.extraConfig = ''
-        set -g @catppuccin_window_status_style "rounded"
-      '';
 
       extraConfig = ''
         bind | split-window -h -c "#{pane_current_path}"
@@ -74,5 +69,12 @@ in
           end
       end
     '';
+
+    catppuccin.tmux = {
+      enable = true;
+      extraConfig = ''
+        set -g @catppuccin_window_status_style "rounded"
+      '';
+    };
   };
 }

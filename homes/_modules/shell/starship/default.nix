@@ -4,7 +4,6 @@
     programs.starship = {
       enable = true;
       package = pkgs.unstable.starship;
-      catppuccin.enable = true;
 
       settings = {
         format = ''
@@ -92,5 +91,6 @@
         };
       };
     };
+    catppuccin.starship.enable = true;
   };
 }
