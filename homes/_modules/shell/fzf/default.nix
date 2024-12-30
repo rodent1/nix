@@ -19,7 +19,6 @@ in
       enable = true;
       enableFishIntegration = true;
       tmux.enableShellIntegration = true;
-      catppuccin.enable = true;
 
       defaultOptions = [
         "--height 40%"
@@ -38,6 +37,8 @@ in
       changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d";
       changeDirWidgetOptions = [ "--preview '${pkgs.eza}/bin/eza --all --color=always {} | head 200'" ];
     };
+
+    catppuccin.fzf.enable = true;
 
     home.packages = with pkgs; [
       bat # For file preview

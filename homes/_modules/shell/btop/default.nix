@@ -1,10 +1,10 @@
-_:
-{
+_: {
   config = {
     programs.btop = {
       enable = true;
-      catppuccin.enable = true;
     };
+
+    catppuccin.btop.enable = true;
 
     programs.fish = {
       shellAliases = {

@@ -22,7 +22,6 @@ in
     (lib.mkIf cfg.enable {
       programs.fish = {
         enable = true;
-        catppuccin.enable = true;
 
         plugins = [
           {
@@ -87,6 +86,7 @@ in
         ];
       };
 
+      catppuccin.fish.enable = true;
       programs.nix-index.enable = true;
     })
 
