@@ -31,6 +31,8 @@ in
       backend = "podman";
     };
 
+    virtualisation.containers.registries.search = [ "docker.io" ];
+
     environment.systemPackages = with pkgs; [
       podman-tui
       podman-compose
