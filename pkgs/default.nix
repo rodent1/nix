@@ -9,4 +9,5 @@
   kubecolor-catppuccin = pkgs.callPackage ./kubecolor-catppuccin.nix { };
   talhelper = inputs.talhelper.packages.${system}.default;
   talosctl = pkgs.callPackage ./talosctl.nix { };
+  usage = pkgs.callPackage ./usage.nix { };
 }

@@ -68,4 +68,15 @@
       sha256 = "sha256-Qvt9/okT37J3ge/lb17OX4aaiXbSFU1j7drdiJDqFnA=";
     };
   };
+  usage = {
+    pname = "usage";
+    version = "v1.7.4";
+    src = fetchFromGitHub {
+      owner = "jdx";
+      repo = "usage";
+      rev = "v1.7.4";
+      fetchSubmodules = false;
+      sha256 = "sha256-+Wt/ZOwj9LHgt0EOFF554TGf2tZyuRoXAPpCebPZfNY=";
+    };
+  };
 }

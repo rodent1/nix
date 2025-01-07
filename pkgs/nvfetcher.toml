@@ -24,3 +24,6 @@ fetch.github = "vkhitrin/kubecolor-catppuccin"
 [talosctl]
 src.github = "siderolabs/talos"
 fetch.github = "siderolabs/talos"
+[usage]
+src.github = "jdx/usage"
+fetch.github = "jdx/usage"
