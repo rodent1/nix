@@ -10,6 +10,7 @@
     ./fzf
     ./gh
     ./git
+    ./mise
     ./nvim
     ./starship
     ./tmux

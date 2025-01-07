@@ -118,5 +118,25 @@
             "type": "github"
         },
         "version": "v1.9.1"
+    },
+    "usage": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "usage",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "jdx",
+            "repo": "usage",
+            "rev": "v1.7.4",
+            "sha256": "sha256-+Wt/ZOwj9LHgt0EOFF554TGf2tZyuRoXAPpCebPZfNY=",
+            "type": "github"
+        },
+        "version": "v1.7.4"
     }
 }

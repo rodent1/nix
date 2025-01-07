@@ -62,13 +62,13 @@ in
           "Thumbs.db"
           # asdf
           ".tool-versions"
-          # mise
-          ".mise.toml"
           # Sops
           ".decrypted~*"
           "*.decrypted.*"
           # Python virtualenvs
           ".venv"
+          # Direnv files
+          ".direnv"
         ];
         signing = {
           signByDefault = true;
