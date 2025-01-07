@@ -27,6 +27,7 @@ jobs:
       - name: Run nvfetcher
         id: run-nvfetcher
         run: |
+          export LANG=C.UTF-8
           cd pkgs
           nix-shell -p nvfetcher --command 'nvfetcher -l /tmp/nvfetcher-changes'
           {
