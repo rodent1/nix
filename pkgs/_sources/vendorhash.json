@@ -1,3 +1,7 @@
 {
-  "talosctl": "sha256-vZFXqU9tgnL8odBpOcvRig1KKVH20CM0ze0+pypaRKE="
+  "talosctl": "sha256-vZFXqU9tgnL8odBpOcvRig1KKVH20CM0ze0+pypaRKE=",
+  "gh-copilot-linux-amd64": "",
+  "gh-copilot-linux-arm64": "",
+  "gh-copilot-darwin-amd64": "",
+  "gh-copilot-darwin-arm64": ""
 }
