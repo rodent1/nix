@@ -18,10 +18,11 @@
             };
           };
         }
-        inputs.krewfile.homeManagerModules.krewfile
         inputs.catppuccin.homeManagerModules.catppuccin
-        inputs.sops-nix.homeManagerModules.sops
+        inputs.krewfile.homeManagerModules.krewfile
+        inputs.nix-index-database.hmModules.nix-index
         inputs.nixvim.homeManagerModules.nixvim
+        inputs.sops-nix.homeManagerModules.sops
       ];
       extraSpecialArgs = {
         inherit inputs hostname system;

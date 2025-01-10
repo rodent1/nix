@@ -87,7 +87,6 @@ in
       };
 
       catppuccin.fish.enable = true;
-      programs.nix-index.enable = true;
     })
 
     (lib.mkIf (cfg.enable && isDarwin) {

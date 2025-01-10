@@ -40,6 +40,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # nix-index-database
+    # https://github.com/nix-community/nix-index-database"
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # WSL
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";

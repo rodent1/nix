@@ -16,6 +16,8 @@
 
     programs = {
       home-manager.enable = true;
+      nix-index-database.comma.enable = true;
+      nix-index.enable = true;
     };
 
     xdg.enable = true;
