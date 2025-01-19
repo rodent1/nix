@@ -1,5 +1,6 @@
 {
   inputs,
+  mkPkgsWithSystem,
   ...
 }:
 let
@@ -16,6 +17,7 @@ in
     system: hostname:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
+      pkgs = mkPkgsWithSystem system;
       modules = [
         {
           nixpkgs.hostPlatform = system;
@@ -48,6 +50,7 @@ in
     system: hostname:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
+      pkgs = mkPkgsWithSystem system;
       modules = [
         {
           nixpkgs.hostPlatform = system;
@@ -82,6 +85,7 @@ in
     system: hostname:
     inputs.nix-darwin.lib.darwinSystem {
       inherit system;
+      pkgs = mkPkgsWithSystem system;
       modules = [
         {
           nixpkgs.hostPlatform = system;
