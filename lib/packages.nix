@@ -2,13 +2,11 @@
 {
   perSystem =
     { system, ... }:
-    {
-      _module.args.pkgs = import inputs.nixpkgs {
-        # Configure pkgs
+    let
+      # Import pkgs with overlays and configurations applied
+      pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
-
-        # Add overlays
         overlays = [
           # Add overlays from inputs
           inputs.rust-overlay.overlays.default
@@ -25,16 +23,21 @@
           (final: prev: {
             talhelper = inputs.talhelper.packages.${system}.default;
           })
-
-          # Add the packages from this flake to pkgs
-          (
-            final: prev:
-            import ../pkgs {
-              inherit inputs system;
-              pkgs = final;
-            }
-          )
         ];
       };
+
+      # Import custom packages
+      customPkgs = import ../pkgs {
+        inherit inputs system;
+        pkgs = pkgs;
+      };
+
+    in
+    {
+      # Reference the single imported instance of ../pkgs
+      packages = customPkgs;
+
+      # Extend the pkgs attribute set with custom packages
+      _module.args.pkgs = pkgs.extend (final: prev: customPkgs);
     };
 }
