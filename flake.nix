@@ -84,6 +84,9 @@
 
   outputs =
     inputs@{ flake-parts, ... }:
+    let
+      mkSystemLib = import ./lib/mkSystem.nix { inherit inputs; };
+    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./lib/packages.nix
@@ -96,9 +99,11 @@
       ];
 
       flake = {
-        # The usual flake attributes can be defined here, including system-
-        # agnostic ones like nixosModule and system-enumerating ones, although
-        # those are more easily expressed in perSystem.
+        nixosConfigurations = {
+          laptop = mkSystemLib.mkWslSystem "x86_64-linux" "laptop";
+          gamer = mkSystemLib.mkWslSystem "x86_64-linux" "gamer";
+          work = mkSystemLib.mkWslSystem "x86_64-linux" "work";
+        };
       };
     };
 }
