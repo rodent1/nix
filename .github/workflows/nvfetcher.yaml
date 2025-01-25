@@ -3,7 +3,7 @@ name: Update nvfetcher
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: 0 2 * * *
+    - cron: 0 3 * * *
   push:
     branches:
       - main
@@ -30,7 +30,7 @@ jobs:
           export LANG=en_US.UTF-8
           export LC_ALL=en_US.UTF-8
           cd pkgs
-          nix-shell -p nvfetcher --command 'nvfetcher -l /tmp/nvfetcher-changes'
+          nix-shell -p nvfetcher --command 'nvfetcher -l /tmp/nvfetcher-changes --keep-old'
           {
             echo 'changes<<EOF'
             cat /tmp/nvfetcher-changes
