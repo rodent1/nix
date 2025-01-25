@@ -75,6 +75,7 @@
             "repo": "gh-tidy",
             "rev": "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da",
             "sha256": "sha256-TKQlLnOAozaDkqC7tNlR7KMSqk17sjCe/RTpATBbZlk=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da"
@@ -95,6 +96,7 @@
             "repo": "kubecolor-catppuccin",
             "rev": "1d4c2888f7de077e1a837a914a1824873d16762d",
             "sha256": "sha256-gTneUh6yMcH6dVKrH00G61a+apasu9tiMyYjvNdOiOw=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "1d4c2888f7de077e1a837a914a1824873d16762d"
@@ -115,6 +117,7 @@
             "repo": "talos",
             "rev": "v1.9.2",
             "sha256": "sha256-Cff++tGfKcpTaiBVTRZnNzExAHlq4UfkeiIDe3gOF3w=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v1.9.2"
@@ -135,6 +138,7 @@
             "repo": "usage",
             "rev": "v2.0.3",
             "sha256": "sha256-bS8wMtmD7UPctP+8yDm8KylLIPzPuk6dt9ilWQzFvY0=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v2.0.3"
