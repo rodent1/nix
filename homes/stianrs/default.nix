@@ -59,6 +59,7 @@
 
       fzf.enable = true;
       nvim.enable = true;
+      nvim.isMaximal = true;
       tmux.enable = true;
     };
 

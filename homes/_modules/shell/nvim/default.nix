@@ -7,131 +7,284 @@
 let
   cfg = config.modules.shell.nvim;
   catppuccinCfg = config.modules.themes.catppuccin;
+  isMaximal = cfg.isMaximal;
 in
 {
   options.modules.shell.nvim = {
-    enable = lib.mkEnableOption "nixvim";
+    enable = lib.mkEnableOption "nvf";
+    isMaximal = lib.mkEnableOption {
+      name = "isMaximal";
+      default = false;
+      description = "Enable maximal configuration for Neovim";
+    };
   };
 
   config = lib.mkIf cfg.enable {
-    # Based on https://github.com/azuwis/lazyvim-nixvim
 
-    programs.nixvim = {
+    programs.nvf = {
       enable = true;
 
-      viAlias = true;
-      vimAlias = true;
+      settings.vim = {
+        viAlias = true;
+        vimAlias = true;
+        debugMode = {
+          enable = false;
+          level = 16;
+          logFile = "/tmp/nvim.log";
+        };
 
-      colorschemes = {
-        catppuccin.enable = true;
-        catppuccin.settings.flavour = catppuccinCfg.flavor;
+        spellcheck = {
+          enable = true;
+        };
+
+        lsp = {
+          formatOnSave = true;
+          lspkind.enable = false;
+          lightbulb.enable = true;
+          lspsaga.enable = false;
+          trouble.enable = true;
+          lspSignature.enable = true;
+          otter-nvim.enable = isMaximal;
+          lsplines.enable = isMaximal;
+          nvim-docs-view.enable = isMaximal;
+        };
+
+        debugger = {
+          nvim-dap = {
+            enable = true;
+            ui.enable = true;
+          };
+        };
+
+        # This section does not include a comprehensive list of available language modules.
+        # To list all available language module options, please visit the nvf manual.
+        languages = {
+          enableLSP = true;
+          enableFormat = true;
+          enableTreesitter = true;
+          enableExtraDiagnostics = true;
+
+          # Languages that will be supported in default and maximal configurations.
+          nix.enable = true;
+          markdown.enable = true;
+
+          # Languages that are enabled in the maximal configuration.
+          bash.enable = isMaximal;
+          clang.enable = isMaximal;
+          css.enable = isMaximal;
+          html.enable = isMaximal;
+          sql.enable = isMaximal;
+          java.enable = isMaximal;
+          kotlin.enable = isMaximal;
+          ts.enable = isMaximal;
+          go.enable = isMaximal;
+          lua.enable = isMaximal;
+          zig.enable = isMaximal;
+          python.enable = isMaximal;
+          typst.enable = isMaximal;
+          rust = {
+            enable = isMaximal;
+            crates.enable = isMaximal;
+          };
+
+          # Language modules that are not as common.
+          assembly.enable = false;
+          astro.enable = false;
+          nu.enable = false;
+          csharp.enable = false;
+          julia.enable = false;
+          vala.enable = false;
+          scala.enable = false;
+          r.enable = false;
+          gleam.enable = false;
+          dart.enable = false;
+          ocaml.enable = false;
+          elixir.enable = false;
+          haskell.enable = false;
+          ruby.enable = false;
+
+          tailwind.enable = false;
+          svelte.enable = false;
+
+          # Nim LSP is broken on Darwin and therefore
+          # should be disabled by default. Users may still enable
+          # `vim.languages.vim` to enable it, this does not restrict
+          # that.
+          # See: <https://github.com/PMunch/nimlsp/issues/178#issue-2128106096>
+          nim.enable = false;
+        };
+
+        visuals = {
+          nvim-scrollbar.enable = isMaximal;
+          nvim-web-devicons.enable = true;
+          nvim-cursorline.enable = true;
+          cinnamon-nvim.enable = true;
+          fidget-nvim.enable = true;
+
+          highlight-undo.enable = true;
+          indent-blankline.enable = true;
+
+          # Fun
+          cellular-automaton.enable = false;
+        };
+
+        statusline = {
+          lualine = {
+            enable = true;
+            theme = "catppuccin";
+          };
+        };
+
+        theme = {
+          enable = true;
+          name = "catppuccin";
+          style = catppuccinCfg.flavor;
+          transparent = false;
+        };
+
+        autopairs.nvim-autopairs.enable = true;
+
+        autocomplete.nvim-cmp.enable = true;
+        snippets.luasnip.enable = true;
+
+        filetree = {
+          neo-tree = {
+            enable = true;
+          };
+        };
+
+        tabline = {
+          nvimBufferline.enable = true;
+        };
+
+        treesitter.context.enable = true;
+
+        binds = {
+          whichKey.enable = true;
+          cheatsheet.enable = true;
+        };
+
+        telescope.enable = true;
+
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+          gitsigns.codeActions.enable = false; # throws an annoying debug message
+        };
+
+        minimap = {
+          minimap-vim.enable = false;
+          codewindow.enable = isMaximal; # lighter, faster, and uses lua for configuration
+        };
+
+        dashboard = {
+          dashboard-nvim.enable = false;
+          alpha.enable = isMaximal;
+        };
+
+        notify = {
+          nvim-notify.enable = true;
+        };
+
+        projects = {
+          project-nvim.enable = isMaximal;
+        };
+
+        utility = {
+          ccc.enable = false;
+          vim-wakatime.enable = false;
+          icon-picker.enable = isMaximal;
+          surround.enable = isMaximal;
+          diffview-nvim.enable = true;
+          yanky-nvim.enable = false;
+          motion = {
+            hop.enable = true;
+            leap.enable = true;
+            precognition.enable = isMaximal;
+          };
+
+          images = {
+            image-nvim.enable = false;
+          };
+        };
+
+        notes = {
+          obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
+          neorg.enable = false;
+          orgmode.enable = false;
+          mind-nvim.enable = isMaximal;
+          todo-comments.enable = true;
+        };
+
+        terminal = {
+          toggleterm = {
+            enable = true;
+            lazygit.enable = true;
+          };
+        };
+
+        ui = {
+          borders.enable = true;
+          noice.enable = true;
+          colorizer.enable = true;
+          modes-nvim.enable = false; # the theme looks terrible with catppuccin
+          illuminate.enable = true;
+          breadcrumbs = {
+            enable = isMaximal;
+            navbuddy.enable = isMaximal;
+          };
+          smartcolumn = {
+            enable = true;
+            setupOpts.custom_colorcolumn = {
+              # this is a freeform module, it's `buftype = int;` for configuring column position
+              nix = "110";
+              ruby = "120";
+              java = "130";
+              go = [
+                "90"
+                "130"
+              ];
+            };
+          };
+          fastaction.enable = true;
+        };
+
+        assistant = {
+          chatgpt.enable = false;
+          copilot = {
+            enable = false;
+            cmp.enable = isMaximal;
+          };
+        };
+
+        session = {
+          nvim-session-manager.enable = false;
+        };
+
+        gestures = {
+          gesture-nvim.enable = false;
+        };
+
+        comments = {
+          comment-nvim.enable = true;
+        };
+
+        presence = {
+          neocord.enable = false;
+        };
+
+        mini.icons.enable = true;
+        mini.ai.enable = true;
+
       };
 
-      enableMan = false;
-      withPython3 = false;
-      withRuby = false;
-
-      extraPackages = with pkgs; [
-        # LazyVim
-        lua-language-server
-        stylua
-        # Telescope
-        ripgrep
-      ];
-
-      extraPlugins = [ pkgs.vimPlugins.lazy-nvim ];
-
-      extraConfigLua =
-        let
-          plugins = with pkgs.vimPlugins; [
-            # LazyVim
-            LazyVim
-            bufferline-nvim
-            cmp-buffer
-            cmp-nvim-lsp
-            cmp-path
-            conform-nvim
-            dashboard-nvim
-            dressing-nvim
-            flash-nvim
-            friendly-snippets
-            gitsigns-nvim
-            grug-far-nvim
-            indent-blankline-nvim
-            lazydev-nvim
-            lualine-nvim
-            luvit-meta
-            neo-tree-nvim
-            noice-nvim
-            nui-nvim
-            nvim-cmp
-            nvim-lint
-            nvim-lspconfig
-            nvim-snippets
-            nvim-treesitter
-            nvim-treesitter-textobjects
-            nvim-ts-autotag
-            persistence-nvim
-            plenary-nvim
-            snacks-nvim
-            telescope-fzf-native-nvim
-            telescope-nvim
-            todo-comments-nvim
-            trouble-nvim
-            ts-comments-nvim
-            which-key-nvim
-            {
-              name = "mini.ai";
-              path = mini-nvim;
-            }
-            {
-              name = "mini.icons";
-              path = mini-nvim;
-            }
-            {
-              name = "mini.pairs";
-              path = mini-nvim;
-            }
-          ];
-          mkEntryFromDrv =
-            drv:
-            if lib.isDerivation drv then
-              {
-                name = "${lib.getName drv}";
-                path = drv;
-              }
-            else
-              drv;
-          lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
-        in
-        ''
-          require("lazy").setup({
-            defaults = {
-              lazy = true,
-            },
-            dev = {
-              -- reuse files from pkgs.vimPlugins.*
-              path = "${lazyPath}",
-              patterns = { "" },
-              -- fallback to download
-              fallback = true,
-            },
-            spec = {
-              { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-              -- The following configs are needed for fixing lazyvim on nix
-              -- force enable telescope-fzf-native.nvim
-              { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
-              -- disable mason.nvim, use config.extraPackages
-              { "williamboman/mason-lspconfig.nvim", enabled = false },
-              { "williamboman/mason.nvim", enabled = false },
-              -- use catppuccin colorscheme
-              { "LazyVim/LazyVim", opts = { colorscheme = "catppuccin" } },
-              -- put this line at the end of spec to clear ensure_installed
-              { "nvim-treesitter/nvim-treesitter", opts = function(_, opts) opts.ensure_installed = {} end },
-            },
-          })
-        '';
     };
+
+    home.packages = with pkgs; [
+      gcc
+      ripgrep
+      tree-sitter
+    ];
 
     # Set Neovim as the default app for man pages
     home.sessionVariables = {

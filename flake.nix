@@ -10,7 +10,6 @@
     # https://github.com/hercules-ci/flake-parts
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     # Home manager
@@ -24,6 +23,7 @@
     # https://github.com/catppuccin/nix
     catppuccin = {
       url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Krewfile
@@ -53,11 +53,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # NixVim
-    # https://github.com/nix-community/nixvim
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    # nvf
+    #
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
     # Rust toolchain overlay
@@ -79,6 +80,7 @@
     talhelper = {
       url = "github:budimanjojo/talhelper";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
   };
 

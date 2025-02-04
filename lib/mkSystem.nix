@@ -8,8 +8,8 @@ let
     inputs.catppuccin.homeManagerModules.catppuccin
     inputs.krewfile.homeManagerModules.krewfile
     inputs.nix-index-database.hmModules.nix-index
-    inputs.nixvim.homeManagerModules.nixvim
     inputs.sops-nix.homeManagerModules.sops
+    inputs.nvf.homeManagerModules.default
   ];
 in
 {
