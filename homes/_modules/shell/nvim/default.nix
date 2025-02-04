@@ -282,6 +282,7 @@ in
 
     home.packages = with pkgs; [
       gcc
+      lldb
       ripgrep
       tree-sitter
     ];
