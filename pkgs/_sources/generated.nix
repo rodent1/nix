@@ -3,34 +3,34 @@
 {
   gh-copilot-darwin-amd64 = {
     pname = "gh-copilot-darwin-amd64";
-    version = "1.0.6";
+    version = "1.1.0";
     src = fetchurl {
-      url = "https://github.com/github/gh-copilot/releases/download/v1.0.6/darwin-amd64";
-      sha256 = "sha256-I4EG6T//+YFLOlQMpW1ERpBzR/882lXMPqpO7em/QJY=";
+      url = "https://github.com/github/gh-copilot/releases/download/v1.1.0/darwin-amd64";
+      sha256 = "sha256-1tN734huSBzke8j8H/dyFS90LsWGFuGtLdYdrLbGeOs=";
     };
   };
   gh-copilot-darwin-arm64 = {
     pname = "gh-copilot-darwin-arm64";
-    version = "1.0.6";
+    version = "1.1.0";
     src = fetchurl {
-      url = "https://github.com/github/gh-copilot/releases/download/v1.0.6/darwin-arm64";
-      sha256 = "sha256-QtHCvTgfrQilIbd3S3/zkyBLccukGfFckCrZPCIMNMg=";
+      url = "https://github.com/github/gh-copilot/releases/download/v1.1.0/darwin-arm64";
+      sha256 = "sha256-lGhgND1E4jWZmoAaPXcxNlew9eqWOrMHAYVnpFnqeio=";
     };
   };
   gh-copilot-linux-amd64 = {
     pname = "gh-copilot-linux-amd64";
-    version = "1.0.6";
+    version = "1.1.0";
     src = fetchurl {
-      url = "https://github.com/github/gh-copilot/releases/download/v1.0.6/linux-amd64";
-      sha256 = "sha256-HDyPQ7/suk6LA6mchwE+LHcO1+9aB7o+60lX6OKFLGQ=";
+      url = "https://github.com/github/gh-copilot/releases/download/v1.1.0/linux-amd64";
+      sha256 = "sha256-KIiwIv0VzJf0GVkuDsevEah48hv4VybLuBhy4dJvggo=";
     };
   };
   gh-copilot-linux-arm64 = {
     pname = "gh-copilot-linux-arm64";
-    version = "1.0.6";
+    version = "1.1.0";
     src = fetchurl {
-      url = "https://github.com/github/gh-copilot/releases/download/v1.0.6/linux-arm64";
-      sha256 = "sha256-IfAfduUMAQ53oi2ZgRxc825oMyX6PvATkQpvxmFjMHo=";
+      url = "https://github.com/github/gh-copilot/releases/download/v1.1.0/linux-arm64";
+      sha256 = "sha256-hNXDIB7r3Hdo7g2pPZKAYYrOaBJmAq7UKc+ZnRnVeoA=";
     };
   };
   gh-tidy = {
