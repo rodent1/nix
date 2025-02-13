@@ -9,19 +9,17 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages = (
-      with pkgs;
-      [
+    home.packages =
+      (with pkgs; [
         # Development tools
         act
-        bun
         deadnix
         go
         go-tools
         nix-init
         nix-inspect
         nixd
-        nodejs
+        nodejs_22
         nvfetcher
         pre-commit
         python3
@@ -34,7 +32,7 @@ in
         shfmt
         statix
         yamllint
-      ]
-    );
+      ])
+      ++ (with pkgs.unstable; [ bun ]);
   };
 }
