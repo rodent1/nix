@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "blink-cmp": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1739129359,
-        "narHash": "sha256-nUrXXiJ7NRxS21H53U323lwEKdo08Y011l8XskXC/vw=",
-        "owner": "saghen",
-        "repo": "blink.cmp",
-        "rev": "b2485c76cb7877de6fe9c8670af59ba3d72fd74d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "saghen",
-        "repo": "blink.cmp",
-        "type": "github"
-      }
-    },
     "catppuccin": {
       "inputs": {
         "nixpkgs": [
@@ -313,7 +297,6 @@
     },
     "nvf": {
       "inputs": {
-        "blink-cmp": "blink-cmp",
         "flake-parts": [
           "flake-parts"
         ],
@@ -327,11 +310,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1739300609,
-        "narHash": "sha256-3UrvMpaT82sXPAZNnyNClTfAKF8r8j+IbVR1w3aC/+Y=",
+        "lastModified": 1739361262,
+        "narHash": "sha256-wJkh9T6lqiLlo5de27FABu3P4wIZgfRwQUpLrLE7WRU=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "14d25e4153781cdac2cbe0c7415e1bd445c2008e",
+        "rev": "6e7e91fc111218917d67b9ee44f718633bddac33",
         "type": "github"
       },
       "original": {
@@ -386,11 +369,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1739240901,
-        "narHash": "sha256-YDtl/9w71m5WcZvbEroYoWrjECDhzJZLZ8E68S3BYok=",
+        "lastModified": 1739327257,
+        "narHash": "sha256-rlGK8wxz/e50Z+PQRzuP+m03IrGkhcPGmgkBnkEZ9C8=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "03473e2af8a4b490f4d2cdb2e4d3b75f82c8197c",
+        "rev": "e01f2c035b7b8a428c119b183f4cbc55f2eef07c",
         "type": "github"
       },
       "original": {
@@ -474,11 +457,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1739322855,
-        "narHash": "sha256-h3L/vPgLm+onjkwxkcKQCABBE7l4Y+CibJaAVRgSyW4=",
+        "lastModified": 1739409281,
+        "narHash": "sha256-b4V4JZvSWTe7drOUzzIPUlN6Dgi/s1qOZy9K9/oKI1E=",
         "owner": "budimanjojo",
         "repo": "talhelper",
-        "rev": "3b6d0969d5528c1c1cf6b64de25c92d3a03b579d",
+        "rev": "fe4e05ffaddc82f2f6cf6ba9198aef6ab3ddc272",
         "type": "github"
       },
       "original": {
