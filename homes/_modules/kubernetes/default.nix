@@ -17,6 +17,7 @@ in
     home.packages =
       (with pkgs; [
         fluxcd
+        gum
         helmfile
         kubeconform
         kubecolor
