@@ -1,6 +1,5 @@
 {
   inputs,
-  system,
   ...
 }:
 {
@@ -25,7 +24,7 @@
 
   # Your own overlays for stable nixpkgs should be declared here
   nixpkgs-overlays = final: prev: {
-    talhelper = inputs.talhelper.packages.${system}.default;
+    # talhelper = inputs.talhelper.packages.${system}.default;
   };
 
   # Overlays from inputs

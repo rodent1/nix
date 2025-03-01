@@ -26,7 +26,6 @@ in
         minijinja
         minio-client
         stern
-        talhelper
         talosctl
       ])
       ++ (with pkgs.unstable; [

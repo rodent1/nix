@@ -74,14 +74,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Talhelper
-    # https://github.com/budimanjojo/talhelper
-    talhelper = {
-      url = "github:budimanjojo/talhelper";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
   };
 
   outputs =
