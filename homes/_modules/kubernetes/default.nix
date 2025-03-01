@@ -23,6 +23,7 @@ in
         kubecolor
         kubecolor-catppuccin
         kubernetes-helm
+        kustomize
         minijinja
         minio-client
         stern
