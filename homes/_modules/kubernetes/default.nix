@@ -18,7 +18,6 @@ in
       (with pkgs; [
         fluxcd
         gum
-        helmfile
         kubeconform
         kubecolor
         kubecolor-catppuccin
@@ -30,7 +29,10 @@ in
         talhelper
         talosctl
       ])
-      ++ (with pkgs.unstable; [ kubectl ]);
+      ++ (with pkgs.unstable; [
+        kubectl
+        helmfile
+      ]);
 
     home.sessionVariables = {
       KUBECOLOR_CONFIG = "${pkgs.kubecolor-catppuccin}/catppuccin-${catppuccinCfg.flavor}.yaml";
