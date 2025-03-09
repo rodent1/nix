@@ -51,7 +51,7 @@ in
           co = "checkout";
           d = "diff";
           l = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-          pl = "pull --rebase --autostash";
+          pl = "pull --rebase --autostash --prune";
           rpo = "remote prune origin";
           s = "status -sb";
         };
