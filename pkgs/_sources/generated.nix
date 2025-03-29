@@ -70,13 +70,13 @@
   };
   usage = {
     pname = "usage";
-    version = "v2.0.6";
+    version = "v2.0.7";
     src = fetchFromGitHub {
       owner = "jdx";
       repo = "usage";
-      rev = "v2.0.6";
+      rev = "v2.0.7";
       fetchSubmodules = false;
-      sha256 = "sha256-QPEKB4lyYQsf6z7v1eYW11laa5j+BBnwnJC/t83GM0A=";
+      sha256 = "sha256-un1HFT3hdQa7J0jkybzoanWq0Ijo1vyfINCrz/t1siA=";
     };
   };
 }
