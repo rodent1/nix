@@ -5,7 +5,7 @@
 }:
 let
   sharedModules = [
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     inputs.krewfile.homeManagerModules.krewfile
     inputs.nix-index-database.hmModules.nix-index
     inputs.sops-nix.homeManagerModules.sops

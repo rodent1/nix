@@ -25,7 +25,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = [
       cfg.package
-      pkgs.usage
+      pkgs.unstable.usage
     ];
 
     home.activation.miseInstall = ''
