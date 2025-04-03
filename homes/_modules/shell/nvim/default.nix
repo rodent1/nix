@@ -7,7 +7,7 @@
 let
   cfg = config.modules.shell.nvim;
   catppuccinCfg = config.modules.themes.catppuccin;
-  isMaximal = cfg.isMaximal;
+  inherit (cfg) isMaximal;
 in
 {
   options.modules.shell.nvim = {
