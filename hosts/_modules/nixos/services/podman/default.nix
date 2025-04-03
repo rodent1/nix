@@ -13,25 +13,28 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    virtualisation.podman = {
-      enable = true;
+    virtualisation = {
+      podman = {
+        enable = true;
 
-      dockerCompat = true;
+        dockerCompat = true;
 
-      # regular cleanup
-      autoPrune.enable = true;
-      autoPrune.dates = "weekly";
+        # regular cleanup
+        autoPrune.enable = true;
+        autoPrune.dates = "weekly";
 
-      # and add dns
-      defaultNetwork.settings = {
-        dns_enabled = true;
+        # and add dns
+        defaultNetwork.settings = {
+          dns_enabled = true;
+        };
       };
-    };
-    virtualisation.oci-containers = {
-      backend = "podman";
-    };
 
-    virtualisation.containers.registries.search = [ "docker.io" ];
+      oci-containers = {
+        backend = "podman";
+      };
+
+      containers.registries.search = [ "docker.io" ];
+    };
 
     environment.systemPackages = with pkgs; [
       podman-tui
