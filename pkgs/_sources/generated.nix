@@ -68,15 +68,4 @@
       sha256 = "sha256-2YKZfW62yOA8uV3bn6at/9YV3OHjiMuqA1SUupyAAx4=";
     };
   };
-  usage = {
-    pname = "usage";
-    version = "v2.0.6";
-    src = fetchFromGitHub {
-      owner = "jdx";
-      repo = "usage";
-      rev = "v2.0.6";
-      fetchSubmodules = false;
-      sha256 = "sha256-QPEKB4lyYQsf6z7v1eYW11laa5j+BBnwnJC/t83GM0A=";
-    };
-  };
 }
