@@ -33,6 +33,9 @@ in
         statix
         yamllint
       ])
-      ++ (with pkgs.unstable; [ bun ]);
+      ++ (with pkgs.unstable; [
+        bun
+        pnpm
+      ]);
   };
 }
