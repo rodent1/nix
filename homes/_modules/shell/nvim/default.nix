@@ -45,7 +45,6 @@ in
           trouble.enable = true;
           lspSignature.enable = true;
           otter-nvim.enable = isMaximal;
-          lsplines.enable = isMaximal;
           nvim-docs-view.enable = isMaximal;
         };
 
