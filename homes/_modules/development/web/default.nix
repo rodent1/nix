@@ -15,6 +15,7 @@ in
       nodejs_23
       nodePackages.prettier
       pnpm_10
+      turbo
     ];
 
   };
