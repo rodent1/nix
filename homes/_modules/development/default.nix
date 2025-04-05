@@ -1,6 +1,13 @@
 { lib, ... }:
 {
-  imports = [ ./utilities ];
+  imports = [
+    ./go
+    ./nix
+    ./python
+    ./rust
+    ./utilities
+    ./web
+  ];
 
   options.modules.development = {
     enable = lib.mkEnableOption "development";
