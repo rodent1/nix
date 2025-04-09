@@ -12,6 +12,11 @@ in
 {
   options.modules.shell.fish = {
     enable = lib.mkEnableOption "fish";
+    package = lib.mkOption {
+      type = lib.types.package;
+      default = pkgs.fish;
+      description = "The fish shell package to use.";
+    };
     enableGreeting = lib.mkEnableOption "fish greeting" // {
       default = true;
     };
@@ -22,6 +27,9 @@ in
     (lib.mkIf cfg.enable {
       programs.fish = {
         enable = true;
+        # FIXME: Switch back to stable once 4.0 is available
+        # package = pkgs.fish;
+        package = pkgs.unstable.fish;
 
         plugins = [
           {
