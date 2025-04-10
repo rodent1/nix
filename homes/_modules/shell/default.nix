@@ -15,6 +15,7 @@
     ./starship
     ./tmux
     ./utilities
+    ./zellij
     ./zoxide
   ];
 }
