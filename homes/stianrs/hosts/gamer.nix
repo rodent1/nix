@@ -1,8 +1,8 @@
 {
   modules = {
     development.enable = true;
-    development.go.enable = false;
-    development.rust.enable = false;
+    development.go.enable = true;
+    development.rust.enable = true;
     kubernetes.enable = true;
   };
 }

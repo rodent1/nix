@@ -14,9 +14,16 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = (
-      with pkgs;
+      with pkgs.unstable;
       [
-        rust-bin.stable.latest.default # Rust-overlay stable
+        (fenix.stable.withComponents [
+          "cargo"
+          "clippy"
+          "rust-src"
+          "rustc"
+          "rustfmt"
+        ])
+        rust-analyzer-nightly
       ]
     );
   };
