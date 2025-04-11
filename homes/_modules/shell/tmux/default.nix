@@ -21,7 +21,7 @@ in
       baseIndex = 1;
       historyLimit = 5000;
       mouse = true;
-      terminal = "screen-256color";
+      terminal = "tmux-256color";
       # Stop tmux+escape craziness.
       escapeTime = 0;
       # Force tmux to use /tmp for sockets (WSL2 compat)
@@ -37,6 +37,8 @@ in
       ];
 
       extraConfig = ''
+        set -as terminal-features ",xterm-256color:RGB"
+
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
 

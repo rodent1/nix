@@ -22,15 +22,16 @@ in
       vimdiffAlias = true;
 
       extraLuaConfig = ''
-        vim.g.mapleader = " "
-
         -- bootstrap lazy.nvim, LazyVim and your plugins
         require("config.lazy")
       '';
 
       extraPackages = with pkgs; [
         ast-grep
+        fd
         gcc
+        lazygit
+        luajitPackages.luarocks
         ripgrep
         stylua
         tree-sitter
