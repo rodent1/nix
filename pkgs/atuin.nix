@@ -3,7 +3,6 @@
   pkgs,
   stdenv,
   installShellFiles,
-  toolchain,
   nixosTests,
   nix-update-script,
 }:
@@ -12,7 +11,8 @@ let
   vendorHash = lib.importJSON _sources/vendorhash.json;
   packageData = sourceData.atuin;
 
-  rustPlatform = pkgs.makeRustPlatform {
+  toolchain = pkgs.unstable.fenix.minimal.toolchain;
+  rustPlatform = pkgs.unstable.makeRustPlatform {
     cargo = toolchain;
     rustc = toolchain;
   };

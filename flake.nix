@@ -40,6 +40,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # fenix
+    # https://github.com/nix-community/fenix
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # nix-index-database
     # https://github.com/nix-community/nix-index-database"
     nix-index-database = {
