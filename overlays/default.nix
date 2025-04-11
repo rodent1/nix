@@ -18,6 +18,8 @@
       config.allowUnfree = true;
       overlays = [
         # overlays of unstable packages are declared here
+        inputs.fenix.overlays.default
+
       ];
     };
   };
