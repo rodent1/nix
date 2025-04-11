@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   config = {
     programs.atuin = {
       enable = true;
-      package = pkgs.unstable.atuin;
       flags = [ "--disable-up-arrow" ];
 
       settings = {
