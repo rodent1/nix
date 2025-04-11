@@ -1,3 +1,6 @@
+[atuin]
+src.github = "atuinsh/atuin"
+fetch.github = "atuinsh/atuin"
 [gh-copilot-linux-amd64]
 src.github_tag = "github/gh-copilot"
 src.prefix = "v"
