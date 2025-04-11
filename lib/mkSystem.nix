@@ -9,7 +9,6 @@ let
     inputs.krewfile.homeManagerModules.krewfile
     inputs.nix-index-database.hmModules.nix-index
     inputs.sops-nix.homeManagerModules.sops
-    inputs.nvf.homeManagerModules.default
   ];
 in
 {
