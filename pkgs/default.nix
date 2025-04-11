@@ -3,6 +3,7 @@
   ...
 }:
 {
+  atuin = pkgs.callPackage ./atuin.nix { };
   gh-copilot = pkgs.callPackage ./gh-copilot.nix { };
   gh-tidy = pkgs.callPackage ./gh-tidy.nix { };
   kubecolor-catppuccin = pkgs.callPackage ./kubecolor-catppuccin.nix { };
