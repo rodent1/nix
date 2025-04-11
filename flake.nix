@@ -53,14 +53,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nvf
-    #
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.flake-parts.follows = "flake-parts";
-    };
-
     # Rust toolchain overlay
     # https://github.com/oxalica/rust-overlay
     rust-overlay = {
