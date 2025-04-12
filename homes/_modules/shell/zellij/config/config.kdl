@@ -1,0 +1,8 @@
+default_mode "normal"
+theme "catppuccin-macchiato"
+
+ui {
+  pane_frames {
+    rounded_corners true
+  }
+}
