@@ -28,7 +28,4 @@
   nixpkgs-overlays = final: prev: {
     # talhelper = inputs.talhelper.packages.${system}.default;
   };
-
-  # Overlays from inputs
-  rust-overlay = inputs.rust-overlay.overlays.default;
 }

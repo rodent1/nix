@@ -60,13 +60,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Rust toolchain overlay
-    # https://github.com/oxalica/rust-overlay
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     # sops-nix
     # https://github.com/Mic92/sops-nix
     sops-nix = {
