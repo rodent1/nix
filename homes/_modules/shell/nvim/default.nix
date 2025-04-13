@@ -46,8 +46,8 @@ in
 
     # Set Neovim as the default app for man pages
     home.sessionVariables = {
+      EDITOR = "nvim";
       MANPAGER = "nvim +Man!";
-      KUBE_EDITOR = "nvim";
     };
   };
 }

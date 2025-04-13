@@ -16,6 +16,5 @@
     ./tmux
     ./utilities
     ./zellij
-    ./zoxide
   ];
 }

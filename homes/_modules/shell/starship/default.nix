@@ -16,12 +16,6 @@ in
     programs.starship = {
       enable = true;
       package = pkgs.starship;
-
-      settings = {
-        direnv = {
-          disabled = false;
-        };
-      };
     };
 
     catppuccin.starship.enable = true;
