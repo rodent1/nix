@@ -54,6 +54,15 @@ in
       '';
     };
 
+    programs.fish.interactiveShellInit = ''
+      set -gx fish_tmux_autoquit false
+      set -gx fish_tmux_no_alias false
+
+      status is-interactive; and begin
+          set fish_tmux_autostart true
+      end
+    '';
+
     catppuccin.tmux = {
       enable = true;
       extraConfig = ''
