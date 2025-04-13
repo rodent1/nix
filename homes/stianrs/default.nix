@@ -43,7 +43,6 @@
         enable = true;
         # FIXME: Switch back to stable once 4.0 is available
         package = pkgs.unstable.fish;
-        enableGreeting = true;
       };
 
       gh.enable = true;
@@ -62,6 +61,8 @@
 
       fzf.enable = true;
       nvim.enable = true;
+
+      starship.enable = true;
       tmux.enable = true;
       zellij.enable = false;
     };

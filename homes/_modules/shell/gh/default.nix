@@ -15,15 +15,12 @@ in
   config = lib.mkIf cfg.enable {
     programs.gh = {
       enable = true;
-      extensions = with pkgs; [
-        gh-copilot
-        gh-fish
-        gh-tidy
-      ];
+      extensions =
+        with pkgs;
+        [
+          gh-tidy
+        ]
+        ++ [ pkgs.unstable.gh-copilot ];
     };
-
-    programs.fish.interactiveShellInit = ''
-      source ~/.local/share/gh/extensions/gh-fish/gh-copilot-alias.fish
-    '';
   };
 }

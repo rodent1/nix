@@ -33,13 +33,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-darwin
-    # https://github.com/LnL7/nix-darwin
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # fenix
     # https://github.com/nix-community/fenix
     fenix = {

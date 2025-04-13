@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
   cfg = config.modules.security.gnugpg;
 in
 {
@@ -25,7 +25,6 @@ in
         };
       };
     })
-    (lib.mkIf (cfg.enable && isDarwin) { home.packages = [ pkgs.pinentry_mac ]; })
     (lib.mkIf (cfg.enable && isLinux) {
       home.packages = [ pkgs.pinentry-curses ];
 

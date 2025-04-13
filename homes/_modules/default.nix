@@ -18,6 +18,12 @@
       home-manager.enable = true;
       nix-index-database.comma.enable = true;
       nix-index.enable = true;
+
+      direnv = {
+        enable = true;
+        silent = true;
+        nix-direnv.enable = true;
+      };
     };
 
     xdg.enable = true;

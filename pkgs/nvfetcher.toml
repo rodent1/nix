@@ -1,25 +1,6 @@
 [atuin]
 src.github = "atuinsh/atuin"
 fetch.github = "atuinsh/atuin"
-[gh-copilot-linux-amd64]
-src.github_tag = "github/gh-copilot"
-src.prefix = "v"
-fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/linux-amd64"
-[gh-copilot-linux-arm64]
-src.github_tag = "github/gh-copilot"
-src.prefix = "v"
-fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/linux-arm64"
-[gh-copilot-darwin-amd64]
-src.github_tag = "github/gh-copilot"
-src.prefix = "v"
-fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/darwin-amd64"
-[gh-copilot-darwin-arm64]
-src.github_tag = "github/gh-copilot"
-src.prefix = "v"
-fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/darwin-arm64"
-[gh-fish]
-src.git = "https://github.com/DevAtDawn/gh-fish"
-fetch.github = "DevAtDawn/gh-fish"
 [gh-tidy]
 src.git = "https://github.com/HaywardMorihara/gh-tidy"
 fetch.github = "HaywardMorihara/gh-tidy"
@@ -30,3 +11,6 @@ fetch.github = "vkhitrin/kubecolor-catppuccin"
 [talosctl]
 src.github = "siderolabs/talos"
 fetch.github = "siderolabs/talos"
+[tmux-fish]
+src.git = "https://github.com/budimanjojo/tmux.fish"
+fetch.github = "budimanjojo/tmux.fish"

@@ -54,21 +54,12 @@ in
       '';
     };
 
-    # Add TMUX autostart that works in WSL2
-    programs.fish.shellInitLast = ''
-      if status is-interactive
-          # Skip tmux for VS Code and Vim terminal
-          if test -z "$VSCODE_INJECTION" -a -z "$VIM"
-              # Wait for user runtime directory
-              while not test -d /run/user/(id -u)
-                  sleep 0.5
-              end
+    programs.fish.interactiveShellInit = ''
+      set -gx fish_tmux_autoquit false
+      set -gx fish_tmux_no_alias false
 
-              # Start tmux if not already in a session
-              if not set -q TMUX
-                  tmux new-session -A -s Main
-              end
-          end
+      status is-interactive; and begin
+          set fish_tmux_autostart true
       end
     '';
 

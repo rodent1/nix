@@ -23,5 +23,9 @@
       wget
       yq-go
     ];
+
+    programs.zoxide = {
+      enable = true;
+    };
   };
 }
