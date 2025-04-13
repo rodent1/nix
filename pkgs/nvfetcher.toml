@@ -17,6 +17,9 @@ fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/darwin
 src.github_tag = "github/gh-copilot"
 src.prefix = "v"
 fetch.url = "https://github.com/github/gh-copilot/releases/download/v$ver/darwin-arm64"
+[gh-fish]
+src.git = "https://github.com/DevAtDawn/gh-fish"
+fetch.github = "DevAtDawn/gh-fish"
 [gh-tidy]
 src.git = "https://github.com/HaywardMorihara/gh-tidy"
 fetch.github = "HaywardMorihara/gh-tidy"

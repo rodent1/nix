@@ -41,9 +41,12 @@
     shell = {
       fish = {
         enable = true;
+        # FIXME: Switch back to stable once 4.0 is available
+        package = pkgs.unstable.fish;
         enableGreeting = true;
-        enableGhFunctions = true;
       };
+
+      gh.enable = true;
 
       git = {
         enable = true;
@@ -59,8 +62,8 @@
 
       fzf.enable = true;
       nvim.enable = true;
-      tmux.enable = false;
-      zellij.enable = true;
+      tmux.enable = true;
+      zellij.enable = false;
     };
 
     services = {
