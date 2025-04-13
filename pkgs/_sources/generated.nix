@@ -44,6 +44,18 @@
       sha256 = "sha256-hNXDIB7r3Hdo7g2pPZKAYYrOaBJmAq7UKc+ZnRnVeoA=";
     };
   };
+  gh-fish = {
+    pname = "gh-fish";
+    version = "f58c6c46fd00bc9b3ae0a8891ba601bf69664481";
+    src = fetchFromGitHub {
+      owner = "DevAtDawn";
+      repo = "gh-fish";
+      rev = "f58c6c46fd00bc9b3ae0a8891ba601bf69664481";
+      fetchSubmodules = false;
+      sha256 = "sha256-QNk3FXzmLc8KqP3xpkAJT+otKI6fgwXcYS/TgFElCsg=";
+    };
+    date = "2024-08-10";
+  };
   gh-tidy = {
     pname = "gh-tidy";
     version = "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da";

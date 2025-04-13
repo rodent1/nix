@@ -20,16 +20,13 @@ in
     enableGreeting = lib.mkEnableOption "fish greeting" // {
       default = true;
     };
-    enableGhFunctions = lib.mkEnableOption "GitHub CLI helper functions";
   };
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       programs.fish = {
         enable = true;
-        # FIXME: Switch back to stable once 4.0 is available
-        # package = pkgs.fish;
-        package = pkgs.unstable.fish;
+        package = cfg.package;
 
         plugins = [
           {
@@ -79,16 +76,6 @@ in
             fish_greeting = {
               description = "Set the fish greeting";
               body = builtins.readFile ./functions/fish_greeting.fish;
-            };
-          })
-          (lib.mkIf cfg.enableGhFunctions {
-            ghce = {
-              description = "gh copilot explain";
-              body = builtins.readFile ./functions/ghce.fish;
-            };
-            ghcs = {
-              description = "gh copilot suggest";
-              body = builtins.readFile ./functions/ghcs.fish;
             };
           })
         ];

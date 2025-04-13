@@ -15,7 +15,6 @@
             "repo": "atuin",
             "rev": "v18.5.0",
             "sha256": "sha256-VXbnf/TfMWGHHXccKZBX4/RWDT/J1kpSBzhML4973mo=",
-            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v18.5.0"
@@ -80,6 +79,26 @@
         },
         "version": "1.1.0"
     },
+    "gh-fish": {
+        "cargoLocks": null,
+        "date": "2024-08-10",
+        "extract": null,
+        "name": "gh-fish",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "DevAtDawn",
+            "repo": "gh-fish",
+            "rev": "f58c6c46fd00bc9b3ae0a8891ba601bf69664481",
+            "sha256": "sha256-QNk3FXzmLc8KqP3xpkAJT+otKI6fgwXcYS/TgFElCsg=",
+            "type": "github"
+        },
+        "version": "f58c6c46fd00bc9b3ae0a8891ba601bf69664481"
+    },
     "gh-tidy": {
         "cargoLocks": null,
         "date": "2024-02-16",
@@ -96,7 +115,6 @@
             "repo": "gh-tidy",
             "rev": "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da",
             "sha256": "sha256-TKQlLnOAozaDkqC7tNlR7KMSqk17sjCe/RTpATBbZlk=",
-            "sparseCheckout": [],
             "type": "github"
         },
         "version": "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da"
@@ -117,7 +135,6 @@
             "repo": "kubecolor-catppuccin",
             "rev": "1d4c2888f7de077e1a837a914a1824873d16762d",
             "sha256": "sha256-gTneUh6yMcH6dVKrH00G61a+apasu9tiMyYjvNdOiOw=",
-            "sparseCheckout": [],
             "type": "github"
         },
         "version": "1d4c2888f7de077e1a837a914a1824873d16762d"
@@ -138,7 +155,6 @@
             "repo": "talos",
             "rev": "v1.9.5",
             "sha256": "sha256-2YKZfW62yOA8uV3bn6at/9YV3OHjiMuqA1SUupyAAx4=",
-            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v1.9.5"
