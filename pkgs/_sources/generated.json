@@ -15,91 +15,9 @@
             "repo": "atuin",
             "rev": "v18.5.0",
             "sha256": "sha256-VXbnf/TfMWGHHXccKZBX4/RWDT/J1kpSBzhML4973mo=",
-            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v18.5.0"
-    },
-    "gh-copilot-darwin-amd64": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "gh-copilot-darwin-amd64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-1tN734huSBzke8j8H/dyFS90LsWGFuGtLdYdrLbGeOs=",
-            "type": "url",
-            "url": "https://github.com/github/gh-copilot/releases/download/v1.1.0/darwin-amd64"
-        },
-        "version": "1.1.0"
-    },
-    "gh-copilot-darwin-arm64": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "gh-copilot-darwin-arm64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-lGhgND1E4jWZmoAaPXcxNlew9eqWOrMHAYVnpFnqeio=",
-            "type": "url",
-            "url": "https://github.com/github/gh-copilot/releases/download/v1.1.0/darwin-arm64"
-        },
-        "version": "1.1.0"
-    },
-    "gh-copilot-linux-amd64": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "gh-copilot-linux-amd64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-KIiwIv0VzJf0GVkuDsevEah48hv4VybLuBhy4dJvggo=",
-            "type": "url",
-            "url": "https://github.com/github/gh-copilot/releases/download/v1.1.0/linux-amd64"
-        },
-        "version": "1.1.0"
-    },
-    "gh-copilot-linux-arm64": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "gh-copilot-linux-arm64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-hNXDIB7r3Hdo7g2pPZKAYYrOaBJmAq7UKc+ZnRnVeoA=",
-            "type": "url",
-            "url": "https://github.com/github/gh-copilot/releases/download/v1.1.0/linux-arm64"
-        },
-        "version": "1.1.0"
-    },
-    "gh-fish": {
-        "cargoLocks": null,
-        "date": "2024-08-10",
-        "extract": null,
-        "name": "gh-fish",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "DevAtDawn",
-            "repo": "gh-fish",
-            "rev": "f58c6c46fd00bc9b3ae0a8891ba601bf69664481",
-            "sha256": "sha256-QNk3FXzmLc8KqP3xpkAJT+otKI6fgwXcYS/TgFElCsg=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "f58c6c46fd00bc9b3ae0a8891ba601bf69664481"
     },
     "gh-tidy": {
         "cargoLocks": null,
@@ -117,7 +35,6 @@
             "repo": "gh-tidy",
             "rev": "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da",
             "sha256": "sha256-TKQlLnOAozaDkqC7tNlR7KMSqk17sjCe/RTpATBbZlk=",
-            "sparseCheckout": [],
             "type": "github"
         },
         "version": "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da"
@@ -138,7 +55,6 @@
             "repo": "kubecolor-catppuccin",
             "rev": "1d4c2888f7de077e1a837a914a1824873d16762d",
             "sha256": "sha256-gTneUh6yMcH6dVKrH00G61a+apasu9tiMyYjvNdOiOw=",
-            "sparseCheckout": [],
             "type": "github"
         },
         "version": "1d4c2888f7de077e1a837a914a1824873d16762d"
@@ -159,9 +75,28 @@
             "repo": "talos",
             "rev": "v1.9.5",
             "sha256": "sha256-2YKZfW62yOA8uV3bn6at/9YV3OHjiMuqA1SUupyAAx4=",
-            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v1.9.5"
+    },
+    "tmux-fish": {
+        "cargoLocks": null,
+        "date": "2025-04-07",
+        "extract": null,
+        "name": "tmux-fish",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "budimanjojo",
+            "repo": "tmux.fish",
+            "rev": "db0030b7f4f78af4053dc5c032c7512406961ea5",
+            "sha256": "sha256-rRibn+FN8VNTSC1HmV05DXEa6+3uOHNx03tprkcjjs8=",
+            "type": "github"
+        },
+        "version": "db0030b7f4f78af4053dc5c032c7512406961ea5"
     }
 }

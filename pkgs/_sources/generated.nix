@@ -12,50 +12,6 @@
       sha256 = "sha256-VXbnf/TfMWGHHXccKZBX4/RWDT/J1kpSBzhML4973mo=";
     };
   };
-  gh-copilot-darwin-amd64 = {
-    pname = "gh-copilot-darwin-amd64";
-    version = "1.1.0";
-    src = fetchurl {
-      url = "https://github.com/github/gh-copilot/releases/download/v1.1.0/darwin-amd64";
-      sha256 = "sha256-1tN734huSBzke8j8H/dyFS90LsWGFuGtLdYdrLbGeOs=";
-    };
-  };
-  gh-copilot-darwin-arm64 = {
-    pname = "gh-copilot-darwin-arm64";
-    version = "1.1.0";
-    src = fetchurl {
-      url = "https://github.com/github/gh-copilot/releases/download/v1.1.0/darwin-arm64";
-      sha256 = "sha256-lGhgND1E4jWZmoAaPXcxNlew9eqWOrMHAYVnpFnqeio=";
-    };
-  };
-  gh-copilot-linux-amd64 = {
-    pname = "gh-copilot-linux-amd64";
-    version = "1.1.0";
-    src = fetchurl {
-      url = "https://github.com/github/gh-copilot/releases/download/v1.1.0/linux-amd64";
-      sha256 = "sha256-KIiwIv0VzJf0GVkuDsevEah48hv4VybLuBhy4dJvggo=";
-    };
-  };
-  gh-copilot-linux-arm64 = {
-    pname = "gh-copilot-linux-arm64";
-    version = "1.1.0";
-    src = fetchurl {
-      url = "https://github.com/github/gh-copilot/releases/download/v1.1.0/linux-arm64";
-      sha256 = "sha256-hNXDIB7r3Hdo7g2pPZKAYYrOaBJmAq7UKc+ZnRnVeoA=";
-    };
-  };
-  gh-fish = {
-    pname = "gh-fish";
-    version = "f58c6c46fd00bc9b3ae0a8891ba601bf69664481";
-    src = fetchFromGitHub {
-      owner = "DevAtDawn";
-      repo = "gh-fish";
-      rev = "f58c6c46fd00bc9b3ae0a8891ba601bf69664481";
-      fetchSubmodules = false;
-      sha256 = "sha256-QNk3FXzmLc8KqP3xpkAJT+otKI6fgwXcYS/TgFElCsg=";
-    };
-    date = "2024-08-10";
-  };
   gh-tidy = {
     pname = "gh-tidy";
     version = "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da";
@@ -90,5 +46,17 @@
       fetchSubmodules = false;
       sha256 = "sha256-2YKZfW62yOA8uV3bn6at/9YV3OHjiMuqA1SUupyAAx4=";
     };
+  };
+  tmux-fish = {
+    pname = "tmux-fish";
+    version = "db0030b7f4f78af4053dc5c032c7512406961ea5";
+    src = fetchFromGitHub {
+      owner = "budimanjojo";
+      repo = "tmux.fish";
+      rev = "db0030b7f4f78af4053dc5c032c7512406961ea5";
+      fetchSubmodules = false;
+      sha256 = "sha256-rRibn+FN8VNTSC1HmV05DXEa6+3uOHNx03tprkcjjs8=";
+    };
+    date = "2025-04-07";
   };
 }

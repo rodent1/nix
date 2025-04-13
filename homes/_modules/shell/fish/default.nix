@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.modules.shell.fish;
+  sourceData = pkgs.callPackage ../../../../pkgs/_sources/generated.nix { };
 in
 {
   options.modules.shell.fish = {
@@ -34,6 +35,10 @@ in
         {
           name = "autopair";
           inherit (pkgs.fishPlugins.autopair) src;
+        }
+        {
+          name = "tmux-fish";
+          inherit (sourceData.tmux-fish) src;
         }
       ];
 

@@ -1,8 +1,4 @@
 {
   "atuin": "sha256-MQNveOBItVOHFNarU5xXl8xHoooSAVbA7JnxxuRI9To=",
-  "gh-copilot-linux-amd64": "",
-  "gh-copilot-linux-arm64": "",
-  "gh-copilot-darwin-amd64": "",
-  "gh-copilot-darwin-arm64": "",
   "talosctl": "sha256-f2hOAF746nMAZe1KEopdpFHfRMEZQdy4VoVUi49CBJo="
 }
