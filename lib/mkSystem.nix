@@ -79,37 +79,4 @@ in
         inherit inputs hostname;
       };
     };
-
-  mkDarwinSystem =
-    system: hostname:
-    inputs.nix-darwin.lib.darwinSystem {
-      inherit system;
-      pkgs = mkPkgsWithSystem system;
-      modules = [
-        {
-          nixpkgs.hostPlatform = system;
-          _module.args = {
-            inherit inputs;
-          };
-        }
-        inputs.home-manager.darwinModules.home-manager
-        {
-          home-manager = {
-            inherit sharedModules;
-            useUserPackages = true;
-            useGlobalPkgs = true;
-            extraSpecialArgs = {
-              inherit inputs hostname system;
-            };
-            users.stianrs = ../. + "/homes/stianrs";
-          };
-        }
-        ../hosts/_modules/common
-        ../hosts/_modules/darwin
-        ../hosts/${hostname}
-      ];
-      specialArgs = {
-        inherit inputs hostname;
-      };
-    };
 }
