@@ -33,10 +33,6 @@ in
           inherit (pkgs.fishPlugins.puffer) src;
         }
         {
-          name = "autopair";
-          inherit (pkgs.fishPlugins.autopair) src;
-        }
-        {
           name = "tmux-fish";
           inherit (sourceData.tmux-fish) src;
         }

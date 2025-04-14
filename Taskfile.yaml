@@ -1,14 +1,14 @@
 ---
-# go-task runner file - rest of config in .taskfiles/**.*.yaml
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
 version: "3"
 
+set: [pipefail]
+shopt: [globstar]
+
 includes:
-  sop:
-    taskfile: ".taskfiles/sops"
-    dir: .taskfiles/sops
+  sop: .taskfiles/sops
 
 tasks:
   default:
+    cmd: task --list
     silent: true
-    cmds:
-      - task -l
