@@ -3,6 +3,7 @@
   ...
 }:
 {
+  # Import custom packages into the final pkgs set
   additions =
     final: _prev:
     import ../pkgs {
@@ -24,8 +25,7 @@
     };
   };
 
-  # Your own overlays for stable nixpkgs should be declared here
   nixpkgs-overlays = final: prev: {
-    # talhelper = inputs.talhelper.packages.${system}.default;
+    # Your own overlays for stable nixpkgs should be declared here
   };
 }

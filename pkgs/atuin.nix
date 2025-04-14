@@ -11,7 +11,7 @@ let
   vendorHash = lib.importJSON _sources/vendorhash.json;
   packageData = sourceData.atuin;
 
-  toolchain = pkgs.unstable.fenix.minimal.toolchain;
+  inherit (pkgs.unstable.fenix.minimal) toolchain;
   rustPlatform = pkgs.unstable.makeRustPlatform {
     cargo = toolchain;
     rustc = toolchain;

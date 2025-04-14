@@ -13,13 +13,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = (
-      with pkgs;
-      [
-        go
-        gotools
-        golangci-lint
-      ]
-    );
+    home.packages = with pkgs; [
+      go
+      gotools
+      golangci-lint
+    ];
   };
 }

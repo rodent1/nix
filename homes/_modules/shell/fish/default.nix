@@ -21,7 +21,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.fish = {
       enable = true;
-      package = cfg.package;
+      inherit (cfg) package;
 
       plugins = [
         {

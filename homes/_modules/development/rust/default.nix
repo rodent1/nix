@@ -13,18 +13,15 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = (
-      with pkgs.unstable;
-      [
-        (fenix.stable.withComponents [
-          "cargo"
-          "clippy"
-          "rust-src"
-          "rustc"
-          "rustfmt"
-        ])
-        rust-analyzer-nightly
-      ]
-    );
+    home.packages = with pkgs.unstable; [
+      (fenix.stable.withComponents [
+        "cargo"
+        "clippy"
+        "rust-src"
+        "rustc"
+        "rustfmt"
+      ])
+      rust-analyzer-nightly
+    ];
   };
 }

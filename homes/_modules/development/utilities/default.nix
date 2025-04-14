@@ -9,13 +9,10 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages = (
-      with pkgs;
-      [
-        act
-        shellcheck
-        shfmt
-      ]
-    );
+    home.packages = with pkgs; [
+      act
+      shellcheck
+      shfmt
+    ];
   };
 }
