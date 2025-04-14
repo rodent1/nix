@@ -29,6 +29,10 @@ in
           inherit (pkgs.fishPlugins.done) src;
         }
         {
+          name = "fzf-fish";
+          inherit (pkgs.fishPlugins.fzf-fish) src;
+        }
+        {
           name = "puffer";
           inherit (pkgs.fishPlugins.puffer) src;
         }
@@ -37,6 +41,11 @@ in
           inherit (sourceData.tmux-fish) src;
         }
       ];
+
+      interactiveShellInit = ''
+        # fzf-fish
+        set -gx fzf_preview_dir_cmd eza --all --color=always
+      '';
 
       functions = {
         fish_greeting = {

@@ -7,7 +7,6 @@
     ./doggo
     ./eza
     ./fish
-    ./fzf
     ./gh
     ./git
     ./mise

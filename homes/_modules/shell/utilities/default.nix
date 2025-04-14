@@ -10,6 +10,7 @@
       envsubst
       fd
       findutils
+      fzf
       gawk
       gnused
       go-task
