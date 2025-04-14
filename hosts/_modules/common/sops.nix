@@ -1,7 +1,5 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
-  imports = [ inputs.sops-nix.nixosModules.sops ];
-
   config = {
     environment.systemPackages = [
       pkgs.sops

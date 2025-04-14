@@ -9,7 +9,7 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages = (
+    home.packages =
       with pkgs;
       [
         deadnix
@@ -21,7 +21,6 @@ in
       ]
       ++ (with pkgs.unstable; [
         nixfmt-rfc-style
-      ])
-    );
+      ]);
   };
 }

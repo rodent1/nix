@@ -59,7 +59,7 @@
         package = pkgs.unstable.mise;
       };
 
-      fzf.enable = true;
+      atuin.enable = true;
       nvim.enable = true;
 
       starship.enable = true;

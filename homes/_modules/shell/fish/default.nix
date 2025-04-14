@@ -21,7 +21,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.fish = {
       enable = true;
-      package = cfg.package;
+      inherit (cfg) package;
 
       plugins = [
         {
@@ -29,18 +29,23 @@ in
           inherit (pkgs.fishPlugins.done) src;
         }
         {
-          name = "puffer";
-          inherit (pkgs.fishPlugins.puffer) src;
+          name = "fzf-fish";
+          inherit (pkgs.fishPlugins.fzf-fish) src;
         }
         {
-          name = "autopair";
-          inherit (pkgs.fishPlugins.autopair) src;
+          name = "puffer";
+          inherit (pkgs.fishPlugins.puffer) src;
         }
         {
           name = "tmux-fish";
           inherit (sourceData.tmux-fish) src;
         }
       ];
+
+      interactiveShellInit = ''
+        # fzf-fish
+        set -gx fzf_preview_dir_cmd eza --all --color=always
+      '';
 
       functions = {
         fish_greeting = {

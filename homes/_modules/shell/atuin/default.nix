@@ -1,6 +1,13 @@
-{ config, ... }:
+{ config, lib, ... }:
+let
+  cfg = config.modules.shell.atuin;
+in
 {
-  config = {
+  options.modules.shell.atuin = {
+    enable = lib.mkEnableOption "atuin";
+  };
+
+  config = lib.mkIf cfg.enable {
     programs.atuin = {
       enable = true;
       flags = [ "--disable-up-arrow" ];
@@ -8,10 +15,9 @@
       settings = {
         sync_address = "https://sh.rodent.cc";
         key_path = "${config.xdg.configHome}/atuin/key";
-        auto_sync = true;
+        style = "auto";
         sync.records = true;
-        sync_frequency = "1m";
-        search_mode = "fuzzy";
+        sync_frequency = "0";
       };
     };
   };
