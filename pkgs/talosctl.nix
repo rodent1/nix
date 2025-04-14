@@ -1,15 +1,16 @@
 {
-  pkgs,
   lib,
+  pkgs,
+  buildGoModule,
   installShellFiles,
-  ...
+  versionCheckHook,
 }:
 let
   sourceData = pkgs.callPackage ./_sources/generated.nix { };
   hashData = lib.importJSON ./_sources/vendorhash.json;
   packageData = sourceData.talosctl;
 in
-pkgs.unstable.buildGo123Module {
+buildGoModule {
   inherit (packageData) pname src;
   version = lib.strings.removePrefix "v" packageData.version;
   vendorHash = hashData.talosctl;
@@ -19,9 +20,7 @@ pkgs.unstable.buildGo123Module {
     "-w"
   ];
 
-  # This is needed to deal with workspace issues during the build
-  overrideModAttrs = _: { GOWORK = "off"; };
-  GOWORK = "off";
+  env.GOWORK = "off";
 
   subPackages = [ "cmd/talosctl" ];
 
@@ -36,11 +35,14 @@ pkgs.unstable.buildGo123Module {
 
   doCheck = false; # no tests
 
+  doInstallCheck = true;
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  versionCheckProgramArg = "version";
+
   meta = with lib; {
     description = "A CLI for out-of-band management of Kubernetes nodes created by Talos";
     homepage = "https://www.talos.dev/";
     license = licenses.mpl20;
     mainProgram = "talosctl";
-    maintainers = with maintainers; [ flokli ];
   };
 }

@@ -25,7 +25,6 @@ stdenvNoCC.mkDerivation {
     homepage = "https://github.com/HaywardMorihara/gh-tidy";
     license = licenses.publicDomain;
     platforms = platforms.unix;
-    maintainers = with maintainers; [ rodent1 ];
     mainProgram = "gh-tidy";
   };
 }
