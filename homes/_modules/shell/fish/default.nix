@@ -23,24 +23,28 @@ in
       enable = true;
       inherit (cfg) package;
 
-      plugins = [
-        {
-          name = "done";
-          inherit (pkgs.fishPlugins.done) src;
-        }
-        {
-          name = "fzf-fish";
-          inherit (pkgs.fishPlugins.fzf-fish) src;
-        }
-        {
-          name = "puffer";
-          inherit (pkgs.fishPlugins.puffer) src;
-        }
-        {
-          name = "tmux-fish";
-          inherit (sourceData.tmux-fish) src;
-        }
-      ];
+      plugins =
+        [
+          {
+            name = "done";
+            inherit (pkgs.fishPlugins.done) src;
+          }
+          {
+            name = "fzf-fish";
+            inherit (pkgs.fishPlugins.fzf-fish) src;
+          }
+          {
+            name = "puffer";
+            inherit (pkgs.fishPlugins.puffer) src;
+          }
+
+        ]
+        ++ [
+          (lib.mkIf (config.programs.tmux.enable && !config.programs.zellij.enable) {
+            name = "tmux-fish";
+            inherit (sourceData.tmux-fish) src;
+          })
+        ];
 
       interactiveShellInit = ''
         # fzf-fish

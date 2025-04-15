@@ -36,6 +36,7 @@ in
         stylua
         tree-sitter
         unzip
+        xclip
       ];
     };
 

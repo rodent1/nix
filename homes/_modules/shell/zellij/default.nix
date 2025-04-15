@@ -17,10 +17,11 @@ in
 
       fish.interactiveShellInit = ''
         set -gx ZELLIJ_AUTO_ATTACH true
-        set -gx ZELLIJ_AUTO_EXIT true
+        set -gx ZELLIJ_AUTO_EXIT false
 
         if not string match -q "vscode" $TERM_PROGRAM
           if test -z $ZELLIJ
+             and test -z $TMUX
             ${lib.getExe config.programs.zellij.package}
           end
         end
@@ -28,5 +29,6 @@ in
     };
 
     xdg.configFile.zellij.source = ./config;
+    
   };
 }

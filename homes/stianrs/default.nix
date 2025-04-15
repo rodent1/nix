@@ -63,6 +63,7 @@
       nvim.enable = true;
 
       starship.enable = true;
+
       tmux.enable = true;
       zellij.enable = false;
     };
