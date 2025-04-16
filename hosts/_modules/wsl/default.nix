@@ -1,12 +1,13 @@
-{ pkgs, ... }:
+{ ... }:
 {
   config = {
     wsl = {
       enable = true;
       defaultUser = "stianrs";
-    };
 
-    environment.systemPackages = with pkgs; [ wslu ];
+      wslConf.interop.appendWindowsPath = false;
+      wslConf.network.generateHosts = false;
+    };
 
     programs.nix-ld.enable = true;
   };
