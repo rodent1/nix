@@ -6,7 +6,8 @@
       broot
       coreutils
       curl
-      du-dust
+      duf
+      dust
       envsubst
       fd
       findutils
