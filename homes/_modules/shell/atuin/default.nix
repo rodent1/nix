@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.shell.atuin;
 in
@@ -10,6 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.atuin = {
       enable = true;
+      package = pkgs.unstable.atuin;
       flags = [ "--disable-up-arrow" ];
 
       settings = {
