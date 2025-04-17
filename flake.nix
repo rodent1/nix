@@ -23,7 +23,7 @@
     # https://github.com/catppuccin/nix
     catppuccin = {
       url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Krewfile
