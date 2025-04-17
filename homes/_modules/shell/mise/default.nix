@@ -20,7 +20,7 @@ in
     programs = {
       mise = {
         enable = true;
-        package = cfg.package;
+        inherit (cfg) package;
         enableFishIntegration = false;
       };
 
