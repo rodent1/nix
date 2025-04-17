@@ -20,8 +20,11 @@ in
         dockerCompat = true;
 
         # regular cleanup
-        autoPrune.enable = true;
-        autoPrune.dates = "weekly";
+        autoPrune = {
+          enable = true;
+          dates = "weekly";
+          flags = [ "--all" ];
+        };
 
         # and add dns
         defaultNetwork.settings = {

@@ -43,7 +43,7 @@ in
 
     modules = {
       services.podman.enable = true;
-      services.tailscale.enable = true;
+      services.tailscale.enable = false;
       system.openssh.enable = true;
     };
   };
