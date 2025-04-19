@@ -9,9 +9,13 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages = [
-      pkgs.python313
-      pkgs.unstable.uv
-    ];
+    home.packages =
+      (with pkgs; [
+        python3
+      ])
+      ++ (with pkgs.unstable; [
+        uv
+        ruff
+      ]);
   };
 }
