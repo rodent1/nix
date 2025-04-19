@@ -19,8 +19,6 @@
       config.allowUnfree = true;
       overlays = [
         # overlays of unstable packages are declared here
-        inputs.fenix.overlays.default
-
       ];
     };
   };
@@ -28,4 +26,6 @@
   nixpkgs-overlays = final: prev: {
     # Your own overlays for stable nixpkgs should be declared here
   };
+
+  fenix = inputs.fenix.overlays.default;
 }

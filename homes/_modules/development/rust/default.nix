@@ -6,6 +6,9 @@
 }:
 let
   cfg = config.modules.development.rust;
+  rustlings = pkgs.rustlings.override {
+    inherit (pkgs.fenix.stable) cargo clippy rustc;
+  };
 in
 {
   options.modules.development.rust = {
@@ -13,15 +16,19 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs.unstable; [
-      (fenix.stable.withComponents [
-        "cargo"
-        "clippy"
-        "rust-src"
-        "rustc"
-        "rustfmt"
+    home.packages =
+      (with pkgs; [
+        (fenix.stable.withComponents [
+          "cargo"
+          "clippy"
+          "rust-src"
+          "rustc"
+          "rustfmt"
+        ])
+        rustlings
       ])
-      rust-analyzer-nightly
-    ];
+      ++ (with pkgs.unstable; [
+        rust-analyzer
+      ]);
   };
 }
