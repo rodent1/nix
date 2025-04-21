@@ -14,14 +14,13 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      nodejs_23
-      pnpm-with-custom-node
-    ];
-
-    programs.fish.interactiveShellInit = ''
-      set -gx PNPM_HOME ${config.home.homeDirectory}/.local/share/pnpm
-      fish_add_path ${config.home.homeDirectory}/.local/share/pnpm/bin
-    '';
+    home.packages =
+      (with pkgs; [
+        nodejs_23
+        pnpm-with-custom-node
+      ])
+      ++ (with pkgs.unstable; [
+        turbo
+      ]);
   };
 }
