@@ -17,7 +17,6 @@ in
     home.packages = with pkgs; [
       nodejs_23
       pnpm-with-custom-node
-      turbo
     ];
   };
 }
