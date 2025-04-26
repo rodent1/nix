@@ -16,6 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages =
       (with pkgs; [
+        chromium
         nodejs_23
         pnpm-with-custom-node
       ])
