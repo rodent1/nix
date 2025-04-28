@@ -22,6 +22,7 @@ in
       ])
       ++ (with pkgs.unstable; [
         turbo
+        bun
       ]);
   };
 }
