@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  buildGoModule,
   installShellFiles,
   versionCheckHook,
 }:
@@ -10,7 +9,7 @@ let
   hashData = lib.importJSON ./_sources/vendorhash.json;
   packageData = sourceData.talosctl;
 in
-buildGoModule {
+pkgs.buildGo124Module {
   inherit (packageData) pname src;
   version = lib.strings.removePrefix "v" packageData.version;
   vendorHash = hashData.talosctl;
