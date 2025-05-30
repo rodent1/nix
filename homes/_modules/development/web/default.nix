@@ -20,6 +20,7 @@ in
         pnpm-with-custom-node
       ])
       ++ (with pkgs.unstable; [
+        biome
         bun
         nodejs_24
         turbo
