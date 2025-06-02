@@ -14,16 +14,12 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages =
-      (with pkgs; [
-        chromium
-        pnpm-with-custom-node
-      ])
-      ++ (with pkgs.unstable; [
-        biome
-        bun
-        nodejs_24
-        turbo
-      ]);
+    home.packages = with pkgs.unstable; [
+      biome
+      bun
+      nodejs_24
+      pnpm-with-custom-node
+      turbo
+    ];
   };
 }
