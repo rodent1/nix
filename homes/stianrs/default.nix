@@ -7,8 +7,6 @@
     ./hosts/${hostname}.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   modules = {
     security = {
       ssh = {
