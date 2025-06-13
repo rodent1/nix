@@ -25,4 +25,16 @@
     };
     date = "2024-05-24";
   };
+  tmux-fish = {
+    pname = "tmux-fish";
+    version = "db0030b7f4f78af4053dc5c032c7512406961ea5";
+    src = fetchFromGitHub {
+      owner = "budimanjojo";
+      repo = "tmux.fish";
+      rev = "db0030b7f4f78af4053dc5c032c7512406961ea5";
+      fetchSubmodules = false;
+      sha256 = "sha256-rRibn+FN8VNTSC1HmV05DXEa6+3uOHNx03tprkcjjs8=";
+    };
+    date = "2025-04-07";
+  };
 }

@@ -40,5 +40,26 @@
             "type": "github"
         },
         "version": "1d4c2888f7de077e1a837a914a1824873d16762d"
+    },
+    "tmux-fish": {
+        "cargoLocks": null,
+        "date": "2025-04-07",
+        "extract": null,
+        "name": "tmux-fish",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "budimanjojo",
+            "repo": "tmux.fish",
+            "rev": "db0030b7f4f78af4053dc5c032c7512406961ea5",
+            "sha256": "sha256-rRibn+FN8VNTSC1HmV05DXEa6+3uOHNx03tprkcjjs8=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "db0030b7f4f78af4053dc5c032c7512406961ea5"
     }
 }
