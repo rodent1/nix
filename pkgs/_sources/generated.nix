@@ -25,27 +25,4 @@
     };
     date = "2024-05-24";
   };
-  talosctl = {
-    pname = "talosctl";
-    version = "v1.10.4";
-    src = fetchFromGitHub {
-      owner = "siderolabs";
-      repo = "talos";
-      rev = "v1.10.4";
-      fetchSubmodules = false;
-      sha256 = "sha256-TWaORaR+3PTc+KqWuZiR5HpsuY7ox5BjQ72F8uYRzWQ=";
-    };
-  };
-  tmux-fish = {
-    pname = "tmux-fish";
-    version = "db0030b7f4f78af4053dc5c032c7512406961ea5";
-    src = fetchFromGitHub {
-      owner = "budimanjojo";
-      repo = "tmux.fish";
-      rev = "db0030b7f4f78af4053dc5c032c7512406961ea5";
-      fetchSubmodules = false;
-      sha256 = "sha256-rRibn+FN8VNTSC1HmV05DXEa6+3uOHNx03tprkcjjs8=";
-    };
-    date = "2025-04-07";
-  };
 }

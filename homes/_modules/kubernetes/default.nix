@@ -26,11 +26,11 @@ in
         minijinja
         minio-client
         stern
-        talosctl
       ])
       ++ (with pkgs.unstable; [
         kubectl
         helmfile
+        talosctl
       ]);
 
     home.sessionVariables = {

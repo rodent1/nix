@@ -5,9 +5,3 @@ fetch.github = "HaywardMorihara/gh-tidy"
 src.git = "https://github.com/vkhitrin/kubecolor-catppuccin.git"
 src.branch = "main"
 fetch.github = "vkhitrin/kubecolor-catppuccin"
-[talosctl]
-src.github = "siderolabs/talos"
-fetch.github = "siderolabs/talos"
-[tmux-fish]
-src.git = "https://github.com/budimanjojo/tmux.fish"
-fetch.github = "budimanjojo/tmux.fish"
