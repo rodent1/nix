@@ -3,15 +3,15 @@
 {
   gh-tidy = {
     pname = "gh-tidy";
-    version = "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da";
+    version = "236245c38c462130aec8875cc902c90e419598ed";
     src = fetchFromGitHub {
       owner = "HaywardMorihara";
       repo = "gh-tidy";
-      rev = "99d0dd50c2b6eb6615ae0f4b6064cfeb14b451da";
+      rev = "236245c38c462130aec8875cc902c90e419598ed";
       fetchSubmodules = false;
-      sha256 = "sha256-TKQlLnOAozaDkqC7tNlR7KMSqk17sjCe/RTpATBbZlk=";
+      sha256 = "sha256-ViuMcZncUfUD71SF6lD/w0knrp27Y0uGX3JUDelSqxo=";
     };
-    date = "2024-02-16";
+    date = "2025-06-14";
   };
   kubecolor-catppuccin = {
     pname = "kubecolor-catppuccin";
