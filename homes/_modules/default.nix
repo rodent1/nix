@@ -16,8 +16,10 @@
 
     programs = {
       home-manager.enable = true;
-      nix-index-database.comma.enable = true;
+
       nix-index.enable = true;
+      nix-index-database.comma.enable = true;
+      command-not-found.enable = false;
 
       direnv = {
         enable = true;

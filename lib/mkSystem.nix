@@ -25,6 +25,7 @@ in
           };
         }
         inputs.home-manager.nixosModules.home-manager
+        inputs.nix-index-database.nixosModules.nix-index
         inputs.sops-nix.nixosModules.sops
         {
           home-manager = {
@@ -59,6 +60,7 @@ in
           };
         }
         inputs.home-manager.nixosModules.home-manager
+        inputs.nix-index-database.nixosModules.nix-index
         inputs.sops-nix.nixosModules.sops
         inputs.nixos-wsl.nixosModules.default
         {
