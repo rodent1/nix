@@ -14,6 +14,7 @@
     ./starship
     ./tmux
     ./utilities
+    ./viddy
     ./zellij
   ];
 }

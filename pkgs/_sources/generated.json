@@ -20,27 +20,6 @@
         },
         "version": "236245c38c462130aec8875cc902c90e419598ed"
     },
-    "kubecolor-catppuccin": {
-        "cargoLocks": null,
-        "date": "2024-05-24",
-        "extract": null,
-        "name": "kubecolor-catppuccin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "vkhitrin",
-            "repo": "kubecolor-catppuccin",
-            "rev": "1d4c2888f7de077e1a837a914a1824873d16762d",
-            "sha256": "sha256-gTneUh6yMcH6dVKrH00G61a+apasu9tiMyYjvNdOiOw=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "1d4c2888f7de077e1a837a914a1824873d16762d"
-    },
     "tmux-fish": {
         "cargoLocks": null,
         "date": "2025-04-07",

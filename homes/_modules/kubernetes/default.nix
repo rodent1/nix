@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.modules.kubernetes;
-  catppuccinCfg = config.modules.themes.catppuccin;
 in
 {
   options.modules.kubernetes = {
@@ -20,7 +19,6 @@ in
         gum
         kubeconform
         kubecolor
-        kubecolor-catppuccin
         kubernetes-helm
         kustomize
         minijinja
@@ -32,10 +30,6 @@ in
         helmfile
         talosctl
       ]);
-
-    home.sessionVariables = {
-      KUBECOLOR_CONFIG = "${pkgs.kubecolor-catppuccin}/catppuccin-${catppuccinCfg.flavor}.yaml";
-    };
 
     programs = {
       krewfile = {
@@ -51,10 +45,15 @@ in
         ];
       };
 
-      fish = {
-        shellAliases = {
-          kubectl = "kubecolor";
-          k = "kubectl";
+      fish.functions = {
+        k = {
+          wraps = "kubecolor";
+          body = "kubecolor --force-colors=auto $argv";
+        };
+
+        kubectl = {
+          wraps = "kubecolor";
+          body = "kubecolor --force-colors=auto $argv";
         };
       };
     };
