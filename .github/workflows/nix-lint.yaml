@@ -18,7 +18,7 @@ jobs:
 
       - uses: DeterminateSystems/flakehub-cache-action@134cf641155463d87d343c6cb2b7970089967b99 # v2
 
-      - uses: DeterminateSystems/flake-checker-action@0af51e37404acfb298f7e2eec77470be27eb57c5 # v10
+      - uses: DeterminateSystems/flake-checker-action@f6b84c9884c22039e1fc23dadb4a0d0add56c197 # v11
 
       - name: Run Statix
         run: 'nix run nixpkgs#statix -- fix'
