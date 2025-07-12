@@ -12,6 +12,7 @@ in
     home.packages = with pkgs; [
       act
       gcc
+      rainfrog
       shellcheck
       shfmt
     ];
