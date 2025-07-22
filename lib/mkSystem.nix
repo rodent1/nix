@@ -7,7 +7,7 @@ let
   sharedModules = [
     inputs.catppuccin.homeModules.catppuccin
     inputs.krewfile.homeManagerModules.krewfile
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
     inputs.sops-nix.homeManagerModules.sops
   ];
 in
