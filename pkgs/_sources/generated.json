@@ -1,7 +1,7 @@
 {
     "gh-tidy": {
         "cargoLocks": null,
-        "date": "2025-06-14",
+        "date": "2025-07-25",
         "extract": null,
         "name": "gh-tidy",
         "passthru": null,
@@ -13,12 +13,12 @@
             "name": null,
             "owner": "HaywardMorihara",
             "repo": "gh-tidy",
-            "rev": "236245c38c462130aec8875cc902c90e419598ed",
-            "sha256": "sha256-ViuMcZncUfUD71SF6lD/w0knrp27Y0uGX3JUDelSqxo=",
+            "rev": "cab671dac0f3409f5e7ade48c677cbc7d8a4e01d",
+            "sha256": "sha256-wAOiNLlH4bbBuKhLhzibdeeLsVyQQpqCQTTLQ5zMXiU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "236245c38c462130aec8875cc902c90e419598ed"
+        "version": "cab671dac0f3409f5e7ade48c677cbc7d8a4e01d"
     },
     "tmux-fish": {
         "cargoLocks": null,
