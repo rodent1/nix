@@ -31,14 +31,22 @@ in
         init = {
           defaultBranch = "main";
         };
-        pull = {
-          rebase = true;
+        fetch = {
+          prune = true;
         };
-        rebase = {
-          autoStash = true;
+        merge = {
+          summary = true;
+          verbosity = "1";
         };
         gpg = {
           format = "ssh";
+        };
+        push = {
+          autosetupremote = true;
+          default = "current";
+        };
+        rebase = {
+          autoStash = true;
         };
       };
       aliases = {

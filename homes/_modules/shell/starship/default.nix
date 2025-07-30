@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -15,9 +14,16 @@ in
   config = lib.mkIf cfg.enable {
     programs.starship = {
       enable = true;
-      package = pkgs.starship;
+      enableTransience = true;
     };
 
     catppuccin.starship.enable = true;
+
+    programs.fish = {
+      functions.starship_transient_prompt_func.body = ''
+        starship module character
+      '';
+    };
   };
+
 }
