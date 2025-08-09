@@ -20,6 +20,7 @@ in
       turbo
       unstable.biome
       unstable.bun
+      unstable.lazysql
     ];
   };
 }
