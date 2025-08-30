@@ -25,6 +25,7 @@
       wget
       yq-go
       unstable.just
+      unstable.yamlfmt
     ];
 
     programs.zoxide = {
