@@ -19,6 +19,7 @@
       httpie
       jo
       jq
+      lefthook
       openssl
       rustic
       tlrc
