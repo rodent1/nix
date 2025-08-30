@@ -24,6 +24,7 @@
       tlrc
       wget
       yq-go
+      unstable.just
     ];
 
     programs.zoxide = {
