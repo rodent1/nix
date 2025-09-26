@@ -15,12 +15,9 @@ in
   config = lib.mkIf cfg.enable {
     programs.gh = {
       enable = true;
-      extensions =
-        with pkgs;
-        [
-          gh-tidy
-        ]
-        ++ [ pkgs.unstable.gh-copilot ];
+      extensions = with pkgs; [
+        gh-tidy
+      ];
     };
   };
 }
