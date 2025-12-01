@@ -12,6 +12,7 @@ in
     home.packages = with pkgs; [
       act
       gcc
+      pkg-config
       shellcheck
       shfmt
     ];
