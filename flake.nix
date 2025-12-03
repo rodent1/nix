@@ -26,13 +26,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # Krewfile
-    # https://github.com/brumhard/krewfile
-    krewfile = {
-      url = "github:brumhard/krewfile";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # fenix
     # https://github.com/nix-community/fenix
     fenix = {

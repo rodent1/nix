@@ -6,9 +6,6 @@
 }:
 let
   cfg = config.modules.development.rust;
-  rustlings = pkgs.rustlings.override {
-    inherit (pkgs.fenix.stable) cargo clippy rustc;
-  };
 in
 {
   options.modules.development.rust = {
@@ -25,7 +22,6 @@ in
           "rustc"
           "rustfmt"
         ])
-        rustlings
       ])
       ++ (with pkgs.unstable; [
         rust-analyzer

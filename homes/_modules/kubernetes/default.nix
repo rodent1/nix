@@ -17,6 +17,7 @@ in
       (with pkgs; [
         fluxcd
         gum
+        helmfile
         kubeconform
         kubecolor
         kubernetes-helm
@@ -24,27 +25,19 @@ in
         minijinja
         minio-client
         stern
+
+        # Kubectl plugins
+        kubectl-cnpg
+        kubectl-klock
+        kubectl-node-shell
+        kubectl-rook-ceph
       ])
       ++ (with pkgs.unstable; [
         kubectl
-        helmfile
         talosctl
       ]);
 
     programs = {
-      krewfile = {
-        enable = true;
-        krewPackage = pkgs.krew;
-        plugins = [
-          "browse-pvc"
-          "cnpg"
-          "klock"
-          "resource-capacity"
-          "node-shell"
-          "rook-ceph"
-        ];
-      };
-
       fish.functions = {
         k = {
           wraps = "kubecolor";

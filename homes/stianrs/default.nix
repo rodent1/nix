@@ -1,4 +1,4 @@
-{ hostname, pkgs, ... }:
+{ hostname, ... }:
 {
   imports = [
     ../_modules
@@ -37,11 +37,9 @@
     };
 
     shell = {
-      fish = {
-        enable = true;
-        # FIXME: Switch back to stable once 4.0 is available
-        package = pkgs.unstable.fish;
-      };
+      atuin.enable = true;
+
+      fish.enable = true;
 
       gh.enable = true;
 
@@ -52,12 +50,8 @@
         signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
       };
 
-      mise = {
-        enable = true;
-        package = pkgs.unstable.mise;
-      };
+      mise.enable = true;
 
-      atuin.enable = true;
       nvim.enable = true;
 
       starship.enable = true;
