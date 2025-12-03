@@ -21,10 +21,42 @@ in
     programs.git = {
       enable = true;
 
-      userName = cfg.username;
-      userEmail = cfg.email;
+      signing = {
+        signByDefault = true;
+        format = "ssh";
+        key = cfg.signingKey;
+      };
 
-      extraConfig = {
+      ignores = [
+        # Mac OS X hidden files
+        ".DS_Store"
+        # Windows files
+        "Thumbs.db"
+        # asdf
+        ".tool-versions"
+        # Sops
+        ".decrypted~*"
+        "*.decrypted.*"
+        # Python virtualenvs
+        ".venv"
+        # Direnv files
+        ".direnv"
+      ];
+
+      settings = {
+        aliases = {
+          a = "add";
+          c = "commit";
+          ca = "commit --amend";
+          cm = "commit --message";
+          co = "checkout";
+          d = "diff";
+          l = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+          pl = "pull --rebase --autostash --prune";
+          rpo = "remote prune origin";
+          s = "status -sb";
+        };
+
         core = {
           autocrlf = "input";
         };
@@ -48,38 +80,13 @@ in
         rebase = {
           autoStash = true;
         };
+
+        user = {
+          name = cfg.username;
+          email = cfg.email;
+        };
       };
-      aliases = {
-        a = "add";
-        c = "commit";
-        ca = "commit --amend";
-        cm = "commit --message";
-        co = "checkout";
-        d = "diff";
-        l = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-        pl = "pull --rebase --autostash --prune";
-        rpo = "remote prune origin";
-        s = "status -sb";
-      };
-      ignores = [
-        # Mac OS X hidden files
-        ".DS_Store"
-        # Windows files
-        "Thumbs.db"
-        # asdf
-        ".tool-versions"
-        # Sops
-        ".decrypted~*"
-        "*.decrypted.*"
-        # Python virtualenvs
-        ".venv"
-        # Direnv files
-        ".direnv"
-      ];
-      signing = {
-        signByDefault = true;
-        key = cfg.signingKey;
-      };
+
     };
 
     home.packages = [

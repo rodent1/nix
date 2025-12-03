@@ -14,7 +14,12 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      unstable.go
+      gotools
+      golangci-lint
     ];
+
+    programs.go = {
+      enable = true;
+    };
   };
 }
