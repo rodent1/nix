@@ -16,7 +16,7 @@ in
     programs = {
       mise = {
         enable = true;
-        enableFishIntegration = false;
+        enableFishIntegration = true;
       };
     };
   };
