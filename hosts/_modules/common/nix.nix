@@ -21,6 +21,8 @@
         "flakes"
       ];
 
+      auto-optimise-store = true;
+
       warn-dirty = false;
 
       trusted-users = [
