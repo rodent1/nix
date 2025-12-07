@@ -16,6 +16,7 @@ in
     home.packages = with pkgs; [
       gotools
       golangci-lint
+      wails3
     ];
 
     programs.go = {

@@ -25,4 +25,15 @@
     };
     date = "2025-04-07";
   };
+  wails = {
+    pname = "wails";
+    version = "v3.0.0-alpha.41";
+    src = fetchFromGitHub {
+      owner = "wailsapp";
+      repo = "wails";
+      rev = "v3.0.0-alpha.41";
+      fetchSubmodules = false;
+      sha256 = "sha256-xMzxhqoiTIMiBAdqZG46RT8zkWMu1h2tkA043+SIiLg=";
+    };
+  };
 }

@@ -40,5 +40,26 @@
             "type": "github"
         },
         "version": "db0030b7f4f78af4053dc5c032c7512406961ea5"
+    },
+    "wails": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "wails",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "wailsapp",
+            "repo": "wails",
+            "rev": "v3.0.0-alpha.41",
+            "sha256": "sha256-xMzxhqoiTIMiBAdqZG46RT8zkWMu1h2tkA043+SIiLg=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v3.0.0-alpha.41"
     }
 }

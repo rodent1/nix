@@ -4,3 +4,7 @@ fetch.github = "HaywardMorihara/gh-tidy"
 [tmux-fish]
 src.git = "https://github.com/budimanjojo/tmux.fish"
 fetch.github = "budimanjojo/tmux.fish"
+[wails]
+fetch.github = "wailsapp/wails"
+src.github_tag = "wailsapp/wails"
+src.include_regex = "^(v3.*)$"
