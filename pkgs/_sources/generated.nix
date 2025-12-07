@@ -3,15 +3,15 @@
 {
   gh-tidy = {
     pname = "gh-tidy";
-    version = "50355bdffca7dab42023375afe83257dc6f3d72b";
+    version = "507b54064afe2fea342fc00f05e5c4b077996b33";
     src = fetchFromGitHub {
       owner = "HaywardMorihara";
       repo = "gh-tidy";
-      rev = "50355bdffca7dab42023375afe83257dc6f3d72b";
+      rev = "507b54064afe2fea342fc00f05e5c4b077996b33";
       fetchSubmodules = false;
-      sha256 = "sha256-WwFoH7Te0bD4X/5ITTRvi/JtySB9OQGKmytPGynhFXY=";
+      sha256 = "sha256-ljmBfO04Hkm6JRdEpGRBb0KrDXW0fPYMTzcGUbZCQgQ=";
     };
-    date = "2025-08-16";
+    date = "2025-12-06";
   };
   tmux-fish = {
     pname = "tmux-fish";
