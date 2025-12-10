@@ -21,7 +21,7 @@ buildGoModule rec {
 
   sourceRoot = "${src.name}/v3";
 
-  vendorHash = "sha256-U15ZtN6i3UGv0rd0bAbeBWFO88C2OUjjbmES45Gh/Qo=";
+  vendorHash = "sha256-8vFgaOV8CPmv3g8UDnEgtBblZOhEXbK7D4vFUJNUR+8=";
 
   proxyVendor = true;
 
