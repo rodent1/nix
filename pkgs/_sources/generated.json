@@ -55,11 +55,11 @@
             "name": null,
             "owner": "wailsapp",
             "repo": "wails",
-            "rev": "v3.0.0-alpha.44",
-            "sha256": "sha256-XSg6pvBJ4yQyy6PXCPR9neHaDx78SIL7dzFFKdRb1Ek=",
+            "rev": "v3.0.0-alpha.45",
+            "sha256": "sha256-z9/KToVJTMBzprYopv38C1VB13G28IDurm9WVrwcI2w=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v3.0.0-alpha.44"
+        "version": "v3.0.0-alpha.45"
     }
 }
