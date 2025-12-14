@@ -27,13 +27,13 @@
   };
   wails = {
     pname = "wails";
-    version = "v3.0.0-alpha.44";
+    version = "v3.0.0-alpha.46";
     src = fetchFromGitHub {
       owner = "wailsapp";
       repo = "wails";
-      rev = "v3.0.0-alpha.44";
+      rev = "v3.0.0-alpha.46";
       fetchSubmodules = false;
-      sha256 = "sha256-XSg6pvBJ4yQyy6PXCPR9neHaDx78SIL7dzFFKdRb1Ek=";
+      sha256 = "sha256-VS+8l/FoModVwur2WhArqI4eNSPNoFTVCj0HEwmHiTs=";
     };
   };
 }
