@@ -20,7 +20,7 @@ in
         statix
       ]
       ++ (with pkgs.unstable; [
-        nixfmt-rfc-style
+        nixfmt
       ]);
   };
 }
