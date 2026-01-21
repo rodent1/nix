@@ -33,4 +33,6 @@
     # Do not change unless you know what you are doing
     stateVersion = "24.05";
   };
+
+  boot.tmp.cleanOnBoot = true;
 }

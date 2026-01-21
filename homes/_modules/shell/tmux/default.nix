@@ -21,10 +21,11 @@ in
       aggressiveResize = true;
       baseIndex = 1;
       clock24 = true;
-      escapeTime = 0;
+      escapeTime = 50;
       historyLimit = 50000;
       mouse = true;
       terminal = "tmux-256color";
+      focusEvents = true;
 
       plugins = with pkgs; [
         {
@@ -36,7 +37,10 @@ in
       ];
 
       extraConfig = ''
-        set -a terminal-features 'xterm-256color:RGB'
+        set -sg terminal-overrides ",*:RGB"
+
+        set -s extended-keys on
+        set -as terminal-features 'xterm*:extkeys'
 
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
