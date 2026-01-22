@@ -51,13 +51,11 @@
       };
 
       mise.enable = true;
-
+      nix-your-shell.enable = true;
       nvim.enable = true;
 
       starship.enable = true;
-
       tmux.enable = true;
-      zellij.enable = false;
     };
 
     services = {

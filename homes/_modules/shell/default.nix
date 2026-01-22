@@ -1,6 +1,5 @@
 {
   imports = [
-    ./any-nix-shell
     ./atuin
     ./bat
     ./btop
@@ -10,11 +9,11 @@
     ./gh
     ./git
     ./mise
+    ./nix-your-shell
     ./nvim
     ./starship
     ./tmux
     ./utilities
     ./viddy
-    ./zellij
   ];
 }

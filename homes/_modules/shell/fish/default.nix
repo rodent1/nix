@@ -7,7 +7,6 @@
 let
   inherit (config.home) username homeDirectory;
   cfg = config.modules.shell.fish;
-  sourceData = pkgs.callPackage ../../../../pkgs/_sources/generated.nix { };
 in
 {
   options.modules.shell.fish = {
@@ -34,16 +33,9 @@ in
           inherit (pkgs.fishPlugins.fzf-fish) src;
         }
         {
-          name = "puffer";
-          inherit (pkgs.fishPlugins.puffer) src;
+          name = "bass";
+          inherit (pkgs.fishPlugins.bass) src;
         }
-
-      ]
-      ++ [
-        (lib.mkIf (config.programs.tmux.enable && !config.programs.zellij.enable) {
-          name = "tmux-fish";
-          inherit (sourceData.tmux-fish) src;
-        })
       ];
 
       interactiveShellInit = ''
@@ -65,7 +57,7 @@ in
         update_path /run/current-system/sw/bin
         update_path /etc/profiles/per-user/${username}/bin
         update_path /run/wrappers/bin
-        update_path ${homeDirectory}/go/bin
+        update_path ${homeDirectory}/.go/bin
         update_path ${homeDirectory}/.cargo/bin
         update_path ${homeDirectory}/.local/bin
         update_path ${homeDirectory}/.cache/.bun/bin
@@ -79,13 +71,10 @@ in
           description = "Set the fish greeting";
           body = builtins.readFile ./functions/fish_greeting.fish;
         };
-        ghce = {
-          description = "gh copilot explain";
-          body = builtins.readFile ./functions/ghce.fish;
-        };
-        ghcs = {
-          description = "gh copilot suggest";
-          body = builtins.readFile ./functions/ghcs.fish;
+
+        tempdir = {
+          description = "Change to a new temporary directory";
+          body = builtins.readFile ./functions/tempd.fish;
         };
       };
     };

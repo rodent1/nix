@@ -1,9 +1,0 @@
-default_mode "normal"
-theme "catppuccin-macchiato"
-
-ui {
-  pane_frames {
-    hide_session_name true
-    rounded_corners false
-  }
-}
