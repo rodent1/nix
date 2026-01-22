@@ -22,7 +22,7 @@ in
       aggressiveResize = true;
       baseIndex = 1;
       clock24 = true;
-      escapeTime = 50;
+      escapeTime = 10;
       focusEvents = true;
       historyLimit = 5000;
       mouse = true;
@@ -60,22 +60,22 @@ in
             set -g @emulate-scroll-for-no-mouse-alternate-buffer on
           '';
         }
-        {
-          plugin = tmuxPlugins.resurrect;
-          extraConfig = ''
-            set -g @resurrect-strategy-vim 'session'      # Restore vim sessions
-            set -g @resurrect-strategy-nvim 'session'     # Restore neovim sessions
-            set -g @resurrect-capture-pane-contents 'on'  # Save pane contents
-          '';
-        }
-        {
-          plugin = tmuxPlugins.continuum;
-          extraConfig = ''
-            set -g @continuum-restore 'on'         # Auto-restore last saved session
-            set -g @continuum-boot 'on'            # Auto-start tmux on boot
-            set -g @continuum-save-interval '10'   # Save every 10 minutes
-          '';
-        }
+        # {
+        #   plugin = tmuxPlugins.resurrect;
+        #   extraConfig = ''
+        #     set -g @resurrect-strategy-vim 'session'      # Restore vim sessions
+        #     set -g @resurrect-strategy-nvim 'session'     # Restore neovim sessions
+        #     set -g @resurrect-capture-pane-contents 'on'  # Save pane contents
+        #   '';
+        # }
+        # {
+        #   plugin = tmuxPlugins.continuum;
+        #   extraConfig = ''
+        #     set -g @continuum-restore 'on'         # Auto-restore last saved session
+        #     set -g @continuum-boot 'on'            # Auto-start tmux on boot
+        #     set -g @continuum-save-interval '10'   # Save every 10 minutes
+        #   '';
+        # }
         {
           plugin = tmuxPlugins.vim-tmux-navigator;
         }
