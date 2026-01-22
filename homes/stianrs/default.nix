@@ -58,12 +58,6 @@
       tmux.enable = true;
     };
 
-    services = {
-      ssh-relay = {
-        enable = true;
-      };
-    };
-
     themes = {
       catppuccin = {
         enable = true;

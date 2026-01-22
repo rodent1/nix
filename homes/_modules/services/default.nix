@@ -1,1 +1,5 @@
-{ imports = [ ./ssh-relay ]; }
+{
+  imports = [
+    ./wsl2-ssh-agent
+  ];
+}
