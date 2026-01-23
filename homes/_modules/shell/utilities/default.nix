@@ -28,9 +28,5 @@
       unstable.just
       unstable.yamlfmt
     ];
-
-    programs.zoxide = {
-      enable = true;
-    };
   };
 }
