@@ -6,8 +6,8 @@
     ./doggo
     ./eza
     ./fish
-    ./gh
     ./git
+    ./jujutsu
     ./mise
     ./nix-your-shell
     ./nvim

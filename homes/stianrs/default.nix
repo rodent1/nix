@@ -1,4 +1,9 @@
 { hostname, ... }:
+let
+  git_name = "stianrs";
+  git_email = "mail@stianrs.dev";
+  git_signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
+in
 {
   imports = [
     ../_modules
@@ -41,13 +46,18 @@
 
       fish.enable = true;
 
-      gh.enable = true;
-
       git = {
         enable = true;
-        username = "Stian R. Sporaland";
-        email = "mail@stianrs.dev";
-        signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
+        username = git_name;
+        email = git_email;
+        signingKey = git_signingKey;
+      };
+
+      jujutsu = {
+        enable = true;
+        username = git_name;
+        email = git_email;
+        signingKey = git_signingKey;
       };
 
       mise.enable = true;

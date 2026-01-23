@@ -13,6 +13,10 @@ in
     username = lib.mkOption { type = lib.types.str; };
     email = lib.mkOption { type = lib.types.str; };
     signingKey = lib.mkOption { type = lib.types.str; };
+    gh = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -89,9 +93,18 @@ in
 
     };
 
-    home.packages = [
-      pkgs.git-filter-repo
-      pkgs.tig
+    programs.gh = lib.mkIf cfg.gh {
+      enable = true;
+      package = pkgs.unstable.gh;
+
+      extensions = with pkgs; [
+        gh-tidy
+      ];
+    };
+
+    home.packages = with pkgs; [
+      git-filter-repo
+      tig
     ];
   };
 }
