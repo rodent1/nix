@@ -96,15 +96,6 @@ in
     programs.gh = lib.mkIf cfg.gh {
       enable = true;
       package = pkgs.unstable.gh;
-
-      extensions = with pkgs; [
-        gh-tidy
-      ];
     };
-
-    home.packages = with pkgs; [
-      git-filter-repo
-      tig
-    ];
   };
 }

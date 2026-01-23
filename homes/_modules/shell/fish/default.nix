@@ -37,6 +37,15 @@ in
           inherit (pkgs.fishPlugins.bass) src;
         }
         {
+          name = "tmux-fish";
+          src = pkgs.fetchFromGitHub {
+            owner = "budimanjojo";
+            repo = "tmux-fish";
+            rev = "db0030b7f4f78af4053dc5c032c7512406961ea5";
+            hash = "sha256-rRibn+FN8VNTSC1HmV05DXEa6+3uOHNx03tprkcjjs8=";
+          };
+        }
+        {
           name = "zoxide";
           src = pkgs.fetchFromGitHub {
             owner = "icezyclon";

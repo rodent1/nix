@@ -12,6 +12,7 @@
       Service = {
         ExecStart = "${pkgs.wsl2-ssh-agent}/bin/wsl2-ssh-agent --verbose --foreground --socket=%t/wsl2-ssh-agent.sock";
         Restart = "on-failure";
+        RestartSec = "10";
       };
 
       Install = {

@@ -1,6 +1,1 @@
-[gh-tidy]
-src.git = "https://github.com/HaywardMorihara/gh-tidy"
-fetch.github = "HaywardMorihara/gh-tidy"
-[tmux-fish]
-src.git = "https://github.com/budimanjojo/tmux.fish"
-fetch.github = "budimanjojo/tmux.fish"
+
