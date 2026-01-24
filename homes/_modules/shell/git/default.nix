@@ -48,7 +48,7 @@ in
       ];
 
       settings = {
-        aliases = {
+        alias = {
           a = "add";
           c = "commit";
           ca = "commit --amend";
