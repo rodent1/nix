@@ -26,5 +26,9 @@ in
       ++ (with pkgs.unstable; [
         rust-analyzer
       ]);
+
+    home.sessionPath = [
+      "${config.home.homeDirectory}/.cargo/bin"
+    ];
   };
 }

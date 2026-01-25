@@ -13,5 +13,9 @@ in
       nodejs_24
       unstable.bun
     ];
+
+    home.sessionPath = [
+      "${config.home.homeDirectory}/.cache/.bun/bin"
+    ];
   };
 }

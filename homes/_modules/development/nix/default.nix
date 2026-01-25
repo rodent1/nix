@@ -9,18 +9,14 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages =
-      with pkgs;
-      [
-        deadnix
-        nix-init
-        nix-inspect
-        nixd
-        nvfetcher
-        statix
-      ]
-      ++ (with pkgs.unstable; [
-        nixfmt
-      ]);
+    home.packages = with pkgs; [
+      deadnix
+      nix-init
+      nix-inspect
+      nixd
+      nixfmt
+      nvfetcher
+      statix
+    ];
   };
 }

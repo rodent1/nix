@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -13,13 +12,13 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      gotools
-      golangci-lint
-    ];
-
     programs.go = {
       enable = true;
+      env.GOPATH = "${config.home.homeDirectory}/.go";
     };
+
+    home.sessionPath = [
+      "${config.home.homeDirectory}/.go/bin"
+    ];
   };
 }
