@@ -17,11 +17,6 @@ in
       ssh = {
         enable = true;
         matchBlocks = {
-          "*" = {
-            extraOptions = {
-              IdentityAgent = "~/.ssh/agent.sock";
-            };
-          };
           "udm" = {
             extraOptions = {
               User = "root";
