@@ -83,11 +83,10 @@ in
     };
 
     programs.fish.interactiveShellInit = ''
-      set -gx fish_tmux_autoquit false
-      set -gx fish_tmux_no_alias false
-
-      status is-interactive; and begin
-          set fish_tmux_autostart true
+      # don't nest inside another tmux
+      if not set -q TMUX
+        # Create session 'main' or attach to 'main' if already exists.
+        tmux new-session -A -s main
       end
     '';
 
