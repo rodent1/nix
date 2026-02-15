@@ -1,9 +1,11 @@
 {
+  lib,
   pkgs,
+  isWSL,
   ...
 }:
 {
-  config = {
+  config = lib.mkIf isWSL {
     systemd.user.services.wsl2-ssh-agent = {
       Unit = {
         Description = "WSL2 SSH Agent Bridge";

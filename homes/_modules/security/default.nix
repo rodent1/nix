@@ -1,8 +1,9 @@
+{ ... }:
 {
   imports = [
-    ./_1password
+    ./1password
     ./gnugpg
+    ./opnix
     ./ssh
   ];
-
 }

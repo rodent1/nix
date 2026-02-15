@@ -52,6 +52,8 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    opnix.url = "github:brizzbuzz/opnix";
   };
 
   outputs =
@@ -88,7 +90,7 @@
 
       flake = {
         nixosConfigurations = {
-          laptop = mkSystemLib.mkWslSystem "x86_64-linux" "laptop";
+          laptop = mkSystemLib.mkNixosSystem "x86_64-linux" "laptop";
           gamer = mkSystemLib.mkWslSystem "x86_64-linux" "gamer";
           work = mkSystemLib.mkWslSystem "x86_64-linux" "work";
         };
