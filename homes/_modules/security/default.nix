@@ -5,5 +5,6 @@
     ./gnugpg
     ./opnix
     ./ssh
+    ./wsl2-ssh-agent
   ];
 }

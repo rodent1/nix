@@ -5,16 +5,13 @@
   ...
 }:
 let
-  cfg = config.modules.services._1password;
+  isWSL = config.wsl.enable or false;
 in
 {
-  options.modules.services._1password = {
-    enable = lib.mkEnableOption "_1password";
-  };
 
-  config = lib.mkIf cfg.enable {
+  config = {
     programs._1password.enable = true;
-    programs._1password-gui = {
+    programs._1password-gui = lib.mkIf (!isWSL) {
       enable = true;
       package = pkgs.unstable._1password-gui;
       # Certain features, including CLI integration and system authentication support,
