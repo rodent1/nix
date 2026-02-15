@@ -1,4 +1,9 @@
-{ hostname, ... }:
+{
+  hostname,
+  lib,
+  isWSL,
+  ...
+}:
 let
   git_name = "stianrs";
   git_email = "mail@stianrs.dev";
@@ -8,7 +13,6 @@ in
   imports = [
     ../_modules
 
-    ./secrets
     ./hosts/${hostname}.nix
   ];
 
@@ -16,23 +20,28 @@ in
     security = {
       ssh = {
         enable = true;
-        matchBlocks = {
-          "udm" = {
-            extraOptions = {
-              User = "root";
-              Hostname = "10.1.1.1";
+        matchBlocks = lib.mkMerge [
+          {
+            "udm" = {
+              extraOptions = {
+                User = "root";
+                Hostname = "10.1.1.1";
+              };
             };
-          };
-          "tank" = {
-            extraOptions = {
-              Hostname = "10.1.1.15";
+            "tank" = {
+              extraOptions = {
+                Hostname = "10.1.1.15";
+              };
             };
-          };
-        };
-      };
-
-      _1password-cli = {
-        enable = true;
+          }
+          (lib.mkIf (!isWSL) {
+            "*" = {
+              extraOptions = {
+                identityAgent = "~/.1password/agent.sock";
+              };
+            };
+          })
+        ];
       };
     };
 

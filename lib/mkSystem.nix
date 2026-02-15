@@ -8,6 +8,7 @@ let
     inputs.catppuccin.homeModules.catppuccin
     inputs.nix-index-database.homeModules.nix-index
     inputs.sops-nix.homeManagerModules.sops
+    inputs.opnix.homeManagerModules.default
   ];
 in
 {
@@ -26,6 +27,7 @@ in
         inputs.home-manager.nixosModules.home-manager
         inputs.nix-index-database.nixosModules.nix-index
         inputs.sops-nix.nixosModules.sops
+        inputs.opnix.nixosModules.default
         {
           home-manager = {
             inherit sharedModules;
@@ -33,6 +35,7 @@ in
             useGlobalPkgs = true;
             extraSpecialArgs = {
               inherit inputs hostname system;
+              isWSL = false;
             };
             users.stianrs = ../. + "/homes/stianrs";
           };
@@ -62,6 +65,7 @@ in
         inputs.nix-index-database.nixosModules.nix-index
         inputs.sops-nix.nixosModules.sops
         inputs.nixos-wsl.nixosModules.default
+        inputs.opnix.nixosModules.default
         {
           home-manager = {
             inherit sharedModules;
@@ -69,6 +73,7 @@ in
             useGlobalPkgs = true;
             extraSpecialArgs = {
               inherit inputs hostname system;
+              isWSL = true;
             };
             users.stianrs = ../. + "/homes/stianrs";
           };

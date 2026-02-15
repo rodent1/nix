@@ -5,4 +5,6 @@
     ./shells.nix
     ./sops.nix
   ];
+
+  programs.nix-ld.enable = true;
 }

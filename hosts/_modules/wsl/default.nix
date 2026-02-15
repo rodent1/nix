@@ -9,7 +9,5 @@ _: {
         network.generateHosts = false;
       };
     };
-
-    programs.nix-ld.enable = true;
   };
 }

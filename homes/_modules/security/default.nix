@@ -1,8 +1,10 @@
+{ ... }:
 {
   imports = [
-    ./_1password
+    ./1password
     ./gnugpg
+    ./opnix
     ./ssh
+    ./wsl2-ssh-agent
   ];
-
 }

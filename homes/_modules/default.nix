@@ -6,7 +6,6 @@
     ./development
     ./kubernetes
     ./security
-    ./services
     ./shell
     ./themes
   ];
