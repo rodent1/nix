@@ -78,6 +78,9 @@ in
       #media-session.enable = true;
     };
 
+    # Enable fingerprint sensor
+    services.fprintd.enable = true;
+
     users.users.stianrs = {
       uid = 1000;
       name = "stianrs";
