@@ -25,10 +25,11 @@
 
         onepassToken = {
           reference = "op://dotfiles/1password/OP_SERVICE_ACCOUNT_TOKEN";
-          path = "${config.xdg.configHome}/1password/op-service-account-token";
+          path = "${config.xdg.configHome}/1Password/op-service-account-token";
           mode = "0600";
         };
       };
     };
   };
 }
+  
