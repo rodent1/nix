@@ -22,7 +22,7 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@c5a866b6ab867e88becbed4467b93592bce69f8a # v21
       - name: Set up FlakeHub Cache
-        uses: DeterminateSystems/flakehub-cache-action@91ca310d06020a14c188943f8277d38678b576e5 # v3
+        uses: DeterminateSystems/flakehub-cache-action@a09b82cd3b1c66a93894d2071510aac1441d2f39 # v3
 
       - name: Run nvfetcher
         id: run-nvfetcher
