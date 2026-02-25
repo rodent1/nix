@@ -16,7 +16,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: DeterminateSystems/flakehub-cache-action@94e18b0009f736bc4071682aa53cd5a48e0d9618 # v3
+      - uses: DeterminateSystems/flakehub-cache-action@6783a3a5482dcb2d35f4898eb26310606b2a5f48 # v3
 
       - uses: DeterminateSystems/flake-checker-action@3164002371bc90729c68af0e24d5aacf20d7c9f6 # v12
 
