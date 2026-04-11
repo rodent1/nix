@@ -91,7 +91,7 @@
       flake = {
         nixosConfigurations = {
           laptop = mkSystemLib.mkNixosSystem "x86_64-linux" "laptop";
-          gamer = mkSystemLib.mkWslSystem "x86_64-linux" "gamer";
+          gamer = mkSystemLib.mkNixosSystem "x86_64-linux" "gamer";
           work = mkSystemLib.mkWslSystem "x86_64-linux" "work";
         };
       };
