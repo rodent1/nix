@@ -115,7 +115,6 @@ in
         discord
         firefox
         ghostty
-        faugus-launcher
         unstable.vscode
       ];
     };
@@ -124,6 +123,7 @@ in
     };
 
     modules = {
+      games.enable = true;
       services.podman.enable = true;
       services.tailscale.enable = false;
       system.openssh.enable = true;
