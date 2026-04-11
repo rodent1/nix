@@ -1,2 +1,7 @@
-# Add custom packages here
-{ ... }: { }
+{
+  pkgs,
+  ...
+}:
+{
+  faugus-launcher = pkgs.callPackage ./faugus-launcher.nix { };
+}

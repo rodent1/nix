@@ -22,9 +22,10 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "nvidia" ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [ config.hardware.nvidia.package ];
+  boot.blacklistedKernelModules = [ "nouveau" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/bfbc23e2-7064-418c-ac48-d09d32a6e506";

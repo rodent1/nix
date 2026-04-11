@@ -56,11 +56,21 @@ in
       variant = "nodeadkeys";
     };
 
+    hardware.graphics.enable = true;
+    services.xserver.videoDrivers = [ "nvidia" ];
+
+    hardware.nvidia = {
+      open = false;
+      nvidiaSettings = true;
+      modesetting.enable = true;
+
+      package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
+    };
+
+    hardware.enableRedistributableFirmware = true;
+
     # Configure console keymap
     console.keyMap = "no";
-
-    # Enable CUPS to print documents.
-    services.printing.enable = true;
 
     # Enable sound with pipewire.
     services.pulseaudio.enable = false;
@@ -77,9 +87,6 @@ in
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
-
-    # Enable fingerprint sensor
-    services.fprintd.enable = true;
 
     users.users.stianrs = {
       uid = 1000;
@@ -108,6 +115,7 @@ in
         discord
         firefox
         ghostty
+        faugus-launcher
         unstable.vscode
       ];
     };
