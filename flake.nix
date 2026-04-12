@@ -22,8 +22,8 @@
     # Catppuccin
     # https://github.com/catppuccin/nix
     catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:catppuccin/nix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # fenix
@@ -91,7 +91,7 @@
       flake = {
         nixosConfigurations = {
           laptop = mkSystemLib.mkNixosSystem "x86_64-linux" "laptop";
-          gamer = mkSystemLib.mkWslSystem "x86_64-linux" "gamer";
+          gamer = mkSystemLib.mkNixosSystem "x86_64-linux" "gamer";
           work = mkSystemLib.mkWslSystem "x86_64-linux" "work";
         };
       };

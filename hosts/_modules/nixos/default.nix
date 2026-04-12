@@ -3,6 +3,7 @@
     ./users.nix
     ./services
     ./system
+    ./games
   ];
 
   networking.extraHosts = ''
