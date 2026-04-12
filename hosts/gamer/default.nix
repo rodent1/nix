@@ -48,6 +48,7 @@ in
 
     # Enable the KDE Plasma Desktop Environment.
     services.displayManager.sddm.enable = true;
+    services.displayManager.sddm.wayland.enable = true;
     services.desktopManager.plasma6.enable = true;
 
     # Configure keymap in X11
@@ -63,6 +64,7 @@ in
       open = false;
       nvidiaSettings = true;
       modesetting.enable = true;
+      powerManagement.enable = true;
 
       package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
     };

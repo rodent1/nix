@@ -13,9 +13,11 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.faugus-launcher
-      pkgs.wagoapp
+    environment.systemPackages = with pkgs; [
+      faugus-launcher
+      wagoapp
     ];
+
+    programs.steam.enable = true;
   };
 }
