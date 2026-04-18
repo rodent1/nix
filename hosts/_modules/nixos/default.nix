@@ -14,6 +14,11 @@
     10.1.1.35 node-5
   '';
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # Increase open file limit for sudoers
   security.pam.loginLimits = [
     {

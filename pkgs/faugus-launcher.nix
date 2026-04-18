@@ -1,5 +1,5 @@
 {
-  fetchFromGitHub,
+  callPackage,
   gobject-introspection,
   icoextract,
   imagemagick,
@@ -15,18 +15,13 @@
   wrapGAppsHook3,
   xdg-utils,
 }:
-
+let
+  sourceData = callPackage _sources/generated.nix { };
+in
 python3Packages.buildPythonApplication rec {
   pname = "faugus-launcher";
-  version = "1.17.5";
+  inherit (sourceData.faugus-launcher) version src;
   pyproject = false;
-
-  src = fetchFromGitHub {
-    owner = "Faugus";
-    repo = "faugus-launcher";
-    tag = version;
-    hash = "sha256-MnQ9s8IwwLVl/HZROe10TEL4sh8qbqU3J6V2Os4zBIU=";
-  };
 
   nativeBuildInputs = [
     gobject-introspection
@@ -42,6 +37,7 @@ python3Packages.buildPythonApplication rec {
   dependencies = with python3Packages; [
     pillow
     psutil
+    pygame
     pygobject3
     requests
     vdf
@@ -49,7 +45,7 @@ python3Packages.buildPythonApplication rec {
 
   postPatch = ''
     substituteInPlace faugus-launcher \
-      --replace-fail "python3" "${python3Packages.python.interpreter}"
+      --replace-fail "/usr/bin/python3" "${python3Packages.python.interpreter}"
 
     substituteInPlace faugus/launcher.py \
       --replace-fail "PathManager.user_data('faugus-launcher/umu-run')" "'${lib.getExe umu-launcher}'" \

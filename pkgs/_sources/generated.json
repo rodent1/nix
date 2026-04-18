@@ -1,1 +1,23 @@
-{}
+{
+    "faugus-launcher": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "faugus-launcher",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Faugus",
+            "repo": "faugus-launcher",
+            "rev": "1.18.3",
+            "sha256": "sha256-cqtylAeDQDlv+Ai9ALr4cOxrOolDdHrN5yYRFW2/H8s=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "1.18.3"
+    }
+}

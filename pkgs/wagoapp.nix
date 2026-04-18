@@ -1,43 +1,23 @@
 {
-  stdenvNoCC,
   appimageTools,
   fetchurl,
 }:
 
 let
-  pname = "wago";
+  pname = "WagoApp";
   version = "2.9.10";
   src = fetchurl {
     url = "https://wago-addons.ams3.digitaloceanspaces.com/wagoapp/WagoApp_${version}.AppImage";
     hash = "sha256-phVLBo17cddZd+LDICXvqsuRm2k5gJSx0BOlC2oHZXk=";
   };
-  appimage = appimageTools.wrapType2 {
-    inherit pname version src;
-  };
-  appimageContents = appimageTools.extractType2 {
-    inherit pname version src;
-  };
+  appimageContents = appimageTools.extract { inherit pname version src; };
 in
+appimageTools.wrapType2 rec {
+  inherit pname version src;
 
-stdenvNoCC.mkDerivation {
-  inherit pname version;
-
-  src = appimage;
-
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p $out
-    cp -r bin $out/bin
-
-    mkdir -p $out/share/${pname}
-    cp -a ${appimageContents}/locales $out/share/${pname}
-    cp -a ${appimageContents}/resources $out/share/${pname}
-    cp -a ${appimageContents}/usr/share/icons $out/share
-    install -Dm 644 ${appimageContents}/WagoApp.desktop -T $out/share/applications/wago.desktop
-
-    substituteInPlace $out/share/applications/wago.desktop --replace "AppRun" "${pname}"
-
-    runHook postInstall
+  extraInstallCommands = ''
+    install -m 444 -D ${appimageContents}/WagoApp.desktop $out/share/applications/WagoApp.desktop
+    install -m 444 -D ${appimageContents}/WagoApp.png $out/share/icons/hicolor/512x512/apps/WagoApp.png
+    substituteInPlace $out/share/applications/WagoApp.desktop --replace-fail 'Exec=AppRun' 'Exec=${pname}'
   '';
 }
