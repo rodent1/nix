@@ -5,8 +5,8 @@
   ...
 }:
 let
-  git_name = "stianrs";
-  git_email = "mail@stianrs.dev";
+  git_name = "Stian R. Sporaland";
+  git_email = "mail@stian.rs";
   git_signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
 in
 {
@@ -51,13 +51,6 @@ in
       fish.enable = true;
 
       git = {
-        enable = true;
-        username = git_name;
-        email = git_email;
-        signingKey = git_signingKey;
-      };
-
-      jujutsu = {
         enable = true;
         username = git_name;
         email = git_email;

@@ -7,7 +7,6 @@
     ./eza
     ./fish
     ./git
-    ./jujutsu
     ./mise
     ./nix-your-shell
     ./nvim
