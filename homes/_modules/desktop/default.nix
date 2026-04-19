@@ -18,6 +18,7 @@ in
 
       ghostty = {
         enable = true;
+        enableFishIntegration = true;
         settings = {
           link-url = true;
 

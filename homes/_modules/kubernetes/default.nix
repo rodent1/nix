@@ -30,11 +30,6 @@ in
         minio-client
         stern
 
-        # Kubectl plugins
-        kubectl-cnpg
-        kubectl-klock
-        kubectl-node-shell
-        kubectl-rook-ceph
       ])
       ++ (with pkgs.unstable; [
         kubectl
