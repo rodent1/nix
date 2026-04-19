@@ -1,5 +1,6 @@
 {
   modules = {
+    desktop.enable = true;
     development = {
       enable = true;
       go.enable = true;

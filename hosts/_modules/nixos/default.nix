@@ -1,9 +1,10 @@
 {
   imports = [
-    ./users.nix
+    ./desktop
+    ./games
     ./services
     ./system
-    ./games
+    ./users
   ];
 
   networking.extraHosts = ''
@@ -13,11 +14,6 @@
     10.1.1.34 node-4
     10.1.1.35 node-5
   '';
-
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
 
   # Increase open file limit for sudoers
   security.pam.loginLimits = [

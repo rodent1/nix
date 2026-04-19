@@ -3,6 +3,10 @@ let
   cfg = config.modules.users;
 in
 {
+  imports = [
+    ./stianrs.nix
+  ];
+
   options.modules.users = {
     groups = lib.mkOption {
       type = lib.types.attrs;
