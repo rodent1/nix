@@ -1,17 +1,12 @@
 {
   pkgs,
   config,
-  hostname,
   ...
 }:
 {
   imports = [ ./hardware-configuration.nix ];
 
   config = {
-    networking = {
-      hostName = hostname;
-    };
-
     services.xserver.videoDrivers = [ "modesetting" ];
     hardware.graphics = {
       enable = true;
@@ -31,9 +26,6 @@
     modules = {
       desktop.enable = true;
       users.stianrs.hashedPasswordFile = config.services.onepassword-secrets.secretPaths.hashedPassword;
-      services.podman.enable = true;
-      services.tailscale.enable = false;
-      system.openssh.enable = true;
     };
   };
 }

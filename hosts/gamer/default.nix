@@ -1,17 +1,12 @@
 {
   lib,
   config,
-  hostname,
   ...
 }:
 {
   imports = [ ./hardware-configuration.nix ];
 
   config = {
-    networking = {
-      hostName = hostname;
-    };
-
     services.displayManager.sddm.wayland.enable = true;
 
     hardware.graphics.enable = true;
@@ -31,9 +26,6 @@
     modules = {
       desktop.enable = true;
       games.enable = true;
-      services.podman.enable = true;
-      services.tailscale.enable = false;
-      system.openssh.enable = true;
     };
   };
 }

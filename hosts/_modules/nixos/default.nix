@@ -1,3 +1,4 @@
+{ hostname, lib, ... }:
 {
   imports = [
     ./desktop
@@ -6,6 +7,14 @@
     ./system
     ./users
   ];
+
+  networking.hostName = lib.mkDefault hostname;
+
+  modules = {
+    services.podman.enable = lib.mkDefault true;
+    services.tailscale.enable = lib.mkDefault false;
+    system.openssh.enable = lib.mkDefault true;
+  };
 
   networking.extraHosts = ''
     10.1.1.31 node-1

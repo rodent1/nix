@@ -8,13 +8,11 @@ let
   git_name = "Stian R. Sporaland";
   git_email = "mail@stian.rs";
   git_signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
+  
+  hostConfig = ./hosts + "/${hostname}.nix";
 in
 {
-  imports = [
-    ../_modules
-
-    ./hosts/${hostname}.nix
-  ];
+  imports = [ ../_modules ] ++ lib.optional (builtins.pathExists hostConfig) hostConfig;
 
   modules = {
 
