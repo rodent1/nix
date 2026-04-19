@@ -39,7 +39,17 @@ in
 
     services.xserver.enable = true;
     services.displayManager.sddm.enable = true;
-    services.desktopManager.plasma6.enable = true;
+    # services.desktopManager.plasma6.enable = true;
+
+    # enable Hyprland
+    programs.hyprland.enable = true;
+
+    environment.systemPackages = [
+      pkgs.kitty # required for the default Hyprland config
+    ];
+
+    # Optional, hint Electron apps to use Wayland:
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
     services.xserver.xkb = {
       layout = "no";

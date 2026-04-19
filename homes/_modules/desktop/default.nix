@@ -8,9 +8,14 @@ let
   cfg = config.modules.desktop;
 in
 {
+  imports = [
+    ./hyprland
+  ];
+
   options.modules.desktop = {
     enable = lib.mkEnableOption "desktop applications";
   };
+
   config = lib.mkIf cfg.enable {
     programs = {
       discord.enable = true;
