@@ -2,6 +2,7 @@
 {
   config = {
     home.packages = with pkgs; [
+      age
       binutils
       broot
       coreutils
@@ -22,6 +23,7 @@
       lefthook
       openssl
       rustic
+      sops
       tlrc
       wget
       yq-go

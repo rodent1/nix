@@ -7,7 +7,6 @@ let
   sharedModules = [
     inputs.catppuccin.homeModules.catppuccin
     inputs.nix-index-database.homeModules.nix-index
-    inputs.sops-nix.homeManagerModules.sops
     inputs.opnix.homeManagerModules.default
   ];
 in
@@ -26,7 +25,6 @@ in
         }
         inputs.home-manager.nixosModules.home-manager
         inputs.nix-index-database.nixosModules.nix-index
-        inputs.sops-nix.nixosModules.sops
         inputs.opnix.nixosModules.default
         {
           home-manager = {
@@ -63,7 +61,6 @@ in
         }
         inputs.home-manager.nixosModules.home-manager
         inputs.nix-index-database.nixosModules.nix-index
-        inputs.sops-nix.nixosModules.sops
         inputs.nixos-wsl.nixosModules.default
         inputs.opnix.nixosModules.default
         {

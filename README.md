@@ -9,7 +9,7 @@ This repo contains my complete system configuration for a declarative, reproduci
 
 - ❄️ **Nix flakes**: Modular, composable, version-locked
 - 🐟 **Fish shell**: Minimal `fish` shell setup with soothing `Catppuccin` colours and a `Starship` prompt.
-- 🔐 **Secrets management**: Secrets encrypted and managed with `sops-nix`
+- 🔐 **Secrets management**: Secrets encrypted and managed with `opnix`
 - 🧰 **WSL2-friendly**: Tested extensively in Windows Subsystem for Linux
 - 🧪 **Development modules**: Streamlined development environments for multiple languages and tools
 - 🧩 **Custom packages**: Custom `nixpkgs` overlays and pkgs managed declaratively
