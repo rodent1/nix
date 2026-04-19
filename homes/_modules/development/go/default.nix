@@ -8,7 +8,11 @@ let
 in
 {
   options.modules.development.go = {
-    enable = lib.mkEnableOption "go";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable Go development environment.";
+    };
   };
 
   config = lib.mkIf cfg.enable {

@@ -9,7 +9,11 @@ let
 in
 {
   options.modules.development.rust = {
-    enable = lib.mkEnableOption "rust";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable Rust development environment.";
+    };
   };
 
   config = lib.mkIf cfg.enable {

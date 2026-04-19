@@ -17,6 +17,11 @@ in
   ];
 
   modules = {
+
+    desktop = lib.mkIf (!isWSL) {
+      enable = true;
+    };
+
     security = {
       ssh = {
         enable = true;

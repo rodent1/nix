@@ -9,7 +9,11 @@ let
 in
 {
   options.modules.kubernetes = {
-    enable = lib.mkEnableOption "kubernetes";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable Kubernetes tools and utilities.";
+    };
   };
 
   config = lib.mkIf cfg.enable {
