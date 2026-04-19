@@ -13,16 +13,17 @@ in
   };
   config = lib.mkIf cfg.enable {
     programs = {
-      discord = {
-        enable = true;
-      };
-
-      firefox = {
-        enable = true;
-      };
+      discord.enable = true;
+      firefox.enable = true;
 
       ghostty = {
         enable = true;
+        settings = {
+          link-url = true;
+
+          window-width = 160;
+          window-height = 50;
+        };
       };
 
       vscode = {
