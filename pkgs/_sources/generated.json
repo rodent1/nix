@@ -13,11 +13,11 @@
             "name": null,
             "owner": "Faugus",
             "repo": "faugus-launcher",
-            "rev": "1.18.3",
-            "sha256": "sha256-cqtylAeDQDlv+Ai9ALr4cOxrOolDdHrN5yYRFW2/H8s=",
+            "rev": "1.18.4",
+            "sha256": "sha256-861s4yCwJwKd0yVUKlTiHRTCdX4NkJt2vJlTh0pFPA4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1.18.3"
+        "version": "1.18.4"
     }
 }
