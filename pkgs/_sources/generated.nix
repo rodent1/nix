@@ -8,13 +8,13 @@
 {
   faugus-launcher = {
     pname = "faugus-launcher";
-    version = "1.18.3";
+    version = "1.18.4";
     src = fetchFromGitHub {
       owner = "Faugus";
       repo = "faugus-launcher";
-      rev = "1.18.3";
+      rev = "1.18.4";
       fetchSubmodules = false;
-      sha256 = "sha256-cqtylAeDQDlv+Ai9ALr4cOxrOolDdHrN5yYRFW2/H8s=";
+      sha256 = "sha256-861s4yCwJwKd0yVUKlTiHRTCdX4NkJt2vJlTh0pFPA4=";
     };
   };
 }
