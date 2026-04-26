@@ -24,7 +24,6 @@ in
 
       ghostty = {
         enable = true;
-        enableFishIntegration = true;
         settings = {
           confirm-close-surface = false;
           link-url = true;

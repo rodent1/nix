@@ -15,10 +15,16 @@
         matches = [
           { app-id = "ghostty"; }
           { app-id = "vscode"; }
-          { app-id = "thunar"; }
         ];
         open-on-workspace = "main";
         open-maximized = true;
+      }
+      {
+        matches = [
+          { app-id = "^1password$"; }
+        ];
+        open-floating = true;
+        open-on-workspace = "high";
       }
 
       # Discord
