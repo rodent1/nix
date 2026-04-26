@@ -5,19 +5,21 @@
 {
   programs.niri.settings = {
     window-rules = [
-      # Browsers
-      # {
-      #   matches = [
-      #     { app-id = "firefox"; }
-      #   ];
-      #   open-on-workspace = "browser";
-      # }
-      # {
-      #   matches = [
-      #     { app-id = "zen"; }
-      #   ];
-      #   open-on-workspace = "browser";
-      # }
+      {
+        matches = [
+          { app-id = "firefox"; }
+        ];
+        open-on-workspace = "browser";
+      }
+      {
+        matches = [
+          { app-id = "ghostty"; }
+          { app-id = "vscode"; }
+          { app-id = "thunar"; }
+        ];
+        open-on-workspace = "main";
+        open-maximized = true;
+      }
 
       # Discord
       {

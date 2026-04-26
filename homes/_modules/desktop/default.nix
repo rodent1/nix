@@ -18,11 +18,20 @@ in
   config = lib.mkIf cfg.enable {
     programs = {
       firefox.enable = true;
-      ghostty.enable = true;
       fuzzel.enable = true;
       swaylock.enable = true;
-
       vesktop.enable = true;
+
+      ghostty = {
+        enable = true;
+        enableFishIntegration = true;
+        settings = {
+          confirm-close-surface = false;
+          link-url = true;
+          maximize = true;
+        };
+      };
+
       vscode = {
         enable = true;
         package = pkgs.unstable.vscode;
