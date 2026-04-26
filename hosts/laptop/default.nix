@@ -20,7 +20,11 @@
       LIBVA_DRIVER_NAME = "iHD";
     };
 
-    services.printing.enable = true;
+    environment.systemPackages = with pkgs; [
+      brightnessctl
+    ];
+
+    hardware.bluetooth.enable = true;
     services.fprintd.enable = true;
 
     modules = {
