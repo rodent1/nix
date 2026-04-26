@@ -8,22 +8,26 @@ let
   cfg = config.modules.desktop;
 in
 {
+  imports = [
+    ./niri
+  ];
+
   options.modules.desktop = {
     enable = lib.mkEnableOption "desktop applications";
   };
   config = lib.mkIf cfg.enable {
     programs = {
-      discord.enable = true;
       firefox.enable = true;
+      fuzzel.enable = true;
+      swaylock.enable = true;
+      vesktop.enable = true;
 
       ghostty = {
         enable = true;
-        enableFishIntegration = true;
         settings = {
+          confirm-close-surface = false;
           link-url = true;
-
-          window-width = 160;
-          window-height = 50;
+          maximize = true;
         };
       };
 
@@ -32,5 +36,17 @@ in
         package = pkgs.unstable.vscode;
       };
     };
+    services = {
+      mako.enable = true; # notification daemon
+      swayidle.enable = true; # idle management daemon
+      polkit-gnome.enable = true; # polkit
+    };
+
+    home.packages = with pkgs; [
+      nerd-fonts.fira-code
+      nerd-fonts.monaspace
+      swaybg
+      xfce.thunar
+    ];
   };
 }

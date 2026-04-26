@@ -32,18 +32,28 @@ in
       LC_TIME = "nb_NO.UTF-8";
     };
 
-    programs.appimage = {
+    programs.niri.enable = true;
+    services.tuned.enable = true;
+    services.upower.enable = true;
+
+    services.greetd = {
       enable = true;
-      binfmt = true;
+      settings = {
+        default_session = {
+          command = "${config.programs.niri.package}/bin/niri-session";
+          user = "stianrs";
+        };
+      };
     };
 
-    services.xserver.enable = true;
-    services.displayManager.sddm.enable = true;
-    services.desktopManager.plasma6.enable = true;
+    environment.pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
 
-    services.xserver.xkb = {
-      layout = "no";
-      variant = "nodeadkeys";
+    services.xserver = {
+      enable = true;
+      xkb = {
+        layout = "no";
+        variant = "nodeadkeys";
+      };
     };
 
     console.keyMap = "no";
