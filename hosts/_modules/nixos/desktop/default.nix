@@ -37,6 +37,11 @@ in
       binfmt = true;
     };
 
+    programs.niri.enable = true;
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+    ];
+
     services.xserver.enable = true;
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;

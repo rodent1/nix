@@ -8,6 +8,10 @@ let
   cfg = config.modules.desktop;
 in
 {
+  imports = [
+    ./noctalia.nix
+  ];
+
   options.modules.desktop = {
     enable = lib.mkEnableOption "desktop applications";
   };
@@ -32,5 +36,10 @@ in
         package = pkgs.unstable.vscode;
       };
     };
+
+    home.packages = with pkgs; [
+      nerd-fonts.fira-code
+      nerd-fonts.monaspace
+    ];
   };
 }
