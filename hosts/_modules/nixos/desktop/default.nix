@@ -32,9 +32,17 @@ in
       LC_TIME = "nb_NO.UTF-8";
     };
 
-    programs.niri.enable = true;
+    programs.niri = {
+      enable = true;
+      package = pkgs.niri-unstable;
+    };
+
     services.tuned.enable = true;
     services.upower.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+    ];
 
     services.greetd = {
       enable = true;

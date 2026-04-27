@@ -1,6 +1,5 @@
 {
-  lib,
-  config,
+  pkgs,
   ...
 }:
 {
@@ -9,19 +8,25 @@
   config = {
     services.displayManager.sddm.wayland.enable = true;
 
-    hardware.graphics.enable = true;
+    hardware = {
+      graphics = {
+        enable = true;
+        enable32Bit = true;
+        extraPackages = with pkgs; [
+          libva-vdpau-driver
+          nvidia-vaapi-driver
+        ];
+      };
+    };
+
     services.xserver.videoDrivers = [ "nvidia" ];
 
     hardware.nvidia = {
-      open = false;
+      open = true;
       nvidiaSettings = true;
       modesetting.enable = true;
       powerManagement.enable = true;
-
-      package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
     };
-
-    hardware.enableRedistributableFirmware = true;
 
     modules = {
       desktop.enable = true;

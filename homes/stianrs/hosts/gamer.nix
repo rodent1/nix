@@ -1,5 +1,4 @@
-_:
-{
+_: {
   config = {
     modules = {
       desktop = {
@@ -22,6 +21,7 @@ _:
         };
         "DP-2" = {
           enable = true;
+          variable-refresh-rate = true;
           focus-at-startup = true;
           position = {
             x = 0;
