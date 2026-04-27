@@ -13,7 +13,11 @@ in
   ];
 
   options.modules.desktop = {
-    enable = lib.mkEnableOption "desktop applications";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable desktop home-manager modules";
+    };
   };
   config = lib.mkIf cfg.enable {
     programs = {

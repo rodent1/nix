@@ -46,8 +46,6 @@ in
       };
     };
 
-    environment.pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
-
     services.xserver = {
       enable = true;
       xkb = {

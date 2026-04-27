@@ -30,6 +30,11 @@ in
         inputs.noctalia.nixosModules.default
         inputs.opnix.nixosModules.default
         {
+          environment.pathsToLink = [
+            "/share/applications"
+            "/share/xdg-desktop-portal"
+          ];
+
           home-manager = {
             inherit sharedModules;
             useUserPackages = true;
@@ -67,6 +72,11 @@ in
         inputs.nixos-wsl.nixosModules.default
         inputs.opnix.nixosModules.default
         {
+          environment.pathsToLink = [
+            "/share/applications"
+            "/share/xdg-desktop-portal"
+          ];
+
           home-manager = {
             inherit sharedModules;
             useUserPackages = true;

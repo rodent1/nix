@@ -8,7 +8,11 @@ let
 in
 {
   options.modules.desktop.noctalia = {
-    enable = lib.mkEnableOption "noctalia shell";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Noctalia shell";
+    };
   };
 
   config = lib.mkIf cfg.enable {

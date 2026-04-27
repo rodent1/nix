@@ -15,12 +15,6 @@ in
   imports = [ ../_modules ] ++ lib.optional (builtins.pathExists hostConfig) hostConfig;
 
   modules = {
-
-    desktop = lib.mkIf (!isWSL) {
-      enable = true;
-      noctalia.enable = true;
-    };
-
     security = {
       ssh = {
         enable = true;

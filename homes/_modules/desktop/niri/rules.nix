@@ -1,6 +1,4 @@
-{
-  ...
-}:
+_:
 
 {
   programs.niri.settings = {

@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # Enable OpNix with SSL certificate management
