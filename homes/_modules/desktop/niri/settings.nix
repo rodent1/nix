@@ -19,10 +19,6 @@ in
     settings = {
       xwayland-satellite.path = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
 
-      environment = {
-        "NIXOS_OZONE_WL" = "1";
-      };
-
       workspaces = {
         "main" = { };
         "browser" = { };
