@@ -19,6 +19,7 @@ in
       description = "Enable desktop home-manager modules";
     };
   };
+
   config = lib.mkIf cfg.enable {
     programs = {
       firefox.enable = true;
