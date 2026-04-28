@@ -109,5 +109,8 @@ in
         };
       };
     };
+
+    # Support legacy tray icons
+    services.xembed-sni-proxy.enable = true;
   };
 }
