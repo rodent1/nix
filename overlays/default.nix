@@ -28,5 +28,4 @@
   };
 
   fenix = inputs.fenix.overlays.default;
-  niri = inputs.niri.overlays.niri;
 }

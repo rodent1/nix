@@ -9,7 +9,11 @@ let
 in
 {
   options.modules.desktop = {
-    enable = lib.mkEnableOption "desktop host defaults";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable desktop module";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -34,7 +38,7 @@ in
 
     programs.niri = {
       enable = true;
-      package = pkgs.niri-unstable;
+      package = pkgs.unstable.niri;
     };
 
     services.tuned.enable = true;

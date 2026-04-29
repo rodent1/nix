@@ -14,8 +14,8 @@ let
 in
 {
   programs.niri = {
-    enable = true;
-    package = pkgs.niri;
+    package = pkgs.unstable.niri;
+
     settings = {
       xwayland-satellite.path = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
 
