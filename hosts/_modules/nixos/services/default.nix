@@ -3,6 +3,5 @@
     ./1password
     ./opnix
     ./podman
-    ./tailscale
   ];
 }

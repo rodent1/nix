@@ -12,7 +12,6 @@
 
   modules = {
     services.podman.enable = lib.mkDefault true;
-    services.tailscale.enable = lib.mkDefault false;
     system.openssh.enable = lib.mkDefault true;
   };
 

@@ -20,15 +20,15 @@
       httpie
       jo
       jq
+      just
       lefthook
       openssl
       rustic
       sops
       tlrc
       wget
+      yamlfmt
       yq-go
-      unstable.just
-      unstable.yamlfmt
     ];
   };
 }

@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   ...
@@ -95,7 +94,6 @@ in
 
     programs.gh = lib.mkIf cfg.gh {
       enable = true;
-      package = pkgs.unstable.gh;
     };
   };
 }
