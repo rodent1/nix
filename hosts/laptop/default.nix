@@ -22,6 +22,7 @@
 
     environment.systemPackages = with pkgs; [
       brightnessctl
+      playerctl
     ];
 
     hardware.bluetooth.enable = true;

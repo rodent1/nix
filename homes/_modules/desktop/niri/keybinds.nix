@@ -42,11 +42,7 @@ in
     "super+E".action = spawn apps.fileManager;
     "super+L".action.spawn = noctalia "lockScreen lock";
 
-    # 1Passord quick access
-    "super+p".action = spawn [
-      "${pkgs._1password-gui}/bin/1password"
-      "--quick-access"
-    ];
+    "super+Shift+S".action.screenshot = [ ];
 
     "super+f".action = fullscreen-window;
     "super+t".action = toggle-window-floating;

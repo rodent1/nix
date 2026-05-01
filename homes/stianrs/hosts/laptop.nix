@@ -10,6 +10,15 @@ _: {
       development.rust.enable = false;
     };
 
+    programs.niri.settings = {
+      outputs = {
+        "eDP-1" = {
+          enable = true;
+          scale = 1.5;
+        };
+      };
+    };
+
     home.file.".face".source = ../assets/profile.jpg;
   };
 }
