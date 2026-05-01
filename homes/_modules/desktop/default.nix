@@ -41,6 +41,7 @@ in
         package = pkgs.unstable.vscode;
       };
     };
+
     services = {
       mako.enable = true; # notification daemon
       swayidle.enable = true; # idle management daemon
@@ -50,8 +51,7 @@ in
     home.packages = with pkgs; [
       nerd-fonts.fira-code
       nerd-fonts.monaspace
-      swaybg
-      xfce.thunar
+      nautilus
     ];
   };
 }

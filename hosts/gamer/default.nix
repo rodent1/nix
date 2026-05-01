@@ -7,13 +7,13 @@ _: {
         enable = true;
         enable32Bit = true;
       };
-    };
 
-    hardware.nvidia = {
-      open = true;
-      nvidiaSettings = true;
-      modesetting.enable = true;
-      powerManagement.enable = true;
+      nvidia = {
+        open = true;
+        nvidiaSettings = true;
+        modesetting.enable = true;
+        powerManagement.enable = true;
+      };
     };
 
     services.xserver.videoDrivers = [ "nvidia" ];
