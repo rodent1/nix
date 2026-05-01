@@ -19,6 +19,11 @@ in
     settings = {
       xwayland-satellite.path = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
 
+      input.keyboard.xkb = {
+        layout = "no";
+        variant = "nodeadkeys";
+      };
+
       workspaces = {
         "main" = { };
         "browser" = { };

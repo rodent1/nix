@@ -58,14 +58,6 @@ in
       };
     };
 
-    services.xserver = {
-      enable = true;
-      xkb = {
-        layout = "no";
-        variant = "nodeadkeys";
-      };
-    };
-
     console.keyMap = "no";
 
     services.pulseaudio.enable = false;
