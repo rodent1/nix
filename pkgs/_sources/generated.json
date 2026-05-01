@@ -1,6 +1,6 @@
 {
     "faugus-launcher": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "faugus-launcher",
