@@ -54,10 +54,12 @@ in
       evince
       eog
       ffmpegthumbnailer
+      file-roller
       gnome-calculator
       gnome-text-editor
       nautilus
       showtime
+      unzip
     ];
   };
 }
