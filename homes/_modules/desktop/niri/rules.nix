@@ -2,6 +2,15 @@ _:
 
 {
   programs.niri.settings = {
+    layer-rules = [
+      {
+        matches = [
+          { namespace = "^noctalia-wallpaper*"; }
+        ];
+        place-within-backdrop = true;
+      }
+    ];
+
     window-rules = [
       {
         matches = [
@@ -22,10 +31,7 @@ _:
           { app-id = "^1password$"; }
         ];
         open-floating = true;
-        open-on-workspace = "high";
       }
-
-      # Discord
       {
         matches = [
           { app-id = "vesktop"; }
