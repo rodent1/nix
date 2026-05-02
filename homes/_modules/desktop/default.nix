@@ -52,10 +52,12 @@ in
       nerd-fonts.fira-code
       nerd-fonts.monaspace
       evince
+      eog
+      ffmpegthumbnailer
       gnome-calculator
       gnome-text-editor
       nautilus
-      qview
+      showtime
     ];
   };
 }

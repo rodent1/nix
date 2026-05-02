@@ -24,11 +24,17 @@ _:
           { app-id = "vscode"; }
         ];
         open-on-workspace = "main";
-        open-maximized = true;
       }
       {
         matches = [
           { app-id = "^1password$"; }
+          { app-id = "org.gnome.Calculator"; }
+          { app-id = "org.gnome.eog"; }
+          { app-id = "org.gnome.Showtime"; }
+          {
+            app-id = "firefox$";
+            title = "^Picture-in-Picture$";
+          }
         ];
         open-floating = true;
       }

@@ -36,6 +36,8 @@ in
       LC_TIME = "nb_NO.UTF-8";
     };
 
+    fonts.enableDefaultPackages = true;
+
     programs.niri = {
       enable = true;
       package = pkgs.unstable.niri;
@@ -45,19 +47,30 @@ in
       xwayland-satellite
     ];
 
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${config.programs.niri.package}/bin/niri-session";
-          user = "stianrs";
+    services = {
+      greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${config.programs.niri.package}/bin/niri-session";
+            user = "stianrs";
+          };
         };
       };
-    };
 
-    services.gnome.gnome-keyring.enable = true;
-    services.tuned.enable = true;
-    services.upower.enable = true;
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+      };
+
+      gnome.gnome-keyring.enable = true;
+      gvfs.enable = true;
+      tumbler.enable = true;
+      tuned.enable = true;
+      upower.enable = true;
+    };
 
     xdg.portal = {
       enable = true;
@@ -70,11 +83,5 @@ in
     console.keyMap = "no";
 
     security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
   };
 }
