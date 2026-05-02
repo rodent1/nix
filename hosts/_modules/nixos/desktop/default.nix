@@ -41,9 +41,6 @@ in
       package = pkgs.unstable.niri;
     };
 
-    services.tuned.enable = true;
-    services.upower.enable = true;
-
     environment.systemPackages = with pkgs; [
       xwayland-satellite
     ];
@@ -58,9 +55,20 @@ in
       };
     };
 
+    services.gnome.gnome-keyring.enable = true;
+    services.tuned.enable = true;
+    services.upower.enable = true;
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-gnome
+      ];
+    };
+
     console.keyMap = "no";
 
-    services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
