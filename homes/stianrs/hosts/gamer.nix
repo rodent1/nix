@@ -14,28 +14,50 @@ _: {
       outputs = {
         "DP-1" = {
           enable = true;
+          mode = {
+            width = 2560;
+            height = 1440;
+            refresh = 143.912;
+          };
+
           position = {
             x = 0;
             y = -1440;
           };
         };
+
         "DP-2" = {
           enable = true;
-          variable-refresh-rate = true;
-          focus-at-startup = true;
+          mode = {
+            width = 2560;
+            height = 1440;
+            refresh = 165.069;
+          };
+
           position = {
             x = 0;
             y = -0;
           };
+
+          variable-refresh-rate = "on-demand";
+          focus-at-startup = true;
         };
+
         "DP-3" = {
           enable = true;
-          transform = {
-            rotation = 270;
+          mode = {
+            width = 1920;
+            height = 1080;
+            refresh = 143.980;
           };
+
           position = {
             x = 2560;
             y = -200;
+          };
+
+          transform = {
+            rotation = 270;
           };
         };
       };
