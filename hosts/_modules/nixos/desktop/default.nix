@@ -37,6 +37,15 @@ in
     };
 
     fonts.enableDefaultPackages = true;
+    fonts.packages = with pkgs; [
+      corefonts
+      fira-code
+      fira-code-symbols
+      liberation_ttf
+      monaspace
+      noto-fonts
+      roboto
+    ];
 
     programs.niri = {
       enable = true;
