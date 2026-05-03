@@ -1,8 +1,11 @@
 {
+  config,
+  lib,
   pkgs,
   ...
 }:
 let
+  cursors = config.modules.themes.catppuccin.cursors;
   noctalia =
     cmd:
     [
@@ -17,7 +20,8 @@ in
     package = pkgs.unstable.niri;
 
     settings = {
-      xwayland-satellite.path = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
+      xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
+      cursor.theme = lib.mkIf cursors.enable "catppuccin-${cursors.flavor}-${cursors.accent}-cursors";
 
       input.keyboard.xkb = {
         layout = "no";

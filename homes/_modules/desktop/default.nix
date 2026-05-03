@@ -42,6 +42,12 @@ in
       };
     };
 
+    modules.themes.catppuccin.cursors = {
+      enable = true;
+      flavor = "latte";
+      accent = "light";
+    };
+
     services = {
       mako.enable = true; # notification daemon
       swayidle.enable = true; # idle management daemon
