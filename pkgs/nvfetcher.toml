@@ -1,1 +1,4 @@
 
+[faugus-launcher]
+fetch.github = "Faugus/faugus-launcher"
+src.github_tag = "Faugus/faugus-launcher"
