@@ -36,7 +36,6 @@ in
       LC_TIME = "nb_NO.UTF-8";
     };
 
-    fonts.enableDefaultPackages = true;
     fonts.packages = with pkgs; [
       corefonts
       fira-code
@@ -74,19 +73,10 @@ in
         pulse.enable = true;
       };
 
-      gnome.gnome-keyring.enable = true;
       gvfs.enable = true;
       tumbler.enable = true;
       tuned.enable = true;
       upower.enable = true;
-    };
-
-    xdg.portal = {
-      enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-gnome
-      ];
     };
 
     console.keyMap = "no";

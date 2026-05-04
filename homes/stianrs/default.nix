@@ -50,7 +50,7 @@ in
 
       git = {
         enable = true;
-        username = git_name;
+        name = git_name;
         email = git_email;
         signingKey = git_signingKey;
       };

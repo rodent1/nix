@@ -17,6 +17,12 @@ _: {
           scale = 1.5;
         };
       };
+
+      workspaces = {
+        "1".name = "browser";
+        "2".name = "discord";
+        "3".name = "main";
+      };
     };
 
     home.file.".face".source = ../assets/profile.jpg;

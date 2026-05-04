@@ -62,11 +62,28 @@ _: {
         };
       };
 
-      workspaces."1".open-on-output = "DP-2";
-      workspaces."2".open-on-output = "DP-2";
-      workspaces."3".open-on-output = "DP-3";
-      workspaces."4".open-on-output = "DP-2";
-      workspaces."5".open-on-output = "DP-1";
+      workspaces = {
+        "1" = {
+          name = "browser";
+          open-on-output = "DP-2";
+        };
+        "2" = {
+          name = "main";
+          open-on-output = "DP-2";
+        };
+        "3" = {
+          name = "discord";
+          open-on-output = "DP-3";
+        };
+        "4" = {
+          name = "games";
+          open-on-output = "DP-2";
+        };
+        "5" = {
+          name = "high";
+          open-on-output = "DP-1";
+        };
+      };
     };
 
     programs.noctalia-shell.settings = {

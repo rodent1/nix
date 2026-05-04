@@ -25,9 +25,12 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    catppuccin.flavor = cfg.flavor;
-    catppuccin.cursors.enable = cfg.cursors.enable;
-    catppuccin.cursors.flavor = cfg.cursors.flavor;
-    catppuccin.cursors.accent = cfg.cursors.accent;
+    catppuccin = {
+      inherit (cfg) flavor;
+
+      cursors = {
+        inherit (cfg.cursors) enable flavor accent;
+      };
+    };
   };
 }

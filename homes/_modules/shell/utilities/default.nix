@@ -23,6 +23,7 @@
       just
       lefthook
       openssl
+      ripgrep
       rustic
       sops
       tlrc

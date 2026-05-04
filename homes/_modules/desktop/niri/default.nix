@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+_: {
   imports = [
     ./autostart.nix
     ./keybinds.nix

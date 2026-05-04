@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cursors = config.modules.themes.catppuccin.cursors;
+  inherit (config.modules.themes.catppuccin) cursors;
   noctalia =
     cmd:
     [
@@ -29,12 +29,6 @@ in
       };
 
       input.focus-follows-mouse.enable = true;
-
-      workspaces."1".name = "browser";
-      workspaces."2".name = "main";
-      workspaces."3".name = "discord";
-      workspaces."4".name = "games";
-      workspaces."5".name = "high";
 
       switch-events = {
         lid-close.action.spawn = noctalia "sessionMenu lockAndSuspend";

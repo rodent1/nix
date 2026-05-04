@@ -7,7 +7,7 @@ let
   sharedModules = [
     inputs.catppuccin.homeModules.catppuccin
     inputs.nix-index-database.homeModules.nix-index
-    inputs.niri.homeModules.niri
+    inputs.niri-flake.homeModules.niri
     inputs.noctalia.homeModules.default
     inputs.opnix.homeManagerModules.default
   ];
@@ -30,11 +30,6 @@ in
         inputs.noctalia.nixosModules.default
         inputs.opnix.nixosModules.default
         {
-          environment.pathsToLink = [
-            "/share/applications"
-            "/share/xdg-desktop-portal"
-          ];
-
           home-manager = {
             inherit sharedModules;
             useUserPackages = true;
@@ -72,11 +67,6 @@ in
         inputs.nixos-wsl.nixosModules.default
         inputs.opnix.nixosModules.default
         {
-          environment.pathsToLink = [
-            "/share/applications"
-            "/share/xdg-desktop-portal"
-          ];
-
           home-manager = {
             inherit sharedModules;
             useUserPackages = true;

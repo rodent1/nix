@@ -1,5 +1,6 @@
 {
   config,
+  isWSL,
   lib,
   pkgs,
   ...
@@ -8,9 +9,7 @@ let
   cfg = config.modules.desktop;
 in
 {
-  imports = [
-    ./niri
-  ];
+  imports = lib.optional (!isWSL) ./niri;
 
   options.modules.desktop = {
     enable = lib.mkOption {
@@ -51,7 +50,6 @@ in
     services = {
       mako.enable = true; # notification daemon
       swayidle.enable = true; # idle management daemon
-      polkit-gnome.enable = true; # polkit
     };
 
     home.packages = with pkgs; [
