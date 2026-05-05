@@ -6,6 +6,8 @@
 }:
 let
   cfg = config.modules.desktop;
+  session = "niri-session";
+  theme = "text=white;time=magenta;container=black;border=blue;title=magenta;greet=magenta;prompt=cyan;input=yellow;action=white;button=blue";
 in
 {
   options.modules.desktop = {
@@ -60,8 +62,8 @@ in
         enable = true;
         settings = {
           default_session = {
-            command = "${config.programs.niri.package}/bin/niri-session";
-            user = "stianrs";
+            command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session --theme '${theme}' --cmd ${session}";
+            user = "greeter";
           };
         };
       };
@@ -73,7 +75,6 @@ in
         pulse.enable = true;
       };
 
-      gnome.gnome-keyring.enable = true;
       gvfs.enable = true;
       tumbler.enable = true;
       tuned.enable = true;

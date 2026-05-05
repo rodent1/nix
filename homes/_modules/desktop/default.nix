@@ -50,6 +50,7 @@ in
     services = {
       mako.enable = true; # notification daemon
       swayidle.enable = true; # idle management daemon
+      polkit-gnome.enable = true; # polkit agent
     };
 
     home.packages = with pkgs; [
