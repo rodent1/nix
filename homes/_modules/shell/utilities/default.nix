@@ -20,7 +20,7 @@
       httpie
       jo
       jq
-      just
+      unstable.just
       lefthook
       openssl
       ripgrep
