@@ -10,30 +10,49 @@ on:
     paths:
       - pkgs/nvfetcher.toml
 
+concurrency:
+  group: update-nvfetcher
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   update-nvfetcher:
     runs-on: ubuntu-latest
     steps:
+      - name: Load Secrets
+        id: load-secrets
+        uses: 1password/load-secrets-action@92467eb28f72e8255933372f1e0707c567ce2259 # v4.0.0
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          GITHUB_BOT_APP_CLIENT_ID: op://home-ops/github-bot/GITHUB_BOT_APP_CLIENT_ID
+          GITHUB_BOT_APP_PRIVATE_KEY: op://home-ops/github-bot/GITHUB_BOT_APP_PRIVATE_KEY
+
+      - name: Generate Token
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+        id: app-token
+        with:
+          client-id: ${{ steps.load-secrets.outputs.GITHUB_BOT_APP_CLIENT_ID }}
+          private-key: ${{ steps.load-secrets.outputs.GITHUB_BOT_APP_PRIVATE_KEY }}
+
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
-      - name: Set up FlakeHub Cache
-        uses: DeterminateSystems/flakehub-cache-action@1f9a51a2959d3e26c7838c6f3bf9f48acae525ea # v3
+        uses: DeterminateSystems/determinate-nix-action@v3
 
       - name: Run nvfetcher
         id: run-nvfetcher
         run: |
-          export LANG=en_US.UTF-8
-          export LC_ALL=en_US.UTF-8
           cd pkgs
-          nix-shell -p nvfetcher --command 'nvfetcher -l /tmp/nvfetcher-changes --keep-old'
           {
             echo 'changes<<EOF'
-            cat /tmp/nvfetcher-changes
+            nix-shell -p nvfetcher --command 'nvfetcher' | sed -n '/Changes/,/$!d/p'
             echo 'EOF'
           } >> "$GITHUB_OUTPUT"
 
@@ -61,20 +80,8 @@ jobs:
       #       fi
       #     done
 
-      - name: Load Secrets
-        id: load-secrets
-        uses: 1password/load-secrets-action@92467eb28f72e8255933372f1e0707c567ce2259 # v4.0.0
-        env:
-          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          GITHUB_BOT_APP_CLIENT_ID: op://home-ops/github-bot/GITHUB_BOT_APP_CLIENT_ID
-          GITHUB_BOT_APP_PRIVATE_KEY: op://home-ops/github-bot/GITHUB_BOT_APP_PRIVATE_KEY
-
-      - name: Generate Token
-        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
-        id: app-token
-        with:
-          client-id: ${{ steps.load-secrets.outputs.GITHUB_BOT_APP_CLIENT_ID }}
-          private-key: ${{ steps.load-secrets.outputs.GITHUB_BOT_APP_PRIVATE_KEY }}
+      - name: Validate updated packages
+        run: nix flake check --no-build
 
       - name: Create Pull Request
         id: create-pull-request
