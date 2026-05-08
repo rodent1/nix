@@ -23,10 +23,10 @@ jobs:
         run: 'nix run nixpkgs#nixfmt-tree -- --ci --excludes "**/generated.nix","**/hardware-configuration.nix"'
 
       - name: Run Statix
-        run: 'nix run nixpkgs#statix -- fix'
+        run: 'nix run nixpkgs#statix'
 
       - name: Run Deadnix
-        run: 'nix run nixpkgs#deadnix -- --exclude **/generated.nix **/hardware-configuration.nix ./overlays/default.nix'
+        run: 'nix run nixpkgs#deadnix -- --exclude ./pkgs/_sources/generated.nix ./hosts/**/hardware-configuration.nix'
 
       - name: Show changes
         run: git diff
