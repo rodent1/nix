@@ -22,6 +22,7 @@ in
       nix-init
       nix-inspect
       nixd
+      nixfmt
       nixfmt-tree
       nvfetcher
       statix
