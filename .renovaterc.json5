@@ -2,19 +2,9 @@
     $schema: "https://docs.renovatebot.com/renovate-schema.json",
     extends: [
         "config:recommended",
-        "docker:enableMajor",
-        "helpers:pinGitHubActionDigests",
-        ":automergeBranch",
-        ":disableRateLimiting",
-        ":dependencyDashboard",
-        ":semanticCommits",
         ":timezone(Europe/Oslo)",
     ],
     dependencyDashboardTitle: "Renovate Dashboard 🤖",
-    suppressNotifications: [
-        "prEditedNotification",
-        "prIgnoreNotification",
-    ],
     lockFileMaintenance: {
         enabled: true,
         automerge: true,
@@ -29,13 +19,15 @@
     },
     packageRules: [
         {
-            matchDatasources: [
-                "docker"
+            // GitHub Actions: automerge
+            matchManagers: [
+                "github-actions"
             ],
             automerge: true,
-            automergeType: "branch",
-            matchUpdateTypes: [
-                "digest"
+            automergeType: "pr",
+            labels: [
+                "dependencies",
+                "github-actions"
             ],
         },
     ],
