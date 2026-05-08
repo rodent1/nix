@@ -1,5 +1,4 @@
-_:
-{
+_: {
   programs.nh = {
     enable = true;
     flake = "/home/stianrs/nix";

@@ -89,6 +89,8 @@
           _module.args.pkgs = mkPkgsWithSystem system;
           # accessible via `nix build .#<name>`
           packages = import ./pkgs { inherit pkgs inputs; };
+
+          formatter = pkgs.nixfmt-tree;
         };
 
       flake = {
