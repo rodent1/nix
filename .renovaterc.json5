@@ -2,6 +2,11 @@
     $schema: "https://docs.renovatebot.com/renovate-schema.json",
     extends: [
         "config:recommended",
+        "helpers:pinGitHubActionDigests",
+        ":automergeBranch",
+        ":dependencyDashboard",
+        ":disableRateLimiting",
+        ":semanticCommits",
         ":timezone(Europe/Oslo)",
     ],
     dependencyDashboardTitle: "Renovate Dashboard 🤖",
