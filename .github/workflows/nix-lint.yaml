@@ -17,7 +17,7 @@ jobs:
         uses: DeterminateSystems/determinate-nix-action@bafaa638b9d5ec0e7e3ac1a7fc80453ef1fd265f # v3
 
       - name: Check Nix flake inputs
-        uses: DeterminateSystems/flake-checker-action@135843d9309301ab5a669e972b10b3c9f57a5da4 # main
+        uses: DeterminateSystems/flake-checker-action@0a065c1aa9ee04e378c79922e5e62ef2b6ea4005 # main
 
       - name: Run Nixfmt
         run: 'nix run nixpkgs#nixfmt-tree -- --ci --excludes "**/generated.nix","**/hardware-configuration.nix"'
