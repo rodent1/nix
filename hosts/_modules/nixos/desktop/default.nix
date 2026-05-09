@@ -38,6 +38,7 @@ in
       LC_TIME = "nb_NO.UTF-8";
     };
 
+    fonts.enableDefaultPackages = true;
     fonts.packages = with pkgs; [
       corefonts
       fira-code
@@ -84,5 +85,6 @@ in
     console.keyMap = "no";
 
     security.rtkit.enable = true;
+    security.pam.services.greetd.enableGnomeKeyring = true;
   };
 }

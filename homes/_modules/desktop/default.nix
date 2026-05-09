@@ -24,14 +24,31 @@ in
       firefox.enable = true;
       fuzzel.enable = true;
       swaylock.enable = true;
-      vesktop.enable = true;
+
+      vesktop = {
+        enable = true;
+        settings = {
+          minimizeToTray = true;
+          arRPC = true;
+        };
+
+        vencord.settings = {
+          frameless = true;
+        };
+      };
 
       ghostty = {
         enable = true;
+        enableFishIntegration = true;
+
         settings = {
           confirm-close-surface = false;
           link-url = true;
-          maximize = true;
+          window-decoration = "none";
+
+          keybind = [
+            "ctrl+v=paste_from_clipboard"
+          ];
         };
       };
 

@@ -13,6 +13,17 @@ _:
 
     window-rules = [
       {
+        geometry-corner-radius = {
+          top-left = 8.0;
+          top-right = 8.0;
+          bottom-left = 8.0;
+          bottom-right = 8.0;
+        };
+
+        clip-to-geometry = true;
+        draw-border-with-background = false;
+      }
+      {
         matches = [
           { app-id = "firefox"; }
         ];
@@ -43,17 +54,6 @@ _:
           { app-id = "vesktop"; }
         ];
         open-on-workspace = "discord";
-      }
-
-      {
-        matches = [ { } ];
-        geometry-corner-radius = {
-          top-left = 20.0;
-          top-right = 20.0;
-          bottom-left = 20.0;
-          bottom-right = 20.0;
-        };
-        clip-to-geometry = true;
       }
     ];
   };
