@@ -39,11 +39,12 @@ in
 
       ghostty = {
         enable = true;
+        enableFishIntegration = true;
+
         settings = {
           confirm-close-surface = false;
           link-url = true;
-          maximize = true;
-          window-decoration = "server";
+          window-decoration = "none";
 
           keybind = [
             "ctrl+c=copy_to_clipboard"
