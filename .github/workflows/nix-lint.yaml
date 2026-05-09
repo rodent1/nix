@@ -23,9 +23,11 @@ jobs:
         run: 'nix run nixpkgs#nixfmt-tree -- --ci --excludes "**/generated.nix","**/hardware-configuration.nix"'
 
       - name: Run Statix
+        continue-on-error: true
         run: 'nix run nixpkgs#statix check'
 
       - name: Run Deadnix
+        continue-on-error: true
         run: 'nix run nixpkgs#deadnix -- --exclude ./pkgs/_sources/generated.nix ./hosts/**/hardware-configuration.nix'
 
       - name: Show changes

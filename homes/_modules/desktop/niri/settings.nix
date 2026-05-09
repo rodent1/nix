@@ -28,8 +28,6 @@ in
         variant = "nodeadkeys";
       };
 
-      input.focus-follows-mouse.enable = true;
-
       switch-events = {
         lid-close.action.spawn = noctalia "sessionMenu lockAndSuspend";
       };
