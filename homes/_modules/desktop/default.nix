@@ -47,7 +47,6 @@ in
           window-decoration = "none";
 
           keybind = [
-            "ctrl+c=copy_to_clipboard"
             "ctrl+v=paste_from_clipboard"
           ];
         };

@@ -21,36 +21,27 @@ in
 
       settings = {
         bar = {
-          density = "compact";
           position = "top";
           barType = "simple";
+          density = "comfortable";
+          outerCorners = false;
           showCapsule = true;
+
           widgets = {
             left = [
-              {
-                id = "Launcher";
-              }
-              {
-                id = "Clock";
-                formatHorizontal = "HH:mm ddd, MMM dd";
-                formatVertical = "HH mm";
-              }
-              {
-                id = "SystemMonitor";
-              }
-              {
-                id = "ActiveWindow";
-              }
-              {
-                id = "MediaMini";
-              }
-            ];
-            center = [
               {
                 id = "Workspace";
                 hideUnoccupied = false;
                 labelMode = "index+name";
               }
+            ];
+            center = [
+              {
+                id = "Clock";
+                formatHorizontal = "HH:mm ddd, MMM dd";
+                formatVertical = "HH mm";
+              }
+
             ];
             right = [
               {
@@ -70,9 +61,6 @@ in
               }
               {
                 id = "Brightness";
-              }
-              {
-                id = "Network";
               }
               {
                 id = "ControlCenter";

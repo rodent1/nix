@@ -85,5 +85,6 @@ in
     console.keyMap = "no";
 
     security.rtkit.enable = true;
+    security.pam.services.greetd.enableGnomeKeyring = true;
   };
 }
