@@ -43,7 +43,7 @@ in
       # Uncomment this line to ask the clients to omit their client-side decorations if possible.
       # If the client will specifically ask for CSD, the request will be honored.
       # Additionally, clients will be informed that they are tiled, removing some rounded corners.
-      prefer-no-csd = true;
+      # prefer-no-csd = true;
     };
   };
 }

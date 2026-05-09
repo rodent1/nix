@@ -24,7 +24,18 @@ in
       firefox.enable = true;
       fuzzel.enable = true;
       swaylock.enable = true;
-      vesktop.enable = true;
+
+      vesktop = {
+        enable = true;
+        settings = {
+          minimizeToTray = true;
+          arRPC = true;
+        };
+
+        vencord.settings = {
+          frameless = true;
+        };
+      };
 
       ghostty = {
         enable = true;
@@ -32,6 +43,12 @@ in
           confirm-close-surface = false;
           link-url = true;
           maximize = true;
+          window-decoration = "server";
+
+          keybind = [
+            "ctrl+c=copy_to_clipboard"
+            "ctrl+v=paste_from_clipboard"
+          ];
         };
       };
 
