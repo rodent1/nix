@@ -1,4 +1,5 @@
-_: {
+{ pkgs, ... }:
+{
   config = {
     modules = {
       desktop = {
@@ -99,6 +100,13 @@ _: {
         monitors = [ "DP-2" ];
       };
     };
+
+    home.packages = with pkgs; [
+      faugus-launcher
+      mangohud
+      unstable.rusty-path-of-building
+      wagoapp
+    ];
 
     home.file.".face".source = ../assets/profile.jpg;
   };

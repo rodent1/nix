@@ -45,9 +45,10 @@ _: {
         }
       '';
 
+    programs.steam.enable = true;
+
     modules = {
       desktop.enable = true;
-      games.enable = true;
     };
   };
 }

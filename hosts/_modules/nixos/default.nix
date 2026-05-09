@@ -2,7 +2,6 @@
 {
   imports = [
     ./desktop
-    ./games
     ./services
     ./system
     ./users
