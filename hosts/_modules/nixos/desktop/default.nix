@@ -63,6 +63,11 @@ in
       package = pkgs.unstable.niri;
     };
 
+    programs.appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     environment.systemPackages = with pkgs; [
       xwayland-satellite
     ];
