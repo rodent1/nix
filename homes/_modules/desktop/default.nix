@@ -23,7 +23,6 @@ in
     programs = {
       firefox.enable = true;
       fuzzel.enable = true;
-      swaylock.enable = true;
 
       vesktop = {
         enable = true;

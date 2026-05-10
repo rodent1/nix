@@ -25,6 +25,7 @@ in
             inherit inputs system;
           };
         }
+        inputs.catppuccin.nixosModules.catppuccin
         inputs.home-manager.nixosModules.home-manager
         inputs.nix-index-database.nixosModules.nix-index
         inputs.noctalia.nixosModules.default
@@ -62,6 +63,7 @@ in
             inherit inputs system;
           };
         }
+        inputs.catppuccin.nixosModules.catppuccin
         inputs.home-manager.nixosModules.home-manager
         inputs.nix-index-database.nixosModules.nix-index
         inputs.nixos-wsl.nixosModules.default

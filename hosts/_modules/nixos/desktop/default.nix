@@ -6,8 +6,6 @@
 }:
 let
   cfg = config.modules.desktop;
-  session = "niri-session";
-  theme = "text=white;time=magenta;container=black;border=blue;title=magenta;greet=magenta;prompt=cyan;input=yellow;action=white;button=blue";
 in
 {
   options.modules.desktop = {
@@ -73,14 +71,10 @@ in
     ];
 
     services = {
-      greetd = {
+      displayManager.sddm = {
         enable = true;
-        settings = {
-          default_session = {
-            command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session --theme '${theme}' --cmd ${session}";
-            user = "greeter";
-          };
-        };
+        enableHidpi = true;
+        wayland.enable = true;
       };
 
       pipewire = {
@@ -96,9 +90,19 @@ in
       upower.enable = true;
     };
 
+    catppuccin.sddm = {
+      enable = true;
+      fontSize = "36";
+      flavor = "mocha";
+      accent = "blue";
+      userIcon = true;
+    };
+
     console.keyMap = "no";
 
     security.rtkit.enable = true;
-    security.pam.services.greetd.enableGnomeKeyring = true;
+    security.pam.services.sddm.enableGnomeKeyring = true;
+    security.pam.services.login.enableGnomeKeyring = true;
+    services.gnome.gnome-keyring.enable = true;
   };
 }
