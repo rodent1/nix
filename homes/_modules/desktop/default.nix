@@ -71,14 +71,19 @@ in
     };
 
     home.packages = with pkgs; [
+      # Clipboard
+      cliphist
+      wl-clipboard
+      # Desktop apps
       evince
       eog
-      ffmpegthumbnailer
-      file-roller
       gnome-calculator
       gnome-text-editor
       nautilus
       showtime
+      # Utilities
+      ffmpegthumbnailer
+      file-roller
       unzip
     ];
   };
