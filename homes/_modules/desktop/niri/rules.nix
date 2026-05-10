@@ -56,5 +56,7 @@ _:
         open-on-workspace = "discord";
       }
     ];
+
+    debug.honor-xdg-activation-with-invalid-serial = { };
   };
 }

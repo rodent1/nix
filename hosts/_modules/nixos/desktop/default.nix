@@ -39,6 +39,15 @@ in
     };
 
     fonts.enableDefaultPackages = true;
+    fonts.fontconfig = {
+      enable = true;
+      useEmbeddedBitmaps = true;
+      defaultFonts = {
+        monospace = [ "Noto Mono" ];
+        sansSerif = [ "Noto Sans" ];
+        serif = [ "Noto Serif" ];
+      };
+    };
     fonts.packages = with pkgs; [
       corefonts
       fira-code

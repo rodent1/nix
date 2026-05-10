@@ -20,6 +20,10 @@ in
       enable = true;
 
       settings = {
+        appLauncher = {
+          enableClipboardHistory = false;
+        };
+
         bar = {
           position = "top";
           barType = "simple";

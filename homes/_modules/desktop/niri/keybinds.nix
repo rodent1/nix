@@ -108,9 +108,9 @@ in
     "super+Ctrl+Shift+R".action = switch-preset-window-height;
     "super+Ctrl+R".action = reset-window-height;
 
-    "super+F".action = maximize-column;
+    "super+F".action = expand-column-to-available-width;
+    "super+Ctrl+F".action = maximize-column;
     "super+Shift+F".action = fullscreen-window;
-    "super+Ctrl+F".action = expand-column-to-available-width;
     "super+M".action = maximize-window-to-edges;
     "super+C".action = center-column;
     "super+Ctrl+C".action = center-visible-columns;
