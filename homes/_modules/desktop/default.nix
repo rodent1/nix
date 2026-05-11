@@ -1,6 +1,5 @@
 {
   config,
-  isWSL,
   lib,
   pkgs,
   ...
@@ -9,7 +8,10 @@ let
   cfg = config.modules.desktop;
 in
 {
-  imports = lib.optional (!isWSL) ./niri;
+  imports = [
+    ./niri
+    ./hyprland
+  ];
 
   options.modules.desktop = {
     enable = lib.mkOption {
@@ -20,6 +22,13 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    assertions = [
+      {
+        assertion = !(cfg.niri.enable && cfg.hyprland.enable);
+        message = "modules.desktop.niri.enable and modules.desktop.hyprland.enable cannot both be true";
+      }
+    ];
+
     programs = {
       firefox.enable = true;
       fuzzel.enable = true;

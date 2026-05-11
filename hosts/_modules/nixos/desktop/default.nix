@@ -14,9 +14,48 @@ in
       default = false;
       description = "Enable desktop module";
     };
+
+    niri = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Enable niri system integration";
+      };
+
+      package = lib.mkOption {
+        type = lib.types.package;
+        default = pkgs.unstable.niri;
+        description = "niri package to install and use";
+      };
+    };
+
+    hyprland = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Enable Hyprland system integration";
+      };
+
+      package = lib.mkOption {
+        type = lib.types.package;
+        default = pkgs.hyprland;
+        description = "Hyprland package to install and use";
+      };
+    };
   };
 
   config = lib.mkIf cfg.enable {
+    assertions = [
+      {
+        assertion = !(cfg.niri.enable && cfg.hyprland.enable);
+        message = "modules.desktop.niri.enable and modules.desktop.hyprland.enable cannot both be true";
+      }
+      {
+        assertion = cfg.niri.enable || cfg.hyprland.enable;
+        message = "Enable either modules.desktop.niri.enable or modules.desktop.hyprland.enable when modules.desktop.enable is true";
+      }
+    ];
+
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -56,9 +95,15 @@ in
       roboto
     ];
 
-    programs.niri = {
+    programs.niri = lib.mkIf cfg.niri.enable {
       enable = true;
-      package = pkgs.unstable.niri;
+      inherit (cfg.niri) package;
+    };
+
+    programs.hyprland = lib.mkIf cfg.hyprland.enable {
+      enable = true;
+      withUWSM = true;
+      inherit (cfg.hyprland) package;
     };
 
     programs.appimage = {
@@ -66,9 +111,12 @@ in
       binfmt = true;
     };
 
-    environment.systemPackages = with pkgs; [
-      xwayland-satellite
-    ];
+    environment.systemPackages = lib.optionals cfg.niri.enable (
+      with pkgs;
+      [
+        xwayland-satellite
+      ]
+    );
 
     services = {
       displayManager.sddm = {

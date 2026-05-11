@@ -3,26 +3,14 @@ _: {
     modules = {
       desktop = {
         enable = true;
-        noctalia.enable = true;
+        niri = {
+          enable = true;
+          noctalia.enable = true;
+        };
       };
       kubernetes.enable = true;
       development.go.enable = false;
       development.rust.enable = false;
-    };
-
-    programs.niri.settings = {
-      outputs = {
-        "eDP-1" = {
-          enable = true;
-          scale = 1.5;
-        };
-      };
-
-      workspaces = {
-        "1".name = "browser";
-        "2".name = "discord";
-        "3".name = "main";
-      };
     };
 
     home.file.".face".source = ../assets/profile.jpg;

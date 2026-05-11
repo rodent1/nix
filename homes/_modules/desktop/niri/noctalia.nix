@@ -4,102 +4,97 @@
   ...
 }:
 let
-  cfg = config.modules.desktop.noctalia;
+  cfg = config.modules.desktop.niri;
 in
 {
-  options.modules.desktop.noctalia = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable Noctalia shell";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && cfg.noctalia.enable) {
     programs.noctalia-shell = {
       enable = true;
 
-      settings = {
-        appLauncher = {
-          enableClipboardHistory = false;
-        };
-
-        bar = {
-          position = "top";
-          barType = "simple";
-          density = "comfortable";
-          outerCorners = false;
-          showCapsule = true;
-
-          widgets = {
-            left = [
-              {
-                id = "Workspace";
-                hideUnoccupied = false;
-                labelMode = "index+name";
-              }
-            ];
-            center = [
-              {
-                id = "Clock";
-                formatHorizontal = "HH:mm ddd, MMM dd";
-                formatVertical = "HH mm";
-              }
-
-            ];
-            right = [
-              {
-                id = "Tray";
-              }
-              {
-                id = "NotificationHistory";
-              }
-              {
-                id = "Battery";
-                displayMode = "icon-always";
-                showNoctaliaPerformance = true;
-                showPowerProfiles = true;
-              }
-              {
-                id = "Volume";
-              }
-              {
-                id = "Brightness";
-              }
-              {
-                id = "ControlCenter";
-                useDistroLogo = true;
-              }
-            ];
+      settings = lib.mkMerge [
+        {
+          appLauncher = {
+            enableClipboardHistory = false;
           };
-        };
 
-        brightness = {
-          brightnessStep = 5;
-          enforceMinimum = true;
-        };
+          bar = {
+            position = "top";
+            barType = "simple";
+            density = "comfortable";
+            outerCorners = false;
+            showCapsule = true;
 
-        colorSchemes = {
-          predefinedScheme = "Catppuccin";
-          schedulingMode = "location";
-        };
+            widgets = {
+              left = [
+                {
+                  id = "Workspace";
+                  hideUnoccupied = false;
+                  labelMode = "index+name";
+                }
+              ];
+              center = [
+                {
+                  id = "Clock";
+                  formatHorizontal = "HH:mm ddd, MMM dd";
+                  formatVertical = "HH mm";
+                }
 
-        general = {
-          avatarImage = "/home/${config.home.username}/.face";
-        };
+              ];
+              right = [
+                {
+                  id = "Tray";
+                }
+                {
+                  id = "NotificationHistory";
+                }
+                {
+                  id = "Battery";
+                  displayMode = "icon-always";
+                  showNoctaliaPerformance = true;
+                  showPowerProfiles = true;
+                }
+                {
+                  id = "Volume";
+                }
+                {
+                  id = "Brightness";
+                }
+                {
+                  id = "ControlCenter";
+                  useDistroLogo = true;
+                }
+              ];
+            };
+          };
 
-        idle = {
-          enabled = true;
-          screenOffTimeout = 300;
-          lockTimeout = 330;
-          suspendTimeout = 1800;
-          fadeDuration = 5;
-        };
+          brightness = {
+            brightnessStep = 5;
+            enforceMinimum = true;
+          };
 
-        location = {
-          name = "Forsand, Sandnes, Norway";
-        };
-      };
+          colorSchemes = {
+            predefinedScheme = "Catppuccin";
+            schedulingMode = "location";
+          };
+
+          general = {
+            avatarImage = "/home/${config.home.username}/.face";
+          };
+
+          idle = {
+            enabled = true;
+            screenOffTimeout = 300;
+            lockTimeout = 330;
+            suspendTimeout = 1800;
+            fadeDuration = 5;
+          };
+
+          location = {
+            name = "Forsand, Sandnes, Norway";
+          };
+        }
+        cfg.noctalia.settings
+      ];
     };
   };
 }

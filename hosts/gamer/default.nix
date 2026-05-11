@@ -1,4 +1,9 @@
-_: {
+{
+  config,
+  lib,
+  ...
+}:
+{
   imports = [ ./hardware-configuration.nix ];
 
   config = {
@@ -19,36 +24,41 @@ _: {
     services.xserver.videoDrivers = [ "nvidia" ];
 
     # https://niri-wm.github.io/niri/Nvidia.html#high-vram-usage-fix
-    environment.etc."nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json".text =
-      ''
-        {
+    environment.etc = lib.optionalAttrs config.modules.desktop.niri.enable {
+      "nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json".text =
+        ''
+          {
             "rules": [
-                {
-                    "pattern": {
-                        "feature": "procname",
-                        "matches": "niri"
-                    },
-                    "profile": "Limit Free Buffer Pool On Wayland Compositors"
-                }
+              {
+                "pattern": {
+                  "feature": "procname",
+                  "matches": "niri"
+                },
+                "profile": "Limit Free Buffer Pool On Wayland Compositors"
+              }
             ],
             "profiles": [
-                {
-                    "name": "Limit Free Buffer Pool On Wayland Compositors",
-                    "settings": [
-                        {
-                            "key": "GLVidHeapReuseRatio",
-                            "value": 0
-                        }
-                    ]
-                }
+              {
+                "name": "Limit Free Buffer Pool On Wayland Compositors",
+                "settings": [
+                  {
+                    "key": "GLVidHeapReuseRatio",
+                    "value": 0
+                  }
+                ]
+              }
             ]
-        }
-      '';
+          }
+        '';
+    };
 
     programs.steam.enable = true;
 
     modules = {
-      desktop.enable = true;
+      desktop = {
+        enable = true;
+        niri.enable = true;
+      };
     };
   };
 }

@@ -29,7 +29,10 @@
     services.fprintd.enable = true;
 
     modules = {
-      desktop.enable = true;
+      desktop = {
+        enable = true;
+        niri.enable = true;
+      };
       users.stianrs.hashedPasswordFile = config.services.onepassword-secrets.secretPaths.hashedPassword;
     };
   };
