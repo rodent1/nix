@@ -7,6 +7,7 @@ _: {
           enable = true;
           noctalia.enable = true;
         };
+        hyprland.enable = true;
       };
       kubernetes.enable = true;
       development.go.enable = false;

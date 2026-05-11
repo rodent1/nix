@@ -45,17 +45,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = !(cfg.niri.enable && cfg.hyprland.enable);
-        message = "modules.desktop.niri.enable and modules.desktop.hyprland.enable cannot both be true";
-      }
-      {
-        assertion = cfg.niri.enable || cfg.hyprland.enable;
-        message = "Enable either modules.desktop.niri.enable or modules.desktop.hyprland.enable when modules.desktop.enable is true";
-      }
-    ];
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;

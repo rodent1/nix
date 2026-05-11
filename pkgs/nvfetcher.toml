@@ -2,3 +2,7 @@
 [faugus-launcher]
 fetch.github = "Faugus/faugus-launcher"
 src.github_tag = "Faugus/faugus-launcher"
+
+[hyprmod]
+fetch.github = "BlueManCZ/hyprmod"
+src.github_tag = "BlueManCZ/hyprmod"

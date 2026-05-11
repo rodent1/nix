@@ -22,13 +22,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = !(cfg.niri.enable && cfg.hyprland.enable);
-        message = "modules.desktop.niri.enable and modules.desktop.hyprland.enable cannot both be true";
-      }
-    ];
-
     programs = {
       firefox.enable = true;
       fuzzel.enable = true;

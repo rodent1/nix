@@ -32,6 +32,7 @@
       desktop = {
         enable = true;
         niri.enable = true;
+        hyprland.enable = true;
       };
       users.stianrs.hashedPasswordFile = config.services.onepassword-secrets.secretPaths.hashedPassword;
     };

@@ -1,6 +1,6 @@
 {
     "faugus-launcher": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": null,
         "extract": null,
         "name": "faugus-launcher",
@@ -19,5 +19,26 @@
             "type": "github"
         },
         "version": "1.19.4"
+    },
+    "hyprmod": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "hyprmod",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "BlueManCZ",
+            "repo": "hyprmod",
+            "rev": "v0.2.0",
+            "sha256": "sha256-BMgvjai8qHhDySKfwJMJeBtJjyMZBkXpdQgsvsFPOfI=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.2.0"
     }
 }
