@@ -12,7 +12,11 @@ let
   hostConfig = ./hosts + "/${hostname}.nix";
 in
 {
-  imports = [ ../_modules ] ++ lib.optional (builtins.pathExists hostConfig) hostConfig;
+  imports = [
+    ../_modules
+  ]
+  ++ lib.optionals (!isWSL) [ ../_modules/desktop ]
+  ++ lib.optional (builtins.pathExists hostConfig) hostConfig;
 
   modules = {
     security = {

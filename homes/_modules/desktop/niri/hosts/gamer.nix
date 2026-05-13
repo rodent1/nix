@@ -1,6 +1,6 @@
 _: {
   config = {
-    modules.desktop.niri.settings = {
+    modules.desktop.environments.niri.settings = {
       outputs = {
         "DP-1" = {
           enable = true;
@@ -76,7 +76,7 @@ _: {
       };
     };
 
-    modules.desktop.niri.noctalia.settings = {
+    modules.desktop.environments.niri.noctalia.settings = {
       general = {
         lockScreenMonitors = [ "DP-2" ];
       };

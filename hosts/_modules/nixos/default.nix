@@ -38,6 +38,11 @@
     }
   ];
 
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/xdg-desktop-portal"
+  ];
+
   system = {
     # Do not change unless you know what you are doing
     stateVersion = "24.05";

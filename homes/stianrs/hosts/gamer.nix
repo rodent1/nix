@@ -4,7 +4,7 @@
     modules = {
       desktop = {
         enable = true;
-        niri = {
+        environments.niri = {
           enable = true;
           noctalia.enable = true;
         };

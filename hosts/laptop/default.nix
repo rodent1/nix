@@ -31,8 +31,8 @@
     modules = {
       desktop = {
         enable = true;
-        niri.enable = true;
-        hyprland.enable = true;
+        environments.niri.enable = true;
+        environments.hyprland.enable = true;
       };
       users.stianrs.hashedPasswordFile = config.services.onepassword-secrets.secretPaths.hashedPassword;
     };

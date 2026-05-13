@@ -2,8 +2,6 @@
 {
   imports = [
     ./mutability.nix
-
-    ./desktop
     ./development
     ./kubernetes
     ./security

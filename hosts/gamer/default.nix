@@ -24,7 +24,7 @@
     services.xserver.videoDrivers = [ "nvidia" ];
 
     # https://niri-wm.github.io/niri/Nvidia.html#high-vram-usage-fix
-    environment.etc = lib.optionalAttrs config.modules.desktop.niri.enable {
+    environment.etc = lib.optionalAttrs config.modules.desktop.environments.niri.enable {
       "nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json".text =
         ''
           {
@@ -57,7 +57,7 @@
     modules = {
       desktop = {
         enable = true;
-        niri.enable = true;
+        environments.niri.enable = true;
       };
     };
   };

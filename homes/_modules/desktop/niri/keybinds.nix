@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.modules.desktop.niri;
+  cfg = config.modules.desktop.environments.niri;
 
   noctalia =
     cmd:

@@ -4,10 +4,10 @@
   ...
 }:
 let
-  cfg = config.modules.desktop.niri;
+  cfg = config.modules.desktop.environments.niri;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.modules.desktop.enable && cfg.enable) {
     programs.niri.settings = {
       layer-rules = [
         {

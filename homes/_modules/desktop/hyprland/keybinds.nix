@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.modules.desktop.hyprland;
+  cfg = config.modules.desktop.environments.hyprland;
 
   workspaceBinds = builtins.concatLists (
     builtins.genList (
@@ -25,7 +25,7 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = [
         "$mainMod, SPACE, exec, fuzzel"
-        "$mainMod, RETURN, exec, kitty"
+        "$mainMod, RETURN, exec, ghostty"
         "$mainMod, B, exec, firefox"
         "$mainMod, L, exec, hyprlock"
         "$mainMod, Q, killactive"

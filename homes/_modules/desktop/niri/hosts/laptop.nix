@@ -1,6 +1,6 @@
 _: {
   config = {
-    modules.desktop.niri.settings = {
+    modules.desktop.environments.niri.settings = {
       outputs = {
         "eDP-1" = {
           enable = true;

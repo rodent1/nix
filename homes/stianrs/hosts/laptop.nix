@@ -3,11 +3,11 @@ _: {
     modules = {
       desktop = {
         enable = true;
-        niri = {
+        environments.niri = {
           enable = true;
           noctalia.enable = true;
         };
-        hyprland.enable = true;
+        environments.hyprland.enable = true;
       };
       kubernetes.enable = true;
       development.go.enable = false;

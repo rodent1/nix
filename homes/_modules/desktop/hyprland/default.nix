@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.modules.desktop.hyprland;
+  cfg = config.modules.desktop.environments.hyprland;
   hostConfig = ./hosts + "/${hostname}.nix";
 in
 {
@@ -15,7 +15,7 @@ in
   ]
   ++ lib.optional (builtins.pathExists hostConfig) hostConfig;
 
-  options.modules.desktop.hyprland = {
+  options.modules.desktop.environments.hyprland = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -35,25 +35,24 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.modules.desktop.enable && cfg.enable) {
     home.packages = with pkgs; [
       grim
       hyprmod
       hyprlock
       slurp
       waybar
-      wl-clipboard
     ];
 
     programs = {
-      kitty.enable = true;
       waybar.enable = true;
       hyprlock.enable = true;
     };
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = pkgs.hyprland;
+      package = null;
+      portalPackage = null;
       systemd.enable = true;
       xwayland.enable = true;
 
@@ -118,5 +117,8 @@ in
 
       inherit (cfg) extraConfig;
     };
+
+    xdg.configFile."uwsm/env".source =
+      "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
   };
 }

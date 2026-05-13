@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.modules.desktop.niri;
+  cfg = config.modules.desktop.environments.niri;
   hostConfig = ./hosts + "/${hostname}.nix";
 in
 {
@@ -18,7 +18,7 @@ in
   ]
   ++ lib.optional (builtins.pathExists hostConfig) hostConfig;
 
-  options.modules.desktop.niri = {
+  options.modules.desktop.environments.niri = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -46,10 +46,10 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.modules.desktop.enable && cfg.enable) {
     programs.niri = {
       enable = true;
-      settings = cfg.settings;
+      inherit (cfg) settings;
     };
   };
 }

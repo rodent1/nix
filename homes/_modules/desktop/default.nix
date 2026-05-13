@@ -1,91 +1,43 @@
 {
   config,
+  inputs,
   lib,
-  pkgs,
   ...
 }:
 let
   cfg = config.modules.desktop;
+  envCfg = cfg.environments;
 in
 {
   imports = [
-    ./niri
+    inputs.niri-flake.homeModules.niri
+    ./base.nix
+    ./compositor-base.nix
+    ./gnome
     ./hyprland
+    ./niri
+    ./plasma
   ];
 
   options.modules.desktop = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable desktop home-manager modules";
-    };
+    enable = lib.mkEnableOption "desktop Home Manager modules";
   };
 
-  config = lib.mkIf cfg.enable {
-    programs = {
-      firefox.enable = true;
-      fuzzel.enable = true;
-
-      vesktop = {
-        enable = true;
-        settings = {
-          minimizeToTray = true;
-          arRPC = true;
-        };
-
-        vencord.settings = {
-          frameless = true;
-        };
-      };
-
-      ghostty = {
-        enable = true;
-        enableFishIntegration = true;
-
-        settings = {
-          confirm-close-surface = false;
-          link-url = true;
-          window-decoration = "none";
-
-          keybind = [
-            "ctrl+v=paste_from_clipboard"
+  config = {
+    assertions = [
+      {
+        assertion =
+          (!cfg.enable)
+          || lib.any (enabled: enabled) [
+            envCfg.niri.enable
+            envCfg.hyprland.enable
+            envCfg.gnome.enable
+            envCfg.plasma.enable
           ];
-        };
-      };
-
-      vscode = {
-        enable = true;
-        package = pkgs.unstable.vscode;
-      };
-    };
-
-    modules.themes.catppuccin.cursors = {
-      enable = true;
-      flavor = "latte";
-      accent = "light";
-    };
-
-    services = {
-      mako.enable = true; # notification daemon
-      swayidle.enable = true; # idle management daemon
-      polkit-gnome.enable = true; # polkit agent
-    };
-
-    home.packages = with pkgs; [
-      # Clipboard
-      cliphist
-      wl-clipboard
-      # Desktop apps
-      evince
-      eog
-      gnome-calculator
-      gnome-text-editor
-      nautilus
-      showtime
-      # Utilities
-      ffmpegthumbnailer
-      file-roller
-      unzip
+        message = "modules.desktop.enable requires at least one enabled desktop environment";
+      }
     ];
+
+    xdg.portal.enable = lib.mkIf cfg.enable (lib.mkForce false);
   };
 }

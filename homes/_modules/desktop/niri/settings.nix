@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.modules.desktop.niri;
+  cfg = config.modules.desktop.environments.niri;
 
   inherit (config.modules.themes.catppuccin) cursors;
   noctalia =
@@ -18,7 +18,7 @@ let
     ++ (pkgs.lib.splitString " " cmd);
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.modules.desktop.enable && cfg.enable) {
     programs.niri = {
       package = pkgs.unstable.niri;
 

@@ -7,7 +7,6 @@ let
   sharedModules = [
     inputs.catppuccin.homeModules.catppuccin
     inputs.nix-index-database.homeModules.nix-index
-    inputs.niri-flake.homeModules.niri
     inputs.noctalia.homeModules.default
     inputs.opnix.homeManagerModules.default
   ];
