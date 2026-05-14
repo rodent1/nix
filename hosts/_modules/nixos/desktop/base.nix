@@ -12,7 +12,6 @@ let
 
   portalPackages = lib.unique (
     [ pkgs.xdg-desktop-portal-gtk ]
-    ++ lib.optionals envCfg.hyprland.enable [ pkgs.xdg-desktop-portal-hyprland ]
     ++ lib.optionals envCfg.gnome.enable [ pkgs.xdg-desktop-portal-gnome ]
     ++ lib.optionals envCfg.plasma.enable [ pkgs.kdePackages.xdg-desktop-portal-kde ]
   );
@@ -87,7 +86,7 @@ in
 
     catppuccin.sddm = lib.mkIf (cfg.sessionManager == "sddm") {
       enable = true;
-      fontSize = "36";
+      fontSize = "30";
       flavor = "mocha";
       accent = "blue";
       userIcon = true;
@@ -98,8 +97,6 @@ in
       xdgOpenUsePortal = true;
       extraPortals = portalPackages;
     };
-
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
     console.keyMap = "no";
 

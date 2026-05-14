@@ -42,7 +42,7 @@ in
 
         package = lib.mkOption {
           type = lib.types.package;
-          default = pkgs.hyprland;
+          default = pkgs.unstable.hyprland;
           description = "Hyprland package to install and use";
         };
       };

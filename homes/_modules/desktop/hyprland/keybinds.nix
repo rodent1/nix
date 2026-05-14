@@ -24,27 +24,23 @@ in
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "$mainMod, SPACE, exec, fuzzel"
-        "$mainMod, RETURN, exec, ghostty"
-        "$mainMod, B, exec, firefox"
-        "$mainMod, L, exec, hyprlock"
-        "$mainMod, Q, killactive"
-        "$mainMod SHIFT, Q, exit"
-        "$mainMod, E, exec, nautilus"
+        "$mainMod, SPACE, exec, $menu"
+        "$mainMod, RETURN, exec, $terminal"
+        "$mainMod, E, exec, $fileManager"
+        "$mainMod, B, exec, $browser"
+        "$mainMod, C, killactive"
+        "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
         "$mainMod, V, togglefloating"
-        "$mainMod, F, fullscreen, 0"
         "$mainMod, P, pseudo"
-        "$mainMod, J, togglesplit"
+        "$mainMod, J, layoutmsg, togglesplit"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
 
-        "$mainMod SHIFT, left, movewindow, l"
-        "$mainMod SHIFT, right, movewindow, r"
-        "$mainMod SHIFT, up, movewindow, u"
-        "$mainMod SHIFT, down, movewindow, d"
+        "$mainMod, S, togglespecialworkspace, magic"
+        "$mainMod SHIFT, S, movetoworkspace, special:magic"
 
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"

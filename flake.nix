@@ -56,6 +56,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprmod-flake = {
+      url = "path:/home/stianrs/projects/hyprmod-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     opnix.url = "github:brizzbuzz/opnix";
   };
 

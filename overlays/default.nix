@@ -28,4 +28,5 @@
   };
 
   fenix = inputs.fenix.overlays.default;
+  hyprmod = inputs.hyprmod-flake.overlays.default;
 }
