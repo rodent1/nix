@@ -21,6 +21,7 @@
       jo
       jq
       unstable.just
+      unstable.just-lsp
       lefthook
       openssl
       ripgrep
