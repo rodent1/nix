@@ -50,6 +50,7 @@ in
       corefonts
       fira-code
       fira-code-symbols
+      font-awesome
       liberation_ttf
       monaspace
       noto-fonts
