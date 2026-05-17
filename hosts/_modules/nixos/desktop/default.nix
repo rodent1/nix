@@ -56,19 +56,10 @@ in
       roboto
     ];
 
-    programs.niri = {
+    programs.hyprland = {
       enable = true;
-      package = pkgs.unstable.niri;
+      package = pkgs.unstable.hyprland;
     };
-
-    programs.appimage = {
-      enable = true;
-      binfmt = true;
-    };
-
-    environment.systemPackages = with pkgs; [
-      xwayland-satellite
-    ];
 
     services = {
       displayManager.sddm = {
@@ -99,10 +90,7 @@ in
     };
 
     console.keyMap = "no";
-
     security.rtkit.enable = true;
-    security.pam.services.sddm.enableGnomeKeyring = true;
-    security.pam.services.login.enableGnomeKeyring = true;
-    services.gnome.gnome-keyring.enable = true;
+
   };
 }
