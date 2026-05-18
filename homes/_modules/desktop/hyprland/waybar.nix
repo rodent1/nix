@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+let
+  weatherScript = "${config.xdg.configHome}/waybar/scripts/get_weather.sh";
+in
 {
   config = {
     programs.waybar = {
@@ -50,7 +53,7 @@
             format = "{}";
             tooltip = true;
             interval = 1800;
-            exec = "$HOME/.config/waybar/scripts/get_weather.sh Forsand+Sandnes";
+            exec = "${weatherScript} Forsand+Sandnes";
             return-type = "json";
           };
 
