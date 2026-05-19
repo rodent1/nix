@@ -3,6 +3,3 @@ result
 # Trash
 .DS_Store
 Thumbs.db
-
-# Sops
-.decrypted~*
