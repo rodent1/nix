@@ -1,16 +1,28 @@
 { inputs, lib, ... }:
+let
+  substituters = [
+    {
+      url = "https://cache.nixos.org";
+      publicKey = "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=";
+      priority = 1;
+    }
+    {
+      url = "https://nix-community.cachix.org";
+      publicKey = "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+      priority = 2;
+    }
+    {
+      url = "https://nixpkgs-unfree.cachix.org";
+      publicKey = "nixpkgs-unfree.cachix.org-1:hqvoInulhbV4nJ9yJOEr+4wxhDV4xq2d1DK7S6Nj6rs=";
+      priority = 3;
+    }
+  ];
+in
 {
   nix = {
     settings = {
-      substituters = [
-        "https://nix-community.cachix.org"
-        "https://cache.garnix.io"
-      ];
-
-      trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-      ];
+      substituters = builtins.map (def: "${def.url}?priority=${toString def.priority}") substituters;
+      trusted-public-keys = builtins.catAttrs "publicKey" substituters;
 
       # Fallback quickly if substituters are not available.
       connect-timeout = 5;
@@ -40,6 +52,9 @@
       # Avoid copying unnecessary stuff over SSH
       builders-use-substitutes = true;
     };
+
+    # Add each flake input as a registry
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # Add nixpkgs input to NIX_PATH
     nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
