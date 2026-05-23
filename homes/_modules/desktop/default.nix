@@ -9,7 +9,9 @@ let
   cfg = config.modules.desktop;
 in
 {
-  imports = lib.optional (!isWSL) ./niri;
+  imports = lib.optionals (!isWSL) [
+    ./hyprland
+  ];
 
   options.modules.desktop = {
     enable = lib.mkOption {
@@ -22,7 +24,6 @@ in
   config = lib.mkIf cfg.enable {
     programs = {
       firefox.enable = true;
-      fuzzel.enable = true;
 
       vesktop = {
         enable = true;
@@ -61,12 +62,6 @@ in
       enable = true;
       flavor = "latte";
       accent = "light";
-    };
-
-    services = {
-      mako.enable = true; # notification daemon
-      swayidle.enable = true; # idle management daemon
-      polkit-gnome.enable = true; # polkit agent
     };
 
     home.packages = with pkgs; [

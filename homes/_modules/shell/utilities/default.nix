@@ -3,31 +3,36 @@
   config = {
     home.packages = with pkgs; [
       age
-      binutils
-      broot
-      coreutils
+      btop
       curl
+      coreutils
+      dig
       duf
       dust
       envsubst
+      eza
+      fastfetch
       fd
       findutils
       fzf
-      gawk
-      gnused
+      git
       go-task
-      gum
       httpie
-      jo
       jq
-      unstable.just
-      unstable.just-lsp
+      just
+      killall
       lefthook
+      nfs-utils
+      nix-your-shell
       openssl
+      ouch
       ripgrep
-      rustic
-      sops
+      sd
+      shellcheck
+      systemd-manager-tui
       tlrc
+      tree
+      unzip
       wget
       yamlfmt
       yq-go
