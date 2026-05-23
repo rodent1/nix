@@ -1,7 +1,4 @@
-{ config, pkgs, ... }:
-let
-  weatherScript = "${config.xdg.configHome}/waybar/scripts/get_weather.sh";
-in
+{ pkgs, ... }:
 {
   config = {
     programs.waybar = {
@@ -33,19 +30,17 @@ in
           ];
           modules-right = [
             "pulseaudio"
-            "custom/mem"
             "backlight"
             "battery"
             "tray"
           ];
 
           "hyprland/workspaces" = {
-            active-only = false;
-            sort-by-number = true;
+            on-click = "activate";
           };
 
           "clock" = {
-            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+            tooltip-formiat = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
             format = "{:%a, %d %b, %I:%M %p}";
           };
 
@@ -53,7 +48,7 @@ in
             format = "{}";
             tooltip = true;
             interval = 1800;
-            exec = "${weatherScript} Forsand+Sandnes";
+            exec = "$HOME/.config/waybar/scripts/get_weather.sh Forsand+Sandnes";
             return-type = "json";
           };
 
@@ -73,13 +68,6 @@ in
             };
             scroll-step = 1;
             on-click = "pavucontrol";
-          };
-
-          "custom/mem" = {
-            format = "{} 󰍛";
-            interval = 3;
-            exec = "free -h | awk '/Mem:/{printf $3}'";
-            tooltip = false;
           };
 
           "backlight" = {

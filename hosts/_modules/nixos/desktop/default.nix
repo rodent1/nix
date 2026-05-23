@@ -51,6 +51,7 @@ in
       fira-code
       fira-code-symbols
       font-awesome
+      inter
       liberation_ttf
       monaspace
       noto-fonts
@@ -60,6 +61,7 @@ in
     programs.hyprland = {
       enable = true;
       package = pkgs.unstable.hyprland;
+      withUWSM = true;
     };
 
     services = {
