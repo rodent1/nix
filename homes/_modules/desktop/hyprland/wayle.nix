@@ -6,7 +6,6 @@
       package = pkgs.unstable.wayle;
       settings = {
         bar = {
-          scale = 0.7;
           layout = [
             {
               center = [

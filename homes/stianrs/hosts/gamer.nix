@@ -11,7 +11,6 @@
     };
 
     home.packages = with pkgs; [
-      faugus-launcher
       mangohud
       unstable.rusty-path-of-building
       wagoapp
