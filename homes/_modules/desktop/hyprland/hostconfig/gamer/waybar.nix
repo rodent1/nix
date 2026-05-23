@@ -29,6 +29,9 @@ _: {
           format = "%d %b, %H:%M";
           icon-show = false;
         };
+        notification = {
+          label-show = false;
+        };
         weather = {
           format = "{{ temp }}{{ temp_unit }} {{ condition }}";
           icon-show = false;
