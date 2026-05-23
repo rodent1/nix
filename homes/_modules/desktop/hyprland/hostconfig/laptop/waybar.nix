@@ -4,20 +4,21 @@ _: {
       bar = {
         layout = [
           {
+            left = [
+              "dashboard"
+              "hyprland-workspaces"
+            ];
             center = [
               "clock"
               "separator"
               "weather"
-            ];
-            left = [
-              "dashboard"
-              "hyprland-workspaces"
             ];
             monitor = "*";
             right = [
               "systray"
               "network"
               "volume"
+              "battery"
               "notifications"
             ];
             show = true;
