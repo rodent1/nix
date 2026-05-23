@@ -27,7 +27,6 @@
 
   home.packages = with pkgs; [
     brightnessctl
-    libappindicator-gtk3
     playerctl
     unstable.hyprlauncher
   ];

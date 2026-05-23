@@ -67,9 +67,6 @@ in
       withUWSM = true;
     };
 
-    programs.uwsm.waylandCompositors.hyprland.binPath =
-      lib.mkForce "/run/current-system/sw/bin/start-hyprland";
-
     services = {
       displayManager.sddm = {
         enable = true;

@@ -10,7 +10,7 @@ _: {
 
       # Set programs that you use
       "\$terminal" = "ghostty";
-      "\$fileManager" = "dolphin";
+      "\$fileManager" = "nautilus";
       "\$menu" = "hyprlauncher";
       "\$browser" = "firefox";
 
