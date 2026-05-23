@@ -105,7 +105,7 @@ _: {
       # https://wiki.hyprland.org/Configuring/Variables/#animations
       animations.enabled = true;
       animations = {
-        "bezier" = [
+        bezier = [
           "easeOutQuint,0.23,1,0.32,1"
           "easeInOutCubic,0.65,0.05,0.36,1"
           "linear,0,0,1,1"
@@ -113,7 +113,7 @@ _: {
           "quick,0.15,0,0.1,1"
         ];
 
-        "animation" = [
+        animation = [
           "global, 1, 10, default"
           "border, 1, 5.39, easeOutQuint"
           "windows, 1, 4.79, easeOutQuint"
@@ -146,20 +146,22 @@ _: {
       # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
       dwindle = {
         # You probably want this
-        "preserve_split" = "true";
+        preserve_split = "true";
       };
 
       # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
       master = {
-        "new_status" = "master";
+        new_status = "master";
       };
 
       # https://wiki.hyprland.org/Configuring/Variables/#misc
       misc = {
         # Set to 0 or 1 to disable the anime mascot wallpapers
-        "force_default_wallpaper" = "-1";
+        force_default_wallpaper = "-1";
         # If true disables the random hyprland logo / anime girl background. :(
-        "disable_hyprland_logo" = "false";
+        disable_hyprland_logo = "false";
+
+        focus_on_activate = true;
       };
 
       #############

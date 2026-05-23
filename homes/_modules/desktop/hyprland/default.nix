@@ -1,9 +1,11 @@
 {
+  hostname,
   pkgs,
   ...
 }:
 {
   imports = [
+    ./hostconfig/${hostname}.nix
     ./hypridle.nix
     ./keybinds.nix
     ./settings.nix
@@ -25,6 +27,7 @@
 
   home.packages = with pkgs; [
     brightnessctl
+    libappindicator-gtk3
     playerctl
     unstable.hyprlauncher
   ];

@@ -53,7 +53,10 @@ in
       font-awesome
       inter
       liberation_ttf
+      material-symbols
       monaspace
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
       noto-fonts
       roboto
     ];
@@ -63,6 +66,9 @@ in
       package = pkgs.unstable.hyprland;
       withUWSM = true;
     };
+
+    programs.uwsm.waylandCompositors.hyprland.binPath =
+      lib.mkForce "/run/current-system/sw/bin/start-hyprland";
 
     services = {
       displayManager.sddm = {
