@@ -6,11 +6,17 @@
   imports = [
     ./hypridle.nix
     ./keybinds.nix
+    ./settings.nix
     ./wayle.nix
   ];
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    systemd.enable = false;
+  };
+
   programs = {
-    hyprlock.enable = true; # screen locker for Hyprland
+    hyprlock.enable = true;
   };
 
   services = {
@@ -18,7 +24,8 @@
   };
 
   home.packages = with pkgs; [
-    kitty
+    brightnessctl
+    playerctl
     unstable.hyprlauncher
   ];
 }
