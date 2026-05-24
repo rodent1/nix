@@ -202,6 +202,13 @@ _: {
         "suppress_event maximize, match:class .*"
         # Fix some dragging issues with XWayland
         "no_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
+
+        "match:initial_class vesktop, workspace name:Discord silent"
+        "match:class ^(1password)$, float on"
+        "match:class ^(org.pulseaudio.pavucontrol)$, float on"
+        "match:class ^(org.gnome.Calculator)$, float on"
+        "match:class ^(org.gnome.eog)$, float on"
+        "match:class ^(org.gnome.Showtime)$, float on"
       ];
     };
   };
