@@ -212,6 +212,7 @@ _: {
         "match:class ^(org.gnome.Calculator)$, float on"
         "match:class ^(org.gnome.eog)$, float on"
         "match:class ^(org.gnome.Showtime)$, float on"
+        "match:class ^(com.gabm.satty)$, float on"
       ];
     };
   };

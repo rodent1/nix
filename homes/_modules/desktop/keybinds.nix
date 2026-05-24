@@ -1,4 +1,5 @@
-_: {
+{ pkgs, ... }:
+{
   wayland.windowManager.hyprland.settings = {
     ###################
     ### KEYBINDINGS ###
@@ -61,6 +62,35 @@ _: {
       # Scroll through existing workspaces using mainMod + page up/down
       "$mainMod, PAGE_UP, workspace, r-1"
       "$mainMod, PAGE_DOWN, workspace, r+1"
+
+      # Screenshot
+      "$mainMod SHIFT, S, exec, ${pkgs.writeShellScript "screenshot-area" ''
+        set -euo pipefail
+
+        dir="''${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots"
+        mkdir -p "$dir"
+
+        file="$dir/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"
+
+        geometry="$(${pkgs.slurp}/bin/slurp)"
+        [ -n "$geometry" ]
+
+        ${pkgs.grim}/bin/grim -g "$geometry" "$file"
+
+        ${pkgs.wl-clipboard}/bin/wl-copy < "$file"
+
+        action="$(${pkgs.libnotify}/bin/notify-send \
+          "Screenshot captured" \
+          "Click Edit to annotate with Satty" \
+          --icon="$file" \
+          --hint="string:image-path:$file" \
+          --action="edit=Edit" \
+          --wait)"
+
+        if [ "$action" = "edit" ]; then
+          ${pkgs.satty}/bin/satty --filename "$file" --initial-tool=brush
+        fi
+      ''}"
     ];
 
     bindm = [
