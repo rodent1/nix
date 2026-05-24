@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
   config = {
-    services.wayle = {
+    programs.vscode = {
       enable = true;
-      package = pkgs.unstable.wayle;
+      package = pkgs.unstable.vscode;
     };
   };
 }

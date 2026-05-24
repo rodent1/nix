@@ -1,5 +1,6 @@
 {
   config,
+  hostname,
   isWSL,
   lib,
   pkgs,
@@ -10,7 +11,12 @@ let
 in
 {
   imports = lib.optionals (!isWSL) [
-    ./hyprland
+    ./hostconfig/${hostname}
+    ./apps
+
+    ./hypridle.nix
+    ./hyprland.nix
+    ./keybinds.nix
   ];
 
   options.modules.desktop = {
@@ -22,47 +28,38 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs = {
-      firefox.enable = true;
-
-      vesktop = {
-        enable = true;
-        settings = {
-          minimizeToTray = true;
-          arRPC = true;
-        };
-
-        vencord.settings = {
-          frameless = true;
-        };
-      };
-
-      ghostty = {
-        enable = true;
-        enableFishIntegration = true;
-
-        settings = {
-          confirm-close-surface = false;
-          link-url = true;
-          window-decoration = "none";
-
-          keybind = [
-            "ctrl+v=paste_from_clipboard"
-          ];
-        };
-      };
-
-      vscode = {
-        enable = true;
-        package = pkgs.unstable.vscode;
-      };
-    };
-
-    modules.themes.catppuccin.cursors = {
+    wayland.windowManager.hyprland = {
       enable = true;
-      flavor = "latte";
-      accent = "light";
+      systemd.enable = false;
     };
+
+    programs = {
+      hyprlock.enable = true;
+      firefox.enable = true;
+    };
+
+    services = {
+      hyprpolkitagent.enable = true; # polkit agent for Hyprland
+      wayle = {
+        enable = true;
+        package = pkgs.unstable.wayle;
+      };
+    };
+
+    # Theming
+    catppuccin = {
+      hyprland.enable = true;
+      hyprlock.enable = true;
+
+      cursors = {
+        enable = true;
+        flavor = "latte";
+        accent = "light";
+      };
+    };
+
+    # profile picture
+    home.file.".face".source = ./assets/profile.jpg;
 
     home.packages = with pkgs; [
       # Clipboard
@@ -76,9 +73,13 @@ in
       nautilus
       showtime
       # Utilities
+      brightnessctl
       ffmpegthumbnailer
       file-roller
+      pavucontrol
+      playerctl
       unzip
+      unstable.hyprlauncher
     ];
   };
 }

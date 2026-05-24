@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+_: {
   config = {
     modules = {
       desktop = {
@@ -9,13 +8,5 @@
       development.go.enable = false;
       development.rust.enable = false;
     };
-
-    home.packages = with pkgs; [
-      mangohud
-      unstable.rusty-path-of-building
-      wagoapp
-    ];
-
-    home.file.".face".source = ../assets/profile.jpg;
   };
 }

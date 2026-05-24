@@ -6,6 +6,8 @@ _: {
       enableFishIntegration = false;
     };
 
+    catppuccin.eza.enable = true;
+
     programs.fish = {
       shellAliases = {
         ls = "eza";

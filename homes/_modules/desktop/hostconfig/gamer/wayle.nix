@@ -29,8 +29,14 @@ _: {
           format = "%d %b, %H:%M";
           icon-show = false;
         };
+        hyprland-workspaces = {
+          label-use-name = true;
+        };
         notification = {
           label-show = false;
+        };
+        volume = {
+          right-click = "pavucontrol";
         };
         weather = {
           format = "{{ temp }}{{ temp_unit }} {{ condition }}";

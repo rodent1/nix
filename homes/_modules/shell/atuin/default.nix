@@ -26,5 +26,7 @@ in
         sync_frequency = "0";
       };
     };
+
+    catppuccin.atuin.enable = true;
   };
 }
