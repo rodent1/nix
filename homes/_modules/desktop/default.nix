@@ -30,7 +30,8 @@ in
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
-      systemd.enable = false;
+      package = null;
+      portalPackage = null;
     };
 
     programs = {

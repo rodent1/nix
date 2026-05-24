@@ -64,7 +64,7 @@ in
     programs.hyprland = {
       enable = true;
       package = pkgs.unstable.hyprland;
-      withUWSM = true;
+      portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
     };
 
     services = {

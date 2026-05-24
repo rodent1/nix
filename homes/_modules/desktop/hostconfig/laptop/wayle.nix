@@ -2,6 +2,7 @@ _: {
   config = {
     services.wayle.settings = {
       bar = {
+        button-variant = "basic";
         layout = [
           {
             left = [
@@ -10,12 +11,10 @@ _: {
             ];
             center = [
               "clock"
-              "separator"
               "weather"
             ];
             right = [
               "systray"
-              "separator"
               "network"
               "volume"
               "custom-brightness"
@@ -55,11 +54,17 @@ _: {
             scroll-down = "brightnessctl -e4 -n2 set 1%+";
           }
         ];
+        hyprland-workspaces = {
+          label-use-name = true;
+        };
         notification = {
           label-show = false;
         };
         systray = {
           icon-scale = 1.5;
+        };
+        volume = {
+          right-click = "pavucontrol";
         };
         weather = {
           format = "{{ temp }}{{ temp_unit }} {{ condition }}";
@@ -70,8 +75,6 @@ _: {
       };
 
       styling = {
-        scale = 0.7;
-
         palette = {
           bg = "#11111b";
           blue = "#74c7ec";
