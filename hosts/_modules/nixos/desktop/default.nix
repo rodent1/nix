@@ -97,6 +97,7 @@ in
 
     console.keyMap = "no";
     security.rtkit.enable = true;
+    security.sudo.wheelNeedsPassword = false;
 
   };
 }

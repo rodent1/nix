@@ -17,6 +17,7 @@ in
     ./hypridle.nix
     ./hyprland.nix
     ./keybinds.nix
+    ./wayle.nix
   ];
 
   options.modules.desktop = {
@@ -41,10 +42,6 @@ in
 
     services = {
       hyprpolkitagent.enable = true; # polkit agent for Hyprland
-      wayle = {
-        enable = true;
-        package = pkgs.unstable.wayle;
-      };
     };
 
     # Theming

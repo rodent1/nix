@@ -25,6 +25,12 @@ _: {
       "$mainMod, up, movefocus, u"
       "$mainMod, down, movefocus, d"
 
+      # Swap windows with mainMod + CTRL + arrow keys
+      "$mainMod CTRL, left, swapwindow, l"
+      "$mainMod CTRL, right, swapwindow, r"
+      "$mainMod CTRL, up, swapwindow, u"
+      "$mainMod CTRL, down, swapwindow, d"
+
       # Switch workspaces with mainMod + [0-9]
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
       "$mainMod, 1, workspace, 1"
@@ -48,15 +54,21 @@ _: {
       "$mainMod SHIFT, 9, movetoworkspace, 9"
       "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-      # Scroll through existing workspaces with mainMod + scroll
-      "$mainMod, mouse_down, workspace, e+1"
-      "$mainMod, mouse_up, workspace, e-1"
+      # Scroll through existing workspaces with mainMod + scroll [e = global, m = workspace, r = workspace including empty]
+      "$mainMod, mouse_down, workspace, r+1"
+      "$mainMod, mouse_up, workspace, r-1"
+
+      # Scroll through existing workspaces using mainMod + page up/down
+      "$mainMod, PAGE_UP, workspace, r-1"
+      "$mainMod, PAGE_DOWN, workspace, r+1"
     ];
 
     bindm = [
       # Move/resize windows with mainMod + LMB/RMB and dragging
       "$mainMod, mouse:272, movewindow"
       "$mainMod, mouse:273, resizewindow"
+      # For touchpad ergonomics
+      "$mainMod, ALT_L, resizewindow"
     ];
 
     bindel = [

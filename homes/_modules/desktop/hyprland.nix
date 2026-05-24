@@ -24,6 +24,10 @@ _: {
       # exec-once = \$terminal
       # exec-once = nm-applet &
       # exec-once = waybar & hyprpaper & firefox
+      exec-once = [
+        "1password --silent"
+        "vesktop"
+      ];
 
       #############################
       ### ENVIRONMENT VARIABLES ###
