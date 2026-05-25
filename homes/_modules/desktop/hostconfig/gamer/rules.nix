@@ -9,8 +9,8 @@ _: {
 
       windowrule = [
         "match:initial_class vesktop, workspace name:Discord silent"
+        "match:initial_title Battle.net, float on, workspace name:Top silent"
       ];
-
     };
   };
 }
