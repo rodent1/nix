@@ -1,1 +1,5 @@
-
+[wagoapp]
+src.webpage = "https://addons.wago.io/wagoapp/download?type=linux"
+src.regex = 'WagoApp_([0-9.]+)\.AppImage'
+fetch.url = "https://cdn.wago.io/wagoapp/WagoApp_$ver.AppImage"
+url.name = "WagoApp_$ver.AppImage"

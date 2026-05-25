@@ -1,1 +1,17 @@
-{}
+{
+    "wagoapp": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "wagoapp",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": "WagoApp_2.9.11.AppImage",
+            "sha256": "sha256-vsRC5Q5nXo//AGf1rZnyiRalX1mQKqhFsbecXml8N30=",
+            "type": "url",
+            "url": "https://cdn.wago.io/wagoapp/WagoApp_2.9.11.AppImage"
+        },
+        "version": "2.9.11"
+    }
+}
