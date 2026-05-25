@@ -1,6 +1,6 @@
 {
     "wagoapp": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "wagoapp",
