@@ -16,6 +16,11 @@ let
       publicKey = "nixpkgs-unfree.cachix.org-1:hqvoInulhbV4nJ9yJOEr+4wxhDV4xq2d1DK7S6Nj6rs=";
       priority = 3;
     }
+    {
+      url = "https://rodent1.cachix.org";
+      publicKey = "rodent1.cachix.org-1:iM76vQ3wmww8gwBdPIoHIoFIem83qv6v0gxytvHA3lk=";
+      priority = 4;
+    }
   ];
 in
 {
