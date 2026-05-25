@@ -19,6 +19,10 @@ _: {
               "dashboard"
             ];
           }
+          {
+            monitor = "DP-3";
+            show = false;
+          }
         ];
       };
     };

@@ -45,7 +45,7 @@
             label-show = false;
           };
           systray = {
-            icon-scale = 1.5;
+            icon-scale = 1.25;
           };
           volume = {
             right-click = "pavucontrol";
