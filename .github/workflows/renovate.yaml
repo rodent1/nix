@@ -1,7 +1,5 @@
----
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Renovate
-
 on:
   push:
     branches:
@@ -10,7 +8,7 @@ on:
       - .renovaterc.json5
       - .renovate/**.json5
   schedule:
-    - cron: "0 2 * * *" # Every night at 0200
+    - cron: 0 * * * *
   workflow_dispatch:
     inputs:
       dryRun:
@@ -30,14 +28,11 @@ on:
         description: Renovate Version
         default: latest
         required: true
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
   cancel-in-progress: true
-
 permissions:
   contents: read
-
 jobs:
   main:
     name: Renovate
@@ -52,20 +47,17 @@ jobs:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
           GITHUB_BOT_APP_CLIENT_ID: op://home-ops/github-bot/GITHUB_BOT_APP_CLIENT_ID
           GITHUB_BOT_APP_PRIVATE_KEY: op://home-ops/github-bot/GITHUB_BOT_APP_PRIVATE_KEY
-
       - name: Generate Token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         id: app-token
         with:
           client-id: ${{ steps.load-secrets.outputs.GITHUB_BOT_APP_CLIENT_ID }}
           private-key: ${{ steps.load-secrets.outputs.GITHUB_BOT_APP_PRIVATE_KEY }}
-
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
           token: ${{ steps.app-token.outputs.token }}
-
       - name: Run Renovate
         uses: renovatebot/github-action@693b9ef15eec82123529a37c782242f091365961 # v46.1.14
         env:

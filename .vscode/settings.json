@@ -1,4 +1,10 @@
 {
     "nix.enableLanguageServer": true,
     "nix.serverPath": "nixd",
+    "json5.schemaDownload.trustedDomains": {
+        "https://docs.renovatebot.com": true
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "bluebrown.yamlfmt",
+    },
 }

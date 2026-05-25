@@ -1,5 +1,4 @@
 name: Update nvfetcher
-
 on:
   workflow_dispatch: {}
   schedule:
@@ -9,15 +8,12 @@ on:
       - main
     paths:
       - pkgs/nvfetcher.toml
-
 concurrency:
   group: update-nvfetcher
   cancel-in-progress: true
-
 permissions:
   contents: write
   pull-requests: write
-
 jobs:
   update-nvfetcher:
     runs-on: ubuntu-latest
@@ -29,62 +25,56 @@ jobs:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
           GITHUB_BOT_APP_CLIENT_ID: op://home-ops/github-bot/GITHUB_BOT_APP_CLIENT_ID
           GITHUB_BOT_APP_PRIVATE_KEY: op://home-ops/github-bot/GITHUB_BOT_APP_PRIVATE_KEY
-
       - name: Generate Token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         id: app-token
         with:
           client-id: ${{ steps.load-secrets.outputs.GITHUB_BOT_APP_CLIENT_ID }}
           private-key: ${{ steps.load-secrets.outputs.GITHUB_BOT_APP_PRIVATE_KEY }}
-
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
-
       - name: Install Nix
         uses: DeterminateSystems/determinate-nix-action@bafaa638b9d5ec0e7e3ac1a7fc80453ef1fd265f # v3.20.0
-
       - name: Run nvfetcher
         id: run-nvfetcher
         run: |
+          set -euo pipefail
           cd pkgs
+          change_log="$(mktemp)"
+
+          nix-shell -p nvfetcher --command "nvfetcher -l $change_log --keep-old"
+
           {
             echo 'changes<<EOF'
-            nix-shell -p nvfetcher --command 'nvfetcher' | sed -n '/Changes/,/$!d/p'
+            if test -s "$change_log"; then
+              cat "$change_log"
+            else
+              echo 'No dependency updates.'
+            fi
             echo 'EOF'
           } >> "$GITHUB_OUTPUT"
-
-      # - name: Update vendor hashes
-      #   id: update-vendorhash
-      #   run: |
-      #     setHash () {
-      #       jq --arg app "${1}" --arg hash "${2}" '.[$app] = $hash' pkgs/_sources/vendorhash.json > tmp.json
-      #       mv tmp.json pkgs/_sources/vendorhash.json
-      #     }
-
-      #     declare -a APP_NAMES
-      #     while read line; do
-      #       APP_NAMES+=("${line%:*}")
-      #     done < /tmp/nvfetcher-changes
-
-      #     for APP_NAME in "${APP_NAMES[@]}"; do
-      #       echo "Updating vendor hash for ${APP_NAME}..."
-      #       setHash "${APP_NAME}" ""
-      #       vendorHash=$(nix build --no-link .#${APP_NAME} 2>&1 >/dev/null | grep "got:" | cut -d':' -f2 | sed 's| ||g')
-
-      #       if [[ -n "${vendorHash}" ]]; then
-      #         setHash "${APP_NAME}" "${vendorHash}"
-      #         echo "Updated ${APP_NAME} with vendorHash: ${vendorHash}"
-      #       fi
-      #     done
-
+      - name: Detect changes
+        id: detect-changes
+        run: |
+          if git diff --quiet -- pkgs; then
+            echo 'has_changes=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'has_changes=true' >> "$GITHUB_OUTPUT"
+          fi
       - name: Validate updated packages
-        run: nix flake check --no-build
+        if: steps.detect-changes.outputs.has_changes == 'true'
+        run: |
+          set -euo pipefail
+          nix flake check --no-build
 
+          for package in $(nix eval .#packages.x86_64-linux --apply 'packages: builtins.concatStringsSep "\n" (builtins.attrNames packages)' --raw); do
+            nix build ".#${package}" --print-build-logs
+          done
       - name: Create Pull Request
         id: create-pull-request
+        if: steps.detect-changes.outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ steps.app-token.outputs.token }}

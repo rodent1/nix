@@ -24,10 +24,10 @@
 
 ## Verification
 - Inspect current outputs with `nix flake show --all-systems`.
-- For host changes, build the exact target: `nix build .#nixosConfigurations.<host>.config.system.build.toplevel`.
-- For exported packages, build the exact package: `nix build .#faugus-launcher` or `nix build .#wagoapp`.
-- This flake does not define a meaningful `checks` output; use targeted builds instead of assuming `nix flake check` covers your change.
-- If you touch Nix files, run `nix run nixpkgs#statix -- fix` and review the diff. CI runs that exact command.
+- For host changes, prefer building the exact target locally: `nix build .#nixosConfigurations.<host>.config.system.build.toplevel`.
+- For exported packages, prefer building the exact package locally: `nix build .#faugus-launcher` or `nix build .#wagoapp`.
+- CI uses `nix flake check` as a general flake validation step and also builds all exported `nixosConfigurations` and `packages.x86_64-linux` outputs through the cache-building workflow.
+- When updating `pkgs/nvfetcher.toml` or generated sources, `nix flake check --no-build` matches the lightweight validation used by the nvfetcher automation.
 
 ## Local Rebuild
 - On machines that already use this repo, `programs.nh.flake` is pinned to `/home/stianrs/nix` in `hosts/_modules/nixos/system/nh/default.nix`.

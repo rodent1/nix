@@ -1,40 +1,78 @@
 {
-    $schema: "https://docs.renovatebot.com/renovate-schema.json",
-    extends: [
-        "config:recommended",
-        "helpers:pinGitHubActionDigestsToSemver",
-        ':automergeDigest',
-        ':automergeMinor',
-        ':automergePr',
-        ":dependencyDashboard",
-        ":semanticCommits",
-        ":timezone(Europe/Oslo)",
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "github>home-operations/renovate-presets//config/baseConfig.json5",
+    "github>home-operations/renovate-presets//config/dependencyDashboard.json5",
+    "github>home-operations/renovate-presets//policies/semanticCommits.json5",
+    ":timezone(Europe/Oslo)",
+  ],
+  nix: {
+      enabled: true,
+  },
+  lockFileMaintenance: {
+    enabled: true,
+    automerge: true,
+    schedule: [
+      "after 1am and before 4am",
     ],
-    dependencyDashboardTitle: "Renovate Dashboard 🤖",
-    lockFileMaintenance: {
-        enabled: true,
-        automerge: true,
-        automergeType: "branch",
-        ignoreTests: true,
-        schedule: [
-            "at any time"
-        ],
+  },
+  packageRules: [
+    // Auto-merge rules
+    {
+      description: "Auto-merge GitHub Actions",
+      matchManagers: ["github-actions"],
+      matchUpdateTypes: ["minor", "patch", "digest"],
+      automerge: true,
+      automergeType: "branch",
+      minimumReleaseAge: "3 days",
+      ignoreTests: true,
     },
-    nix: {
-        enabled: true,
+    {
+      description: "Auto-merge trusted GitHub Actions",
+      matchManagers: ["github-actions"],
+      matchPackageNames: ["/^actions\\//", "/^renovatebot\\//"],
+      matchUpdateTypes: ["minor", "patch", "digest"],
+      automerge: true,
+      automergeType: "branch",
+      minimumReleaseAge: "1 minute",
+      ignoreTests: true,
     },
-    packageRules: [
-        {
-            // GitHub Actions: automerge
-            matchManagers: [
-                "github-actions"
-            ],
-            automerge: true,
-            automergeType: "pr",
-            labels: [
-                "dependencies",
-                "github-actions"
-            ],
-        },
-    ],
+    {
+      description: "Auto-merge Renovate Presents",
+      matchManagers: ["renovate-config"],
+      matchUpdateTypes: ["minor", "patch"],
+      automerge: true,
+      automergeType: "branch",
+      ignoreTests: true,
+    },
+    // Labeling rules
+    {
+      matchManagers: ["nix"],
+      addLabels: ["nix"]
+    },
+    {
+      matchUpdateTypes: ["major"],
+      addLabels: ["type/major"],
+    },
+    {
+      matchUpdateTypes: ["minor"],
+      addLabels: ["type/minor"],
+    },
+    {
+      matchUpdateTypes: ["patch"],
+      addLabels: ["type/patch"],
+    },
+    {
+      matchUpdateTypes: ["digest"],
+      addLabels: ["type/digest"],
+    },
+    {
+      matchManagers: ["github-actions"],
+      addLabels: ["renovate/github-action"],
+    },
+    {
+      matchDatasources: ["github-releases"],
+      addLabels: ["renovate/github-release"],
+    },
+  ],
 }
