@@ -19,7 +19,7 @@
       go-task
       httpie
       jq
-      just
+      unstable.just
       killall
       lefthook
       nfs-utils
