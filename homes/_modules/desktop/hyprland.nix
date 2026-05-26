@@ -25,6 +25,7 @@ _: {
       # exec-once = nm-applet &
       # exec-once = waybar & hyprpaper & firefox
       exec-once = [
+        "hypridle"
         "1password --silent"
         "vesktop"
       ];

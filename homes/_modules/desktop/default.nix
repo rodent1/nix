@@ -48,6 +48,7 @@ in
     catppuccin = {
       hyprland.enable = true;
       hyprlock.enable = true;
+      hyprlock.useDefaultConfig = false;
 
       cursors = {
         enable = true;
