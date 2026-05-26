@@ -109,6 +109,14 @@
       ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ", XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
       ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
+
+      # Laptop lid close and open events
+      # Trigger when the switch is toggled.
+      ", switch:[Lid Switch], exec, hyprlock"
+      # Trigger when the switch is turning on.
+      ", switch:on:[Lid Switch], exec, hyprctl keyword monitor \"eDP-1, disable\""
+      # Trigger when the switch is turning off.
+      ", switch:off:[Lid Switch], exec, hyprctl keyword monitor \"eDP-1, 2880x1800, 0x0, 1.5\""
     ];
 
     bindl = [
