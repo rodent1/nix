@@ -65,7 +65,12 @@ in
       enable = true;
       package = pkgs.unstable.hyprland;
       portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
+      withUWSM = true;
     };
+
+    programs.uwsm.enable = true;
+    programs.uwsm.waylandCompositors.hyprland.binPath =
+      lib.mkForce "/run/current-system/sw/bin/start-hyprland";
 
     services = {
       displayManager.sddm = {

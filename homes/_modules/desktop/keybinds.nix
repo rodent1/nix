@@ -12,7 +12,7 @@
     bind = [
       "$mainMod, RETURN, exec, $terminal"
       "$mainMod, Q, killactive"
-      "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
+      "$mainMod, M, exec, uwsm stop"
       "$mainMod, L, exec, hyprlock"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, V, togglefloating"

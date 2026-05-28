@@ -25,8 +25,10 @@ _: {
       # exec-once = nm-applet &
       # exec-once = waybar & hyprpaper & firefox
       exec-once = [
-        "hypridle & wayle & 1password --silent"
-        "vesktop"
+        "uwsm app -- hypridle"
+        "uwsm app -- wayle"
+        "uwsm-app -- 1password --silent"
+        "uwsm app -- vesktop"
       ];
 
       #############################
@@ -38,6 +40,7 @@ _: {
       env = [
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
+        "XDG_CURRENT_DESKTOP,Hyprland"
       ];
 
       ###################

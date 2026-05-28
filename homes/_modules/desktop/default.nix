@@ -33,6 +33,8 @@ in
       enable = true;
       package = null;
       portalPackage = null;
+      systemd.enable = false;
+      systemd.variables = [ "--all" ];
     };
 
     programs = {
