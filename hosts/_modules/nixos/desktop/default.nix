@@ -69,9 +69,10 @@ in
     };
 
     programs.uwsm.enable = true;
-    programs.uwsm.waylandCompositors.hyprland.binPath =
-      lib.mkForce "/run/current-system/sw/bin/start-hyprland";
-
+    programs.uwsm.waylandCompositors.hyprland = {
+      binPath = lib.mkForce "/run/current-system/sw/bin/start-hyprland";
+      prettyName = "Hyprland";
+    };
     services = {
       displayManager.sddm = {
         enable = true;

@@ -5,7 +5,7 @@ in
 {
   options.modules.security.ssh = {
     enable = lib.mkEnableOption "ssh";
-    matchBlocks = lib.mkOption {
+    settings = lib.mkOption {
       type = lib.types.attrs;
       default = { };
     };
@@ -15,7 +15,7 @@ in
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      inherit (cfg) matchBlocks;
+      inherit (cfg) settings;
     };
   };
 }

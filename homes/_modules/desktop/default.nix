@@ -35,6 +35,8 @@ in
       portalPackage = null;
       systemd.enable = false;
       systemd.variables = [ "--all" ];
+
+      configType = "hyprlang";
     };
 
     programs = {
@@ -48,7 +50,7 @@ in
 
     # Theming
     catppuccin = {
-      hyprland.enable = true;
+      # hyprland.enable = true;
       hyprlock.enable = true;
       hyprlock.useDefaultConfig = false;
 

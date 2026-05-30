@@ -22,7 +22,7 @@ in
       vimAlias = true;
       vimdiffAlias = true;
 
-      extraLuaConfig = ''
+      initLua = ''
         -- bootstrap lazy.nvim, LazyVim and your plugins
         require("config.lazy")
       '';

@@ -18,25 +18,19 @@ in
     security = {
       ssh = {
         enable = true;
-        matchBlocks = lib.mkMerge [
+        settings = lib.mkMerge [
           {
             "udm" = {
-              extraOptions = {
-                User = "root";
-                Hostname = "10.1.1.1";
-              };
+              User = "root";
+              Hostname = "10.1.1.1";
             };
             "tank" = {
-              extraOptions = {
-                Hostname = "10.1.1.15";
-              };
+              Hostname = "10.1.1.15";
             };
           }
           (lib.mkIf (!isWSL) {
             "*" = {
-              extraOptions = {
-                identityAgent = "~/.1password/agent.sock";
-              };
+              identityAgent = "~/.1password/agent.sock";
             };
           })
         ];
