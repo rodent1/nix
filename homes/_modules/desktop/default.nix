@@ -36,7 +36,7 @@ in
       systemd.enable = false;
       systemd.variables = [ "--all" ];
 
-      configType = "hyprlang";
+      configType = "hyprlang"; # TODO: Convert to lua
     };
 
     programs = {
@@ -50,7 +50,7 @@ in
 
     # Theming
     catppuccin = {
-      # hyprland.enable = true;
+      # hyprland.enable = true; # TODO: restore when we have converted hyprland config to lua
       hyprlock.enable = true;
       hyprlock.useDefaultConfig = false;
 
