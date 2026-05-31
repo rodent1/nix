@@ -14,6 +14,7 @@ in
     ./hostconfig/${hostname}
     ./apps
 
+    ./autostart.nix
     ./env.nix
     ./hypridle.nix
     ./hyprland.nix
@@ -21,7 +22,6 @@ in
     ./keybinds.nix
     ./launcher.nix
     ./rules.nix
-    ./startup.nix
     ./wayle.nix
   ];
 
