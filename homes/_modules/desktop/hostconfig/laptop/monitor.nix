@@ -2,7 +2,12 @@ _: {
   config = {
     wayland.windowManager.hyprland = {
       extraConfig = ''
-        monitor = , preferred , auto, 1.5
+        hl.monitor({
+            output = "",
+            mode = "preferred",
+            position = "auto",
+            scale = 1.5,
+          })
       '';
     };
   };

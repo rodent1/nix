@@ -2,9 +2,28 @@ _: {
   config = {
     wayland.windowManager.hyprland = {
       extraConfig = ''
-        monitor = DP-1, highrr, 2560x-0, 1, vrr, 1, cm, srgb
-        monitor = DP-2, highrr, 2560x-1450, 1, cm, srgb
-        monitor = DP-3, highrr, 5130x-230, 1, transform, 3, cm, srgb
+        hl.monitor({
+            output = "DP-1",
+            mode = "highrr",
+            position = "2560x-0",
+            scale = 1,
+            vrr = 1
+          })
+
+        hl.monitor({
+            output = "DP-2",
+            mode = "highrr",
+            position = "2560x-1450",
+            scale = 1,
+          })
+
+        hl.monitor({
+            output = "DP-3",
+            mode = "highrr",
+            position = "5130x-230",
+            scale = 1,
+            transform = 3
+          })
       '';
     };
   };

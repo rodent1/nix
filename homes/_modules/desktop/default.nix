@@ -14,11 +14,14 @@ in
     ./hostconfig/${hostname}
     ./apps
 
-    ./fuzzel.nix
+    ./env.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
     ./keybinds.nix
+    ./launcher.nix
+    ./rules.nix
+    ./startup.nix
     ./wayle.nix
   ];
 
@@ -37,8 +40,6 @@ in
       portalPackage = null;
       systemd.enable = false;
       systemd.variables = [ "--all" ];
-
-      configType = "hyprlang"; # TODO: Convert to lua
     };
 
     services = {
@@ -47,7 +48,8 @@ in
 
     # Theming
     catppuccin = {
-      # hyprland.enable = true; # TODO: restore when we have converted hyprland config to lua
+      hyprland.enable = true;
+      hyprtoolkit.enable = true;
 
       cursors = {
         enable = true;
@@ -74,8 +76,11 @@ in
       brightnessctl
       ffmpegthumbnailer
       file-roller
+      grim
+      hyprshutdown
       pavucontrol
       playerctl
+      slurp
       unzip
     ];
   };

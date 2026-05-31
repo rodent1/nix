@@ -38,6 +38,12 @@
               scroll-down = "brightnessctl -e4 -n2 set 1%+";
             }
           ];
+          dashboard = {
+            dropdown-lock-command = "hyprlock";
+            dropdown-logout-command = "uwsm-app -- hyprshutdown -t 'Logging out...'";
+            dropdown-reboot-command = "systemctl reboot";
+            dropdown-poweroff-command = "systemctl poweroff";
+          };
           hyprland-workspaces = {
             label-use-name = true;
           };
