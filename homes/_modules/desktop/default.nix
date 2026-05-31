@@ -44,6 +44,7 @@ in
 
     services = {
       hyprpolkitagent.enable = true; # polkit agent for Hyprland
+      cliphist.enable = true; # clipboard manager
     };
 
     # Theming
@@ -62,9 +63,6 @@ in
     home.file.".face".source = ./assets/profile.jpg;
 
     home.packages = with pkgs; [
-      # Clipboard
-      cliphist
-      wl-clipboard
       # Desktop apps
       evince
       eog
@@ -82,6 +80,7 @@ in
       playerctl
       slurp
       unzip
+      wl-clipboard
     ];
   };
 }

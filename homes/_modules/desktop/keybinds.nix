@@ -56,16 +56,16 @@ in
 
         # Window management
         (mkBind ''mod .." + Q"'' "hl.dsp.window.close()" { description = "Close focused window"; })
-        (mkBind ''mod .." + V"'' "hl.dsp.window.float({ action = \"toggle\"})" {
+        (mkBind ''mod .." + F"'' "hl.dsp.window.float({ action = \"toggle\"})" {
           description = "Toggle floating/tiled for focused window";
         })
         (mkBind ''mod .." + J"'' "hl.dsp.window.pseudo({action = \"toggle\"})" {
           description = "Toggle split/unsplit in stack layout";
         })
-        (mkBind ''mod .." + F"'' "hl.dsp.window.fullscreen_state({ internal = 1, client = 0})" {
+        (mkBind ''mod .." + M"'' "hl.dsp.window.fullscreen_state({ internal = 1, client = 0})" {
           description = "Toggle fullscreen for focused window";
         })
-        (mkBind ''mod .." + CTRL + F"'' "hl.dsp.window.fullscreen(1)" {
+        (mkBind ''mod .." + CTRL + M"'' "hl.dsp.window.fullscreen(1)" {
           description = "Maximize focused window";
         })
 
@@ -140,6 +140,11 @@ in
         (mkExec ''mod .." + SHIFT + S"''
           "${pkgs.grim}/bin/grim -g \"$(slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"
           "Take screenshot of selected area and copy to clipboard"
+        )
+
+        # Clipboard manager
+        (mkExec ''mod .." + p"'' "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
+          "Open clipboard history menu"
         )
       ]
 
