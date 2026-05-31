@@ -44,9 +44,6 @@
           notification = {
             label-show = false;
           };
-          systray = {
-            icon-scale = 1.25;
-          };
           volume = {
             right-click = "pavucontrol";
           };

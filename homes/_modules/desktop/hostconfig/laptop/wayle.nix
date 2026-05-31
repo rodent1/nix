@@ -5,7 +5,6 @@ _: {
         layout = [
           {
             left = [
-              "dashboard"
               "hyprland-workspaces"
             ];
             center = [
@@ -19,6 +18,7 @@ _: {
               "custom-brightness"
               "battery"
               "notifications"
+              "dashboard"
             ];
           }
         ];

@@ -11,7 +11,7 @@ _: {
       # Set programs that you use
       "\$terminal" = "ghostty";
       "\$fileManager" = "nautilus";
-      "\$menu" = "hyprlauncher";
+      "\$menu" = "fuzzel";
       "\$browser" = "firefox";
 
       #################

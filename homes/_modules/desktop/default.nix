@@ -14,8 +14,10 @@ in
     ./hostconfig/${hostname}
     ./apps
 
+    ./fuzzel.nix
     ./hypridle.nix
     ./hyprland.nix
+    ./hyprlock.nix
     ./keybinds.nix
     ./wayle.nix
   ];
@@ -39,11 +41,6 @@ in
       configType = "hyprlang"; # TODO: Convert to lua
     };
 
-    programs = {
-      hyprlock.enable = true;
-      firefox.enable = true;
-    };
-
     services = {
       hyprpolkitagent.enable = true; # polkit agent for Hyprland
     };
@@ -51,8 +48,6 @@ in
     # Theming
     catppuccin = {
       # hyprland.enable = true; # TODO: restore when we have converted hyprland config to lua
-      hyprlock.enable = true;
-      hyprlock.useDefaultConfig = false;
 
       cursors = {
         enable = true;
@@ -82,7 +77,6 @@ in
       pavucontrol
       playerctl
       unzip
-      unstable.hyprlauncher
     ];
   };
 }
