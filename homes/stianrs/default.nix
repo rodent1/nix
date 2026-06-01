@@ -1,4 +1,5 @@
 {
+  availableHomeModules ? { },
   hostname,
   lib,
   isWSL,
@@ -12,7 +13,22 @@ let
   hostConfig = ./hosts + "/${hostname}.nix";
 in
 {
-  imports = [ ../_modules ] ++ lib.optional (builtins.pathExists hostConfig) hostConfig;
+  imports = [
+    availableHomeModules.defaults
+    availableHomeModules.mutability
+    availableHomeModules.desktop
+    availableHomeModules.development
+    availableHomeModules.kubernetes
+    availableHomeModules.security
+    availableHomeModules.shell
+    availableHomeModules.themes
+  ]
+  ++ lib.optional (builtins.pathExists hostConfig) hostConfig;
+
+  home = {
+    username = lib.mkDefault "stianrs";
+    homeDirectory = lib.mkDefault "/home/stianrs";
+  };
 
   modules = {
     security = {

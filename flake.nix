@@ -8,6 +8,7 @@
 
     # Flake framework
     flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:mightyiam/import-tree";
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
     # Home manager
@@ -39,42 +40,5 @@
 
   outputs =
     inputs@{ flake-parts, ... }:
-    let
-      mkPkgsWithSystem =
-        system:
-        import inputs.nixpkgs {
-          inherit system;
-          overlays = builtins.attrValues (import ./overlays { inherit inputs system; });
-          config.allowUnfree = true;
-        };
-      mkSystemLib = import ./lib/mkSystem.nix { inherit inputs mkPkgsWithSystem; };
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ ./lib/treefmt.nix ];
-
-      systems = [
-        "x86_64-linux"
-      ];
-
-      perSystem =
-        {
-          system,
-          pkgs,
-          ...
-        }:
-        {
-          # override pkgs used by everything in `perSystem` to have my overlays
-          _module.args.pkgs = mkPkgsWithSystem system;
-          # accessible via `nix build .#<name>`
-          packages = import ./pkgs { inherit pkgs inputs; };
-        };
-
-      flake = {
-        nixosConfigurations = {
-          laptop = mkSystemLib.mkNixosSystem "x86_64-linux" "laptop";
-          gamer = mkSystemLib.mkNixosSystem "x86_64-linux" "gamer";
-          work = mkSystemLib.mkWslSystem "x86_64-linux" "work";
-        };
-      };
-    };
+    flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
