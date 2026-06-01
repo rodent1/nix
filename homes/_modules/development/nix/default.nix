@@ -23,7 +23,6 @@ in
       nix-inspect
       nixd
       nixfmt
-      nixfmt-tree
       nvfetcher
       statix
     ];

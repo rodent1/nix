@@ -4,7 +4,6 @@
     ./go
     ./nix
     ./python
-    ./rust
     ./utilities
     ./web
   ];

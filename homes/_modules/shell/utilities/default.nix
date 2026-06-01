@@ -6,6 +6,7 @@
       btop
       curl
       coreutils
+      devenv
       dig
       duf
       dust
@@ -19,7 +20,7 @@
       go-task
       httpie
       jq
-      unstable.just
+      just
       killall
       lefthook
       nfs-utils
