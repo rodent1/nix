@@ -1,4 +1,4 @@
-![Banner](docs/images/flake-terminal-logo.png)
+![Banner](logo.png)
 
 ### ❄️ My Nix Flake Repository 🚧
 
