@@ -6,7 +6,6 @@ _: {
       };
       kubernetes.enable = true;
       development.go.enable = false;
-      development.rust.enable = true;
     };
   };
 }

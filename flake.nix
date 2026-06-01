@@ -6,41 +6,29 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # Flake-parts - Simplify Nix Flakes with the module system
-    # https://github.com/hercules-ci/flake-parts
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-    };
+    # Flake framework
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
 
     # Home manager
-    # https://github.com/nix-community/home-manager
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Catppuccin
-    # https://github.com/catppuccin/nix
     catppuccin = {
       url = "github:catppuccin/nix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # fenix
-    # https://github.com/nix-community/fenix
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     # nix-index-database
-    # https://github.com/nix-community/nix-index-database"
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # WSL
+    # NixOS-WSL
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,7 +50,7 @@
       mkSystemLib = import ./lib/mkSystem.nix { inherit inputs mkPkgsWithSystem; };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ ];
+      imports = [ ./lib/treefmt.nix ];
 
       systems = [
         "x86_64-linux"
@@ -79,8 +67,6 @@
           _module.args.pkgs = mkPkgsWithSystem system;
           # accessible via `nix build .#<name>`
           packages = import ./pkgs { inherit pkgs inputs; };
-
-          formatter = pkgs.nixfmt-tree;
         };
 
       flake = {
