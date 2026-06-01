@@ -2,11 +2,11 @@
 {
   flake.homeModules.development = {
     imports = [
-      ../../homes/_modules/development/go
-      ../../homes/_modules/development/nix
-      ../../homes/_modules/development/python
-      ../../homes/_modules/development/utilities
-      ../../homes/_modules/development/web
+      ./development/_modules/go.nix
+      ./development/_modules/nix.nix
+      ./development/_modules/python.nix
+      ./development/_modules/utilities.nix
+      ./development/_modules/web.nix
     ];
 
     options.modules.development = {

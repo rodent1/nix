@@ -33,9 +33,7 @@ in
       home = "/home/stianrs";
       group = "stianrs";
       shell = pkgs.fish;
-      openssh.authorizedKeys.keys = lib.strings.splitString "\n" (
-        builtins.readFile ../../../../homes/stianrs/config/ssh/ssh.pub
-      );
+      openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.readFile ./ssh.pub);
       isNormalUser = true;
       description = "Stian Rossavik Sporaland";
       extraGroups = [
