@@ -15,29 +15,6 @@
             format = "%d %b, %H:%M";
             icon-show = false;
           };
-          custom = [
-            {
-              id = "brightness";
-              interval-ms = 2000;
-              command = ''
-                brightnessctl -m | awk -F, '{
-                  gsub(/%/, "", $4)
-                  printf "{\"percentage\":%s,\"value\":\"%s%%\"}\n", $4, $4
-                }'
-              '';
-              on-action = ''
-                brightnessctl -m | awk -F, '{
-                  gsub(/%/, "", $4)
-                  printf "{\"percentage\":%s,\"value\":\"%s%%\"}\n", $4, $4
-                }'
-              '';
-              format = "{{ value }}";
-              tooltip-format = "Brightness {{ value }}";
-              icon-name = "display-brightness-symbolic";
-              scroll-up = "brightnessctl -e4 -n2 set 1%-";
-              scroll-down = "brightnessctl -e4 -n2 set 1%+";
-            }
-          ];
           dashboard = {
             dropdown-lock-command = "hyprlock";
             dropdown-logout-command = "uwsm-app -- hyprshutdown -t 'Logging out...'";

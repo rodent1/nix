@@ -15,7 +15,7 @@ _: {
               "systray"
               "network"
               "volume"
-              "custom-brightness"
+              "brightness"
               "battery"
               "notifications"
               "dashboard"
