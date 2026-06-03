@@ -24,7 +24,6 @@ in
 
     home.sessionPath = [
       "${config.home.homeDirectory}/.cache/.bun/bin"
-      "${config.home.homeDirectory}/.vite-plus/env"
     ];
   };
 }
