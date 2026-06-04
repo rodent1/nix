@@ -16,7 +16,6 @@ in
 
     ./autostart.nix
     ./env.nix
-    ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
     ./keybinds.nix
@@ -38,7 +37,7 @@ in
       enable = true;
       package = null;
       portalPackage = null;
-      systemd.enable = false;
+      systemd.enable = true;
       systemd.variables = [ "--all" ];
     };
 

@@ -44,7 +44,7 @@ in
 
       bind = [
         # System controls
-        (mkExec ''mod .." + M"'' "uwsm-app -- hyprshutdown -t 'Logging out...'" "Logout")
+        (mkExec ''mod .." + M"'' "hyprshutdown -t 'Logging out...'" "Logout")
         (mkExec ''mod .." + L"'' "hyprlock" "Lock screen")
 
         # App launchers

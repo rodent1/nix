@@ -17,7 +17,7 @@
           };
           dashboard = {
             dropdown-lock-command = "hyprlock";
-            dropdown-logout-command = "uwsm-app -- hyprshutdown -t 'Logging out...'";
+            dropdown-logout-command = "hyprshutdown -t 'Logging out...'";
             dropdown-reboot-command = "systemctl reboot";
             dropdown-poweroff-command = "systemctl poweroff";
           };
