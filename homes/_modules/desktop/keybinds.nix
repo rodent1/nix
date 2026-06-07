@@ -146,6 +146,12 @@ in
         (mkExec ''mod .." + p"'' "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
           "Open clipboard history menu"
         )
+
+        # Requires playerctl
+        (mkExec ''"XF86AudioNext"'' "playerctl next" "Next track")
+        (mkExec ''"XF86AudioPause"'' "playerctl play-pause" "Play/pause")
+        (mkExec ''"XF86AudioPlay"'' "playerctl play-pause" "Play/pause")
+        (mkExec ''"XF86AudioPrev"'' "playerctl previous" "Previous track")
       ]
 
       # Extra mouse bindings
@@ -180,11 +186,6 @@ in
 
       # Binds that work when the screen is locked, but don't repeat
       ++ [
-        # Requires playerctl
-        (mkExecLocked ''"XF86AudioNext"'' "playerctl next" "Next track")
-        (mkExecLocked ''"XF86AudioPause"'' "playerctl play-pause" "Play/pause")
-        (mkExecLocked ''"XF86AudioPlay"'' "playerctl play-pause" "Play/pause")
-        (mkExecLocked ''"XF86AudioPrev"'' "playerctl previous" "Previous track")
         # Laptop lid
         (mkExecLocked ''" + switch:[Lid Switch]"'' "hyprlock" "Lock screen when laptop lid is closed")
         (mkExecLocked ''" + switch:on:[Lid Switch]"'' "hyprctl keyword monitor \"eDP-1, disable\""

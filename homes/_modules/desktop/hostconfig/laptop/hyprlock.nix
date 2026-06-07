@@ -10,7 +10,7 @@ _: {
 
       input-field = {
         monitor = "";
-        size = "300, 60";
+        size = "384, 78";
         outline_thickness = 4;
         dots_size = 0.2;
         dots_spacing = 0.2;
@@ -25,7 +25,7 @@ _: {
         fail_color = "$red";
         fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
         capslock_color = "$yellow";
-        position = "0,-47";
+        position = "0,-60";
         halign = "center";
         valign = "center";
       };
@@ -33,9 +33,9 @@ _: {
       image = {
         monitor = "";
         path = "$HOME/.face";
-        size = 100;
+        size = 140;
         border_color = "$accent";
-        position = "0,75";
+        position = "0,108";
         halign = "center";
         valign = "center";
       };
@@ -46,9 +46,9 @@ _: {
           monitor = "";
           text = "$TIME";
           color = "$text";
-          font_size = 90;
+          font_size = 116;
           font_family = "$font";
-          position = "-30, 0";
+          position = "-40, 0";
           halign = "right";
           valign = "top";
         }
@@ -57,9 +57,9 @@ _: {
           monitor = "";
           text = "cmd[update:43200000] date +\"%A, %d %B %Y\"";
           color = "$text";
-          font_size = 25;
+          font_size = 33;
           font_family = "$font";
-          position = "-30, -150";
+          position = "-40, -192";
           halign = "right";
           valign = "top";
         }
