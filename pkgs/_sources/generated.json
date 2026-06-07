@@ -7,11 +7,11 @@
         "passthru": null,
         "pinned": false,
         "src": {
-            "name": "WagoApp_2.9.11.AppImage",
-            "sha256": "sha256-vsRC5Q5nXo//AGf1rZnyiRalX1mQKqhFsbecXml8N30=",
+            "name": "WagoApp_2.9.12.AppImage",
+            "sha256": "sha256-FZhrtUmiMBrqhLATdQvROywCluvDs8XxG2qsqAZo3p8=",
             "type": "url",
-            "url": "https://cdn.wago.io/wagoapp/WagoApp_2.9.11.AppImage"
+            "url": "https://cdn.wago.io/wagoapp/WagoApp_2.9.12.AppImage"
         },
-        "version": "2.9.11"
+        "version": "2.9.12"
     }
 }
