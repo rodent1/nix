@@ -8,11 +8,11 @@
 {
   wagoapp = {
     pname = "wagoapp";
-    version = "2.9.12";
+    version = "2.12.1";
     src = fetchurl {
-      url = "https://cdn.wago.io/wagoapp/WagoApp_2.9.12.AppImage";
-      name = "WagoApp_2.9.12.AppImage";
-      sha256 = "sha256-FZhrtUmiMBrqhLATdQvROywCluvDs8XxG2qsqAZo3p8=";
+      url = "https://cdn.wago.io/wagoapp/WagoApp_2.12.1.AppImage";
+      name = "WagoApp_2.12.1.AppImage";
+      sha256 = "sha256-HaufkTAF2eDPBJCuLUwJGAmEZi87YSMqjlge02ULl/g=";
     };
   };
 }
