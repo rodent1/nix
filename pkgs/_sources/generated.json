@@ -1,4 +1,64 @@
 {
+    "flate.aarch64-darwin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "flate.aarch64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-dHEkXbiWVcoIFoJvGKaAAOMICBbX7CcXwLTcSqQBh2Q=",
+            "type": "url",
+            "url": "https://github.com/home-operations/flate/releases/download/v0.4.6/flate_0.4.6_darwin_arm64.tar.gz"
+        },
+        "version": "0.4.6"
+    },
+    "flate.aarch64-linux": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "flate.aarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-JHHuN20wxyttONDcDtszRof3wfxTxgMORc2nDtpkUB8=",
+            "type": "url",
+            "url": "https://github.com/home-operations/flate/releases/download/v0.4.6/flate_0.4.6_linux_arm64.tar.gz"
+        },
+        "version": "0.4.6"
+    },
+    "flate.x86_64-darwin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "flate.x86_64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-aoBOKyh09gRkBjOrlkLg+nzFTnwmBW8fbfIEsdHKyeg=",
+            "type": "url",
+            "url": "https://github.com/home-operations/flate/releases/download/v0.4.6/flate_0.4.6_darwin_amd64.tar.gz"
+        },
+        "version": "0.4.6"
+    },
+    "flate.x86_64-linux": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "flate.x86_64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Ec86o26F3/TQGZBETMNcQazwfNTVHgJZkFOcutVpDw0=",
+            "type": "url",
+            "url": "https://github.com/home-operations/flate/releases/download/v0.4.6/flate_0.4.6_linux_amd64.tar.gz"
+        },
+        "version": "0.4.6"
+    },
     "wagoapp": {
         "cargoLock": null,
         "date": null,

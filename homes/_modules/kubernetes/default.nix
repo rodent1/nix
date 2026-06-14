@@ -19,6 +19,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages =
       (with pkgs; [
+        flate
         fluxcd
         gum
         helmfile
