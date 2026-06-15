@@ -8,34 +8,34 @@
 {
   "flate.aarch64-darwin" = {
     pname = "flate.aarch64-darwin";
-    version = "0.4.6";
+    version = "0.4.7";
     src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.4.6/flate_0.4.6_darwin_arm64.tar.gz";
-      sha256 = "sha256-dHEkXbiWVcoIFoJvGKaAAOMICBbX7CcXwLTcSqQBh2Q=";
+      url = "https://github.com/home-operations/flate/releases/download/v0.4.7/flate_0.4.7_darwin_arm64.tar.gz";
+      sha256 = "sha256-jAwcPpSzYDaDwmFWbqeUT5XD4/C00bxSZQ8wIrwCjB8=";
     };
   };
   "flate.aarch64-linux" = {
     pname = "flate.aarch64-linux";
-    version = "0.4.6";
+    version = "0.4.7";
     src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.4.6/flate_0.4.6_linux_arm64.tar.gz";
-      sha256 = "sha256-JHHuN20wxyttONDcDtszRof3wfxTxgMORc2nDtpkUB8=";
+      url = "https://github.com/home-operations/flate/releases/download/v0.4.7/flate_0.4.7_linux_arm64.tar.gz";
+      sha256 = "sha256-47wU96nnbW0r6VlJ2X8+PQAZtheXOpyoWShwgQ4IizM=";
     };
   };
   "flate.x86_64-darwin" = {
     pname = "flate.x86_64-darwin";
-    version = "0.4.6";
+    version = "0.4.7";
     src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.4.6/flate_0.4.6_darwin_amd64.tar.gz";
-      sha256 = "sha256-aoBOKyh09gRkBjOrlkLg+nzFTnwmBW8fbfIEsdHKyeg=";
+      url = "https://github.com/home-operations/flate/releases/download/v0.4.7/flate_0.4.7_darwin_amd64.tar.gz";
+      sha256 = "sha256-wYyCOQ9CewDC1ZLlmqEJOuMfPKYNjK5V1Fz/6BEoahc=";
     };
   };
   "flate.x86_64-linux" = {
     pname = "flate.x86_64-linux";
-    version = "0.4.6";
+    version = "0.4.7";
     src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.4.6/flate_0.4.6_linux_amd64.tar.gz";
-      sha256 = "sha256-Ec86o26F3/TQGZBETMNcQazwfNTVHgJZkFOcutVpDw0=";
+      url = "https://github.com/home-operations/flate/releases/download/v0.4.7/flate_0.4.7_linux_amd64.tar.gz";
+      sha256 = "sha256-bAdf0Pna/zkobs8psDmG1pqtu6illM8/qMwSRtWmBPY=";
     };
   };
   wagoapp = {
