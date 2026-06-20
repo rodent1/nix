@@ -6,36 +6,20 @@
   dockerTools,
 }:
 {
-  "flate.aarch64-darwin" = {
-    pname = "flate.aarch64-darwin";
-    version = "0.4.9";
-    src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.4.9/flate_0.4.9_darwin_arm64.tar.gz";
-      sha256 = "sha256-aCtDtLsuSBi0yfLrLfX13nmnw0Gax1UQubFCsOvNGco=";
-    };
-  };
-  "flate.aarch64-linux" = {
-    pname = "flate.aarch64-linux";
-    version = "0.4.9";
-    src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.4.9/flate_0.4.9_linux_arm64.tar.gz";
-      sha256 = "sha256-/q7V23TU4OX0rGMxhLTP4xBRA84nxm7wY0RkOf5jH8A=";
-    };
-  };
-  "flate.x86_64-darwin" = {
-    pname = "flate.x86_64-darwin";
-    version = "0.4.9";
-    src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.4.9/flate_0.4.9_darwin_amd64.tar.gz";
-      sha256 = "sha256-TJxboo4+Li3+KLeC3VM4nkVSAqqJ4gt+69u8rZRxVYc=";
-    };
-  };
-  "flate.x86_64-linux" = {
-    pname = "flate.x86_64-linux";
+  flate = {
+    pname = "flate";
     version = "0.4.9";
     src = fetchurl {
       url = "https://github.com/home-operations/flate/releases/download/v0.4.9/flate_0.4.9_linux_amd64.tar.gz";
       sha256 = "sha256-QbjdzihxOfj31cSerWXj2Q7lgArfDi4Q5BCT8cwBjso=";
+    };
+  };
+  kubectl-kopiur = {
+    pname = "kubectl-kopiur";
+    version = "0.4.10";
+    src = fetchurl {
+      url = "https://github.com/home-operations/kopiur/releases/download/0.4.10/kopiur-cli_linux_amd64.tar.gz";
+      sha256 = "sha256-KSNvAiuFjrY08TeMf/SYAdRl7nNj8KjVEJ7AJYQUFc8=";
     };
   };
   wagoapp = {

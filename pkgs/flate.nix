@@ -8,7 +8,7 @@ let
   sourceData = callPackage _sources/generated.nix { };
 in
 stdenv.mkDerivation {
-  inherit (sourceData."flate.${stdenv.hostPlatform.system}") pname src version;
+  inherit (sourceData.flate) pname src version;
 
   nativeBuildInputs = [
     installShellFiles

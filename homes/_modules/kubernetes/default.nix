@@ -21,9 +21,7 @@ in
       (with pkgs; [
         flate
         fluxcd
-        gum
         helmfile
-        kubeconform
         kubecolor
         kubernetes-helm
         kustomize
@@ -31,6 +29,14 @@ in
         minio-client
         stern
 
+        # Kubectl plugins
+        krew
+        kubectl-cnpg
+        kubectl-klock
+        kubectl-kopiur
+        kubectl-node-shell
+        kubectl-rook-ceph
+        kubectl-view-secret
       ])
       ++ (with pkgs.unstable; [
         kubectl
