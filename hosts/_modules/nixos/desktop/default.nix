@@ -86,6 +86,11 @@ in
         pulse.enable = true;
       };
 
+      xserver.xkb = {
+        layout = "no";
+        variant = "nodeadkeys";
+      };
+
       gvfs.enable = true;
       tumbler.enable = true;
       tuned.enable = true;
