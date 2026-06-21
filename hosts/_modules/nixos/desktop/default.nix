@@ -77,11 +77,18 @@ in
         wayland.enable = true;
       };
 
+      desktopManager.plasma6.enable = true;
+
       pipewire = {
         enable = true;
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
+      };
+
+      xserver.xkb = {
+        layout = "no";
+        variant = "nodeadkeys";
       };
 
       gvfs.enable = true;
