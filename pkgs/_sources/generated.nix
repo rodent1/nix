@@ -16,10 +16,10 @@
   };
   kubectl-kopiur = {
     pname = "kubectl-kopiur";
-    version = "0.4.11";
+    version = "0.4.12";
     src = fetchurl {
-      url = "https://github.com/home-operations/kopiur/releases/download/0.4.11/kopiur-cli_linux_amd64.tar.gz";
-      sha256 = "sha256-WO6w87lIJNgKXeAvHp8dcDiEFpYYvdiOmMXwd8c/pDw=";
+      url = "https://github.com/home-operations/kopiur/releases/download/0.4.12/kopiur-cli_linux_amd64.tar.gz";
+      sha256 = "sha256-m/yzeTs+MMBpkIKTcDk0HSwc+r/61DN+dx12HeJxIJw=";
     };
   };
   wagoapp = {
