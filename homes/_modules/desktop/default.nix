@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  hostname,
   isWSL,
   ...
 }:
@@ -17,6 +18,7 @@ in
   };
 
   imports = lib.optionals (!isWSL) [
+    ./hostconfig/${hostname}.nix
     ./apps
     ./hyprland
     ./plasma

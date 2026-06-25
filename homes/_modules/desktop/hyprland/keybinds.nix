@@ -1,5 +1,11 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
+  cfg = config.modules.desktop.hyprland;
   mkBind = key: dispatcher: opts: {
     _args = [
       (lib.generators.mkLuaInline key)
@@ -34,7 +40,7 @@ let
   browserPrivate = "firefox --private-window";
 in
 {
-  config = {
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       # See https://wiki.hyprland.org/Configuring/Keywords/
       # Sets "Windows" key as main modifier
