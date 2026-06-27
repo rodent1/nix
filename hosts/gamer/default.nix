@@ -22,6 +22,7 @@ _: {
 
     modules = {
       desktop.enable = true;
+      desktop.plasma = true;
     };
   };
 }

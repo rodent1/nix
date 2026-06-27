@@ -6,8 +6,8 @@ _: {
 
       settings = {
         confirm-close-surface = false;
+        maximize = true;
         link-url = true;
-        window-decoration = "none";
 
         keybind = [
           "ctrl+v=paste_from_clipboard"

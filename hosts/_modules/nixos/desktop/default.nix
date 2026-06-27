@@ -14,6 +14,18 @@ in
       default = false;
       description = "Enable desktop module";
     };
+
+    hyprland = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Hyprland";
+    };
+
+    plasma = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Plasma";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -61,14 +73,12 @@ in
       roboto
     ];
 
-    programs.hyprland = {
+    programs.hyprland = lib.mkIf cfg.hyprland {
       enable = true;
       package = pkgs.unstable.hyprland;
       portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
       withUWSM = false;
     };
-
-    programs.uwsm.enable = false;
 
     services = {
       displayManager.sddm = {
@@ -77,7 +87,9 @@ in
         wayland.enable = true;
       };
 
-      desktopManager.plasma6.enable = true;
+      desktopManager.plasma6 = lib.mkIf cfg.plasma {
+        enable = true;
+      };
 
       pipewire = {
         enable = true;
@@ -99,7 +111,6 @@ in
 
     catppuccin.sddm = {
       enable = true;
-      fontSize = "36";
       flavor = "mocha";
       accent = "blue";
       userIcon = true;

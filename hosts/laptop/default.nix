@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   ...
 }:
 {
@@ -30,7 +29,7 @@
 
     modules = {
       desktop.enable = true;
-      users.stianrs.hashedPasswordFile = config.services.onepassword-secrets.secretPaths.hashedPassword;
+      desktop.plasma = true;
     };
   };
 }
