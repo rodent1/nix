@@ -81,11 +81,7 @@ in
     };
 
     services = {
-      displayManager.sddm = {
-        enable = true;
-        enableHidpi = true;
-        wayland.enable = true;
-      };
+      displayManager.plasma-login-manager.enable = true;
 
       desktopManager.plasma6 = lib.mkIf cfg.plasma {
         enable = true;

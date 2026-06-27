@@ -9,10 +9,6 @@ _: {
 
       vencord.settings = {
         frameless = true;
-
-        plugins = {
-          FakeNitro.enabled = true;
-        };
       };
     };
   };
