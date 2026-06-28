@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.desktop.plasma;
 in
@@ -13,6 +18,18 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # TODO: Do something
+    programs.fuzzel = {
+      enable = true;
+    };
+
+    catppuccin.fuzzel.enable = true;
+
+    home.packages = with pkgs; [
+      # Apps
+      kdePackages.kalk
+      kdePackages.dragon
+      # Utilities
+      ffmpegthumbnailer
+    ];
   };
 }
