@@ -1,7 +1,7 @@
 _: {
   config = {
     programs.vesktop = {
-      enable = false; # TODO: fix pnpm error
+      enable = true;
       settings = {
         minimizeToTray = true;
         arRPC = true;

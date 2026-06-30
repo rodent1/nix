@@ -25,5 +25,6 @@
 
   nixpkgs-overlays = final: prev: {
     # Your own overlays for stable nixpkgs should be declared here
+    pnpm_10_29_2 = final.pnpm_10;
   };
 }
