@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-A0f6v4wj0tQ/x7M8+xUvOzaxkqCn4Xbr7as521kiauM=",
+            "sha256": "sha256-w12HZhTuXPDikx7zipHNHY8UXTr4ehC5NBZqzVqIdPE=",
             "type": "url",
-            "url": "https://github.com/home-operations/kopiur/releases/download/0.4.13/kopiur-cli_linux_amd64.tar.gz"
+            "url": "https://github.com/home-operations/kopiur/releases/download/0.5.1/kubectl-kopiur_0.5.1_linux_amd64.tar.gz"
         },
-        "version": "0.4.13"
+        "version": "0.5.1"
     },
     "wagoapp": {
         "cargoLock": null,

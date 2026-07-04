@@ -15,7 +15,7 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-      install -D -m0755 kubectl-kopiur $out/bin/kubectl-kopiur
+      install -D -m0755 kopiur $out/bin/kubectl-kopiur
 
     runHook postInstall
   '';

@@ -9,4 +9,4 @@ src.github_tag = "home-operations/flate"
 src.prefix = "v"
 [kubectl-kopiur]
 src.github = "home-operations/kopiur"
-fetch.url = "https://github.com/home-operations/kopiur/releases/download/$ver/kopiur-cli_linux_amd64.tar.gz"
+fetch.url = "https://github.com/home-operations/kopiur/releases/download/$ver/kubectl-kopiur_$ver_linux_amd64.tar.gz"
