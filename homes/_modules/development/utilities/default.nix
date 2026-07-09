@@ -8,10 +8,16 @@ let
   cfg = config.modules.development;
 in
 {
+  imports = [
+    ./opencode.nix
+  ];
+
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       act
       gcc
+      unstable.oxfmt
+      unstable.pi-coding-agent
       pkg-config
       shellcheck
       shfmt
