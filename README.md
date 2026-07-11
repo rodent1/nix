@@ -19,19 +19,22 @@ This repo contains my complete system configuration for a declarative, reproduci
 
 ```bash
 .
-├── flake.nix          # Entrypoint for all modules and inputs
-├── flake.lock         # Locked dependencies
-├── homes/
-│   └── _modules       # Home-manager modules
-│   └── {username}     # User-specific configuration
-├── hosts/
-│   └── _modules       # Shared nixos-modules
-│   └── {hostname}     # Host-specific configuration
-├── lib/               # Utility functions
-├── overlays/          # Custom overlays
-└── pkgs/              # Custom packages
+├── flake.nix             # Inputs and the flake-parts/import-tree bootstrap
+├── flake.lock            # Locked dependencies
+└── modules/
+    ├── flake/            # Top-level model, hosts, nixpkgs, and treefmt
+    ├── home/             # Home Manager features and host fragments
+    ├── hosts/            # Host metadata and host-specific NixOS modules
+    ├── nixos/            # Shared NixOS features
+    ├── overlays/         # Private package-set overlays
+    └── packages/         # Package registrations, recipes, and sources
 
 ```
+
+Every maintained Nix file under `modules/` is automatically imported as a
+flake-parts module. Paths with an underscore-prefixed segment are ignored by
+`import-tree`; they contain explicit raw exceptions such as generated hardware
+modules, package recipes and sources, or supporting assets and configuration.
 
 ## 📚 References
 
