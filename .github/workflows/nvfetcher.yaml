@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - pkgs/nvfetcher.toml
+      - modules/packages/nvfetcher.toml
 concurrency:
   group: update-nvfetcher
   cancel-in-progress: true
@@ -41,7 +41,7 @@ jobs:
         id: run-nvfetcher
         run: |
           set -euo pipefail
-          cd pkgs
+          cd modules/packages
           change_log="$(mktemp)"
 
           nix-shell -p nvfetcher --command "nvfetcher -l $change_log --keep-old"
@@ -58,7 +58,7 @@ jobs:
       - name: Detect changes
         id: detect-changes
         run: |
-          if git diff --quiet -- pkgs; then
+          if git diff --quiet -- modules/packages; then
             echo 'has_changes=false' >> "$GITHUB_OUTPUT"
           else
             echo 'has_changes=true' >> "$GITHUB_OUTPUT"
@@ -85,5 +85,5 @@ jobs:
             ## Changes:
             ${{ steps.run-nvfetcher.outputs.changes }}
           add-paths: |
-            pkgs/**
+            modules/packages/**
           delete-branch: true

@@ -1,0 +1,25 @@
+{
+  rodent.homeModules.laptop =
+    {
+      config,
+      lib,
+      ...
+    }:
+    let
+      cfg = config.modules.desktop.hyprland;
+    in
+    {
+      config = lib.mkIf cfg.enable {
+        wayland.windowManager.hyprland = {
+          extraConfig = ''
+            hl.monitor({
+                output = "",
+                mode = "preferred",
+                position = "auto",
+                scale = 1.5,
+              })
+          '';
+        };
+      };
+    };
+}
