@@ -22,7 +22,7 @@ let
         modules = [
           {
             nixpkgs.hostPlatform = system;
-            networking.hostName = hostname;
+            networking.hostName = lib.mkDefault hostname;
           }
           inputs.catppuccin.nixosModules.catppuccin
           inputs.home-manager.nixosModules.home-manager

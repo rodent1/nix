@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.desktop =
+  rodent.homeModules.default =
     { config, lib, ... }:
     let
       cfg = config.modules.desktop;
