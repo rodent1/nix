@@ -276,6 +276,7 @@ subtrees near their owning flake-parts module. Update references after moving.
 **In scope**:
 
 - `flake.nix` and `flake.lock`
+- `.github/workflows/nvfetcher.yaml`, whose package paths must follow the moved nvfetcher files
 - All maintained Nix files and supporting assets currently under `lib/`, `overlays/`, `pkgs/`, `hosts/`, and `homes/`
 - New files under `modules/flake/`, `modules/home/`, `modules/hosts/`, `modules/nixos/`, `modules/overlays/`, and `modules/packages/`
 - `README.md` and `AGENTS.md`, which currently document the old wiring and contain stale package-output examples
@@ -534,6 +535,10 @@ three recipe references. Move `pkgs/nvfetcher.toml` to
 `modules/packages/nvfetcher.toml`; this remains the source of truth for source
 updates.
 
+Update `.github/workflows/nvfetcher.yaml` in the same step. Its push trigger,
+nvfetcher working directory, change detection path, and pull-request `add-paths`
+must all use `modules/packages` instead of the removed `pkgs` directory.
+
 Create one automatically imported flake-parts module per package. Each module
 registers its recipe path in `rodent.packageRecipes.<name>` and exports the
 overlay-provided package through `perSystem.packages.<name> = pkgs.<name>`.
@@ -671,6 +676,7 @@ and exact derivation builds are the regression suite.
 - [ ] Every pre/post closure difference for `laptop`, `gamer`, and `work` is accounted for solely by content-equivalent moved Home Manager source paths; no package, service, registry, or unexplained configuration difference remains.
 - [ ] `nix flake check`, all three host builds, all three package builds, and the treefmt check exit 0.
 - [ ] `README.md` and `AGENTS.md` document the new architecture and exact current outputs.
+- [ ] `.github/workflows/nvfetcher.yaml` triggers on, generates within, detects, and commits changes from `modules/packages`.
 - [ ] Old `lib/`, `hosts/`, `homes/`, `overlays/`, and `pkgs/` source trees are removed after migration.
 - [ ] `plans/README.md` marks Plan 001 DONE.
 

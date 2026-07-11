@@ -8,7 +8,7 @@ conditions, and update the status when done.
 
 | Plan | Title | Priority | Effort | Depends on | Status |
 |------|-------|----------|--------|------------|--------|
-| 001 | Convert the flake to dendritic flake-parts modules | P1 | L | - | TODO |
+| 001 | Convert the flake to dendritic flake-parts modules | P1 | L | - | DONE |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale)
@@ -16,6 +16,7 @@ REJECTED (with one-line rationale)
 ## Dependency Notes
 
 - Plan 001 is self-contained. Its internal steps deliberately establish a compatibility bridge before switching the flake entry point, then remove that bridge before completion.
+- Plan 001 was executed and approved in isolated worktree `/tmp/opencode/nix-dendritic-execute` at commits `8b97803` and `5ee1357`; merging remains the operator's decision.
 
 ## Findings Considered And Rejected
 
