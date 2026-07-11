@@ -10,7 +10,7 @@
 - **Priority**: P2
 - **Effort**: S
 - **Risk**: LOW
-- **Depends on**: `plans/002-check-pr-revision.md`, `plans/005-add-configuration-contract-checks.md`, `plans/007-validate-non-nix-config.md`
+- **Depends on**: `plans/002-check-pr-revision.md`, `plans/007-validate-non-nix-config.md`
 - **Category**: docs
 - **Planned at**: commit `33248d4`, 2026-07-11
 
@@ -90,7 +90,7 @@ Use fenced `bash` blocks. Keep the existing personal-repository tone, but priori
 
 ### Step 3: Reconcile Agent Guidance
 
-Compare `AGENTS.md` with the final CI/check behavior. Update it only for concrete drift introduced by Plans 005 or 007, such as the new configuration-contract check or non-Nix validation. Avoid copying the entire README quick-start.
+Compare `AGENTS.md` with the final CI/check behavior. Update it only for concrete drift introduced by Plan 007, such as non-Nix validation. Avoid copying the entire README quick-start.
 
 **Verify**: `git diff --check` exits 0; no stale host/package name is present.
 

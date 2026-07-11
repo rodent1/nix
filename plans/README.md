@@ -9,13 +9,12 @@ read its full plan, honor its STOP conditions, and update its status when done.
 | Plan | Title | Priority | Effort | Depends on | Status |
 |------|-------|----------|--------|------------|--------|
 | 001 | Convert the flake to dendritic flake-parts modules | P1 | L | - | DONE |
-| 002 | Make flake checks validate every pull request revision | P1 | S | - | TODO |
-| 003 | Pin cache-building actions to immutable commits | P1 | S | - | TODO |
-| 004 | Scope the WSL 1Password credential to explicit commands | P1 | S | - | TODO |
-| 005 | Add evaluation checks for critical flake contracts | P1 | M | - | TODO |
-| 006 | Apply the provisioned password after opnix materialization | P1 | M | 005 | TODO |
+| 002 | Make flake checks validate every pull request revision | P1 | S | - | DONE |
+| 003 | Pin cache-building actions to immutable commits | P1 | S | - | DONE |
+| 004 | Scope the WSL 1Password credential to explicit commands | P1 | S | - | DONE |
+| 006 | Apply the provisioned password after opnix materialization | P1 | M | 005 (withdrawn) | BLOCKED (required contract baseline was withdrawn) |
 | 007 | Validate workflow and nvfetcher configuration before merge | P2 | S | 002, 003 | TODO |
-| 008 | Document the supported operator workflow | P2 | S | 002, 005, 007 | TODO |
+| 008 | Document the supported operator workflow | P2 | S | 002, 007 | TODO |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale)
@@ -24,10 +23,14 @@ REJECTED (with one-line rationale)
 
 - Plan 001 is self-contained. Its internal steps deliberately establish a compatibility bridge before switching the flake entry point, then remove that bridge before completion.
 - Plan 001 was executed and approved in isolated worktree `/tmp/opencode/nix-dendritic-execute` at commits `8b97803` and `5ee1357`; merging remains the operator's decision.
-- Plans 002, 003, 004, and 005 are independent and may be executed in parallel.
-- Plan 006 depends on Plan 005 because the password behavior change must be protected by a failing-then-passing configuration contract.
+- Plan 002 was executed and approved in isolated worktree `/tmp/opencode/nix-plan-002` at commit `871e99a`; merging remains the operator's decision.
+- Plan 003 was executed and approved in isolated worktree `/tmp/opencode/nix-plan-003` at commit `fbefd6d`; merging remains the operator's decision.
+- Plan 004 was executed and approved in isolated worktree `/tmp/opencode/nix-plan-004` at commit `55eed39`; merging remains the operator's decision. Live WSL authentication remains an operator-side post-merge check.
+- Plans 002, 003, and 004 are independent and may be executed in parallel.
+- Plan 005 was withdrawn by the operator after execution. Its isolated commit `cad11c0` was not reverted or otherwise modified by this plan-only cleanup.
+- Plan 006 is blocked because its password behavior change requires the withdrawn configuration-contract baseline. Refine Plan 006 before execution rather than bypassing that safeguard.
 - Plan 007 depends on Plan 002's unprivileged PR event and Plan 003's immutable-action convention before adding more CI execution paths.
-- Plan 008 runs last so its commands and CI description reflect the final behavior from Plans 002, 005, and 007.
+- Plan 008 runs last so its commands and CI description reflect the final behavior from Plans 002 and 007.
 
 ## Findings Considered And Rejected
 
