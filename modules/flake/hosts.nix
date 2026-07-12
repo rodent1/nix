@@ -35,6 +35,7 @@ let
               users.stianrs = {
                 imports = [
                   config.internal.homeModules.default
+                  config.internal.homeModules.stianrs
                   (lib.attrByPath [ hostname ] { } config.internal.homeModules)
                 ]
                 ++ lib.optionals (!isWSL) [ config.internal.homeModules.desktop ];

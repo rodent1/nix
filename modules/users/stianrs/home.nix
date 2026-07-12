@@ -1,5 +1,5 @@
 {
-  internal.homeModules.default =
+  internal.homeModules.stianrs =
     {
       config,
       lib,

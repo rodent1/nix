@@ -7,24 +7,13 @@
       ...
     }:
     let
-      cfg = config.modules.users.stianrs;
       ifGroupsExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
     in
     {
-      options.modules.users.stianrs = {
-        extraGroups = lib.mkOption {
-          type = lib.types.listOf lib.types.str;
-          default = [ ];
-        };
+      users = {
+        mutableUsers = true;
 
-        packages = lib.mkOption {
-          type = lib.types.listOf lib.types.package;
-          default = [ ];
-        };
-      };
-
-      config = {
-        users.users.stianrs = {
+        users.stianrs = {
           uid = 1000;
           name = "stianrs";
           home = "/home/stianrs";
@@ -39,19 +28,15 @@
             "wheel"
             "users"
           ]
-          ++ ifGroupsExist (
-            [
-              "network"
-              "networkmanager"
-              "samba-users"
-              "docker"
-            ]
-            ++ cfg.extraGroups
-          );
-          inherit (cfg) packages;
+          ++ ifGroupsExist [
+            "network"
+            "networkmanager"
+            "samba-users"
+            "docker"
+          ];
         };
 
-        users.groups.stianrs = {
+        groups.stianrs = {
           gid = 1000;
         };
       };
