@@ -1,0 +1,26 @@
+name: Check generated sources
+on:
+  pull_request:
+    paths:
+      - modules/packages/nvfetcher.toml
+      - modules/packages/_sources/**
+      - .github/workflows/check-generated-sources.yaml
+  push:
+    branches: [main]
+    paths:
+      - modules/packages/nvfetcher.toml
+      - modules/packages/_sources/**
+      - .github/workflows/check-generated-sources.yaml
+permissions:
+  contents: read
+jobs:
+  check-generated-sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: DeterminateSystems/nix-installer-action@c5a866b6ab867e88becbed4467b93592bce69f8a # v21
+      - name: Generate sources
+        working-directory: modules/packages
+        run: nix-shell -p nvfetcher --command 'nvfetcher -l /tmp/nvfetcher-changes --keep-old'
+      - name: Check generated sources
+        run: git diff --exit-code -- modules/packages/_sources

@@ -12,6 +12,8 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
+permissions:
+  contents: read
 jobs:
   discover:
     runs-on: ubuntu-latest
@@ -20,7 +22,7 @@ jobs:
       packages: ${{ steps.packages.outputs.packages }}
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - uses: DeterminateSystems/nix-installer-action@v21
+      - uses: DeterminateSystems/nix-installer-action@c5a866b6ab867e88becbed4467b93592bce69f8a # v21
       - id: hosts
         run: |
           echo "hosts=$(nix eval .#nixosConfigurations --apply builtins.attrNames --json)" >> "$GITHUB_OUTPUT"
@@ -36,15 +38,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - uses: DeterminateSystems/nix-installer-action@v21
-      - uses: DeterminateSystems/magic-nix-cache-action@v13
-      - uses: cachix/cachix-action@v17
+      - uses: DeterminateSystems/nix-installer-action@c5a866b6ab867e88becbed4467b93592bce69f8a # v21
+      - uses: DeterminateSystems/magic-nix-cache-action@565684385bcd71bad329742eefe8d12f2e765b39 # v13
+      - name: Configure Cachix
+        if: github.event_name == 'pull_request'
+        uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 # v17
+        with:
+          name: ${{ vars.CACHIX_CACHE_NAME }}
+      - name: Configure and publish to Cachix
+        if: github.event_name == 'push'
+        uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 # v17
         with:
           name: ${{ vars.CACHIX_CACHE_NAME }}
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - name: Build host system
+        env:
+          BUILD_HOST: ${{ matrix.host }}
         run: |
-          nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
+          nix build ".#nixosConfigurations.${BUILD_HOST}.config.system.build.toplevel" \
             --print-build-logs --json
   build-packages:
     needs: discover
@@ -55,13 +66,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - uses: DeterminateSystems/nix-installer-action@v21
-      - uses: DeterminateSystems/magic-nix-cache-action@v13
-      - uses: cachix/cachix-action@v17
+      - uses: DeterminateSystems/nix-installer-action@c5a866b6ab867e88becbed4467b93592bce69f8a # v21
+      - uses: DeterminateSystems/magic-nix-cache-action@565684385bcd71bad329742eefe8d12f2e765b39 # v13
+      - name: Configure Cachix
+        if: github.event_name == 'pull_request'
+        uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 # v17
+        with:
+          name: ${{ vars.CACHIX_CACHE_NAME }}
+      - name: Configure and publish to Cachix
+        if: github.event_name == 'push'
+        uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 # v17
         with:
           name: ${{ vars.CACHIX_CACHE_NAME }}
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - name: Build package
+        env:
+          BUILD_PACKAGE: ${{ matrix.package }}
         run: |-
-          nix build .#${{ matrix.package }} \
+          nix build ".#${BUILD_PACKAGE}" \
             --print-build-logs --json
