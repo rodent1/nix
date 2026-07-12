@@ -129,6 +129,52 @@ Subsequent rebuilds can use `nh os switch` while the repository remains at
 
 </details>
 
+## Operator Quick Start
+
+These commands require Nix with flakes enabled. This flake supports only
+`x86_64-linux`, with the `gamer`, `laptop`, and `work` hosts and the `flate`,
+`kubectl-kopiur`, and `wagoapp` packages.
+
+Inspect all supported outputs:
+
+```bash
+nix flake show --all-systems
+```
+
+Evaluate the flake without building derivations for a lightweight check, or run
+the full flake check when builds are appropriate:
+
+```bash
+nix flake check --no-build
+nix flake check
+```
+
+Build the exact system closure for the host being changed, replacing `gamer`
+with `laptop` or `work` when appropriate:
+
+```bash
+nix build .#nixosConfigurations.gamer.config.system.build.toplevel
+```
+
+Build an exported package by name, for example:
+
+```bash
+nix build .#flate
+```
+
+The complete exported package list is `flate`, `kubectl-kopiur`, and `wagoapp`.
+On configured machines using this repository at `/home/stianrs/nix`, activate
+the checkout with:
+
+```bash
+nh os switch
+```
+
+Unlike the inspection and build commands, activation changes the running
+system. It is for machines already configured from this checkout, not for a
+fresh installation. See [AGENTS.md](AGENTS.md) for contributor-oriented module,
+package, and CI verification guidance.
+
 ## 📚 References
 
 Built on the shoulders of those who came before me
