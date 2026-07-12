@@ -14,6 +14,7 @@ read its full plan, honor its STOP conditions, and update its status when done.
 | 004 | Scope the WSL 1Password credential to explicit commands | P1 | S | - | DONE |
 | 007 | Validate workflow and nvfetcher configuration before merge | P2 | S | 002, 003 | TODO |
 | 008 | Document the supported operator workflow | P2 | S | 002, 007 | TODO |
+| 009 | Co-locate and simplify the stianrs user configuration | P2 | S | 001 (DONE) | DONE |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale)
@@ -29,6 +30,8 @@ REJECTED (with one-line rationale)
 - Plan 005 was withdrawn by the operator after execution. Its isolated commit `cad11c0` was not reverted or otherwise modified by this plan-only cleanup.
 - Plan 007 depends on Plan 002's unprivileged PR event and Plan 003's immutable-action convention before adding more CI execution paths.
 - Plan 008 runs last so its commands and CI description reflect the final behavior from Plans 002 and 007.
+- Plan 009 can run independently of Plans 007 and 008. It depends only on the completed dendritic layout from Plan 001.
+- Plan 009 was executed and approved in isolated worktree `/tmp/opencode/nix-plan-009` at commit `ebce930`; merging remains the operator's decision.
 
 ## Findings Considered And Rejected
 
