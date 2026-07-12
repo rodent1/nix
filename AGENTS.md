@@ -29,9 +29,9 @@
 - For host changes, prefer building the exact target locally: `nix build .#nixosConfigurations.<host>.config.system.build.toplevel`.
 - For exported packages, prefer building the exact package locally: `nix build .#flate`, `nix build .#kubectl-kopiur`, or `nix build .#wagoapp`.
 - CI uses `nix flake check` as a general flake validation step and also builds all exported `nixosConfigurations` and `packages.x86_64-linux` outputs through the cache-building workflow.
-- When updating `modules/packages/nvfetcher.toml` or generated sources, `nix flake check --no-build` matches the lightweight validation used by the nvfetcher automation.
+- When updating `modules/packages/nvfetcher.toml` or generated sources, regenerate with the locked nvfetcher and require no diff under `modules/packages/_sources`.
 - Workflow changes are linted with `nix shell --inputs-from . nixpkgs#actionlint --command actionlint .github/workflows/*.yaml`.
-- Generated-source changes are checked by running nvfetcher and requiring no diff under `modules/packages/_sources`.
+- Renovate configuration changes are validated with `nix shell --inputs-from . nixpkgs#renovate --command renovate-config-validator --strict --no-global .renovaterc.json5`.
 
 ## Local Rebuild
 - On machines that already use this repo, `programs.nh.flake` is pinned to `/home/stianrs/nix` in `modules/nixos/system/nh.nix`.
