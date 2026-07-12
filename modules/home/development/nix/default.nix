@@ -7,7 +7,7 @@
       ...
     }:
     let
-      cfg = config.modules.development;
+      cfg = config.modules.development.nix;
     in
     {
       options.modules.development.nix = {

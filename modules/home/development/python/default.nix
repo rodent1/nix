@@ -7,7 +7,7 @@
       ...
     }:
     let
-      cfg = config.modules.development;
+      cfg = config.modules.development.python;
     in
     {
       options.modules.development.python = {

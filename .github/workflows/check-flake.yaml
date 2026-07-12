@@ -2,6 +2,7 @@ name: Check Flakes
 on:
   pull_request:
   push:
+    branches: [main]
     paths:
       - '**.nix'
       - flake.lock

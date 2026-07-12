@@ -5,7 +5,6 @@
       config = {
         home.packages = with pkgs; [
           age
-          btop
           curl
           coreutils
           devenv
@@ -13,12 +12,10 @@
           duf
           dust
           envsubst
-          eza
           fastfetch
           fd
           findutils
           fzf
-          git
           go-task
           httpie
           jq
@@ -26,12 +23,10 @@
           killall
           lefthook
           nfs-utils
-          nix-your-shell
           openssl
           ouch
           ripgrep
           sd
-          shellcheck
           systemd-manager-tui
           tlrc
           tree

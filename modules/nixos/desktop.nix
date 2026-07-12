@@ -17,12 +17,6 @@
           description = "Enable desktop module";
         };
 
-        hyprland = lib.mkOption {
-          type = lib.types.bool;
-          default = false;
-          description = "Enable Hyprland";
-        };
-
         plasma = lib.mkOption {
           type = lib.types.bool;
           default = false;
@@ -75,15 +69,8 @@
           roboto
         ];
 
-        programs.hyprland = lib.mkIf cfg.hyprland {
-          enable = true;
-          package = pkgs.unstable.hyprland;
-          portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
-          withUWSM = false;
-        };
-
         services = {
-          displayManager.plasma-login-manager.enable = true;
+          displayManager.plasma-login-manager.enable = cfg.plasma;
 
           desktopManager.plasma6 = lib.mkIf cfg.plasma {
             enable = true;

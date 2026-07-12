@@ -56,10 +56,12 @@ the exported `packages.x86_64-linux` outputs.
 <details>
 <summary>Bootstrap a new machine from a fresh NixOS installation</summary>
 
-This repository contains hardware configuration for the existing `laptop`,
-`gamer`, and `work` hosts. Only deploy an output to its matching machine; a new
-machine with different disks or hardware needs its own host and generated
-hardware module first.
+This repository contains hardware configuration for the physical `laptop` and
+`gamer` hosts, plus the `work` NixOS-WSL host. Only deploy an output to its
+matching machine; a new machine with different disks or hardware needs its own
+host and generated hardware module first.
+
+### Physical hosts: `laptop` or `gamer`
 
 1. Install a minimal NixOS system from the ISO/USB installer and boot into it.
    Ensure the `stianrs` user exists and can use `sudo`.
@@ -73,7 +75,7 @@ hardware module first.
    exit
    ```
 
-3. Apply the matching host output. Replace `gamer` with `laptop` or `work` as
+3. Apply the matching host output. Replace `gamer` with `laptop` as
    appropriate:
 
    ```bash
@@ -99,6 +101,28 @@ hardware module first.
    ```bash
    nh os switch
    ```
+
+### WSL host: `work`
+
+Install NixOS-WSL using its documented distribution/import process first. Once
+the WSL instance has a working Nix installation and the `stianrs` user, clone
+this repository to `/home/stianrs/nix` and apply the WSL output:
+
+```bash
+nix-shell -p git
+git clone https://github.com/rodent1/nix /home/stianrs/nix
+exit
+
+sudo nixos-rebuild switch \
+  --flake /home/stianrs/nix#work \
+  --option experimental-features "nix-command flakes"
+```
+
+Install the user-scoped OpNix token as described above, then run:
+
+```bash
+nh os switch
+```
 
 Subsequent rebuilds can use `nh os switch` while the repository remains at
 `/home/stianrs/nix` and the checkout contains the intended branch or revision.

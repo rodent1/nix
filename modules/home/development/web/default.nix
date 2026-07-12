@@ -7,7 +7,7 @@
       ...
     }:
     let
-      cfg = config.modules.development;
+      cfg = config.modules.development.web;
     in
     {
       options.modules.development.web = {

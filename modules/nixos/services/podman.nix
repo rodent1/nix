@@ -11,7 +11,9 @@
     in
     {
       options.modules.services.podman = {
-        enable = lib.mkEnableOption "podman";
+        enable = lib.mkEnableOption "podman" // {
+          default = true;
+        };
       };
 
       config = lib.mkIf cfg.enable {

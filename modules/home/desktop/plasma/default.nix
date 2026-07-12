@@ -19,7 +19,7 @@
         };
       };
 
-      config = lib.mkIf cfg.enable {
+      config = lib.mkIf (config.modules.desktop.enable && cfg.enable) {
         programs.fuzzel = {
           enable = true;
         };

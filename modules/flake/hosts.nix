@@ -40,7 +40,6 @@ let
                 ]
                 ++ lib.optionals (!isWSL) [ config.internal.homeModules.desktop ];
                 host = {
-                  name = hostname;
                   inherit isWSL;
                 };
               };

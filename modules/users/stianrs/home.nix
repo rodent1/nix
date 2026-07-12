@@ -12,9 +12,6 @@
     in
     {
       options.host = {
-        name = lib.mkOption {
-          type = lib.types.str;
-        };
         isWSL = lib.mkOption {
           type = lib.types.bool;
           default = false;

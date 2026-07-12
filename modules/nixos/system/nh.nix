@@ -1,5 +1,5 @@
 {
-  internal.nixosModules.default = _: {
+  internal.nixosModules.default = {
     programs.nh = {
       enable = true;
       flake = "/home/stianrs/nix";
