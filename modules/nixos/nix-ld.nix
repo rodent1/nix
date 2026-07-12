@@ -1,5 +1,5 @@
 {
-  rodent.nixosModules.default = {
+  internal.nixosModules.default = {
     programs.nix-ld.enable = true;
   };
 }

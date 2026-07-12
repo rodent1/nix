@@ -35,27 +35,27 @@ let
               useGlobalPkgs = true;
               users.stianrs = {
                 imports = [
-                  config.rodent.homeModules.default
-                  (lib.attrByPath [ hostname ] { } config.rodent.homeModules)
+                  config.internal.homeModules.default
+                  (lib.attrByPath [ hostname ] { } config.internal.homeModules)
                 ]
-                ++ lib.optionals (!isWSL) [ config.rodent.homeModules.desktop ];
-                rodent = {
-                  hostName = hostname;
+                ++ lib.optionals (!isWSL) [ config.internal.homeModules.desktop ];
+                host = {
+                  name = hostname;
                   inherit isWSL;
                 };
               };
             };
           }
-          config.rodent.nixosModules.default
-          config.rodent.nixosModules.${hostname}
+          config.internal.nixosModules.default
+          config.internal.nixosModules.${hostname}
         ]
         ++ lib.optionals isWSL [
           inputs.nixos-wsl.nixosModules.default
-          config.rodent.nixosModules.wsl
+          config.internal.nixosModules.wsl
         ];
       }
     );
 in
 {
-  flake.nixosConfigurations = lib.mapAttrs mkHost config.rodent.hosts;
+  flake.nixosConfigurations = lib.mapAttrs mkHost config.internal.hosts;
 }

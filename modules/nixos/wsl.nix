@@ -1,5 +1,5 @@
 {
-  rodent.nixosModules.wsl = _: {
+  internal.nixosModules.wsl = _: {
     config = {
       wsl = {
         enable = true;

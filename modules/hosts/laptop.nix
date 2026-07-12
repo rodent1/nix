@@ -1,13 +1,13 @@
 {
-  rodent.hosts.laptop = {
+  internal.hosts.laptop = {
     system = "x86_64-linux";
     isWSL = false;
   };
 
-  rodent.nixosModules.laptop =
+  internal.nixosModules.laptop =
     { pkgs, ... }:
     {
-      imports = [ ./laptop/_hardware/default.nix ];
+      imports = [ ./_hardware/laptop.nix ];
 
       config = {
         services.xserver.videoDrivers = [ "modesetting" ];

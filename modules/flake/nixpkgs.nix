@@ -6,7 +6,7 @@
 }:
 let
   additions =
-    final: prev: lib.mapAttrs (_: recipe: final.callPackage recipe { }) config.rodent.packageRecipes;
+    final: prev: lib.mapAttrs (_: recipe: final.callPackage recipe { }) config.internal.packageRecipes;
 in
 {
   perSystem =
@@ -16,8 +16,8 @@ in
         inherit system;
         overlays = [
           additions
-          config.rodent.overlays.aliases
-          config.rodent.overlays.unstable
+          config.internal.overlays.aliases
+          config.internal.overlays.unstable
         ];
         config.allowUnfree = true;
       };

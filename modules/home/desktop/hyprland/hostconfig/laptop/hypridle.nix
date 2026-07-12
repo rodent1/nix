@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.laptop =
+  internal.homeModules.laptop =
     {
       config,
       lib,

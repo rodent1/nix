@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.gamer =
+  internal.homeModules.gamer =
     {
       config,
       lib,

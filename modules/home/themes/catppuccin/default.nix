@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.default =
+  internal.homeModules.default =
     { config, lib, ... }:
     let
       cfg = config.modules.themes.catppuccin;

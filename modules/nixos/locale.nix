@@ -1,5 +1,5 @@
 {
-  rodent.nixosModules.default =
+  internal.nixosModules.default =
     { lib, ... }:
     {
       time.timeZone = lib.mkDefault "Europe/Oslo";

@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.default = _: {
+  internal.homeModules.default = _: {
     config = {
       programs.eza = {
         enable = true;

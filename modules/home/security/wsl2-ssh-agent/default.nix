@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.default =
+  internal.homeModules.default =
     {
       config,
       lib,
@@ -7,7 +7,7 @@
       ...
     }:
     {
-      config = lib.mkIf config.rodent.isWSL {
+      config = lib.mkIf config.host.isWSL {
         systemd.user.services.wsl2-ssh-agent = {
           Unit = {
             Description = "WSL2 SSH Agent Bridge";

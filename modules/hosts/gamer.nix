@@ -1,11 +1,11 @@
 {
-  rodent.hosts.gamer = {
+  internal.hosts.gamer = {
     system = "x86_64-linux";
     isWSL = false;
   };
 
-  rodent.nixosModules.gamer = _: {
-    imports = [ ./gamer/_hardware/default.nix ];
+  internal.nixosModules.gamer = _: {
+    imports = [ ./_hardware/gamer.nix ];
 
     config = {
       hardware = {

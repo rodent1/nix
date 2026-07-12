@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.default =
+  internal.homeModules.default =
     { config, lib, ... }:
     let
       cfg = config.modules.desktop;
@@ -13,7 +13,7 @@
         };
       };
 
-      config = lib.mkIf (cfg.enable && !config.rodent.isWSL) {
+      config = lib.mkIf (cfg.enable && !config.host.isWSL) {
         # profile picture
         home.file.".face".source = ./_assets/profile.jpg;
       };

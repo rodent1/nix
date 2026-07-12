@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  options.rodent = {
+  options.internal = {
     nixosModules = lib.mkOption {
       type = lib.types.lazyAttrsOf lib.types.deferredModule;
       default = { };

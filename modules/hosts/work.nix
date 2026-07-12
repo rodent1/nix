@@ -1,10 +1,10 @@
 {
-  rodent.hosts.work = {
+  internal.hosts.work = {
     system = "x86_64-linux";
     isWSL = true;
   };
 
-  rodent.nixosModules.work = _: {
-    imports = [ ./work/_hardware/default.nix ];
+  internal.nixosModules.work = _: {
+    imports = [ ./_hardware/work.nix ];
   };
 }

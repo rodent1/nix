@@ -1,6 +1,6 @@
 # This module extends home.file, xdg.configFile and xdg.dataFile with the `mutable` option.
 {
-  rodent.homeModules.default =
+  internal.homeModules.default =
     { config, lib, ... }:
     let
       fileOptionAttrPaths = [

@@ -1,5 +1,5 @@
 {
-  rodent.nixosModules.default = _: {
+  internal.nixosModules.default = _: {
     # Enable OpNix with SSL certificate management
     services.onepassword-secrets = {
       enable = true;

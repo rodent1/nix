@@ -1,5 +1,5 @@
 {
-  rodent.packageRecipes.flate = ./_recipes/flate.nix;
+  internal.packageRecipes.flate = ./_recipes/flate.nix;
 
   perSystem =
     { pkgs, ... }:

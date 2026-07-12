@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.desktop =
+  internal.homeModules.desktop =
     {
       config,
       lib,
@@ -19,7 +19,7 @@
         };
       };
 
-      config = lib.mkIf (cfg.enable && !config.rodent.isWSL) {
+      config = lib.mkIf (cfg.enable && !config.host.isWSL) {
         wayland.windowManager.hyprland = {
           enable = true;
           package = null;

@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.desktop =
+  internal.homeModules.desktop =
     {
       config,
       pkgs,

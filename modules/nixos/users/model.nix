@@ -1,5 +1,5 @@
 {
-  rodent.nixosModules.default =
+  internal.nixosModules.default =
     { config, lib, ... }:
     let
       cfg = config.modules.users;

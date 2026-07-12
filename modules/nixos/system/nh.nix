@@ -1,5 +1,5 @@
 {
-  rodent.nixosModules.default = _: {
+  internal.nixosModules.default = _: {
     programs.nh = {
       enable = true;
       flake = "/home/stianrs/nix";

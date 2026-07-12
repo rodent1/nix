@@ -1,5 +1,5 @@
 {
-  rodent.packageRecipes.kubectl-kopiur = ./_recipes/kubectl-kopiur.nix;
+  internal.packageRecipes.kubectl-kopiur = ./_recipes/kubectl-kopiur.nix;
 
   perSystem =
     { pkgs, ... }:

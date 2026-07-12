@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.desktop = _: {
+  internal.homeModules.desktop = _: {
     config = {
       programs.ghostty = {
         enable = true;

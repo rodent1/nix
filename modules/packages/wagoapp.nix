@@ -1,5 +1,5 @@
 {
-  rodent.packageRecipes.wagoapp = ./_recipes/wagoapp.nix;
+  internal.packageRecipes.wagoapp = ./_recipes/wagoapp.nix;
 
   perSystem =
     { pkgs, ... }:

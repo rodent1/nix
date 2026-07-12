@@ -1,5 +1,5 @@
 {
-  rodent.homeModules.default =
+  internal.homeModules.default =
     {
       config,
       lib,
@@ -11,8 +11,8 @@
       git_signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBACoz3DyvP3a6ujHA2MLlzKKlW9VAJ2V8+fa9mMzC0x";
     in
     {
-      options.rodent = {
-        hostName = lib.mkOption {
+      options.host = {
+        name = lib.mkOption {
           type = lib.types.str;
         };
         isWSL = lib.mkOption {
@@ -35,7 +35,7 @@
                   Hostname = "10.1.1.15";
                 };
               }
-              (lib.mkIf (!config.rodent.isWSL) {
+              (lib.mkIf (!config.host.isWSL) {
                 "*" = {
                   identityAgent = "~/.1password/agent.sock";
                 };

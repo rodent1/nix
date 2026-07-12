@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  rodent.nixosModules.default =
+  internal.nixosModules.default =
     { lib, ... }:
     let
       substituters = [
