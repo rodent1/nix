@@ -22,18 +22,9 @@
         home.packages = with pkgs; [
           nodejs_24
           unstable.bun
-          playwright-test
         ];
 
-        home.sessionPath = [
-          "${config.home.homeDirectory}/.cache/.bun/bin"
-        ];
-
-        programs.fish = {
-          shellAliases = {
-            playwright-cli = "playwright";
-          };
-        };
+        home.sessionPath = [ "${config.home.homeDirectory}/.cache/.bun/bin" ];
       };
     };
 }
