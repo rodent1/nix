@@ -17,11 +17,6 @@
           default = [ ];
         };
 
-        hashedPasswordFile = lib.mkOption {
-          type = lib.types.nullOr lib.types.str;
-          default = null;
-        };
-
         packages = lib.mkOption {
           type = lib.types.listOf lib.types.package;
           default = [ ];
@@ -54,9 +49,6 @@
             ++ cfg.extraGroups
           );
           inherit (cfg) packages;
-        }
-        // lib.optionalAttrs (cfg.hashedPasswordFile != null) {
-          inherit (cfg) hashedPasswordFile;
         };
 
         users.groups.stianrs = {

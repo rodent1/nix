@@ -10,7 +10,7 @@
           enable = lib.mkEnableOption "catppuccin";
           flavor = lib.mkOption {
             type = lib.types.str;
-            default = false;
+            default = "mocha";
           };
         };
       };

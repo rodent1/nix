@@ -5,7 +5,7 @@
       config = {
         programs.onepassword-secrets = {
           enable = true;
-          tokenFile = "/etc/opnix-token";
+          tokenFile = "${config.home.homeDirectory}/.config/opnix/token";
           secrets = {
             ageKey = {
               reference = "op://dotfiles/age key/Key";

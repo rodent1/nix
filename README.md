@@ -17,24 +17,93 @@ This repo contains my complete system configuration for a declarative, reproduci
 
 ## 🧩 Structure
 
-```bash
+<details>
+<summary>How the repository is structured and evaluated</summary>
+
+```text
 .
 ├── flake.nix             # Inputs and the flake-parts/import-tree bootstrap
 ├── flake.lock            # Locked dependencies
 └── modules/
-    ├── flake/            # Top-level model, hosts, nixpkgs, and treefmt
+    ├── flake/            # Internal model, host assembly, nixpkgs, and treefmt
     ├── home/             # Home Manager features and host fragments
-    ├── hosts/            # Host metadata and host-specific NixOS modules
+    ├── hosts/            # Host metadata, hardware, and host-specific NixOS modules
     ├── nixos/            # Shared NixOS features
     ├── overlays/         # Private package-set overlays
-    └── packages/         # Package registrations, recipes, and sources
-
+    └── packages/         # Exported packages, recipes, and generated sources
 ```
 
-Every maintained Nix file under `modules/` is automatically imported as a
-flake-parts module. Paths with an underscore-prefixed segment are ignored by
-`import-tree`; they contain explicit raw exceptions such as generated hardware
-modules, package recipes and sources, or supporting assets and configuration.
+`flake.nix` delegates composition to flake-parts. `import-tree` automatically
+imports every maintained Nix file below `modules/` as a flake-parts module.
+Paths containing an underscore-prefixed segment are excluded; these hold raw
+NixOS modules, package recipes and sources, assets, or application config that
+must be imported explicitly.
+
+Modules merge into the private `internal` namespace. `modules/flake/hosts.nix`
+turns that model into the public `nixosConfigurations.{laptop,gamer,work}`
+outputs and embeds Home Manager for `stianrs`. Shared NixOS and Home Manager
+modules apply to every host, while host-specific fragments are selected by the
+output name. Desktop Home Manager modules are omitted from the WSL host.
+
+The package overlay combines local recipes, stable aliases, and an unstable
+package set. The resulting package set is shared by NixOS, Home Manager, and
+the exported `packages.x86_64-linux` outputs.
+
+</details>
+
+## 🚀 Bootstrap
+
+<details>
+<summary>Bootstrap a new machine from a fresh NixOS installation</summary>
+
+This repository contains hardware configuration for the existing `laptop`,
+`gamer`, and `work` hosts. Only deploy an output to its matching machine; a new
+machine with different disks or hardware needs its own host and generated
+hardware module first.
+
+1. Install a minimal NixOS system from the ISO/USB installer and boot into it.
+   Ensure the `stianrs` user exists and can use `sudo`.
+
+2. Install Git temporarily and clone the repository at the path expected by
+   `programs.nh.flake`:
+
+   ```bash
+   nix-shell -p git
+   git clone https://github.com/rodent1/nix /home/stianrs/nix
+   exit
+   ```
+
+3. Apply the matching host output. Replace `gamer` with `laptop` or `work` as
+   appropriate:
+
+   ```bash
+   sudo nixos-rebuild switch \
+     --flake /home/stianrs/nix#gamer \
+     --option experimental-features "nix-command flakes"
+   ```
+
+   The first activation installs Home Manager, `nh`, and `opnix`. OpNix safely
+   skips secret retrieval while its user token is absent.
+
+4. Store the 1Password service-account token as the user. The `-path` option
+   must appear before the `set` subcommand:
+
+   ```bash
+   mkdir -p ~/.config/opnix
+   opnix token -path "$HOME/.config/opnix/token" set
+   chmod 600 ~/.config/opnix/token
+   ```
+
+5. Activate once more to retrieve Home Manager secrets:
+
+   ```bash
+   nh os switch
+   ```
+
+Subsequent rebuilds can use `nh os switch` while the repository remains at
+`/home/stianrs/nix` and the checkout contains the intended branch or revision.
+
+</details>
 
 ## 📚 References
 

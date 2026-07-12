@@ -12,7 +12,6 @@ read its full plan, honor its STOP conditions, and update its status when done.
 | 002 | Make flake checks validate every pull request revision | P1 | S | - | DONE |
 | 003 | Pin cache-building actions to immutable commits | P1 | S | - | DONE |
 | 004 | Scope the WSL 1Password credential to explicit commands | P1 | S | - | DONE |
-| 006 | Apply the provisioned password after opnix materialization | P1 | M | 005 (withdrawn) | BLOCKED (required contract baseline was withdrawn) |
 | 007 | Validate workflow and nvfetcher configuration before merge | P2 | S | 002, 003 | TODO |
 | 008 | Document the supported operator workflow | P2 | S | 002, 007 | TODO |
 
@@ -28,7 +27,6 @@ REJECTED (with one-line rationale)
 - Plan 004 was executed and approved in isolated worktree `/tmp/opencode/nix-plan-004` at commit `55eed39`; merging remains the operator's decision. Live WSL authentication remains an operator-side post-merge check.
 - Plans 002, 003, and 004 are independent and may be executed in parallel.
 - Plan 005 was withdrawn by the operator after execution. Its isolated commit `cad11c0` was not reverted or otherwise modified by this plan-only cleanup.
-- Plan 006 is blocked because its password behavior change requires the withdrawn configuration-contract baseline. Refine Plan 006 before execution rather than bypassing that safeguard.
 - Plan 007 depends on Plan 002's unprivileged PR event and Plan 003's immutable-action convention before adding more CI execution paths.
 - Plan 008 runs last so its commands and CI description reflect the final behavior from Plans 002 and 007.
 
