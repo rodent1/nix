@@ -12,8 +12,8 @@ read its full plan, honor its STOP conditions, and update its status when done.
 | 002 | Make flake checks validate every pull request revision | P1 | S | - | DONE |
 | 003 | Pin cache-building actions to immutable commits | P1 | S | - | DONE |
 | 004 | Scope the WSL 1Password credential to explicit commands | P1 | S | - | DONE |
-| 007 | Validate workflow and nvfetcher configuration before merge | P2 | S | 002, 003 | TODO |
-| 008 | Document the supported operator workflow | P2 | S | 002, 007 | TODO |
+| 007 | Validate workflow and nvfetcher configuration before merge | P2 | S | 002, 003 | DONE |
+| 008 | Document the supported operator workflow | P2 | S | 002, 007 | DONE |
 | 009 | Co-locate and simplify the stianrs user configuration | P2 | S | 001 (DONE) | DONE |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
@@ -32,6 +32,9 @@ REJECTED (with one-line rationale)
 - Plan 008 runs last so its commands and CI description reflect the final behavior from Plans 002 and 007.
 - Plan 009 can run independently of Plans 007 and 008. It depends only on the completed dendritic layout from Plan 001.
 - Plan 009 was executed and approved in isolated worktree `/tmp/opencode/nix-plan-009` at commit `ebce930`; merging remains the operator's decision.
+- Reconciled at `544a8d8` on 2026-07-12: Plans 001, 002, 003, 004, and 009 still meet their cheap spot-check criteria; `nix flake check --no-build` passed. Plans 007 and 008 were refreshed for current drift. Plan 007 is executable now; Plan 008 remains blocked on Plan 007.
+- Plan 007 was executed and approved in isolated worktree `/tmp/opencode/nix-plan-007` at commit `1cbf896`; merging remains the operator's decision. Plan 008 is now executable.
+- Plan 008 was executed and approved after one review revision in isolated worktree `/tmp/opencode/nix-plan-008` at commits `a4e3b9c` and `0797993`; merging remains the operator's decision.
 
 ## Findings Considered And Rejected
 

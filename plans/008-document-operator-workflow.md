@@ -2,7 +2,7 @@
 
 > **Executor instructions**: Document only commands verified against the live flake. Do not invent bootstrap or deployment guarantees. Run all lightweight commands before writing and stop if source documentation disagrees.
 >
-> **Drift check (run first)**: `git diff --stat 33248d4..HEAD -- README.md AGENTS.md flake.nix modules/flake .github/workflows plans/README.md`
+> **Drift check (run first)**: `git diff --stat 544a8d8..HEAD -- README.md AGENTS.md flake.nix modules/flake .github/workflows plans/README.md`
 > Re-read live output and verification commands if earlier plans changed them; stop if host/package names differ.
 
 ## Status
@@ -12,15 +12,18 @@
 - **Risk**: LOW
 - **Depends on**: `plans/002-check-pr-revision.md`, `plans/007-validate-non-nix-config.md`
 - **Category**: docs
-- **Planned at**: commit `33248d4`, 2026-07-11
+- **Planned at**: commit `544a8d8`, 2026-07-12 (refreshed during reconciliation)
 
 ## Why This Matters
 
-The README describes purpose and structure but not how a human inspects, validates, builds, or activates the configuration. Those commands exist only in `AGENTS.md`, and CI's effective validation contract spans multiple workflows. Add a concise operator quick-start that reflects the final post-plan behavior without duplicating maintenance internals.
+The README now has a fresh-machine bootstrap guide, but it still does not provide a concise day-to-day operator reference for inspecting outputs, validating the flake, or building individual outputs. Those commands exist only in `AGENTS.md`, and CI's effective validation contract spans multiple workflows. Add a compact operator verification section without duplicating bootstrap or maintenance internals.
 
 ## Current State
 
-`README.md:18-37` documents the dendritic directory structure, then jumps to references at line 39. `AGENTS.md:27-36` contains the current commands:
+`README.md:18-52` documents the dendritic directory structure and
+`README.md:54-130` documents first-time physical-host and WSL bootstrap. Neither
+section documents the normal inspect/check/build loop for an existing checkout.
+`AGENTS.md:27-36` contains the current commands:
 
 ```text
 nix flake show --all-systems
@@ -72,19 +75,19 @@ Run `nix flake show --all-systems`, `nix flake check --no-build`, and both attri
 
 **Verify**: host/package lists exactly match Current State and all commands exit 0.
 
-### Step 2: Add A Concise Quick-Start Section
+### Step 2: Add A Concise Operator Verification Section
 
-Add a section after Structure and before References covering:
+Add a section after Bootstrap and before References covering:
 
 1. Prerequisite: Nix with flakes enabled and an `x86_64-linux` system.
 2. Inspect outputs with `nix flake show --all-systems`.
 3. Run lightweight validation with `nix flake check --no-build` and formatting/full check with `nix flake check`.
 4. Build an exact host using the complete `nixosConfigurations.<host>.config.system.build.toplevel` attribute.
 5. Build each exported package, with a compact example and the complete name list.
-6. On a configured host using `/home/stianrs/nix`, activate with `nh os switch`; clearly state that this changes the running system.
+6. On a configured host using `/home/stianrs/nix`, activate with `nh os switch`; clearly state that this changes the running system. Do not duplicate the first-install token setup from Bootstrap.
 7. Point maintainers to `AGENTS.md` for architecture, nvfetcher, and exact verification guidance.
 
-Use fenced `bash` blocks. Keep the existing personal-repository tone, but prioritize exact copy-pastable commands.
+Use fenced `bash` blocks. Keep the existing personal-repository tone, but prioritize exact copy-pastable commands. Preserve the existing Bootstrap section; this plan supplements it for routine operation.
 
 **Verify**: every command named in README occurs in the command table or `AGENTS.md`, and host/package spelling matches evaluations.
 

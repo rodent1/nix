@@ -1,6 +1,6 @@
 ![Banner](logo.png)
 
-### ❄️ My Nix Flake Repository 🚧
+# ❄️ My Nix Flake Repository 🚧
 
 This repo contains my complete system configuration for a declarative, reproducible, and minimal NixOS setup — tailored for daily development, Kubernetes home-ops, WSL2 integration, and soothing Catppuccin-based fish shell theming.
 
@@ -17,8 +17,8 @@ This repo contains my complete system configuration for a declarative, reproduci
 
 ## 🧩 Structure
 
-<details>
-<summary>How the repository is structured and evaluated</summary>
+The repository uses a dendritic flake-parts layout, with configuration grouped
+by purpose under `modules/`.
 
 ```text
 .
@@ -26,11 +26,12 @@ This repo contains my complete system configuration for a declarative, reproduci
 ├── flake.lock            # Locked dependencies
 └── modules/
     ├── flake/            # Internal model, host assembly, nixpkgs, and treefmt
-    ├── home/             # Home Manager features and host fragments
+    ├── home/             # Reusable Home Manager features and host fragments
     ├── hosts/            # Host metadata, hardware, and host-specific NixOS modules
     ├── nixos/            # Shared NixOS features
     ├── overlays/         # Private package-set overlays
-    └── packages/         # Exported packages, recipes, and generated sources
+    ├── packages/         # Exported packages, recipes, and generated sources
+    └── users/            # Per-user NixOS accounts and Home Manager defaults
 ```
 
 `flake.nix` delegates composition to flake-parts. `import-tree` automatically
@@ -41,20 +42,16 @@ must be imported explicitly.
 
 Modules merge into the private `internal` namespace. `modules/flake/hosts.nix`
 turns that model into the public `nixosConfigurations.{laptop,gamer,work}`
-outputs and embeds Home Manager for `stianrs`. Shared NixOS and Home Manager
-modules apply to every host, while host-specific fragments are selected by the
-output name. Desktop Home Manager modules are omitted from the WSL host.
+outputs and embeds Home Manager for `stianrs`. The concrete account and personal
+Home Manager defaults live under `modules/users/stianrs/`. Shared NixOS and Home
+Manager modules apply to every host, while host-specific fragments are selected
+by the output name. Desktop Home Manager modules are omitted from the WSL host.
 
 The package overlay combines local recipes, stable aliases, and an unstable
 package set. The resulting package set is shared by NixOS, Home Manager, and
 the exported `packages.x86_64-linux` outputs.
 
-</details>
-
 ## 🚀 Bootstrap
-
-<details>
-<summary>Bootstrap a new machine from a fresh NixOS installation</summary>
 
 This repository contains hardware configuration for the physical `laptop` and
 `gamer` hosts, plus the `work` NixOS-WSL host. Only deploy an output to its
@@ -127,9 +124,7 @@ nh os switch
 Subsequent rebuilds can use `nh os switch` while the repository remains at
 `/home/stianrs/nix` and the checkout contains the intended branch or revision.
 
-</details>
-
-## Operator Quick Start
+## 🛠️ Operator Quick Start
 
 These commands require Nix with flakes enabled. This flake supports only
 `x86_64-linux`, with the `gamer`, `laptop`, and `work` hosts and the `flate`,

@@ -2,7 +2,7 @@
 
 > **Executor instructions**: Build on the safe PR event from Plan 002. Keep generated-file checks deterministic and never grant PR code write permissions. Run each gate and stop if nvfetcher cannot be checked reproducibly.
 >
-> **Drift check (run first)**: `git diff --stat 33248d4..HEAD -- .github/workflows/check-flake.yaml .github/workflows/nvfetcher.yaml modules/packages/nvfetcher.toml modules/packages/_sources`
+> **Drift check (run first)**: `git diff --stat 544a8d8..HEAD -- .github/workflows/check-flake.yaml .github/workflows/build-cache.yaml .github/workflows/nvfetcher.yaml modules/packages/nvfetcher.toml modules/packages/_sources`
 > Stop if Plan 002 is not present or generation paths/commands differ from the excerpts.
 
 ## Status
@@ -12,7 +12,7 @@
 - **Risk**: LOW
 - **Depends on**: `plans/002-check-pr-revision.md`, `plans/003-pin-cache-actions.md`
 - **Category**: tests
-- **Planned at**: commit `33248d4`, 2026-07-11
+- **Planned at**: commit `544a8d8`, 2026-07-12 (refreshed during reconciliation)
 
 ## Why This Matters
 
@@ -20,8 +20,8 @@ The main build workflow reacts only to Nix files and `flake.lock`. Workflow YAML
 
 ## Current State
 
-- `.github/workflows/build-cache.yaml:5-11` triggers only for `**/*.nix` and `flake.lock`.
-- `.github/workflows/check-flake.yaml:7-10` has similarly narrow push paths; after Plan 002 it must use ordinary, read-only `pull_request`.
+- `.github/workflows/build-cache.yaml:5-11` triggers only for `**/*.nix` and `flake.lock` on pushes and pull requests.
+- `.github/workflows/check-flake.yaml:3-8` now uses the unprivileged `pull_request` event without a path filter, but its `main` push trigger remains limited to `**.nix` and `flake.lock`.
 - `.github/workflows/nvfetcher.yaml:40-74` runs nvfetcher in `modules/packages`, then validates packages when changes are generated.
 - `modules/packages/nvfetcher.toml` is the source of truth; `_sources/generated.nix` and `_sources/generated.json` are generated and must not be manually edited.
 - `AGENTS.md:40` documents the exact local generation command.
@@ -63,7 +63,7 @@ The main build workflow reacts only to Nix files and `flake.lock`. Workflow YAML
 
 ### Step 1: Broaden Relevant Triggers
 
-Ensure changes to `.github/workflows/*.yaml`, `.renovaterc.json5`, and `modules/packages/nvfetcher.toml` trigger the read-only check workflow on pushes and PRs. Preserve Nix and lockfile coverage. If `pull_request` currently has no path filter, do not add a restrictive one merely for symmetry; it already covers these files.
+Ensure changes to `.github/workflows/*.yaml`, `.renovaterc.json5`, and `modules/packages/nvfetcher.toml` trigger the read-only check workflow on pushes and PRs. Preserve Nix and lockfile coverage. The current `pull_request` event already has no path filter; do not add one. Extend only the filtered `push` event as necessary.
 
 Add `modules/packages/nvfetcher.toml` and generated source paths to the build workflow only if package builds are required when those files change. Do not trigger six expensive builds for unrelated workflow-only edits.
 
