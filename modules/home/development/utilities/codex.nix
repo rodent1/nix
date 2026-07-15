@@ -22,7 +22,6 @@
         programs.codex = {
           enable = true;
           package = pkgs.unstable.codex;
-          enableMcpIntegration = true;
         };
       };
     };
