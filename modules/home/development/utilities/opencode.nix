@@ -23,26 +23,11 @@
           enable = true;
           package = pkgs.unstable.opencode;
 
+          enableMcpIntegration = true;
+
           settings = {
             formatter = true;
             lsp = true;
-
-            mcp = {
-              executor = {
-                type = "remote";
-                url = "https://executor.rodent.cc/mcp";
-                enabled = true;
-              };
-
-              nixos = {
-                type = "local";
-                command = [
-                  "uvx"
-                  "mcp-nixos"
-                ];
-                enabled = true;
-              };
-            };
           };
         };
 
