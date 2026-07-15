@@ -21,6 +21,7 @@
       config = lib.mkIf cfg.enable {
         home.packages = with pkgs; [
           nodejs_24
+          pnpm
           unstable.bun
         ];
 
