@@ -8,6 +8,7 @@
 let
   sharedHomeModules = [
     inputs.catppuccin.homeModules.catppuccin
+    inputs.codex-desktop-linux.homeManagerModules.default
     inputs.nix-index-database.homeModules.nix-index
     inputs.opnix.homeManagerModules.default
   ];
