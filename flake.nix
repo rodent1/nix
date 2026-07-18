@@ -8,7 +8,7 @@
 
     # Flake framework
     flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "github:mightyiam/import-tree";
+    import-tree.url = "github:denful/import-tree";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
