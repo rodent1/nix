@@ -8,11 +8,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-929nlJ7VVjdlj69UwX3QS6vvs8wufK0d3WxNLFj6EHs=",
+            "sha256": "sha256-N3B4T5eMT4j/uWkfgW5sU0IeRcg3fv0WGwI/9uCPp4w=",
             "type": "url",
-            "url": "https://github.com/home-operations/flate/releases/download/v0.4.10/flate_0.4.10_linux_amd64.tar.gz"
+            "url": "https://github.com/home-operations/flate/releases/download/v0.4.11/flate_0.4.11_linux_amd64.tar.gz"
         },
-        "version": "0.4.10"
+        "version": "0.4.11"
     },
     "kubectl-kopiur": {
         "cargoLock": null,
@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-dYt5iZpqs1m0bbkTFBDGvn6xbgDC4Cl1+z6EDhqo9uY=",
+            "sha256": "sha256-k7H0/2ANe+AAOjDsN1jnwEXCo2r1Y1ZhgtzsKo2O6A0=",
             "type": "url",
-            "url": "https://github.com/home-operations/kopiur/releases/download/0.7.5/kubectl-kopiur_0.7.5_linux_amd64.tar.gz"
+            "url": "https://github.com/home-operations/kopiur/releases/download/0.8.0/kubectl-kopiur_0.8.0_linux_amd64.tar.gz"
         },
-        "version": "0.7.5"
+        "version": "0.8.0"
     },
     "wagoapp": {
         "cargoLock": null,
