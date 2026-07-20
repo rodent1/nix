@@ -11,9 +11,11 @@
   },
   lockFileMaintenance: {
     enabled: true,
+    commitMessageAction: "chore: Update lock file",
     automerge: true,
+    ignoreTests: true,
     schedule: [
-      "after 1am and before 4am",
+      "before 4am",
     ],
   },
   packageRules: [
