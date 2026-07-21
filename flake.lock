@@ -29,11 +29,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784521463,
-        "narHash": "sha256-yXpp83oKnMYkPsgZERhW4UZssaDvJkuExMaJPNdCcoU=",
+        "lastModified": 1784608585,
+        "narHash": "sha256-/k/cziSn/eQ3pGH5cPJevYWlInEqO+XNmsVLSWXW9eM=",
         "owner": "ilysenko",
         "repo": "codex-desktop-linux",
-        "rev": "18f7c3c27dcbb99b984594dd87ceb1c2b63fd5a2",
+        "rev": "7374303031cc2cdff63f025b0b921e002bf9b158",
         "type": "github"
       },
       "original": {
@@ -222,11 +222,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1784453100,
-        "narHash": "sha256-zpGZb8FYui+i8KLtC0nlcmb0voR2zB80Qn8pe7lzIbk=",
+        "lastModified": 1784555310,
+        "narHash": "sha256-/FCliTPgiuV1owejZFNx3Ch9irdvkOfOFl+HHZ+DrtM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b471514bed69eff5255c8e63c1f80e5fe56c616f",
+        "rev": "421eebfd0ec7bccd4abe826ce62d7e6e83129493",
         "type": "github"
       },
       "original": {
