@@ -16,19 +16,19 @@
   };
   kubectl-kopiur = {
     pname = "kubectl-kopiur";
-    version = "0.8.1";
+    version = "0.9.0";
     src = fetchurl {
-      url = "https://github.com/home-operations/kopiur/releases/download/0.8.1/kubectl-kopiur_0.8.1_linux_amd64.tar.gz";
-      sha256 = "sha256-lS/JMICkNXEFr5fPxTrFvXCy66QUBl213Y/KzQV1lis=";
+      url = "https://github.com/home-operations/kopiur/releases/download/0.9.0/kubectl-kopiur_0.9.0_linux_amd64.tar.gz";
+      sha256 = "sha256-tvMiHhwUnYMTg22yLmTdkMcpwQkyeu17MQ8TwqUVl+k=";
     };
   };
   wagoapp = {
     pname = "wagoapp";
-    version = "2.13.0";
+    version = "2.14.0";
     src = fetchurl {
-      url = "https://cdn.wago.io/wagoapp/WagoApp_2.13.0.AppImage";
-      name = "WagoApp_2.13.0.AppImage";
-      sha256 = "sha256-WNTkh0DxdrVIW4NmxCuGfHjl+sVns+dg5uQrmRgeDMs=";
+      url = "https://cdn.wago.io/wagoapp/WagoApp_2.14.0.AppImage";
+      name = "WagoApp_2.14.0.AppImage";
+      sha256 = "sha256-Li4e1oZ858choFjqkvyNNrmrGRLlKx9kmgGQDR1crKs=";
     };
   };
 }
