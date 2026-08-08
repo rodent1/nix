@@ -1,22 +1,14 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: [
-    "github>home-operations/renovate-presets//config/baseConfig.json5",
-    "github>home-operations/renovate-presets//config/dependencyDashboard.json5",
-    "github>home-operations/renovate-presets//policies/semanticCommits.json5",
-    ":timezone(Europe/Oslo)",
-  ],
+  extends: ["github>home-operations/renovate-presets#7.0.0", ":timezone(Europe/Oslo)"],
   nix: {
-      enabled: true,
+    enabled: true,
   },
   lockFileMaintenance: {
     enabled: true,
-    commitMessageAction: "chore: Update lock file",
-    automerge: true,
-    ignoreTests: true,
-    schedule: [
-      "before 4am",
-    ],
+    schedule: ["before 3am"],
+    commitMessageExtra: "({{manager}})",
+    additionalBranchPrefix: "{{manager}}-",
   },
   packageRules: [
     // Auto-merge rules
@@ -50,7 +42,7 @@
     // Labeling rules
     {
       matchManagers: ["nix"],
-      addLabels: ["nix"]
+      addLabels: ["nix"],
     },
     {
       matchUpdateTypes: ["major"],
@@ -67,14 +59,6 @@
     {
       matchUpdateTypes: ["digest"],
       addLabels: ["type/digest"],
-    },
-    {
-      matchManagers: ["github-actions"],
-      addLabels: ["renovate/github-action"],
-    },
-    {
-      matchDatasources: ["github-releases"],
-      addLabels: ["renovate/github-release"],
     },
   ],
 }
