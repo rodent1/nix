@@ -8,18 +8,18 @@
 {
   flate = {
     pname = "flate";
-    version = "0.4.12";
+    version = "0.4.14";
     src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.4.12/flate_0.4.12_linux_amd64.tar.gz";
-      sha256 = "sha256-hedtakfxlO/vibG/EqwQi/vOPin96JPo52uXerKGxaw=";
+      url = "https://github.com/home-operations/flate/releases/download/v0.4.14/flate_0.4.14_linux_amd64.tar.gz";
+      sha256 = "sha256-HVOBxVUFkwJccQnqkrsmHNAczPfrYIp4228/u+8NqxY=";
     };
   };
   kubectl-kopiur = {
     pname = "kubectl-kopiur";
-    version = "0.9.3";
+    version = "0.9.4";
     src = fetchurl {
-      url = "https://github.com/home-operations/kopiur/releases/download/0.9.3/kubectl-kopiur_0.9.3_linux_amd64.tar.gz";
-      sha256 = "sha256-THOjwpuDPG0O88JNS/YsncYQAEmNNYOhUFrGDEwX2b4=";
+      url = "https://github.com/home-operations/kopiur/releases/download/0.9.4/kubectl-kopiur_0.9.4_linux_amd64.tar.gz";
+      sha256 = "sha256-jzrzPKC2Tc0qqiW6B428oBDEjKv0XZA15BSLcLCb6oI=";
     };
   };
   wagoapp = {
