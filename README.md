@@ -4,7 +4,6 @@
 
 This repo contains my complete system configuration for a declarative, reproducible, and minimal NixOS setup — tailored for daily development, Kubernetes home-ops, WSL2 integration, and soothing Catppuccin-based fish shell theming.
 
-
 ## ✨ Features
 
 - ❄️ **Nix flakes**: Modular, composable, version-locked
@@ -13,7 +12,6 @@ This repo contains my complete system configuration for a declarative, reproduci
 - 🧰 **WSL2-friendly**: Tested extensively in Windows Subsystem for Linux
 - 🧪 **Development modules**: Streamlined development environments for multiple languages and tools
 - 🧩 **Custom packages**: Custom `nixpkgs` overlays and pkgs managed declaratively
-
 
 ## 🧩 Structure
 
@@ -66,38 +64,38 @@ host and generated hardware module first.
 2. Install Git temporarily and clone the repository at the path expected by
    `programs.nh.flake`:
 
-   ```bash
-   nix-shell -p git
-   git clone https://github.com/rodent1/nix /home/stianrs/nix
-   exit
-   ```
+    ```bash
+    nix-shell -p git
+    git clone https://github.com/rodent1/nix /home/stianrs/nix
+    exit
+    ```
 
 3. Apply the matching host output. Replace `gamer` with `laptop` as
    appropriate:
 
-   ```bash
-   sudo nixos-rebuild switch \
-     --flake /home/stianrs/nix#gamer \
-     --option experimental-features "nix-command flakes"
-   ```
+    ```bash
+    sudo nixos-rebuild switch \
+      --flake /home/stianrs/nix#gamer \
+      --option experimental-features "nix-command flakes"
+    ```
 
-   The first activation installs Home Manager, `nh`, and `opnix`. OpNix safely
-   skips secret retrieval while its user token is absent.
+    The first activation installs Home Manager, `nh`, and `opnix`. OpNix safely
+    skips secret retrieval while its user token is absent.
 
 4. Store the 1Password service-account token as the user. The `-path` option
    must appear before the `set` subcommand:
 
-   ```bash
-   mkdir -p ~/.config/opnix
-   opnix token -path "$HOME/.config/opnix/token" set
-   chmod 600 ~/.config/opnix/token
-   ```
+    ```bash
+    mkdir -p ~/.config/opnix
+    opnix token -path "$HOME/.config/opnix/token" set
+    chmod 600 ~/.config/opnix/token
+    ```
 
 5. Activate once more to retrieve Home Manager secrets:
 
-   ```bash
-   nh os switch
-   ```
+    ```bash
+    nh os switch
+    ```
 
 ### WSL host: `work`
 
@@ -177,7 +175,6 @@ Built on the shoulders of those who came before me
 - [bjw-s nix-config](https://github.com/bjw-s/nix-config)
 - [billimek dotfiles](https://github.com/billimek/dotfiles)
 - [Misterio77/nix-starter-config](https://github.com/Misterio77/nix-starter-configs)
-
 
 ## 🧊 Powered by
 
