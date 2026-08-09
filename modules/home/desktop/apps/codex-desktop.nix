@@ -15,11 +15,6 @@
           enable = true;
           cliPackage = codexCli;
 
-          remoteControl = {
-            enable = true;
-            package = codexCli;
-          };
-
           computerUseUi.enable = true;
           remoteMobileControl.enable = true;
         };
