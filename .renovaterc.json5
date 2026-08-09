@@ -6,6 +6,8 @@
   },
   lockFileMaintenance: {
     enabled: true,
+    automerge: true,
+    ignoreTests: true,
     schedule: ["before 3am"],
     commitMessageExtra: "({{manager}})",
     additionalBranchPrefix: "{{manager}}-",
