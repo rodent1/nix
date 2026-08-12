@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  fetchurl,
+  callPackage,
   dpkg,
   asar,
   autoPatchelfHook,
@@ -54,6 +54,8 @@
 }:
 
 let
+  sourceData = callPackage ../_sources/generated.nix { };
+
   runtimeLibs = [
     alsa-lib
     at-spi2-core
@@ -106,14 +108,8 @@ let
     xdg-utils
   ];
 in
-stdenv.mkDerivation (finalAttrs: {
-  pname = "chatgpt-desktop-app";
-  version = "26.803.81509";
-
-  src = fetchurl {
-    url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_${finalAttrs.version}_amd64.deb";
-    hash = "sha256-qb+Ro2j598Tuo4CCqfuPtGuNAFtxmm13FdLloZgsOOs=";
-  };
+stdenv.mkDerivation {
+  inherit (sourceData.chatgpt-desktop-app) pname version src;
 
   nativeBuildInputs = [
     dpkg
@@ -192,4 +188,4 @@ stdenv.mkDerivation (finalAttrs: {
     platforms = [ "x86_64-linux" ];
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
   };
-})
+}

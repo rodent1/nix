@@ -6,6 +6,14 @@
   dockerTools,
 }:
 {
+  chatgpt-desktop-app = {
+    pname = "chatgpt-desktop-app";
+    version = "26.803.81509";
+    src = fetchurl {
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.803.81509_amd64.deb";
+      sha256 = "sha256-qb+Ro2j598Tuo4CCqfuPtGuNAFtxmm13FdLloZgsOOs=";
+    };
+  };
   flate = {
     pname = "flate";
     version = "0.5.0";
