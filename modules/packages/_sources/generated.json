@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Hes0UaTsjZetEzK2K8FUkJbWWDZpfwBUuNkrxPXVJIQ=",
+            "sha256": "sha256-gH1Vv/2WvBwvf+CkeJw3FD4jQNY+zoSpt1il4UOGltg=",
             "type": "url",
-            "url": "https://github.com/home-operations/kopiur/releases/download/0.10.0/kubectl-kopiur_0.10.0_linux_amd64.tar.gz"
+            "url": "https://github.com/home-operations/kopiur/releases/download/0.10.1/kubectl-kopiur_0.10.1_linux_amd64.tar.gz"
         },
-        "version": "0.10.0"
+        "version": "0.10.1"
     },
     "wagoapp": {
         "cargoLock": null,
@@ -37,11 +37,11 @@
         "passthru": null,
         "pinned": false,
         "src": {
-            "name": "WagoApp_2.14.0.AppImage",
-            "sha256": "sha256-Li4e1oZ858choFjqkvyNNrmrGRLlKx9kmgGQDR1crKs=",
+            "name": "WagoApp_2.14.1.AppImage",
+            "sha256": "sha256-QUXUwFrV3Ysv3QZJJ8QUvP8RRaiR62zw3S0sXRGtGG4=",
             "type": "url",
-            "url": "https://cdn.wago.io/wagoapp/WagoApp_2.14.0.AppImage"
+            "url": "https://cdn.wago.io/wagoapp/WagoApp_2.14.1.AppImage"
         },
-        "version": "2.14.0"
+        "version": "2.14.1"
     }
 }
