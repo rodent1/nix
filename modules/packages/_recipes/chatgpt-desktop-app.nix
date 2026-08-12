@@ -5,6 +5,7 @@
   dpkg,
   asar,
   autoPatchelfHook,
+  bubblewrap,
   makeWrapper,
   wrapGAppsHook3,
   alsa-lib,
@@ -101,6 +102,7 @@ let
   ];
 
   runtimeBins = [
+    bubblewrap
     git
     glib
     openssh
