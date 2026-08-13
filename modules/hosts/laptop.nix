@@ -34,6 +34,7 @@
         modules = {
           desktop.enable = true;
           desktop.plasma = true;
+          services.tailscale.enable = true;
         };
       };
     };
