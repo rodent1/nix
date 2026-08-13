@@ -19,14 +19,11 @@
       };
 
       config = lib.mkIf cfg.enable {
-        home.packages =
-          (with pkgs; [
-            python3
-          ])
-          ++ (with pkgs.unstable; [
-            uv
-            ruff
-          ]);
+        home.packages = with pkgs; [
+          python3
+          ruff
+          uv
+        ];
       };
     };
 }

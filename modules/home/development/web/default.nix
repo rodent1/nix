@@ -22,7 +22,6 @@
         home.packages = with pkgs; [
           nodejs_24
           pnpm
-          unstable.bun
         ];
 
         home.sessionPath = [ "${config.home.homeDirectory}/.cache/.bun/bin" ];

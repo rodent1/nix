@@ -15,7 +15,6 @@
           act
           gcc
           unstable.oxfmt
-          unstable.pi-coding-agent
           pkg-config
           shellcheck
           shfmt
