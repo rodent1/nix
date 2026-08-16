@@ -10,7 +10,7 @@ src.prefix = "v"
 [kubectl-kopiur]
 src.github = "home-operations/kopiur"
 fetch.url = "https://github.com/home-operations/kopiur/releases/download/$ver/kubectl-kopiur_$ver_linux_amd64.tar.gz"
-[chatgpt-desktop-app]
+[chatgpt-desktop]
 src.webpage = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/dists/stable/main/binary-amd64/Packages"
 src.regex = 'Version: ([0-9.]+)'
 fetch.url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_$ver_amd64.deb"

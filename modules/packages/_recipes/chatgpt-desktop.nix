@@ -181,7 +181,7 @@ let
   ];
 in
 stdenvNoCC.mkDerivation {
-  inherit (sourceData.chatgpt-desktop-app) pname version src;
+  inherit (sourceData.chatgpt-desktop) pname version src;
 
   strictDeps = true;
   __structuredAttrs = true;

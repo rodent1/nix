@@ -1,9 +1,9 @@
 {
-    "chatgpt-desktop-app": {
+    "chatgpt-desktop": {
         "cargoLock": null,
         "date": null,
         "extract": null,
-        "name": "chatgpt-desktop-app",
+        "name": "chatgpt-desktop",
         "passthru": null,
         "pinned": false,
         "src": {

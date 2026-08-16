@@ -6,8 +6,8 @@
   dockerTools,
 }:
 {
-  chatgpt-desktop-app = {
-    pname = "chatgpt-desktop-app";
+  chatgpt-desktop = {
+    pname = "chatgpt-desktop";
     version = "26.810.52044";
     src = fetchurl {
       url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.810.52044_amd64.deb";

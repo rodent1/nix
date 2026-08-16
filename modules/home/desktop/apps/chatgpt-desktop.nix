@@ -8,7 +8,7 @@
     }:
     {
       config = lib.mkIf config.modules.desktop.enable {
-        home.packages = [ pkgs.chatgpt-desktop-app ];
+        home.packages = [ pkgs.chatgpt-desktop ];
       };
     };
 }
