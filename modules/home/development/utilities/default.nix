@@ -13,6 +13,7 @@
       config = lib.mkIf cfg.enable {
         home.packages = with pkgs; [
           act
+          gnumake
           gcc
           unstable.oxfmt
           pkg-config
