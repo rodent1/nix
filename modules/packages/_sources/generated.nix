@@ -8,10 +8,10 @@
 {
   chatgpt-desktop = {
     pname = "chatgpt-desktop";
-    version = "26.814.41407";
+    version = "26.814.41957";
     src = fetchurl {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.814.41407_amd64.deb";
-      sha256 = "sha256-BT1azpHEihcUau8Cykq7AKKx6U/9FcoBiR/YSoInyoA=";
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.814.41957_amd64.deb";
+      sha256 = "sha256-R3iyanq9CGRyFNWwXBe9Pr4tlojRRtq/AXwaL6+TrH0=";
     };
   };
   flate = {
@@ -24,10 +24,10 @@
   };
   kubectl-kopiur = {
     pname = "kubectl-kopiur";
-    version = "0.10.2";
+    version = "0.10.3";
     src = fetchurl {
-      url = "https://github.com/home-operations/kopiur/releases/download/0.10.2/kubectl-kopiur_0.10.2_linux_amd64.tar.gz";
-      sha256 = "sha256-7lEQ/1RnrV5xKeAQkKYFTLvL6VtBlEadCOpGtcy+Xxo=";
+      url = "https://github.com/home-operations/kopiur/releases/download/0.10.3/kubectl-kopiur_0.10.3_linux_amd64.tar.gz";
+      sha256 = "sha256-GTXwF34dtZUBBcBMB2gNM1u3zNLspLYVsAwWS5EBpTA=";
     };
   };
   wagoapp = {
