@@ -4,35 +4,44 @@
     isWSL = false;
   };
 
-  internal.nixosModules.gamer = { config, ... }: {
-    imports = [ ./_hardware/gamer.nix ];
+  internal.nixosModules.gamer =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      imports = [ ./_hardware/gamer.nix ];
 
-    config = {
-      hardware = {
-        graphics = {
-          enable = true;
-          enable32Bit = true;
+      config = {
+        boot.kernelPackages = lib.mkForce pkgs.unstable.linuxPackages_latest;
+
+        hardware = {
+          graphics = {
+            enable = true;
+            enable32Bit = true;
+          };
+
+          nvidia = {
+            open = true;
+            nvidiaSettings = true;
+            modesetting.enable = true;
+            powerManagement.enable = true;
+
+            package = config.boot.kernelPackages.nvidiaPackages.latest;
+          };
         };
 
-        nvidia = {
-          open = true;
-          nvidiaSettings = true;
-          modesetting.enable = true;
-          powerManagement.enable = true;
+        services.xserver.videoDrivers = [ "nvidia" ];
 
-          package = config.boot.kernelPackages.nvidiaPackages.latest;
+        programs.steam.enable = true;
+
+        modules = {
+          desktop.enable = true;
+          desktop.plasma = true;
+          services.tailscale.enable = true;
         };
-      };
-
-      services.xserver.videoDrivers = [ "nvidia" ];
-
-      programs.steam.enable = true;
-
-      modules = {
-        desktop.enable = true;
-        desktop.plasma = true;
-        services.tailscale.enable = true;
       };
     };
-  };
 }

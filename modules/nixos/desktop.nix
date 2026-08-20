@@ -27,7 +27,7 @@
       config = lib.mkIf cfg.enable {
         boot.loader.systemd-boot.enable = true;
         boot.loader.efi.canTouchEfiVariables = true;
-        boot.kernelPackages = pkgs.linuxPackages_latest;
+        boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
         networking.networkmanager.enable = true;
 
