@@ -4,7 +4,7 @@
     isWSL = false;
   };
 
-  internal.nixosModules.gamer = _: {
+  internal.nixosModules.gamer = { config, ... }: {
     imports = [ ./_hardware/gamer.nix ];
 
     config = {
@@ -19,6 +19,8 @@
           nvidiaSettings = true;
           modesetting.enable = true;
           powerManagement.enable = true;
+
+          package = config.boot.kernelPackages.nvidiaPackages.latest;
         };
       };
 
