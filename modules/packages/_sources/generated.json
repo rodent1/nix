@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-iTRdkiOSiXVKwCF9CYeMJMH9znHq37C8VRqohD0Wdfs=",
+            "sha256": "sha256-rju3Nys0z6GMq65rPU5lrFxHP0IsKW0NWJB0KZ81jCQ=",
             "type": "url",
-            "url": "https://github.com/home-operations/flate/releases/download/v0.5.1/flate_0.5.1_linux_amd64.tar.gz"
+            "url": "https://github.com/home-operations/flate/releases/download/v0.6.0/flate_0.6.0_linux_amd64.tar.gz"
         },
-        "version": "0.5.1"
+        "version": "0.6.0"
     },
     "kubectl-kopiur": {
         "cargoLock": null,
