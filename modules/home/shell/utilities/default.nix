@@ -17,9 +17,11 @@
           findutils
           fzf
           go-task
+          unstable.gum
           httpie
           jq
-          just
+          unstable.just
+          unstable.just-lsp
           killall
           lefthook
           nfs-utils
