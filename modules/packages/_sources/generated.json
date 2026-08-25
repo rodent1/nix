@@ -38,11 +38,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-GTXwF34dtZUBBcBMB2gNM1u3zNLspLYVsAwWS5EBpTA=",
+            "sha256": "sha256-QZvPgxOo0nZeQKxLrIvDJNUv4pqySZ7ptsr40nuSzwk=",
             "type": "url",
-            "url": "https://github.com/home-operations/kopiur/releases/download/0.10.3/kubectl-kopiur_0.10.3_linux_amd64.tar.gz"
+            "url": "https://github.com/home-operations/kopiur/releases/download/0.10.4/kubectl-kopiur_0.10.4_linux_amd64.tar.gz"
         },
-        "version": "0.10.3"
+        "version": "0.10.4"
     },
     "wagoapp": {
         "cargoLock": null,
