@@ -24,12 +24,12 @@
           };
 
           nvidia = {
-            open = true;
+            open = false;
             nvidiaSettings = true;
             modesetting.enable = true;
             powerManagement.enable = true;
 
-            package = config.boot.kernelPackages.nvidiaPackages.latest;
+            package = config.boot.kernelPackages.nvidiaPackages.new_feature;
           };
         };
 
