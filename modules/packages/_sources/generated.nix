@@ -8,18 +8,18 @@
 {
   chatgpt-desktop = {
     pname = "chatgpt-desktop";
-    version = "26.820.60940";
+    version = "26.820.71523";
     src = fetchurl {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.820.60940_amd64.deb";
-      sha256 = "sha256-MdlWqMbFFfjYfgt6zZ7JGffmhbpZMxtLl6pF+FOv39c=";
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.820.71523_amd64.deb";
+      sha256 = "sha256-Ry0D6IophX8QFbK5F12AUjoTHPG8PpAX6xqP8jTeG9o=";
     };
   };
   flate = {
     pname = "flate";
-    version = "0.6.0";
+    version = "0.6.1";
     src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.6.0/flate_0.6.0_linux_amd64.tar.gz";
-      sha256 = "sha256-rju3Nys0z6GMq65rPU5lrFxHP0IsKW0NWJB0KZ81jCQ=";
+      url = "https://github.com/home-operations/flate/releases/download/v0.6.1/flate_0.6.1_linux_amd64.tar.gz";
+      sha256 = "sha256-Jd5l3U9EeFdXaLTDDWutTLt6daeji+WjzXdq4GX9ZjE=";
     };
   };
   kubectl-kopiur = {
