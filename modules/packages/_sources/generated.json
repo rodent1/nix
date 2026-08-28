@@ -8,11 +8,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Ce/c0GUf2iqqNFehsJKVBKXejrzE5intjP6+NOmKSfg=",
+            "sha256": "sha256-wXMEi6gPevnNiQT5ofJyr/SUejFPb+l9obuDaEds3Pk=",
             "type": "url",
-            "url": "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.820.80927_amd64.deb"
+            "url": "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.825.31414_amd64.deb"
         },
-        "version": "26.820.80927"
+        "version": "26.825.31414"
     },
     "flate": {
         "cargoLock": null,
