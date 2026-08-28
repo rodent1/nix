@@ -11,7 +11,14 @@
     {
       config = lib.mkIf cfg.enable {
         wayland.windowManager.hyprland.extraConfig = ''
-          hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1.5 })
+          hl.monitor({
+            output = "eDP-1",
+            mode = "2880x1800@60",
+            position = "0x0",
+            scale = 1.6,
+            bitdepth = 10,
+            cm = "hdr",
+          })
         '';
       };
     };
