@@ -67,11 +67,6 @@
               },
             })
 
-            -- Keep Noctalia's workspace indicator populated when workspaces are empty.
-            for i = 1, 10 do
-              hl.workspace_rule({ workspace = tostring(i), persistent = true })
-            end
-
             -- Application launchers recovered from the previous Hyprland configuration.
             hl.bind(mainMod .. "+Return", hl.dsp.exec_cmd("ghostty"))
             hl.bind(mainMod .. "+B", hl.dsp.exec_cmd("google-chrome-stable"))
@@ -151,7 +146,10 @@
 
         # Consume the password preserved by pam_kwallet when the Hyprland
         # graphical session starts, just as Plasma does for its own session.
-        systemd.user.targets.hyprland-session.Unit.Wants = [ "plasma-kwallet-pam.service" ];
+        systemd.user.targets.hyprland-session.Unit.Wants = [
+          "plasma-kwallet-pam.service"
+          "plasma-xembedsniproxy.service"
+        ];
 
         services = {
           cliphist.enable = true;
