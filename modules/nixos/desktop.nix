@@ -22,6 +22,12 @@
           default = false;
           description = "Enable Plasma";
         };
+
+        hyprland = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+          description = "Enable Hyprland with Noctalia";
+        };
       };
 
       config = lib.mkIf cfg.enable {
@@ -30,6 +36,43 @@
         boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
         networking.networkmanager.enable = true;
+
+        # Noctalia Greeter discovers NixOS sessions through the system profile.
+        environment.systemPackages = lib.optionals cfg.hyprland config.services.displayManager.sessionPackages;
+
+        programs = {
+          hyprland = lib.mkIf cfg.hyprland {
+            enable = true;
+            package = pkgs.unstable.hyprland;
+            portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
+            withUWSM = true;
+          };
+
+          noctalia = lib.mkIf cfg.hyprland {
+            enable = true;
+            recommendedServices.enable = true;
+          };
+
+          noctalia-greeter = lib.mkIf cfg.hyprland {
+            enable = true;
+            settings = {
+              session.default = "Hyprland (uwsm-managed)";
+              user.default = "stianrs";
+
+              cursor = {
+                theme = "Adwaita";
+                size = 24;
+              };
+
+              keyboard = {
+                layout = "no";
+                variant = "nodeadkeys";
+              };
+
+              idle.timeout = 300;
+            };
+          };
+        };
 
         i18n.defaultLocale = "en_GB.UTF-8";
         i18n.extraLocaleSettings = {
@@ -70,7 +113,7 @@
         ];
 
         services = {
-          displayManager.plasma-login-manager.enable = cfg.plasma;
+          displayManager.plasma-login-manager.enable = cfg.plasma && !cfg.hyprland;
 
           desktopManager.plasma6 = lib.mkIf cfg.plasma {
             enable = true;
@@ -95,13 +138,18 @@
         };
 
         catppuccin.sddm = {
-          enable = true;
+          enable = cfg.plasma && !cfg.hyprland;
           flavor = "mocha";
           accent = "blue";
           userIcon = true;
         };
 
         console.keyMap = "no";
+        security.pam.services.greetd.kwallet = lib.mkIf cfg.hyprland {
+          enable = true;
+          forceRun = true;
+          package = pkgs.kdePackages.kwallet-pam;
+        };
         security.rtkit.enable = true;
         security.sudo.wheelNeedsPassword = false;
 
