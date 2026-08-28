@@ -149,6 +149,10 @@
           };
         };
 
+        # Consume the password preserved by pam_kwallet when the Hyprland
+        # graphical session starts, just as Plasma does for its own session.
+        systemd.user.targets.hyprland-session.Unit.Wants = [ "plasma-kwallet-pam.service" ];
+
         services = {
           cliphist.enable = true;
           hyprpolkitagent.enable = true;
