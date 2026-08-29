@@ -17,11 +17,6 @@
           hl.monitor({ output = "DP-3", mode = "highrr", position = "2560x1189", scale = 1, transform = 3 })
           hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 
-          -- Keep numbered workspaces on the primary monitor.
-          for i = 1, 10 do
-            hl.workspace_rule({ workspace = tostring(i), monitor = "DP-2", persistent = true })
-          end
-
           -- DP-3 is a dedicated, undecorated Discord display.
           hl.workspace_rule({
             workspace = "name:Discord",
