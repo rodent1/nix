@@ -6,7 +6,7 @@
       ...
     }:
     let
-      cfg = config.modules.desktop.hyprland;
+      cfg = config.modules.desktop.noctalia;
     in
     {
       config = lib.mkIf cfg.enable {

@@ -6,7 +6,7 @@
       ...
     }:
     let
-      cfg = config.modules.desktop.hyprland;
+      cfg = config.modules.desktop.noctalia;
     in
     {
       config = lib.mkIf cfg.enable {
@@ -17,11 +17,17 @@
           hl.monitor({ output = "DP-3", mode = "highrr", position = "2560x1189", scale = 1, transform = 3 })
           hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 
+          -- DP-2 is the top monitor
+          hl.workspace_rule({
+            workspace = "name:Top",
+            monitor = "DP-2",
+            persistent = true,
+          })
+
           -- DP-3 is a dedicated, undecorated Discord display.
           hl.workspace_rule({
             workspace = "name:Discord",
             monitor = "DP-3",
-            default = true,
             persistent = true,
             gaps_in = 0,
             gaps_out = 0,
