@@ -37,6 +37,9 @@
             hl.bind(mainMod .. "+mouse:272", hl.dsp.window.drag())
             hl.bind(mainMod .. "+mouse:273", hl.dsp.window.resize())
 
+            -- Lock screen
+            hl.bind(mainMod .. "+L", hl.dsp.exec_cmd(ipc .. "session lock"))
+
             for i = 1, 9 do
               hl.bind(mainMod .. "+code:1" .. tostring(i - 1), hl.dsp.focus({ workspace = tostring(i) }))
               hl.bind(mainMod .. "+SHIFT+code:1" .. tostring(i - 1), hl.dsp.window.move({ workspace = tostring(i) }))

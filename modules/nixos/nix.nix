@@ -40,7 +40,7 @@
     {
       nix = {
         settings = {
-          substituters = builtins.map (def: "${def.url}?priority=${toString def.priority}") substituters;
+          substituters = map (def: "${def.url}?priority=${toString def.priority}") substituters;
           trusted-public-keys = builtins.catAttrs "publicKey" substituters;
 
           # Fallback quickly if substituters are not available.

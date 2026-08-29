@@ -145,11 +145,6 @@
         };
 
         console.keyMap = "no";
-        security.pam.services.greetd.kwallet = lib.mkIf cfg.hyprland {
-          enable = true;
-          forceRun = true;
-          package = pkgs.kdePackages.kwallet-pam;
-        };
         security.rtkit.enable = true;
         security.sudo.wheelNeedsPassword = false;
 

@@ -47,12 +47,9 @@
 
         services = {
           cliphist.enable = true;
-          hyprpolkitagent.enable = true;
+          gnome-keyring.enable = true;
+          xembed-sni-proxy.enable = true;
         };
-
-        xdg.configFile."uwsm/env.d/ozone".text = ''
-          export NIXOS_OZONE_WL=1
-        '';
 
         home.packages = with pkgs; [
           ffmpegthumbnailer
