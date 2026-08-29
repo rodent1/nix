@@ -29,6 +29,13 @@
             no_border = true,
             decorate = false,
           })
+
+          -- Window rules
+          hl.window_rule({
+            match = { title = "^(Battle.net.*)$" },
+            float = true,
+            focus_on_activate = false,
+          })
         '';
 
         programs.noctalia.settings.bar.default.monitor.DP-3.enabled = false;
