@@ -8,10 +8,10 @@
 {
   chatgpt-desktop = {
     pname = "chatgpt-desktop";
-    version = "26.825.32147";
+    version = "26.825.41651";
     src = fetchurl {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.825.32147_amd64.deb";
-      sha256 = "sha256-mG04tpDdAxCTPOYRdbCcJ0NAAfThFDMrsPe2/9w8pAY=";
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.825.41651_amd64.deb";
+      sha256 = "sha256-IbIulcDEOj8RTz7TJpKr7cY49AV6CPmMmINuLT6aZx4=";
     };
   };
   flate = {
