@@ -19,13 +19,28 @@
           settings = {
             shell = {
               font_family = "Inter";
+              polkit_agent = true;
               launch_apps_as_systemd_services = true;
             };
 
-            theme = {
-              mode = "dark";
-              source = "builtin";
-              builtin = "Catppuccin";
+            location.address = "Forsand, Sandnes";
+
+            idle.behavior = {
+              lock = {
+                enabled = true;
+                timeout = 300;
+                action = "lock";
+              };
+              "screen-off" = {
+                enabled = true;
+                timeout = 330;
+                action = "screen_off";
+              };
+              "lock-and-suspend" = {
+                enabled = true;
+                timeout = 900;
+                action = "lock_and_suspend";
+              };
             };
           };
         };
@@ -54,11 +69,9 @@
         };
 
         home.packages = with pkgs; [
-          brightnessctl
           ffmpegthumbnailer
           file-roller
           grim
-          nautilus
           pavucontrol
           playerctl
           slurp
