@@ -42,6 +42,8 @@
               hl.bind(mainMod .. "+SHIFT+code:1" .. tostring(i - 1), hl.dsp.window.move({ workspace = tostring(i) }))
             end
 
+            hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+
             -- Noctalia panels
             hl.bind(mainMod .. "+S", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
             hl.bind(mainMod .. "+comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))

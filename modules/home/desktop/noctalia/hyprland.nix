@@ -16,6 +16,15 @@
           portalPackage = null;
 
           extraConfig = ''
+
+            hl.on("hyprland.start", function()
+              hl.exec_cmd("noctalia")
+              hl.exec_cmd("systemctl --user start plasma-kwallet-pam.service")
+              hl.exec_cmd("systemctl --user start plasma-xembedsniproxy.service")
+              hl.exec_cmd("vesktop")
+              hl.exec_cmd("1password --silent")
+            end)
+
             hl.config({
               general = {
                 gaps_in = 5,

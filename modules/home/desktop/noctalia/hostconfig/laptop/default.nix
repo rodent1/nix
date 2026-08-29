@@ -12,6 +12,13 @@
       config = lib.mkIf cfg.enable {
         wayland.windowManager.hyprland.extraConfig = ''
           hl.monitor({ output = "eDP-1", mode = "preferred", position = "auto", scale = 1.5 })
+
+          -- unscale XWayland
+          hl.config({
+            xwayland = {
+              force_zero_scaling = true
+            }
+          })
         '';
 
         programs.noctalia.settings.brightness = {
