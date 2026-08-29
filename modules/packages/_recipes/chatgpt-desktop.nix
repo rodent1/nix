@@ -258,6 +258,11 @@ stdenvNoCC.mkDerivation {
   '';
 
   postFixup = ''
+    # The Electron runtime needs these libraries, but the bundled Codex process
+    # and its terminal children must use their own Nix-linked dependencies.
+    wrapProgram "$out/lib/chatgpt/resources/codex" \
+      --unset LD_LIBRARY_PATH
+
     wrapProgram "$out/bin/chatgpt" \
       "''${gappsWrapperArgs[@]}" \
       "''${qtWrapperArgs[@]}" \

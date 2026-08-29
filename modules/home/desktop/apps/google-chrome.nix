@@ -8,6 +8,8 @@
 
           commandLineArgs = [
             "--enable-features=MiddleClickAutoscroll"
+            # Keep OSCrypt on the same backend in Plasma and Hyprland.
+            "--password-store=kwallet6"
           ];
         };
 
