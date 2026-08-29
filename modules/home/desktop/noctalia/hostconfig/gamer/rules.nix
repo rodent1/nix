@@ -11,12 +11,6 @@
     {
       config = lib.mkIf cfg.enable {
         wayland.windowManager.hyprland.extraConfig = ''
-          -- Match the current Plasma monitor layout on gamer.
-          hl.monitor({ output = "DP-2", mode = "highrr", position = "0x0", scale = 1 })
-          hl.monitor({ output = "DP-1", mode = "highrr", position = "0x1440", scale = 1, vrr = 1 })
-          hl.monitor({ output = "DP-3", mode = "highrr", position = "2560x1189", scale = 1, transform = 3 })
-          hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
-
           -- DP-2 is the top monitor
           hl.workspace_rule({
             workspace = "name:Top",
@@ -34,12 +28,6 @@
             no_rounding = true,
             no_border = true,
             decorate = false,
-          })
-
-          hl.window_rule({
-            name = "Discord",
-            match = { initial_class = "vesktop" },
-            workspace = "name:Discord silent",
           })
         '';
 

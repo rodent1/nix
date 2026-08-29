@@ -23,19 +23,19 @@
               general = {
                 gaps_in = 5,
                 gaps_out = 10,
-                border_size = 2,
-                layout = "dwindle",
               },
 
               decoration = {
                 rounding = 20,
                 rounding_power = 2,
+
                 shadow = {
                   enabled = true,
                   range = 4,
                   render_power = 3,
                   color = 0xee1a1a1a,
                 },
+
                 blur = {
                   enabled = true,
                   size = 3,
@@ -92,23 +92,6 @@
             hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"), { locked = true, repeating = true })
             hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down"), { locked = true, repeating = true })
             hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"), { locked = true })
-
-            hl.window_rule({
-              match = { class = "dev.noctalia.Noctalia" },
-              float = true,
-              size = { 1080, 920 },
-            })
-
-            hl.layer_rule({
-              name = "noctalia",
-              match = {
-                namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
-              },
-              no_anim = true,
-              ignore_alpha = 0.5,
-              blur = true,
-              blur_popups = true,
-            })
           '';
         };
       };
