@@ -24,6 +24,16 @@
           publicKey = "rodent1.cachix.org-1:iM76vQ3wmww8gwBdPIoHIoFIem83qv6v0gxytvHA3lk=";
           priority = 4;
         }
+        {
+          url = "https://noctalia.cachix.org";
+          publicKey = "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=";
+          priority = 5;
+        }
+        {
+          url = "https://codex-desktop-linux.cachix.org";
+          publicKey = "codex-desktop-linux.cachix.org-1:nX/xy6AdK9hQE24A8ALGjkCKj2ObFmcnemiL5Cid4nk=";
+          priority = 6;
+        }
       ];
       registryInputs = removeAttrs inputs [ "import-tree" ];
     in

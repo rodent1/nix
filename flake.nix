@@ -41,12 +41,9 @@
     };
 
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
 
-    noctalia-greeter = {
-      url = "github:noctalia-dev/noctalia-greeter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    codex-desktop-linux.url = "github:ilysenko/codex-desktop-linux";
   };
 
   outputs =

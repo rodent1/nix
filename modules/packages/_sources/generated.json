@@ -1,19 +1,4 @@
 {
-    "chatgpt-desktop": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "chatgpt-desktop",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-NVSwAixs+1EzJvQ/0R9xiDWncIasTXyi/z67ui1Mf0U=",
-            "type": "url",
-            "url": "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.825.51511_amd64.deb"
-        },
-        "version": "26.825.51511"
-    },
     "flate": {
         "cargoLock": null,
         "date": null,
