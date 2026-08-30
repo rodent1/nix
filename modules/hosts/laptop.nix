@@ -33,6 +33,7 @@
 
         modules = {
           desktop.enable = true;
+          desktop.hyprland = true;
           desktop.plasma = true;
           services.tailscale.enable = true;
         };

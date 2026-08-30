@@ -20,6 +20,14 @@
       };
 
       config = lib.mkIf cfg.enable {
+        xdg.configFile."fish/conf.d/00-codex-runtime.fish".text = ''
+          # Old Codex shell snapshots may contain ChatGPT Desktop's runtime
+          # libraries. Native Nix programs must resolve their own libraries.
+          if set -q CODEX_SHELL LD_LIBRARY_PATH
+            set -e LD_LIBRARY_PATH
+          end
+        '';
+
         programs.fish = {
           enable = true;
           inherit (cfg) package;

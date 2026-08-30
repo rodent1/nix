@@ -8,7 +8,9 @@
 let
   sharedHomeModules = [
     inputs.catppuccin.homeModules.catppuccin
+    inputs.codex-desktop-linux.homeManagerModules.default
     inputs.nix-index-database.homeModules.nix-index
+    inputs.noctalia.homeModules.default
     inputs.opnix.homeManagerModules.default
   ];
 
@@ -27,6 +29,8 @@ let
           inputs.catppuccin.nixosModules.catppuccin
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-index-database.nixosModules.nix-index
+          inputs.noctalia.nixosModules.default
+          inputs.noctalia-greeter.nixosModules.default
           {
             home-manager = {
               sharedModules = sharedHomeModules;
