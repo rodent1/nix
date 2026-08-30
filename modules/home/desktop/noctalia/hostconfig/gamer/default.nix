@@ -10,6 +10,12 @@
     in
     {
       config = lib.mkIf cfg.enable {
+        programs.noctalia.settings.idle.behavior."lock-and-suspend" = {
+          enabled = false;
+          timeout = 900;
+          action = "lock_and_suspend";
+        };
+
         wayland.windowManager.hyprland.extraConfig = ''
           hl.monitor({ output = "DP-2", mode = "highrr", position = "0x0", scale = 1 })
           hl.monitor({ output = "DP-1", mode = "highrr", position = "0x1440", scale = 1, vrr = 1 })

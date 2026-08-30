@@ -36,11 +36,6 @@
                 timeout = 330;
                 action = "screen_off";
               };
-              "lock-and-suspend" = {
-                enabled = true;
-                timeout = 900;
-                action = "lock_and_suspend";
-              };
             };
           };
         };
