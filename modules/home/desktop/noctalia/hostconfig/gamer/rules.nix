@@ -15,6 +15,7 @@
           hl.workspace_rule({
             workspace = "name:Top",
             monitor = "DP-2",
+            default = true,
             persistent = true,
           })
 
@@ -22,6 +23,7 @@
           hl.workspace_rule({
             workspace = "name:Discord",
             monitor = "DP-3",
+            default = true,
             persistent = true,
             gaps_in = 0,
             gaps_out = 0,

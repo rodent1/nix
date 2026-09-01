@@ -15,7 +15,6 @@
             workspace = "1",
             default_name = "Discord",
             monitor = "eDP-1",
-            default = true,
             persistent = true,
             gaps_in = 0,
             gaps_out = 0,
