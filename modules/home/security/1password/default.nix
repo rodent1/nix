@@ -25,6 +25,16 @@
             env OP_SERVICE_ACCOUNT_TOKEN="$(cat ${config.xdg.configHome}/1Password/op-service-account-token)" ${pkgs._1password-cli}/bin/op $argv
           '';
         };
+
+        programs.fish.shellAliases = lib.mkIf config.host.isWSL {
+          ssh = "ssh.exe";
+          "ssh-add" = "ssh-add.exe";
+        };
+
+        programs.git.settings = lib.mkIf config.host.isWSL {
+          core.sshCommand = "ssh.exe";
+          gpg.ssh.program = "op-ssh-sign-wsl.exe";
+        };
       };
     };
 }
