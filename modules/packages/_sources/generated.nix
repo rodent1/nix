@@ -8,10 +8,10 @@
 {
   flate = {
     pname = "flate";
-    version = "0.6.2";
+    version = "0.6.4";
     src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.6.2/flate_0.6.2_linux_amd64.tar.gz";
-      sha256 = "sha256-JkdaRp7HgcGk70+6cVwWLJ5IBUmALNZjnhVc/g458Eo=";
+      url = "https://github.com/home-operations/flate/releases/download/v0.6.4/flate_0.6.4_linux_amd64.tar.gz";
+      sha256 = "sha256-rWRFnzRte6CX6CjQt5exaNN2T3sNx14IUwGKkrV1WTc=";
     };
   };
   kubectl-kopiur = {
