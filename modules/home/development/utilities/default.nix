@@ -16,7 +16,6 @@
           bubblewrap
           gnumake
           gcc
-          unstable.oxfmt
           pkg-config
           shellcheck
           shfmt

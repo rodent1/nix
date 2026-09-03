@@ -42,7 +42,6 @@
           ])
           ++ (with pkgs.unstable; [
             kubectl
-            talosctl
           ]);
 
         programs = {
