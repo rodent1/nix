@@ -16,7 +16,6 @@
           portalPackage = null;
 
           extraConfig = ''
-
             hl.on("hyprland.start", function()
               hl.exec_cmd("noctalia")
             end)
@@ -64,6 +63,9 @@
                 focus_on_activate = true,
               },
             })
+
+            hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+
           '';
         };
       };
