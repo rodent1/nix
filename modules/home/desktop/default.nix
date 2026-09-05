@@ -1,6 +1,11 @@
 {
   internal.homeModules.default =
-    { config, lib, ... }:
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
     let
       cfg = config.modules.desktop;
     in
@@ -14,8 +19,10 @@
       };
 
       config = lib.mkIf (cfg.enable && !config.host.isWSL) {
-        # profile picture
         home.file.".face".source = ./_assets/profile.jpg;
+        home.packages = with pkgs; [
+          ffmpegthumbnailer
+        ];
       };
     };
 }

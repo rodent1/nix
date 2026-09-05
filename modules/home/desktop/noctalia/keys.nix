@@ -24,7 +24,7 @@
             hl.bind(mainMod .. "+Return", hl.dsp.exec_cmd("ghostty"))
             hl.bind(mainMod .. "+B", hl.dsp.exec_cmd("google-chrome"))
             hl.bind(mainMod .. "+CTRL + B", hl.dsp.exec_cmd("google-chrome --incognito"))
-            hl.bind(mainMod .. "+E", hl.dsp.exec_cmd("dolphin"))
+            hl.bind(mainMod .. "+E", hl.dsp.exec_cmd("nautilus"))
             hl.bind(mainMod .. "+SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 
             -- Window management.

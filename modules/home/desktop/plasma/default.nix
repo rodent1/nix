@@ -3,7 +3,6 @@
     {
       config,
       lib,
-      pkgs,
       ...
     }:
     let
@@ -25,14 +24,6 @@
         };
 
         catppuccin.fuzzel.enable = true;
-
-        home.packages = with pkgs; [
-          # Apps
-          kdePackages.kalk
-          kdePackages.dragon
-          # Utilities
-          ffmpegthumbnailer
-        ];
       };
     };
 }

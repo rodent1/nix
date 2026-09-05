@@ -72,15 +72,6 @@
           };
         };
 
-        qt = {
-          enable = true;
-          platformTheme.name = "qtct";
-          qt6ctSettings.Appearance = {
-            color_scheme_path = "${config.xdg.configHome}/qt6ct/colors/noctalia.conf";
-            custom_palette = true;
-          };
-        };
-
         services = {
           cliphist.enable = true;
           gnome-keyring.enable = true;
@@ -88,9 +79,12 @@
         };
 
         home.packages = with pkgs; [
-          ffmpegthumbnailer
           file-roller
-          kdePackages.dolphin
+          gnome-calculator
+          gnome-text-editor
+          nautilus
+          loupe
+          showtime
         ];
       };
     };
