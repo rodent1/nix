@@ -78,6 +78,34 @@
           xembed-sni-proxy.enable = true;
         };
 
+        home.pointerCursor = {
+          enable = true;
+          package = pkgs.adwaita-icon-theme;
+          name = "Adwaita";
+          size = 24;
+          gtk.enable = true;
+          x11.enable = true;
+        };
+
+        xdg.mimeApps = {
+          enable = true;
+
+          defaultApplications = {
+            "image/png" = [ "org.gnome.Loupe.desktop" ];
+            "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
+            "image/webp" = [ "org.gnome.Loupe.desktop" ];
+            "image/gif" = [ "org.gnome.Loupe.desktop" ];
+
+            "video/mp4" = [ "org.gnome.Showtime.desktop" ];
+            "video/x-matroska" = [ "org.gnome.Showtime.desktop" ];
+            "video/webm" = [ "org.gnome.Showtime.desktop" ];
+
+            "text/plain" = [ "org.gnome.TextEditor.desktop" ];
+          };
+        };
+
+        gtk.enable = true;
+
         home.packages = with pkgs; [
           file-roller
           gnome-calculator
