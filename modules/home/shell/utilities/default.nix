@@ -20,8 +20,6 @@
           unstable.gum
           httpie
           jq
-          unstable.just
-          unstable.just-lsp
           killall
           lefthook
           nfs-utils

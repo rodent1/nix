@@ -19,30 +19,13 @@
       };
 
       config = lib.mkIf cfg.enable {
-        home.packages =
-          (with pkgs; [
-            flate
-            fluxcd
-            helmfile
-            kubecolor
-            kubernetes-helm
-            kustomize
-            minijinja
-            minio-client
-            stern
-
-            # Kubectl plugins
-            krew
-            kubectl-cnpg
-            kubectl-klock
-            kubectl-kopiur
-            kubectl-node-shell
-            kubectl-rook-ceph
-            kubectl-view-secret
-          ])
-          ++ (with pkgs.unstable; [
-            kubectl
-          ]);
+        home.packages = with pkgs; [
+          fluxcd
+          kubecolor
+          kubernetes-helm
+          minio-client
+          stern
+        ];
 
         programs = {
           fish.functions = {

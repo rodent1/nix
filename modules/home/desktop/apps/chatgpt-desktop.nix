@@ -7,7 +7,10 @@
     }:
     {
       config = lib.mkIf config.modules.desktop.enable {
-        programs.codexDesktopLinux.enable = true;
+        programs.codexDesktopLinux = {
+          enable = true;
+          computerUseUi.enable = true;
+        };
       };
     };
 }

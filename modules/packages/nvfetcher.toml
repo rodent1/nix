@@ -3,10 +3,3 @@ src.webpage = "https://addons.wago.io/wagoapp/download?type=linux"
 src.regex = 'WagoApp_([0-9.]+)\.AppImage'
 fetch.url = "https://cdn.wago.io/wagoapp/WagoApp_$ver.AppImage"
 url.name = "WagoApp_$ver.AppImage"
-[flate]
-fetch.url = "https://github.com/home-operations/flate/releases/download/v$ver/flate_$ver_linux_amd64.tar.gz"
-src.github_tag = "home-operations/flate"
-src.prefix = "v"
-[kubectl-kopiur]
-src.github = "home-operations/kopiur"
-fetch.url = "https://github.com/home-operations/kopiur/releases/download/$ver/kubectl-kopiur_$ver_linux_amd64.tar.gz"

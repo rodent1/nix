@@ -3,6 +3,7 @@
     {
       lib,
       config,
+      pkgs,
       ...
     }:
     let
@@ -18,6 +19,7 @@
         programs = {
           mise = {
             enable = true;
+            package = pkgs.unstable.mise;
             enableFishIntegration = true;
           };
         };

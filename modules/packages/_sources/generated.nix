@@ -6,22 +6,6 @@
   dockerTools,
 }:
 {
-  flate = {
-    pname = "flate";
-    version = "0.6.5";
-    src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.6.5/flate_0.6.5_linux_amd64.tar.gz";
-      sha256 = "sha256-N+sM2RpnUjQHVDdXQ6phbCY82DZ85ZSr1C7pVeHsAJk=";
-    };
-  };
-  kubectl-kopiur = {
-    pname = "kubectl-kopiur";
-    version = "0.10.7";
-    src = fetchurl {
-      url = "https://github.com/home-operations/kopiur/releases/download/0.10.7/kubectl-kopiur_0.10.7_linux_amd64.tar.gz";
-      sha256 = "sha256-osbivedXepvPA5ZESIrxcrE547rF3hAWpO4uzqXoAck=";
-    };
-  };
   wagoapp = {
     pname = "wagoapp";
     version = "2.14.1";
