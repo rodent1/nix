@@ -9,8 +9,8 @@
 
           settings = {
             confirm-close-surface = false;
-            maximize = true;
             link-url = true;
+            window-decoration = "client";
 
             keybind = [
               "ctrl+v=paste_from_clipboard"
