@@ -29,7 +29,7 @@
             })
 
             hl.window_rule({
-              match = { class = "org.gnome.Loupe|org.gnome.Calculator|org.gnome.Nautilus|org.gnome.TextEditor|org.gnome.Showtime" },
+              match = { class = "org.gnome.Loupe|org.gnome.Calculator|org.gnome.Nautilus|org.gnome.TextEditor|org.gnome.Showtime|dev.faetalize.waytator" },
               float = true,
             })
 

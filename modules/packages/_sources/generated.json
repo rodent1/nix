@@ -13,5 +13,26 @@
             "url": "https://cdn.wago.io/wagoapp/WagoApp_2.14.1.AppImage"
         },
         "version": "2.14.1"
+    },
+    "waytator": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "waytator",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "faetalize",
+            "repo": "waytator",
+            "rev": "v1.2.4",
+            "sha256": "sha256-/Tq4fVrgss/v/+ugAueWCx1mbQlsyQ0LE4jRtIhT4qU=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.2.4"
     }
 }
