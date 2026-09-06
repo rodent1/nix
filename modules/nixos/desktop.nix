@@ -113,6 +113,9 @@
         ];
 
         services = {
+          # Register the Secret Service and its unlock prompt with D-Bus.
+          gnome.gnome-keyring.enable = cfg.hyprland;
+
           displayManager.plasma-login-manager.enable = cfg.plasma && !cfg.hyprland;
 
           desktopManager.plasma6 = lib.mkIf cfg.plasma {
@@ -146,6 +149,7 @@
 
         console.keyMap = "no";
         security.rtkit.enable = true;
+        security.pam.services.greetd.enableGnomeKeyring = cfg.hyprland;
         security.sudo.wheelNeedsPassword = false;
 
       };
