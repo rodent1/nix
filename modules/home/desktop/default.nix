@@ -22,6 +22,7 @@
         home.file.".face".source = ./_assets/profile.jpg;
         home.packages = with pkgs; [
           ffmpegthumbnailer
+          unstable.plezy
         ];
       };
     };
