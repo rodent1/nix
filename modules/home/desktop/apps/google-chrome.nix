@@ -10,15 +10,6 @@
             "--enable-features=MiddleClickAutoscroll"
           ];
         };
-
-        programs.chromium = {
-          enable = true;
-          extensions = [
-            "hehggadaopoacecdllhhajmbjkdcmajg" # ChatGPT
-            "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1Password
-            "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite (Manifest V3)
-          ];
-        };
       };
     };
 }
