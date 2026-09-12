@@ -5,12 +5,7 @@
   };
 
   internal.nixosModules.gamer =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
+    { lib, pkgs, ... }:
     {
       imports = [ ./_hardware/gamer.nix ];
 
@@ -25,11 +20,10 @@
 
           nvidia = {
             open = true;
-            nvidiaSettings = true;
+            branch = "latest";
+
             modesetting.enable = true;
             powerManagement.enable = true;
-
-            package = config.boot.kernelPackages.nvidiaPackages.new_feature;
           };
         };
 
