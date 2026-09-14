@@ -31,7 +31,7 @@
 
         programs.steam.enable = true;
 
-        programs.noctalia-greeter.settings.output.name = "DP-1";
+        services.displayManager.noctalia-greeter.settings.output.name = "DP-1";
 
         modules = {
           desktop.enable = true;

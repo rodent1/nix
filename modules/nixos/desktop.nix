@@ -52,26 +52,6 @@
             enable = true;
             recommendedServices.enable = true;
           };
-
-          noctalia-greeter = lib.mkIf cfg.hyprland {
-            enable = true;
-            settings = {
-              session.default = "Hyprland (uwsm-managed)";
-              user.default = "stianrs";
-
-              cursor = {
-                theme = "Adwaita";
-                size = 24;
-              };
-
-              keyboard = {
-                layout = "no";
-                variant = "nodeadkeys";
-              };
-
-              idle.timeout = 300;
-            };
-          };
         };
 
         i18n.defaultLocale = "en_GB.UTF-8";
@@ -116,10 +96,29 @@
           # Register the Secret Service and its unlock prompt with D-Bus.
           gnome.gnome-keyring.enable = cfg.hyprland;
 
-          displayManager.plasma-login-manager.enable = cfg.plasma && !cfg.hyprland;
+          desktopManager.plasma6.enable = cfg.plasma;
+          displayManager = {
+            plasma-login-manager.enable = cfg.plasma && !cfg.hyprland;
 
-          desktopManager.plasma6 = lib.mkIf cfg.plasma {
-            enable = true;
+            noctalia-greeter = lib.mkIf cfg.hyprland {
+              enable = true;
+              settings = {
+                session.default = "Hyprland (uwsm-managed)";
+                user.default = "stianrs";
+
+                cursor = {
+                  theme = "Adwaita";
+                  size = 24;
+                };
+
+                keyboard = {
+                  layout = "no";
+                  variant = "nodeadkeys";
+                };
+
+                idle.timeout = 300;
+              };
+            };
           };
 
           pipewire = {
