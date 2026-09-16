@@ -20,7 +20,7 @@
 
           nvidia = {
             open = true;
-            branch = "latest";
+            branch = "stable";
 
             modesetting.enable = true;
             powerManagement.enable = true;
