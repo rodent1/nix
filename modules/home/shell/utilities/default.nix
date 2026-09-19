@@ -7,7 +7,7 @@
           age
           curl
           coreutils
-          devenv
+          unstable.devenv
           dig
           duf
           dust
@@ -35,6 +35,10 @@
           yamlfmt
           yq-go
         ];
+
+        programs.fish.interactiveShellInit = ''
+          devenv hook fish | source
+        '';
       };
     };
 }
