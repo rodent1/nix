@@ -36,7 +36,7 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
       - name: Install Nix
-        uses: DeterminateSystems/determinate-nix-action@58b42ef6cd91478a14253e00805ec7c79eb1566a # v3.22.4
+        uses: DeterminateSystems/determinate-nix-action@8d87e8d5e5b8a8309d4281094560f127d9a265f1 # v3.22.5
       - name: Run nvfetcher
         id: run-nvfetcher
         run: |
