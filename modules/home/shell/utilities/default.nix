@@ -17,11 +17,9 @@
           findutils
           fzf
           go-task
-          unstable.gum
           httpie
           jq
           killall
-          lefthook
           nfs-utils
           openssl
           ouch
