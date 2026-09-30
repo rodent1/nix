@@ -55,6 +55,9 @@
               };
             }
           ];
+          shellInit = ''
+            fish_add_path --global --prepend $HOME/.local/bin $HOME/.cargo/bin
+          '';
 
           interactiveShellInit = ''
             # fzf-fish
