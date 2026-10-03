@@ -31,12 +31,12 @@
           fish.functions = {
             k = {
               wraps = "kubecolor";
-              body = "kubecolor --force-colors=auto $argv";
+              body = "kubecolor $argv";
             };
 
             kubectl = {
               wraps = "kubecolor";
-              body = "kubecolor --force-colors=auto $argv";
+              body = "kubecolor $argv";
             };
           };
         };
