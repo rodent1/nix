@@ -30,12 +30,13 @@
 
         hardware.bluetooth.enable = true;
         services.fprintd.enable = true;
+        services.tailscale.useRoutingFeatures = "client";
 
         modules = {
           desktop.enable = true;
           desktop.hyprland = true;
           desktop.plasma = false;
-          services.tailscale.enable = false;
+          services.tailscale.enable = true;
         };
       };
     };

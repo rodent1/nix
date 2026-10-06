@@ -32,12 +32,20 @@
         programs.steam.enable = true;
 
         services.displayManager.noctalia-greeter.settings.output.name = "DP-1";
+        services.tailscale = {
+          useRoutingFeatures = "server";
+
+          extraSetFlags = [
+            "--advertise-routes=10.1.1.0/24"
+            "--advertise-exit-node"
+          ];
+        };
 
         modules = {
           desktop.enable = true;
           desktop.hyprland = true;
           desktop.plasma = false;
-          services.tailscale.enable = false;
+          services.tailscale.enable = true;
         };
       };
     };

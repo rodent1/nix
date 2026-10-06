@@ -1,6 +1,11 @@
 {
   internal.nixosModules.default =
-    { config, lib, ... }:
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
     let
       cfg = config.modules.services.tailscale;
     in
@@ -10,6 +15,7 @@
       config = lib.mkIf cfg.enable {
         services.tailscale = {
           enable = true;
+          package = pkgs.unstable.tailscale;
           openFirewall = true;
         };
       };
