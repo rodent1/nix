@@ -29,6 +29,11 @@
 
         services.xserver.videoDrivers = [ "nvidia" ];
 
+        programs.appimage = {
+          enable = true;
+          binfmt = true;
+        };
+
         programs.steam.enable = true;
 
         services.displayManager.noctalia-greeter.settings.output.name = "DP-1";

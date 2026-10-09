@@ -28,6 +28,11 @@
           playerctl
         ];
 
+        programs.appimage = {
+          enable = true;
+          binfmt = true;
+        };
+
         hardware.bluetooth.enable = true;
         services.fprintd.enable = true;
         services.tailscale.useRoutingFeatures = "client";
