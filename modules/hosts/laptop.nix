@@ -33,6 +33,7 @@
           binfmt = true;
         };
 
+        services.automatic-timezoned.enable = true;
         hardware.bluetooth.enable = true;
         services.fprintd.enable = true;
         services.tailscale.useRoutingFeatures = "client";
