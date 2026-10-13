@@ -17,13 +17,13 @@
   };
   waytator = {
     pname = "waytator";
-    version = "v1.2.4";
+    version = "v1.2.5";
     src = fetchFromGitHub {
       owner = "faetalize";
       repo = "waytator";
-      rev = "v1.2.4";
+      rev = "v1.2.5";
       fetchSubmodules = false;
-      sha256 = "sha256-/Tq4fVrgss/v/+ugAueWCx1mbQlsyQ0LE4jRtIhT4qU=";
+      sha256 = "sha256-sv7UwNsW+UTIGLDIz4JwRpPU6t5bolsz/n4bO68dDi0=";
     };
   };
 }
