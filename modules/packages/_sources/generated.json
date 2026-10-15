@@ -28,11 +28,11 @@
             "name": null,
             "owner": "faetalize",
             "repo": "waytator",
-            "rev": "v1.2.5",
-            "sha256": "sha256-sv7UwNsW+UTIGLDIz4JwRpPU6t5bolsz/n4bO68dDi0=",
+            "rev": "v1.3.2",
+            "sha256": "sha256-ppRgV0Asvo9ndKRibDu/nBAXa0g1OPyVEbrzrPncW7A=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.2.5"
+        "version": "v1.3.2"
     }
 }
