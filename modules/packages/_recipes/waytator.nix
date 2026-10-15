@@ -7,7 +7,11 @@
   wrapGAppsHook4,
   glib,
   gtk4,
+  gtk4-layer-shell,
   libadwaita,
+  wayland,
+  wayland-protocols,
+  wayland-scanner,
   tesseract4,
   wl-clipboard,
   callPackage,
@@ -25,11 +29,15 @@ stdenv.mkDerivation (finalAttrs: {
     pkg-config
     wrapGAppsHook4
     glib
+    wayland-protocols
+    wayland-scanner
   ];
 
   buildInputs = [
     gtk4
+    gtk4-layer-shell
     libadwaita
+    wayland
     tesseract4
     wl-clipboard
   ];
