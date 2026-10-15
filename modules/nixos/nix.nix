@@ -29,11 +29,6 @@
           publicKey = "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=";
           priority = 5;
         }
-        {
-          url = "https://codex-desktop-linux.cachix.org";
-          publicKey = "codex-desktop-linux.cachix.org-1:nX/xy6AdK9hQE24A8ALGjkCKj2ObFmcnemiL5Cid4nk=";
-          priority = 6;
-        }
       ];
       registryInputs = removeAttrs inputs [ "import-tree" ];
     in
