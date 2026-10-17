@@ -13,7 +13,10 @@
         programs.fish.functions = {
           watch = {
             wraps = "viddy";
-            body = "viddy -d -n 2 --shell fish $argv[1..-1]";
+            body = ''
+              set -lx KUBECOLOR_FORCE_COLORS auto
+              viddy -d -n 2 --shell fish $argv[1..-1]
+            '';
           };
         };
       };
