@@ -16,7 +16,6 @@
           nvtopPackages.nvidia
           mangohud
           unstable.rusty-path-of-building
-          wagoapp
         ];
       };
     };

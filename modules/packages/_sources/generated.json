@@ -14,21 +14,6 @@
         },
         "version": "0.6.5"
     },
-    "wagoapp": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "wagoapp",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": "WagoApp_2.14.1.AppImage",
-            "sha256": "sha256-QUXUwFrV3Ysv3QZJJ8QUvP8RRaiR62zw3S0sXRGtGG4=",
-            "type": "url",
-            "url": "https://cdn.wago.io/wagoapp/WagoApp_2.14.1.AppImage"
-        },
-        "version": "2.14.1"
-    },
     "waytator": {
         "cargoLock": null,
         "date": null,

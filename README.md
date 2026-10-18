@@ -125,8 +125,7 @@ Subsequent rebuilds can use `nh os switch` while the repository remains at
 ## 🛠️ Operator Quick Start
 
 These commands require Nix with flakes enabled. This flake supports only
-`x86_64-linux`, with the `gamer`, `laptop`, and `work` hosts and the `flate`,
-`kubectl-kopiur`, and `wagoapp` packages.
+`x86_64-linux`, with the `gamer`, `laptop`, and `work` hosts.
 
 Inspect all supported outputs:
 
@@ -155,7 +154,7 @@ Build an exported package by name, for example:
 nix build .#flate
 ```
 
-The complete exported package list is `flate`, `kubectl-kopiur`, and `wagoapp`.
+The complete exported package list is found in `./modules/packages/`.
 On configured machines using this repository at `/home/stianrs/nix`, activate
 the checkout with:
 

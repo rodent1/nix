@@ -9,7 +9,7 @@
 ## Entry Points
 
 - `flake.nix` contains inputs and the minimal flake-parts/import-tree bootstrap.
-- The public outputs are `nixosConfigurations.{laptop,gamer,work}`, `packages.x86_64-linux.{flate,kubectl-kopiur,wagoapp}`, and the treefmt check/formatter.
+- The public outputs are `nixosConfigurations.{laptop,gamer,work}`, `packages.x86_64-linux.{flate,waytator`, and the treefmt check/formatter.
 - `modules/flake/hosts.nix` wires embedded Home Manager into every host for user `stianrs`.
 - Host metadata and host-specific NixOS modules live in `modules/hosts/<hostname>.nix`.
 - `work` is the WSL host and merges `internal.nixosModules.wsl`.
@@ -32,7 +32,7 @@
 
 - Inspect current outputs with `nix flake show --all-systems`.
 - For host changes, prefer building the exact target locally: `nix build .#nixosConfigurations.<host>.config.system.build.toplevel`.
-- For exported packages, prefer building the exact package locally: `nix build .#flate`, `nix build .#kubectl-kopiur`, or `nix build .#wagoapp`.
+- For exported packages, prefer building the exact package locally: `nix build .#flate`.
 - CI uses `nix flake check` as a general flake validation step and also builds all exported `nixosConfigurations` and `packages.x86_64-linux` outputs through the cache-building workflow.
 - When updating `modules/packages/nvfetcher.toml` or generated sources, regenerate with the locked nvfetcher and require no diff under `modules/packages/_sources`.
 - Workflow changes are linted with `nix shell --inputs-from . nixpkgs#actionlint --command actionlint .github/workflows/*.yaml`.

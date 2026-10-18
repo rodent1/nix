@@ -14,15 +14,6 @@
       sha256 = "sha256-N+sM2RpnUjQHVDdXQ6phbCY82DZ85ZSr1C7pVeHsAJk=";
     };
   };
-  wagoapp = {
-    pname = "wagoapp";
-    version = "2.14.1";
-    src = fetchurl {
-      url = "https://cdn.wago.io/wagoapp/WagoApp_2.14.1.AppImage";
-      name = "WagoApp_2.14.1.AppImage";
-      sha256 = "sha256-QUXUwFrV3Ysv3QZJJ8QUvP8RRaiR62zw3S0sXRGtGG4=";
-    };
-  };
   waytator = {
     pname = "waytator";
     version = "v1.4.0";
