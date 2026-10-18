@@ -40,7 +40,7 @@
             })
 
             hl.window_rule({
-              match = { class = "org.gnome.Loupe|org.gnome.Calculator|org.gnome.Nautilus|org.gnome.TextEditor|org.gnome.Showtime|dev.faetalize.waytator" },
+              match = { class = "org.gnome.Loupe|org.gnome.Calculator|org.gnome.Nautilus|org.gnome.TextEditor|org.gnome.Showtime|dev.faetalize.waytator|com.github.AppManager" },
               float = true,
             })
 
