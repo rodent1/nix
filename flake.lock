@@ -315,7 +315,8 @@
         "noctalia": "noctalia",
         "noctalia-greeter": "noctalia-greeter",
         "opnix": "opnix",
-        "treefmt-nix": "treefmt-nix"
+        "treefmt-nix": "treefmt-nix",
+        "waytator": "waytator"
       }
     },
     "systems": {
@@ -350,6 +351,26 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "waytator": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792274542,
+        "narHash": "sha256-CqIk7u7g9dBFlPtx8D5LL9vpKK7Irpn/hVIb7Dm7hkI=",
+        "owner": "faetalize",
+        "repo": "waytator",
+        "rev": "447da4d3f73cfbb1e06b40c151a899ac72a164f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "faetalize",
+        "repo": "waytator",
         "type": "github"
       }
     }

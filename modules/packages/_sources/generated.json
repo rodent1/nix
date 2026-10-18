@@ -13,26 +13,5 @@
             "url": "https://github.com/home-operations/flate/releases/download/v0.6.5/flate_0.6.5_linux_amd64.tar.gz"
         },
         "version": "0.6.5"
-    },
-    "waytator": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "waytator",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "faetalize",
-            "repo": "waytator",
-            "rev": "v1.4.0",
-            "sha256": "sha256-OnEUDSxKJCZsN0v2BV/QQ8ceI4BSaY9LH+QucziY1EA=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v1.4.0"
     }
 }

@@ -14,15 +14,4 @@
       sha256 = "sha256-N+sM2RpnUjQHVDdXQ6phbCY82DZ85ZSr1C7pVeHsAJk=";
     };
   };
-  waytator = {
-    pname = "waytator";
-    version = "v1.4.0";
-    src = fetchFromGitHub {
-      owner = "faetalize";
-      repo = "waytator";
-      rev = "v1.4.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-OnEUDSxKJCZsN0v2BV/QQ8ceI4BSaY9LH+QucziY1EA=";
-    };
-  };
 }

@@ -1,9 +1,7 @@
 {
-  internal.packageRecipes.waytator = ./_recipes/waytator.nix;
-
   perSystem =
-    { pkgs, ... }:
+    { inputs', ... }:
     {
-      packages.waytator = pkgs.waytator;
+      packages.waytator = inputs'.waytator.packages.default;
     };
 }
