@@ -20,23 +20,37 @@
 
       config = lib.mkIf cfg.enable {
         home.packages = with pkgs; [
+          flate
           fluxcd
+          unstable.gum
+          unstable.helmfile
+          unstable.just
+          unstable.kubectl
+          krew
           kubecolor
           kubernetes-helm
-          minio-client
+          kustomize
+          minijinja
           stern
+          unstable.talosctl
         ];
 
         programs = {
-          fish.functions = {
-            k = {
-              wraps = "kubecolor";
-              body = "kubecolor $argv";
-            };
+          fish = {
+            shellInit = ''
+              fish_add_path --global --prepend $HOME/.krew/bin
+            '';
 
-            kubectl = {
-              wraps = "kubecolor";
-              body = "kubecolor $argv";
+            functions = {
+              k = {
+                wraps = "kubecolor";
+                body = "kubecolor $argv";
+              };
+
+              kubectl = {
+                wraps = "kubecolor";
+                body = "kubecolor $argv";
+              };
             };
           };
         };
