@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "app-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792269624,
+        "narHash": "sha256-HWthRZOreSthURkKceUju11GBKQCnEA27dnEdHbzacs=",
+        "owner": "kem-a",
+        "repo": "AppManager",
+        "rev": "f5ad9c723006c36bc671e4d1435e5061806cfdc8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kem-a",
+        "repo": "AppManager",
+        "type": "github"
+      }
+    },
     "catppuccin": {
       "inputs": {
         "nixpkgs": [
@@ -283,6 +303,7 @@
     },
     "root": {
       "inputs": {
+        "app-manager": "app-manager",
         "catppuccin": "catppuccin",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
