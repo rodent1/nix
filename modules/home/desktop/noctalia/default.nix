@@ -1,4 +1,3 @@
-{ inputs, ... }:
 {
   internal.homeModules.desktop =
     {
@@ -43,7 +42,6 @@
           nautilus
           loupe
           showtime
-          inputs.waytator.packages.${pkgs.stdenv.hostPlatform.system}.default
         ];
       };
     };

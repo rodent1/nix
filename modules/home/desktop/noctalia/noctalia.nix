@@ -60,12 +60,6 @@
                 action = "screen_off";
               };
             };
-
-            shell.screenshot = {
-              directory = "${config.xdg.userDirs.pictures}/Screenshots";
-              pipe_to_command = true;
-              pipe_command = "waytator \"$NOCTALIA_SCREENSHOT_PATH\"";
-            };
           };
         };
       };
