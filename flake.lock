@@ -361,11 +361,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793138608,
-        "narHash": "sha256-SzKSA8T0II0CvzCKsu8eimD60IxI4NVDkJOh02D7QB0=",
+        "lastModified": 1793235440,
+        "narHash": "sha256-xchdCylt6942+LfECBKB3BfhVI9rOhhfQ1GXUU2e5QI=",
         "owner": "faetalize",
         "repo": "waytator",
-        "rev": "d5953691084ba7ae6ac0f4b67fae3179f193e32f",
+        "rev": "27af857786e472103ce239bd67dd8538d4acae77",
         "type": "github"
       },
       "original": {
