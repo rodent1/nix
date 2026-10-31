@@ -248,11 +248,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1793393673,
-        "narHash": "sha256-z+HlqYVhSokpPiSvMpLbpQWffGs0XJViGwN0D6GMf5M=",
+        "lastModified": 1793421634,
+        "narHash": "sha256-tN1jCM+qRJWcoWVlaRtOQgVd4xZ+dWbHIQ881ImtgOo=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "e35286e02cd0277aa979299a8e96ad3644aaae5b",
+        "rev": "9255475f440782e95109d5865527c64fb8788321",
         "type": "github"
       },
       "original": {
@@ -315,8 +315,7 @@
         "noctalia": "noctalia",
         "noctalia-greeter": "noctalia-greeter",
         "opnix": "opnix",
-        "treefmt-nix": "treefmt-nix",
-        "waytator": "waytator"
+        "treefmt-nix": "treefmt-nix"
       }
     },
     "systems": {
@@ -351,26 +350,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "waytator": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793325030,
-        "narHash": "sha256-napuU8f9cl+tepqPaBDj+Mj0gEqWiDdbUogX1o6qU/g=",
-        "owner": "faetalize",
-        "repo": "waytator",
-        "rev": "e7708382e42b6d255091a2c0810279ab22e5dffb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "faetalize",
-        "repo": "waytator",
         "type": "github"
       }
     }
