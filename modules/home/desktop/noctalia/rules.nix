@@ -46,7 +46,7 @@
 
             hl.window_rule({
               name = "Discord",
-              match = { initial_class = "vesktop" },
+              match = { initial_class = "discord" },
               workspace = "name:Discord silent",
             })
           '';
