@@ -59,6 +59,10 @@
                 },
               },
 
+              gestures = {
+                workspace_swipe_use_r = true,
+              },
+
               dwindle = {
                 preserve_split = true,
               },
