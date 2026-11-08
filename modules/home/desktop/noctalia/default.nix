@@ -21,6 +21,7 @@
         services = {
           cliphist.enable = true;
           gnome-keyring.enable = true;
+          xembed-sni-proxy.enable = true;
         };
 
         home.pointerCursor = {
