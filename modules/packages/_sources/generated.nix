@@ -8,10 +8,10 @@
 {
   flate = {
     pname = "flate";
-    version = "0.6.5";
+    version = "0.7.1";
     src = fetchurl {
-      url = "https://github.com/home-operations/flate/releases/download/v0.6.5/flate_0.6.5_linux_amd64.tar.gz";
-      sha256 = "sha256-N+sM2RpnUjQHVDdXQ6phbCY82DZ85ZSr1C7pVeHsAJk=";
+      url = "https://github.com/home-operations/flate/releases/download/v0.7.1/flate_0.7.1_linux_amd64.tar.gz";
+      sha256 = "sha256-1EkwjXSEpPnG8wkkn6sQIeP/znV7yXDjysVSZ6TKc3I=";
     };
   };
 }
