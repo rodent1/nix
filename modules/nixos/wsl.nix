@@ -1,10 +1,14 @@
 {
-  internal.nixosModules.wsl =
-    { lib, pkgs, ... }:
+  internal.nixosModules.default =
     {
-      config = {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      config = lib.mkIf config.wsl.enable {
         wsl = {
-          enable = true;
           defaultUser = "stianrs";
 
           wslConf = {

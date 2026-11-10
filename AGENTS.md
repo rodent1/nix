@@ -12,14 +12,15 @@
 - The public outputs are `nixosConfigurations.{laptop,gamer,work}`, `packages.x86_64-linux.flate`, and the treefmt check/formatter.
 - `modules/flake/hosts.nix` wires embedded Home Manager into every host for user `stianrs`.
 - Each host lives in one file, `modules/hosts/<hostname>.nix`: its metadata and its host bundle. The host bundle merges into `internal.nixosModules.<hostname>` and sets the host's home configuration through `home-manager.users.stianrs`.
-- `work` is the WSL host and merges `internal.nixosModules.wsl`.
+- `work` is the WSL host: its host bundle sets `wsl.enable`. Every host imports the nixos-wsl module, which stays inert until that option is set.
 
 ## Module Layout
 
 - Every maintained `.nix` file under `modules/` is an automatically imported flake-parts module.
 - Underscore-prefixed path segments are ignored by `import-tree` and hold generated hardware, package recipes/sources, assets, or application configuration.
-- Reusable NixOS behavior merges into `internal.nixosModules.default`; WSL-only and host-only behavior merge into `.wsl` or `.<hostname>`.
+- Reusable NixOS behavior merges into `internal.nixosModules.default`; host-only behavior merges into `.<hostname>`. WSL-only behavior merges into `.default` under `lib.mkIf config.wsl.enable`, which is the only test for a WSL host.
 - Reusable Home Manager behavior merges into `internal.homeModules.default`.
+- A module lives under the tree whose options select it. A NixOS module may set Home Manager configuration through `home-manager.users.stianrs` or by contributing to a Home Manager bundle.
 - Desktop session Home Manager behavior merges into `internal.homeModules.desktop`. `modules/nixos/desktop.nix` imports that bundle only when NixOS `modules.desktop.enable` is set, so its modules carry no desktop guard. A host bundle puts its desktop session lines under one `lib.mkIf config.modules.desktop.enable`.
 - Domain terms (host, bundle, desktop session) are defined in `GLOSSARY.md`; use them in code, comments and docs.
 - The existing lower-level NixOS and Home Manager feature options remain under `modules.*`.
