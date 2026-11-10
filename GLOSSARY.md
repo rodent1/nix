@@ -42,6 +42,10 @@ _Avoid_: host fragment, hostconfig
 **Desktop bundle**:
 The home configuration that belongs to the desktop session, received only by hosts that have one.
 
+**Secret**:
+A value opnix fetches from 1Password during activation, declared by the module that reads it, which reaches its file through `secretPaths`.
+_Avoid_: credential, key file
+
 ## Desktop
 
 **Desktop session**:
