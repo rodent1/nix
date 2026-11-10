@@ -1,17 +1,10 @@
 {
   internal.homeModules.desktop =
+    { pkgs, ... }:
     {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
-    {
-      config = lib.mkIf config.modules.desktop.enable {
-        programs.vesktop = {
-          enable = true;
-          package = pkgs.unstable.vesktop;
-        };
+      programs.vesktop = {
+        enable = true;
+        package = pkgs.unstable.vesktop;
       };
     };
 }

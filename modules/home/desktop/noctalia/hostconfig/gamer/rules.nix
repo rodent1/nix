@@ -1,15 +1,12 @@
 {
   internal.homeModules.gamer =
     {
-      config,
+      osConfig,
       lib,
       ...
     }:
-    let
-      cfg = config.modules.desktop;
-    in
     {
-      config = lib.mkIf cfg.enable {
+      config = lib.mkIf osConfig.modules.desktop.enable {
         wayland.windowManager.hyprland.extraConfig = ''
           -- DP-2 is the top monitor
           hl.workspace_rule({

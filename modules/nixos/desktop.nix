@@ -1,3 +1,7 @@
+{ config, ... }:
+let
+  desktopHome = config.internal.homeModules.desktop;
+in
 {
   internal.nixosModules.default =
     {
@@ -14,9 +18,6 @@
 
       config = lib.mkMerge [
         {
-          # The system desktop selection owns the embedded Home Manager selection.
-          home-manager.users.stianrs.modules.desktop.enable = cfg.enable;
-
           assertions = [
             {
               assertion = cfg.enable -> !(config.wsl.enable or false);
@@ -25,6 +26,10 @@
           ];
         }
         (lib.mkIf cfg.enable {
+          # Hosts without the desktop session never import the desktop bundle,
+          # so its Home Manager modules need no guard of their own.
+          home-manager.users.stianrs.imports = [ desktopHome ];
+
           boot.loader.systemd-boot.enable = true;
           boot.loader.efi.canTouchEfiVariables = true;
           boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;

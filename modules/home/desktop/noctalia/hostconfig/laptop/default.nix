@@ -1,15 +1,12 @@
 {
   internal.homeModules.laptop =
     {
-      config,
+      osConfig,
       lib,
       ...
     }:
-    let
-      cfg = config.modules.desktop;
-    in
     {
-      config = lib.mkIf cfg.enable {
+      config = lib.mkIf osConfig.modules.desktop.enable {
         programs.noctalia.settings.idle.behavior."lock-and-suspend" = {
           enabled = true;
           timeout = 900;

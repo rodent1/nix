@@ -1,15 +1,8 @@
 { inputs, ... }:
 {
   internal.homeModules.desktop =
+    { pkgs, ... }:
     {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
-    {
-      config = lib.mkIf config.modules.desktop.enable {
-        home.packages = [ inputs.app-manager.packages.${pkgs.stdenv.hostPlatform.system}.default ];
-      };
+      home.packages = [ inputs.app-manager.packages.${pkgs.stdenv.hostPlatform.system}.default ];
     };
 }
