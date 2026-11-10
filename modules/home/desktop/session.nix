@@ -7,5 +7,12 @@
         ffmpegthumbnailer
         unstable.waytator
       ];
+
+      wayland.windowManager.hyprland.extraConfig = ''
+        hl.window_rule({
+          match = { class = "dev.faetalize.waytator" },
+          float = true,
+        })
+      '';
     };
 }

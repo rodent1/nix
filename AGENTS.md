@@ -22,7 +22,8 @@
 - Reusable Home Manager behavior merges into `internal.homeModules.default`.
 - A module lives under the tree whose options select it. A NixOS module may set Home Manager configuration through `home-manager.users.stianrs` or by contributing to a Home Manager bundle.
 - Desktop session Home Manager behavior merges into `internal.homeModules.desktop`. `modules/nixos/desktop.nix` imports that bundle only when NixOS `modules.desktop.enable` is set, so its modules carry no desktop guard. A host bundle puts its desktop session lines under one `lib.mkIf config.modules.desktop.enable`.
-- Domain terms (host, bundle, desktop session) are defined in `GLOSSARY.md`; use them in code, comments and docs.
+- A desktop app's module owns its Hyprland autostart (its own `hl.on("hyprland.start", ...)`) and window rules as self-contained `extraConfig` fragments that declare and read no Lua locals. Keybindings stay in `modules/home/desktop/noctalia/keys.nix`, and only `noctalia/hyprland.nix` enables Hyprland.
+- Domain terms (host, bundle, desktop session, desktop app) are defined in `GLOSSARY.md`; use them in code, comments and docs.
 - `modules.*` holds only the options a host bundle selects: NixOS `desktop.enable` and `services.tailscale.enable`, and Home Manager `kubernetes.enable`. Every other module applies unconditionally in its bundle. Declare a new option only when hosts need different values, and test it where its behavior lives rather than mirroring it into Home Manager.
 
 ## Packages

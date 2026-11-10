@@ -32,5 +32,12 @@
         loupe
         showtime
       ];
+
+      wayland.windowManager.hyprland.extraConfig = ''
+        hl.window_rule({
+          match = { class = "org.gnome.Loupe|org.gnome.Calculator|org.gnome.Nautilus|org.gnome.TextEditor|org.gnome.Showtime" },
+          float = true,
+        })
+      '';
     };
 }
