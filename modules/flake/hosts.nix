@@ -39,7 +39,6 @@ let
                 imports = [
                   config.internal.homeModules.default
                   config.internal.homeModules.stianrs
-                  (lib.attrByPath [ hostname ] { } config.internal.homeModules)
                 ];
                 host = {
                   inherit isWSL;

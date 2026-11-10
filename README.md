@@ -24,8 +24,8 @@ by purpose under `modules/`.
 ├── flake.lock            # Locked dependencies
 └── modules/
     ├── flake/            # Internal model, host assembly, nixpkgs, and treefmt
-    ├── home/             # Reusable Home Manager features and host fragments
-    ├── hosts/            # Host metadata, hardware, and host-specific NixOS modules
+    ├── home/             # Reusable Home Manager features and the desktop bundle
+    ├── hosts/            # One file per host: metadata and host bundle, plus hardware
     ├── nixos/            # Shared NixOS features
     ├── overlays/         # Private package-set overlays
     ├── packages/         # Exported packages, recipes, and generated sources
@@ -42,7 +42,8 @@ Modules merge into the private `internal` namespace. `modules/flake/hosts.nix`
 turns that model into the public `nixosConfigurations.{laptop,gamer,work}`
 outputs and embeds Home Manager for `stianrs`. The concrete account and personal
 Home Manager defaults live under `modules/users/stianrs/`. The default bundles apply
-to every host, while host bundles are selected by the output name.
+to every host. Each host's bundle lives in `modules/hosts/<host>.nix` and holds
+both its system configuration and its host-specific home configuration.
 `modules.desktop.enable` on NixOS selects the desktop session and imports the
 desktop bundle only on hosts that select it. Desktop enablement on WSL is
 rejected. [GLOSSARY.md](GLOSSARY.md) defines these terms.

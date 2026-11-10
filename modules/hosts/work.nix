@@ -6,5 +6,7 @@
 
   internal.nixosModules.work = _: {
     imports = [ ./_hardware/work.nix ];
+
+    home-manager.users.stianrs.modules.kubernetes.enable = false;
   };
 }
