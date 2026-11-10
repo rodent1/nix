@@ -36,7 +36,7 @@ The bundle every host receives.
 _Avoid_: base, common
 
 **Host bundle**:
-The bundle that only one host receives, named after that host.
+The bundle that only one host receives, named after that host. It holds the host's system configuration and the host-specific part of its home configuration, in `modules/hosts/<host>.nix`.
 _Avoid_: host fragment, hostconfig
 
 **Desktop bundle**:
