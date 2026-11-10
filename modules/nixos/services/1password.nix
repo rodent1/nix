@@ -64,5 +64,17 @@
       home.sessionVariables.SSH_AUTH_SOCK = "${config.home.homeDirectory}/.1password/agent.sock";
 
       programs.ssh.settings."*".identityAgent = "~/.1password/agent.sock";
+
+      wayland.windowManager.hyprland.extraConfig = ''
+        hl.on("hyprland.start", function()
+          hl.exec_cmd("1password --silent")
+        end)
+
+        hl.window_rule({
+          match = { class = "1password" },
+          float = true,
+          size = { 1080, 920 },
+        })
+      '';
     };
 }

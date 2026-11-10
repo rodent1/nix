@@ -48,6 +48,10 @@ The home configuration that belongs to the desktop session, received only by hos
 The graphical Hyprland and Noctalia environment. A host selects it as a whole and has either all of it or none of it.
 _Avoid_: desktop environment, DE, GUI
 
+**Desktop app**:
+An application in the desktop bundle whose module installs it and owns its desktop session integration: its autostart and window rules. Keybindings stay in the shared keymap.
+_Avoid_: GUI app, program
+
 ## Packages
 
 **Package recipe**:
