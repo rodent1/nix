@@ -7,12 +7,10 @@
       ...
     }:
     let
-      cfg = config.modules.desktop.noctalia;
+      cfg = config.modules.desktop;
     in
     {
-      options.modules.desktop.noctalia.enable = lib.mkEnableOption "Noctalia home configuration";
-
-      config = lib.mkIf (config.modules.desktop.enable && cfg.enable && !config.host.isWSL) {
+      config = lib.mkIf cfg.enable {
         programs.noctalia = {
           enable = true;
           systemd.enable = false;

@@ -43,7 +43,10 @@ turns that model into the public `nixosConfigurations.{laptop,gamer,work}`
 outputs and embeds Home Manager for `stianrs`. The concrete account and personal
 Home Manager defaults live under `modules/users/stianrs/`. Shared NixOS and Home
 Manager modules apply to every host, while host-specific fragments are selected
-by the output name. Desktop Home Manager modules are omitted from the WSL host.
+by the output name. `modules.desktop.enable` on NixOS selects the complete
+Hyprland and Noctalia desktop session, including its embedded Home Manager
+configuration. The Home Manager selection is read-only; hosts do not configure
+it separately. Desktop enablement on WSL is rejected.
 
 The package overlay combines local recipes, stable aliases, and an unstable
 package set. The resulting package set is shared by NixOS, Home Manager, and

@@ -40,8 +40,6 @@
 
         modules = {
           desktop.enable = true;
-          desktop.hyprland = true;
-          desktop.plasma = false;
           services.tailscale.enable = true;
         };
       };

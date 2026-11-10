@@ -6,7 +6,7 @@
       ...
     }:
     let
-      cfg = config.modules.desktop.noctalia;
+      cfg = config.modules.desktop;
     in
     {
       config = lib.mkIf cfg.enable {

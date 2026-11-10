@@ -39,9 +39,9 @@ let
                 imports = [
                   config.internal.homeModules.default
                   config.internal.homeModules.stianrs
+                  config.internal.homeModules.desktop
                   (lib.attrByPath [ hostname ] { } config.internal.homeModules)
-                ]
-                ++ lib.optionals (!isWSL) [ config.internal.homeModules.desktop ];
+                ];
                 host = {
                   inherit isWSL;
                 };

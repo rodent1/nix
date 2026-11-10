@@ -13,12 +13,12 @@
       options.modules.desktop = {
         enable = lib.mkOption {
           type = lib.types.bool;
-          default = false;
-          description = "Enable desktop home-manager modules";
+          readOnly = true;
+          description = "Desktop session selection supplied by the NixOS desktop module";
         };
       };
 
-      config = lib.mkIf (cfg.enable && !config.host.isWSL) {
+      config = lib.mkIf cfg.enable {
         home.file.".face".source = ./_assets/profile.jpg;
         home.packages = with pkgs; [
           ffmpegthumbnailer
