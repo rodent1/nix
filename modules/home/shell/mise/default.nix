@@ -1,21 +1,11 @@
 {
   internal.homeModules.default =
     {
-      lib,
-      config,
       pkgs,
       ...
     }:
-    let
-      cfg = config.modules.shell.mise;
-    in
     {
-      options.modules.shell.mise = {
-        enable = lib.mkEnableOption "mise";
-      };
-
-      config = lib.mkIf cfg.enable {
-
+      config = {
         programs = {
           mise = {
             enable = true;

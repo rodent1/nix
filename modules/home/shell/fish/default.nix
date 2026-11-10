@@ -2,27 +2,12 @@
   internal.homeModules.default =
     {
       pkgs,
-      lib,
-      config,
       ...
     }:
-    let
-      cfg = config.modules.shell.fish;
-    in
     {
-      options.modules.shell.fish = {
-        enable = lib.mkEnableOption "fish";
-        package = lib.mkOption {
-          type = lib.types.package;
-          default = pkgs.fish;
-          description = "The fish shell package to use.";
-        };
-      };
-
-      config = lib.mkIf cfg.enable {
+      config = {
         programs.fish = {
           enable = true;
-          inherit (cfg) package;
 
           plugins = [
             {

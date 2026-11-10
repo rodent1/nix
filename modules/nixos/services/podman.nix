@@ -1,22 +1,11 @@
 {
   internal.nixosModules.default =
     {
-      lib,
-      config,
       pkgs,
       ...
     }:
-    let
-      cfg = config.modules.services.podman;
-    in
     {
-      options.modules.services.podman = {
-        enable = lib.mkEnableOption "podman" // {
-          default = true;
-        };
-      };
-
-      config = lib.mkIf cfg.enable {
+      config = {
         virtualisation = {
           podman = {
             enable = true;

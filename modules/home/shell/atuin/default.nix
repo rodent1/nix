@@ -2,19 +2,11 @@
   internal.homeModules.default =
     {
       config,
-      lib,
       pkgs,
       ...
     }:
-    let
-      cfg = config.modules.shell.atuin;
-    in
     {
-      options.modules.shell.atuin = {
-        enable = lib.mkEnableOption "atuin";
-      };
-
-      config = lib.mkIf cfg.enable {
+      config = {
         programs.atuin = {
           enable = true;
           package = pkgs.unstable.atuin;

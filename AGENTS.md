@@ -23,7 +23,7 @@
 - A module lives under the tree whose options select it. A NixOS module may set Home Manager configuration through `home-manager.users.stianrs` or by contributing to a Home Manager bundle.
 - Desktop session Home Manager behavior merges into `internal.homeModules.desktop`. `modules/nixos/desktop.nix` imports that bundle only when NixOS `modules.desktop.enable` is set, so its modules carry no desktop guard. A host bundle puts its desktop session lines under one `lib.mkIf config.modules.desktop.enable`.
 - Domain terms (host, bundle, desktop session) are defined in `GLOSSARY.md`; use them in code, comments and docs.
-- The existing lower-level NixOS and Home Manager feature options remain under `modules.*`.
+- `modules.*` holds only the options a host bundle selects: NixOS `desktop.enable` and `services.tailscale.enable`, and Home Manager `kubernetes.enable`. Every other module applies unconditionally in its bundle. Declare a new option only when hosts need different values, and test it where its behavior lives rather than mirroring it into Home Manager.
 
 ## Packages
 

@@ -63,6 +63,6 @@
 
       home.sessionVariables.SSH_AUTH_SOCK = "${config.home.homeDirectory}/.1password/agent.sock";
 
-      modules.security.ssh.settings."*".identityAgent = "~/.1password/agent.sock";
+      programs.ssh.settings."*".identityAgent = "~/.1password/agent.sock";
     };
 }

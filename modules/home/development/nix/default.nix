@@ -1,24 +1,11 @@
 {
   internal.homeModules.default =
     {
-      config,
-      lib,
       pkgs,
       ...
     }:
-    let
-      cfg = config.modules.development.nix;
-    in
     {
-      options.modules.development.nix = {
-        enable = lib.mkOption {
-          type = lib.types.bool;
-          default = true;
-          description = "Enable Nix development tools and utilities.";
-        };
-      };
-
-      config = lib.mkIf cfg.enable {
+      config = {
         home.packages = with pkgs; [
           deadnix
           nix-init

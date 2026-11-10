@@ -1,26 +1,10 @@
 {
   internal.homeModules.default =
     {
-      config,
-      lib,
       ...
     }:
-    let
-      cfg = config.modules.shell.git;
-    in
     {
-      options.modules.shell.git = {
-        enable = lib.mkEnableOption "git";
-        name = lib.mkOption { type = lib.types.str; };
-        email = lib.mkOption { type = lib.types.str; };
-        signingKey = lib.mkOption { type = lib.types.str; };
-        gh = lib.mkOption {
-          type = lib.types.bool;
-          default = true;
-        };
-      };
-
-      config = lib.mkIf cfg.enable {
+      config = {
         programs = {
           gpg.enable = true;
 
@@ -30,7 +14,6 @@
             signing = {
               signByDefault = true;
               format = "ssh";
-              key = cfg.signingKey;
             };
 
             ignores = [
@@ -86,17 +69,11 @@
               rebase = {
                 autoStash = true;
               };
-
-              user = {
-                inherit (cfg) name email;
-              };
             };
 
           };
 
-          gh = lib.mkIf cfg.gh {
-            enable = true;
-          };
+          gh.enable = true;
         };
       };
     };
