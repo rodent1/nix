@@ -20,7 +20,7 @@ in
         {
           assertions = [
             {
-              assertion = cfg.enable -> !(config.wsl.enable or false);
+              assertion = cfg.enable -> !config.wsl.enable;
               message = "modules.desktop.enable is not supported on WSL hosts.";
             }
           ];

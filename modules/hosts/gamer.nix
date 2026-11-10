@@ -1,7 +1,6 @@
 {
   internal.hosts.gamer = {
     system = "x86_64-linux";
-    isWSL = false;
   };
 
   internal.nixosModules.gamer =

@@ -15,7 +15,7 @@ let
 
   mkHost =
     hostname:
-    { system, isWSL }:
+    { system }:
     withSystem system (
       { pkgs, ... }:
       inputs.nixpkgs.lib.nixosSystem {
@@ -28,6 +28,8 @@ let
           inputs.catppuccin.nixosModules.catppuccin
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-index-database.nixosModules.nix-index
+          # Inert until a host sets wsl.enable; imported everywhere so the option always exists.
+          inputs.nixos-wsl.nixosModules.default
           inputs.noctalia.nixosModules.default
           inputs.noctalia-greeter.nixosModules.default
           {
@@ -40,18 +42,11 @@ let
                   config.internal.homeModules.default
                   config.internal.homeModules.stianrs
                 ];
-                host = {
-                  inherit isWSL;
-                };
               };
             };
           }
           config.internal.nixosModules.default
           config.internal.nixosModules.${hostname}
-        ]
-        ++ lib.optionals isWSL [
-          inputs.nixos-wsl.nixosModules.default
-          config.internal.nixosModules.wsl
         ];
       }
     );

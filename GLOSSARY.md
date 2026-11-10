@@ -14,7 +14,7 @@ A host installed directly on its own hardware.
 _Avoid_: bare-metal host, native host
 
 **WSL host**:
-A host that runs inside Windows Subsystem for Linux. It never has a desktop session.
+A host that runs inside Windows Subsystem for Linux, selected by setting `wsl.enable` in its host bundle. It never has a desktop session.
 _Avoid_: work machine
 
 ## Configuration
