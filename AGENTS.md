@@ -49,5 +49,5 @@
 
 ## Generated And Secrets
 
-- Secrets are handled with `opnix`.
+- Secrets are handled with `opnix`. `modules/home/security/opnix/` only enables it and names the token; each secret is declared in `programs.onepassword-secrets.secrets` by the module that reads it, which reaches the file through `programs.onepassword-secrets.secretPaths.<name>` rather than restating the path.
 - To refresh nvfetcher-managed sources, run from `modules/packages/`: `nix-shell -p nvfetcher --command 'nvfetcher -l /tmp/nvfetcher-changes --keep-old'`.

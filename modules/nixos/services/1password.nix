@@ -34,7 +34,7 @@
 
               programs.fish.functions.op = {
                 body = ''
-                  env OP_SERVICE_ACCOUNT_TOKEN="$(cat ${config.xdg.configHome}/1Password/op-service-account-token)" ${pkgs._1password-cli}/bin/op $argv
+                  env OP_SERVICE_ACCOUNT_TOKEN="$(cat ${config.programs.onepassword-secrets.secretPaths.onepassToken})" ${pkgs._1password-cli}/bin/op $argv
                 '';
               };
 
