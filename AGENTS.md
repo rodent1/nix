@@ -20,6 +20,7 @@
 - Underscore-prefixed path segments are ignored by `import-tree` and hold generated hardware, package recipes/sources, assets, or application configuration.
 - Reusable NixOS behavior merges into `internal.nixosModules.default`; host-only behavior merges into `.<hostname>`. WSL-only behavior merges into `.default` under `lib.mkIf config.wsl.enable`, which is the only test for a WSL host.
 - Reusable Home Manager behavior merges into `internal.homeModules.default`.
+- A module lives under the tree whose options select it. A NixOS module may set Home Manager configuration through `home-manager.users.stianrs` or by contributing to a Home Manager bundle.
 - Desktop session Home Manager behavior merges into `internal.homeModules.desktop`. `modules/nixos/desktop.nix` imports that bundle only when NixOS `modules.desktop.enable` is set, so its modules carry no desktop guard. A host bundle puts its desktop session lines under one `lib.mkIf config.modules.desktop.enable`.
 - Domain terms (host, bundle, desktop session) are defined in `GLOSSARY.md`; use them in code, comments and docs.
 - The existing lower-level NixOS and Home Manager feature options remain under `modules.*`.
