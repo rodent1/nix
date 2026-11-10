@@ -22,7 +22,7 @@
               hl.exec_cmd("noctalia")
 
               hl.exec_cmd("1password --silent")
-              hl.exec_cmd("discord")
+              hl.exec_cmd("vesktop")
             end)
 
             hl.config({

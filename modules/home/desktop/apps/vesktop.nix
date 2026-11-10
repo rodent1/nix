@@ -8,9 +8,9 @@
     }:
     {
       config = lib.mkIf config.modules.desktop.enable {
-        programs.discord = {
+        programs.vesktop = {
           enable = true;
-          package = pkgs.unstable.discord;
+          package = pkgs.unstable.vesktop;
         };
       };
     };
