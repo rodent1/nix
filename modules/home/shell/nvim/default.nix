@@ -2,20 +2,11 @@
   internal.homeModules.default =
     {
       config,
-      lib,
       pkgs,
       ...
     }:
-    let
-      cfg = config.modules.shell.nvim;
-    in
     {
-      options.modules.shell.nvim = {
-        enable = lib.mkEnableOption "nvim";
-      };
-
-      config = lib.mkIf cfg.enable {
-
+      config = {
         programs.neovim = {
           enable = true;
           package = pkgs.neovim-unwrapped;

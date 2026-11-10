@@ -2,15 +2,10 @@
   internal.homeModules.default =
     {
       pkgs,
-      lib,
-      config,
       ...
     }:
-    let
-      cfg = config.modules.development;
-    in
     {
-      config = lib.mkIf cfg.enable {
+      config = {
         home.packages = with pkgs; [
           act
           bubblewrap

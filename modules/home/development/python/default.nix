@@ -1,24 +1,11 @@
 {
   internal.homeModules.default =
     {
-      config,
-      lib,
       pkgs,
       ...
     }:
-    let
-      cfg = config.modules.development.python;
-    in
     {
-      options.modules.development.python = {
-        enable = lib.mkOption {
-          type = lib.types.bool;
-          default = true;
-          description = "Enable Python development environment.";
-        };
-      };
-
-      config = lib.mkIf cfg.enable {
+      config = {
         home.packages = with pkgs; [
           python3
           ruff

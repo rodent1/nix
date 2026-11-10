@@ -1,20 +1,11 @@
 {
   internal.homeModules.default =
     {
-      config,
-      lib,
       pkgs,
       ...
     }:
-    let
-      cfg = config.modules.shell.tmux;
-    in
     {
-      options.modules.shell.tmux = {
-        enable = lib.mkEnableOption "tmux";
-      };
-
-      config = lib.mkIf cfg.enable {
+      config = {
         programs.tmux = {
           enable = true;
           prefix = "C-s";
