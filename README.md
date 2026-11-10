@@ -41,12 +41,11 @@ must be imported explicitly.
 Modules merge into the private `internal` namespace. `modules/flake/hosts.nix`
 turns that model into the public `nixosConfigurations.{laptop,gamer,work}`
 outputs and embeds Home Manager for `stianrs`. The concrete account and personal
-Home Manager defaults live under `modules/users/stianrs/`. Shared NixOS and Home
-Manager modules apply to every host, while host-specific fragments are selected
-by the output name. `modules.desktop.enable` on NixOS selects the complete
-Hyprland and Noctalia desktop session, including its embedded Home Manager
-configuration. The Home Manager selection is read-only; hosts do not configure
-it separately. Desktop enablement on WSL is rejected.
+Home Manager defaults live under `modules/users/stianrs/`. The default bundles apply
+to every host, while host bundles are selected by the output name.
+`modules.desktop.enable` on NixOS selects the desktop session and imports the
+desktop bundle only on hosts that select it. Desktop enablement on WSL is
+rejected. [GLOSSARY.md](GLOSSARY.md) defines these terms.
 
 The package overlay combines local recipes, stable aliases, and an unstable
 package set. The resulting package set is shared by NixOS, Home Manager, and

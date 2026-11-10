@@ -13,7 +13,6 @@ let
       system.programs.hyprland.withUWSM
       system.programs.noctalia.enable
       system.services.displayManager.noctalia-greeter.enable
-      home.modules.desktop.enable
       home.wayland.windowManager.hyprland.enable
       home.programs.noctalia.enable
       home.services.xembed-sni-proxy.enable
@@ -26,11 +25,6 @@ let
   desktopWork = hosts.work.extendModules {
     modules = [ { modules.desktop.enable = true; } ];
   };
-  mismatchedHome = hosts.gamer.extendModules {
-    modules = [
-      { home-manager.users.stianrs.modules.desktop.enable = lib.mkForce false; }
-    ];
-  };
 in
 {
   perSystem = { pkgs, ... }: {
@@ -41,9 +35,6 @@ in
         "work unexpectedly enables a desktop session";
       assert lib.assertMsg (sessionMatches false headlessGamer)
         "disabling the desktop leaves session configuration enabled";
-      assert lib.assertMsg (
-        !(builtins.tryEval mismatchedHome.config.home-manager.users.stianrs.modules.desktop.enable).success
-      ) "Home Manager must not override the system desktop selection";
       assert lib.assertMsg (builtins.any (
         entry: !entry.assertion && entry.message == "modules.desktop.enable is not supported on WSL hosts."
       ) desktopWork.config.assertions) "desktop enablement on WSL must be rejected";

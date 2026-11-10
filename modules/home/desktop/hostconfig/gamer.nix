@@ -1,16 +1,13 @@
 {
   internal.homeModules.gamer =
     {
-      config,
+      osConfig,
       lib,
       pkgs,
       ...
     }:
-    let
-      cfg = config.modules.desktop;
-    in
     {
-      config = lib.mkIf cfg.enable {
+      config = lib.mkIf osConfig.modules.desktop.enable {
 
         home.packages = with pkgs; [
           nvtopPackages.nvidia
