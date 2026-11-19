@@ -16,13 +16,13 @@
 
           hl.config({
             general = {
-              gaps_in = 5,
-              gaps_out = 10,
+              gaps_in = 2,
+              gaps_out = 5,
             },
 
             decoration = {
-              rounding = 20,
-              rounding_power = 2,
+              rounding = 8,
+              rounding_power = 4,
 
               shadow = {
                 enabled = true,
