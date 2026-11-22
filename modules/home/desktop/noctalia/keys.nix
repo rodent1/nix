@@ -9,8 +9,8 @@
       -- Application launchers
       hl.bind(mainMod .. "+Space", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
       hl.bind(mainMod .. "+Return", hl.dsp.exec_cmd("ghostty"))
-      hl.bind(mainMod .. "+B", hl.dsp.exec_cmd("google-chrome"))
-      hl.bind(mainMod .. "+CTRL + B", hl.dsp.exec_cmd("google-chrome --incognito"))
+      hl.bind(mainMod .. "+B", hl.dsp.exec_cmd("firefox"))
+      hl.bind(mainMod .. "+CTRL + B", hl.dsp.exec_cmd("firefox --private-window"))
       hl.bind(mainMod .. "+E", hl.dsp.exec_cmd("nautilus"))
       hl.bind(mainMod .. "+SHIFT + S", hl.dsp.exec_cmd("waytator --screenshot"))
 
