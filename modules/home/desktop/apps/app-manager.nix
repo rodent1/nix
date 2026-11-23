@@ -11,5 +11,12 @@
           float = true,
         })
       '';
+
+      programs.umbriel.settings.window_rule = [
+        {
+          match.app_id = "^com\\.github\\.AppManager$";
+          default_floating = true;
+        }
+      ];
     };
 }

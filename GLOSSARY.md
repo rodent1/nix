@@ -49,7 +49,7 @@ _Avoid_: credential, key file
 ## Desktop
 
 **Desktop session**:
-The graphical Hyprland and Noctalia environment. A host selects it as a whole and has either all of it or none of it.
+The graphical Noctalia environment, which the greeter offers on either of two compositors, Hyprland or Umbriel. A host selects it as a whole and has either all of it, on both compositors, or none of it.
 _Avoid_: desktop environment, DE, GUI
 
 **Desktop app**:

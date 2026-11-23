@@ -12,9 +12,11 @@ let
       system.programs.hyprland.enable
       system.programs.hyprland.withUWSM
       system.programs.noctalia.enable
+      system.programs.umbriel.enable
       system.services.displayManager.noctalia-greeter.enable
       home.wayland.windowManager.hyprland.enable
       home.programs.noctalia.enable
+      home.programs.umbriel.enable
       home.services.xembed-sni-proxy.enable
       (home.xdg.configFile ? "uwsm/env")
     ];
@@ -38,6 +40,20 @@ in
       assert lib.assertMsg (builtins.any (
         entry: !entry.assertion && entry.message == "modules.desktop.enable is not supported on WSL hosts."
       ) desktopWork.config.assertions) "desktop enablement on WSL must be rejected";
-      pkgs.runCommand "desktop-configuration-check" { } "touch $out";
+      # Umbriel only reports configuration errors at runtime, so validate the
+      # generated file for every desktop host here.
+      pkgs.runCommand "desktop-configuration-check" { } ''
+        ${lib.concatMapStrings
+          (host: ''
+            ${lib.getExe' host.config.programs.umbriel.package "umbriel"} config validate \
+              -c ${host.config.home-manager.users.stianrs.xdg.configFile."umbriel/config.toml".source}
+          '')
+          [
+            hosts.gamer
+            hosts.laptop
+          ]
+        }
+        touch $out
+      '';
   };
 }

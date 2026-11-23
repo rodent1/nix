@@ -80,6 +80,16 @@
                 persistent = true,
               })
             '';
+
+            programs.umbriel.settings = {
+              # Horizontal workspaces keep the three-finger swipe sideways.
+              output.eDP-1 = {
+                scale = 1.5;
+                workspace_axis = "horizontal";
+              };
+
+              workspace = [ { name = "Discord"; } ];
+            };
           };
         })
       ];

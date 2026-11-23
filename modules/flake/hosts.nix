@@ -12,6 +12,7 @@ let
     inputs.noctalia.homeModules.default
     inputs.opnix.homeManagerModules.default
     inputs.rex.homeManagerModules.default
+    inputs.umbriel.homeModules.default
   ];
 
   mkHost =
@@ -33,6 +34,7 @@ let
           inputs.nixos-wsl.nixosModules.default
           inputs.noctalia.nixosModules.default
           inputs.noctalia-greeter.nixosModules.default
+          inputs.umbriel.nixosModules.default
           {
             home-manager = {
               sharedModules = sharedHomeModules;

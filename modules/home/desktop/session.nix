@@ -14,5 +14,12 @@
           float = true,
         })
       '';
+
+      programs.umbriel.settings.window_rule = [
+        {
+          match.app_id = "^dev\\.faetalize\\.waytator$";
+          default_floating = true;
+        }
+      ];
     };
 }

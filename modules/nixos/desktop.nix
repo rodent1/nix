@@ -14,7 +14,7 @@ in
       cfg = config.modules.desktop;
     in
     {
-      options.modules.desktop.enable = lib.mkEnableOption "the Hyprland and Noctalia desktop session";
+      options.modules.desktop.enable = lib.mkEnableOption "the Noctalia desktop session on Hyprland or Umbriel";
 
       config = lib.mkMerge [
         {
@@ -55,6 +55,9 @@ in
               portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
               withUWSM = true;
             };
+
+            # Offered beside Hyprland in the greeter's session list.
+            umbriel.enable = true;
 
             noctalia = {
               enable = true;

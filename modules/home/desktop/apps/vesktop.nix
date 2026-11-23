@@ -19,5 +19,17 @@
           workspace = "name:Discord silent",
         })
       '';
+
+      programs.umbriel.settings = {
+        general.autostart = [ "vesktop" ];
+
+        window_rule = [
+          {
+            match.app_id = "^vesktop$";
+            default_workspace = "Discord";
+            default_focused = false;
+          }
+        ];
+      };
     };
 }

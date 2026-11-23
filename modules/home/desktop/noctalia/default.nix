@@ -39,5 +39,12 @@
           float = true,
         })
       '';
+
+      programs.umbriel.settings.window_rule = [
+        {
+          match.app_id = "^org\\.gnome\\.(Loupe|Calculator|Nautilus|TextEditor|Showtime)$";
+          default_floating = true;
+        }
+      ];
     };
 }
