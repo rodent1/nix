@@ -28,21 +28,13 @@
         file-roller
         gnome-calculator
         gnome-text-editor
-        nautilus
         loupe
         showtime
       ];
 
-      wayland.windowManager.hyprland.extraConfig = ''
-        hl.window_rule({
-          match = { class = "org.gnome.Loupe|org.gnome.Calculator|org.gnome.Nautilus|org.gnome.TextEditor|org.gnome.Showtime" },
-          float = true,
-        })
-      '';
-
       programs.umbriel.settings.window_rule = [
         {
-          match.app_id = "^org\\.gnome\\.(Loupe|Calculator|Nautilus|TextEditor|Showtime)$";
+          match.app_id = "^org\\.gnome\\.(Loupe|Calculator|TextEditor|Showtime)$";
           default_floating = true;
         }
       ];

@@ -9,16 +9,12 @@ let
       home = system.home-manager.users.stianrs;
     in
     builtins.all (value: value == enabled) [
-      system.programs.hyprland.enable
-      system.programs.hyprland.withUWSM
       system.programs.noctalia.enable
       system.programs.umbriel.enable
       system.services.displayManager.noctalia-greeter.enable
-      home.wayland.windowManager.hyprland.enable
       home.programs.noctalia.enable
       home.programs.umbriel.enable
       home.services.xembed-sni-proxy.enable
-      (home.xdg.configFile ? "uwsm/env")
     ];
 
   headlessGamer = hosts.gamer.extendModules {

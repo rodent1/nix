@@ -2,8 +2,6 @@
   internal.homeModules.desktop =
     { config, osConfig, ... }:
     {
-      # Mirrors the Hyprland look and feel in hyprland.nix as closely as
-      # Umbriel's settings allow.
       programs.umbriel = {
         enable = true;
 

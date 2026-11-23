@@ -8,6 +8,7 @@
 let
   sharedHomeModules = [
     inputs.catppuccin.homeModules.catppuccin
+    inputs.luciole.homeModules.default
     inputs.nix-index-database.homeModules.nix-index
     inputs.noctalia.homeModules.default
     inputs.opnix.homeManagerModules.default

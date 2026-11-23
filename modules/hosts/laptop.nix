@@ -69,18 +69,6 @@
               };
             };
 
-            # Monitor layout and host rules come before the shared session config.
-            wayland.windowManager.hyprland.extraConfig = lib.mkBefore ''
-              hl.monitor({ output = "eDP-1", cm = "auto", scale = 1.5 })
-              -- Avoid fullscreen HDR mode switches that cause flashing and incorrect colors.
-              hl.config({ render = { cm_auto_hdr = 0 } })
-
-              hl.workspace_rule({
-                workspace = "name:Discord",
-                persistent = true,
-              })
-            '';
-
             programs.umbriel.settings = {
               # Horizontal workspaces keep the three-finger swipe sideways.
               output.eDP-1 = {
