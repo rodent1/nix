@@ -15,8 +15,6 @@
 
       config = lib.mkMerge [
         {
-          boot.kernelPackages = lib.mkForce pkgs.unstable.linuxPackages_latest;
-
           hardware = {
             graphics = {
               enable = true;
@@ -25,7 +23,7 @@
 
             nvidia = {
               open = true;
-              branch = "stable";
+              branch = "latest";
 
               modesetting.enable = true;
               powerManagement.enable = true;
