@@ -36,8 +36,17 @@ in
 
           networking.networkmanager.enable = true;
 
-          # Noctalia Greeter discovers NixOS sessions through the system profile.
-          environment.systemPackages = config.services.displayManager.sessionPackages;
+          environment.systemPackages =
+            # Noctalia Greeter discovers NixOS sessions through the system profile.
+            config.services.displayManager.sessionPackages
+            # Enchant finds these through XDG_DATA_DIRS; Firefox only through DICPATH.
+            ++ (with pkgs.hunspellDicts; [
+              en_GB-ise
+              nb_NO
+            ]);
+
+          # Set through PAM so apps launched by the compositor inherit it, not just shells.
+          environment.sessionVariables.DICPATH = "/run/current-system/sw/share/hunspell";
 
           programs = {
             hyprland = {
