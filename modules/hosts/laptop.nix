@@ -28,11 +28,6 @@
             LIBVA_DRIVER_NAME = "iHD";
           };
 
-          environment.systemPackages = with pkgs; [
-            brightnessctl
-            playerctl
-          ];
-
           programs.appimage = {
             enable = true;
             binfmt = true;
@@ -51,8 +46,6 @@
 
         (lib.mkIf config.modules.desktop.enable {
           home-manager.users.stianrs = {
-            home.packages = [ pkgs.ddcutil ];
-
             programs.noctalia.settings = {
               idle.behavior."lock-and-suspend" = {
                 enabled = true;
@@ -61,7 +54,7 @@
               };
 
               brightness = {
-                minimum_brightness = 0.01;
+                minimum_brightness = 0.003;
                 monitor.eDP-1 = {
                   backend = "backlight";
                   backlight_device = "intel_backlight";

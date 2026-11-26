@@ -58,15 +58,20 @@
               "Mod+S" = "spawn ${ipc}panel-toggle control-center";
               "Mod+Comma" = "spawn ${ipc}settings-toggle";
               "Alt+Tab" = "spawn ${ipc}window-switcher";
-
-              # Media keys
-              "XF86AudioRaiseVolume" = "spawn ${ipc}volume-up";
-              "XF86AudioLowerVolume" = "spawn ${ipc}volume-down";
-              "XF86AudioMute" = "spawn ${ipc}volume-mute";
-              "XF86MonBrightnessUp" = "spawn ${ipc}brightness-up";
-              "XF86MonBrightnessDown" = "spawn ${ipc}brightness-down";
             }
             // workspaceBinds
-          );
+          )
+        # Media keys stay available on the lock screen, and volume and
+        # brightness keep stepping while held.
+        // lib.mapAttrs (_: bind: bind // { allow_when_locked = true; }) {
+          "XF86AudioRaiseVolume".action = "spawn ${ipc}volume-up";
+          "XF86AudioLowerVolume".action = "spawn ${ipc}volume-down";
+          "XF86AudioMute" = {
+            action = "spawn ${ipc}volume-mute";
+            repeat = false;
+          };
+          "XF86MonBrightnessUp".action = "spawn ${ipc}brightness-up";
+          "XF86MonBrightnessDown".action = "spawn ${ipc}brightness-down";
+        };
     };
 }
