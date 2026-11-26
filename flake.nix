@@ -45,6 +45,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Prebuilt Rex releases; no stable channel is published yet.
+    rex = {
+      url = "https://pkgs.superlogical.com/rex/nix/preview.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
   };

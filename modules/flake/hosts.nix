@@ -11,6 +11,7 @@ let
     inputs.nix-index-database.homeModules.nix-index
     inputs.noctalia.homeModules.default
     inputs.opnix.homeManagerModules.default
+    inputs.rex.homeManagerModules.default
   ];
 
   mkHost =
