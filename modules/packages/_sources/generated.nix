@@ -14,4 +14,12 @@
       sha256 = "sha256-dpQPtv8GDgmkDhqDX8nFzSThj90p5OeTgoUoIeCsAcI=";
     };
   };
+  moonfin = {
+    pname = "moonfin";
+    version = "3.1.1";
+    src = fetchurl {
+      url = "https://github.com/Moonfin-Client/Moonfin-Core/releases/download/3.1.1/Moonfin_Linux_v3.1.1_system-libs.tar.gz";
+      sha256 = "sha256-tuaqj8rPFw4oqdt7faPvkge/mpXAFRukk2PrrglYcyY=";
+    };
+  };
 }

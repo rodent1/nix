@@ -2,3 +2,7 @@
 fetch.url = "https://github.com/home-operations/flate/releases/download/v$ver/flate_$ver_linux_amd64.tar.gz"
 src.github_tag = "home-operations/flate"
 src.prefix = "v"
+
+[moonfin]
+fetch.url = "https://github.com/Moonfin-Client/Moonfin-Core/releases/download/$ver/Moonfin_Linux_v$ver_system-libs.tar.gz"
+src.github = "Moonfin-Client/Moonfin-Core"

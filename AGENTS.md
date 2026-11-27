@@ -9,7 +9,7 @@
 ## Entry Points
 
 - `flake.nix` contains inputs and the minimal flake-parts/import-tree bootstrap.
-- The public outputs are `nixosConfigurations.{laptop,gamer,work}`, `packages.x86_64-linux.flate`, and the treefmt check/formatter.
+- The public outputs are `nixosConfigurations.{laptop,gamer,work}`, `packages.x86_64-linux.{flate,moonfin}`, and the treefmt check/formatter.
 - `modules/flake/hosts.nix` wires embedded Home Manager into every host for user `stianrs`.
 - Each host lives in one file, `modules/hosts/<hostname>.nix`: its metadata and its host bundle. The host bundle merges into `internal.nixosModules.<hostname>` and sets the host's home configuration through `home-manager.users.stianrs`.
 - `work` is the WSL host: its host bundle sets `wsl.enable`. Every host imports the nixos-wsl module, which stays inert until that option is set.
