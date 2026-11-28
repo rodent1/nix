@@ -53,6 +53,13 @@
 
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+    # The cachix branch matches umbriel.cachix.org, so it keeps its own nixpkgs.
+    umbriel.url = "github:noctalia-dev/umbriel/cachix";
+
+    luciole = {
+      url = "github:noctalia-dev/luciole";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =

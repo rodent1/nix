@@ -14,7 +14,7 @@ in
       cfg = config.modules.desktop;
     in
     {
-      options.modules.desktop.enable = lib.mkEnableOption "the Hyprland and Noctalia desktop session";
+      options.modules.desktop.enable = lib.mkEnableOption "the Umbriel and Noctalia desktop session";
 
       config = lib.mkMerge [
         {
@@ -49,12 +49,7 @@ in
           environment.sessionVariables.DICPATH = "/run/current-system/sw/share/hunspell";
 
           programs = {
-            hyprland = {
-              enable = true;
-              package = pkgs.unstable.hyprland;
-              portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
-              withUWSM = true;
-            };
+            umbriel.enable = true;
 
             noctalia = {
               enable = true;
@@ -108,7 +103,7 @@ in
               noctalia-greeter = {
                 enable = true;
                 settings = {
-                  session.default = "Hyprland (uwsm-managed)";
+                  session.default = "Umbriel";
                   user.default = "stianrs";
 
                   cursor = {

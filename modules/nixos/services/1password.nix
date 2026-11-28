@@ -65,16 +65,19 @@
 
       programs.ssh.settings."*".identityAgent = "~/.1password/agent.sock";
 
-      wayland.windowManager.hyprland.extraConfig = ''
-        hl.on("hyprland.start", function()
-          hl.exec_cmd("1password --silent")
-        end)
+      programs.umbriel.settings = {
+        general.autostart = [ "1password --silent" ];
 
-        hl.window_rule({
-          match = { class = "1password" },
-          float = true,
-          size = { 1080, 920 },
-        })
-      '';
+        window_rule = [
+          {
+            match.app_id = "^1[Pp]assword$";
+            default_floating = true;
+            default_floating_size_px = {
+              width = 1080;
+              height = 920;
+            };
+          }
+        ];
+      };
     };
 }

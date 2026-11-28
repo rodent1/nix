@@ -75,43 +75,61 @@
               bar.default.monitor.DP-3.enabled = false;
             };
 
-            # Monitor layout and host rules come before the shared session config.
-            wayland.windowManager.hyprland.extraConfig = lib.mkBefore ''
-              hl.monitor({ output = "DP-1", cm = "auto", mode = "highrr", position = "0x1440", scale = 1, vrr = 3})
-              hl.monitor({ output = "DP-2", cm = "auto", mode = "highrr", position = "0x0", scale = 1 })
-              hl.monitor({ output = "DP-3", cm = "auto", mode = "highrr", position = "2560x1189", scale = 1, transform = 3 })
-              hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
-              -- Avoid fullscreen HDR mode switches that cause flashing and incorrect colors.
-              hl.config({ render = { cm_auto_hdr = 0 } })
+            # Workspaces are per output. HDR stays off, its default.
+            programs.umbriel.settings = {
+              output = {
+                DP-1 = {
+                  mode = "2560x1440@165";
+                  position = [
+                    0
+                    1440
+                  ];
+                  vrr = "fullscreen";
+                  focus_at_startup = true;
+                };
+                DP-2 = {
+                  mode = "2560x1440@144";
+                  position = [
+                    0
+                    0
+                  ];
+                };
+                # DP-3 is a dedicated Discord display with a single workspace.
+                DP-3 = {
+                  mode = "1920x1080@144";
+                  position = [
+                    2560
+                    1189
+                  ];
+                  transform = "270";
+                  workspaces = [ "Discord" ];
+                };
+              };
 
-              -- DP-2 is the top monitor
-              hl.workspace_rule({
-                workspace = "name:Top",
-                monitor = "DP-2",
-                default = true,
-                persistent = true,
-              })
+              workspace = [
+                {
+                  name = "Discord";
+                  output = "DP-3";
+                  layout.gap = 0;
+                }
+              ];
 
-              -- DP-3 is a dedicated, undecorated Discord display.
-              hl.workspace_rule({
-                workspace = "name:Discord",
-                monitor = "DP-3",
-                default = true,
-                persistent = true,
-                gaps_in = 0,
-                gaps_out = 0,
-                no_rounding = true,
-                no_border = true,
-                decorate = false,
-              })
-
-              -- Window rules
-              hl.window_rule({
-                match = { title = "^(Battle.net.*)$" },
-                float = true,
-                focus_on_activate = false,
-              })
-            '';
+              window_rule = [
+                # Umbriel has no per-workspace decoration, so Discord itself
+                # goes undecorated.
+                {
+                  match.app_id = "^vesktop$";
+                  corner_radius = 0;
+                  border_width = 0;
+                  shadow = false;
+                }
+                {
+                  match.title = "^(Battle\\.net.*)$";
+                  default_floating = true;
+                  focus_on_activate = false;
+                }
+              ];
+            };
           };
         })
       ];

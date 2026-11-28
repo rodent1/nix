@@ -28,11 +28,6 @@
             LIBVA_DRIVER_NAME = "iHD";
           };
 
-          environment.systemPackages = with pkgs; [
-            brightnessctl
-            playerctl
-          ];
-
           programs.appimage = {
             enable = true;
             binfmt = true;
@@ -51,8 +46,6 @@
 
         (lib.mkIf config.modules.desktop.enable {
           home-manager.users.stianrs = {
-            home.packages = [ pkgs.ddcutil ];
-
             programs.noctalia.settings = {
               idle.behavior."lock-and-suspend" = {
                 enabled = true;
@@ -61,7 +54,7 @@
               };
 
               brightness = {
-                minimum_brightness = 0.01;
+                minimum_brightness = 0.003;
                 monitor.eDP-1 = {
                   backend = "backlight";
                   backlight_device = "intel_backlight";
@@ -69,17 +62,15 @@
               };
             };
 
-            # Monitor layout and host rules come before the shared session config.
-            wayland.windowManager.hyprland.extraConfig = lib.mkBefore ''
-              hl.monitor({ output = "eDP-1", cm = "auto", scale = 1.5 })
-              -- Avoid fullscreen HDR mode switches that cause flashing and incorrect colors.
-              hl.config({ render = { cm_auto_hdr = 0 } })
+            programs.umbriel.settings = {
+              # Horizontal workspaces keep the three-finger swipe sideways.
+              output.eDP-1 = {
+                scale = 1.5;
+                workspace_axis = "horizontal";
+              };
 
-              hl.workspace_rule({
-                workspace = "name:Discord",
-                persistent = true,
-              })
-            '';
+              workspace = [ { name = "Discord"; } ];
+            };
           };
         })
       ];
